@@ -1,0 +1,50 @@
+h1 {
+  font-size: 30px;
+}
+
+h2 {
+  font-size: 15px;
+}
+
+/* predefined class */
+.expandable-text {
+  overflow: hidden;
+}
+
+/* Header Section */
+.header {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+  font-weight: 900;
+}
+
+.header-title {
+  margin: 30px;
+  font-size: 30px;
+}
+
+.more-nav-button {
+  margin: 30px;
+  background-color: transparent;
+  border-color: black;
+  border-radius: 10px;
+}
+
+.navbar {
+  width: 100%;
+  display: flex;
+  justify-content: start;
+  display: none;
+}
+
+.nav-list {
+  display: flex;
+  list-style-type: none;
+}
+
+.nav-item {
+  margin-left: 15px;
+  margin-right: 15px;
+}
