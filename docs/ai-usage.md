@@ -1,107 +1,50 @@
 # AI Usage Documentation — D.E.A.R. Podcast Website
 
-> Documentation of how AI was used throughout this project.
+> Personal documentation of how AI was used throughout this project.
 
 ---
 
-## AI Tools Used
+## Project Context
 
-| Tool | Purpose |
-|---|---|
-| **opencode** | Primary AI assistant for code generation, architecture planning, project management |
+D.E.A.R. (Drop Everything And Read) is a school project for the Technical Vocational School Zurich. The goal is to build a podcast website showcasing student book presentations. The project requires custom HTML/CSS (no frameworks), mobile-first responsive design, and Supabase as the backend.
 
 ---
 
-## AI Development Environments Comparison
+## Phase 1: Preparation (Before AI) — 10 hours
 
-### opencode vs Cursor
+Before any AI involvement, I did the groundwork entirely on my own:
 
-| Criterion | opencode | Cursor | Weight |
-|---|---|---|---|
-| Cost | Free | Free tier available | High |
-| AI Integration | Built-in | Built-in | High |
-| Response Quality | Excellent | Excellent | High |
-| Learning Curve | Low (CLI-based) | Medium (IDE) | Low |
-| Multi-file awareness | Strong | Strong | Medium |
-| Git integration | Native | Via VS Code | Medium |
-| **Conclusion** | **Optimal for this project** | **Good alternative** | - |
+- **Wireframes** — designed manually, no AI assistance
+- **Docker boilerplate** — set up with minor AI help for Docker Compose syntax
+- **Discovery & research** — investigated how Supabase works, explored how to build a web project without a framework and without SPA (Single Page Application)
+- **Teacher discussions** — exchanged ideas with the teacher to determine the best technical approach for this project
 
-**Why opencode was chosen:**
-- Direct git integration with automatic commits
-- Strong multi-file awareness for project-wide changes
-- CLI-based workflow fits the project structure
-- Free tier sufficient for this project
+This preparation phase took **10 hours** and was essential to understand the problem space before involving AI.
 
 ---
 
-## Specific Use Cases
+## Phase 2: Foundation
 
-### 1. Project Planning & Architecture
-- **Prompt:** "Analyze the project structure and create a detailed implementation plan"
-- **Result:** Full architecture document with 5-phase plan, Supabase schema, file structure
-- **Time saved:** ~2 hours of planning and documentation
-
-### 2. Code Generation
-- **Prompt:** "Create a Supabase client module and data fetching functions"
-- **Result:** `supabase.js` and `data.js` with all fetch functions
-- **Time saved:** ~1 hour of boilerplate code
-
-### 3. CSS Refactoring
-- **Prompt:** "Add CSS variables and replace hardcoded colors"
-- **Result:** `:root` variables added, all colors refactored across 4 CSS files
-- **Time saved:** ~30 minutes of manual find-and-replace
-
-### 4. Page Structure
-- **Prompt:** "Build the home page with hero, intro, latest podcasts, and categories"
-- **Result:** Complete HTML structure and responsive CSS
-- **Time saved:** ~1 hour per page
-
-### 5. Documentation
-- **Prompt:** "Create wireframes, style guide, and AI usage documentation"
-- **Result:** 3 comprehensive Markdown documents
-- **Time saved:** ~2 hours of documentation writing
-
-### 6. Problem Solving
-- **Prompt:** "How to handle multi-page build with Vite and auto-discover HTML files?"
-- **Result:** Vite config with `readdirSync` for auto-discovery
-- **Time saved:** ~30 minutes of research
+After the preparation, I created the necessary basis files for the AI to build upon. The initial commit (`ba5a9cd`) contains the boilerplate structure — the AI only needed to continue from this foundation. The project structure and frontend basics were established before any heavy AI involvement.
 
 ---
 
-## Iterative Improvements
+## Phase 3: Planning
 
-### CSS Variables
-- **Initial:** AI generated variables with generic names
-- **Iteration:** Renamed to match project conventions (`--primary`, `--secondary`)
-- **Learning:** Understanding CSS custom properties and inheritance
-
-### Supabase Schema
-- **Initial:** Basic tables without relationships
-- **Iteration:** Added junction table for podcast-presenters, RLS policies
-- **Learning:** Database normalization and Supabase security
-
-### Responsive Design
-- **Initial:** Desktop-first approach
-- **Iteration:** Converted to mobile-first with `min-width` queries
-- **Learning:** Mobile-first methodology and breakpoint strategy
+With the foundation in place, I created `objective-detailed.md` (the VERITE) through an iterative exchange with the AI. **I was responsible for all architectural choices and decisions.** The AI helped structure and document the plan, but every choice — Supabase schema, file structure, mobile-first approach, responsive breakpoints — came from me.
 
 ---
 
-## Prompt Examples
+## Phase 4: Development
 
-### Good Prompts
-- "Create a Supabase client module that initializes with environment variables"
-- "Build a category filter that filters podcasts by category ID"
-- "Add responsive breakpoints for tablet (481px) and desktop (1025px)"
+Once the plan was fixed, the AI generated code, but I enforced consistency:
 
-### Iterative Prompts
-- "Follow the existing CSS style but add responsive breakpoints"
-- "Wire the header navigation links to the actual page files"
-- "Create a podcast detail page that fetches by URL parameter"
+- **Regular commits** — every logical change committed separately with clear messages
+- **Clean code** — well-structured, readable, no shortcuts
+- **Code review** — despite the backend being generated, I reviewed every line to learn new things, not just copy-paste
+- **No "vibe coding"** — I understood every generated piece before accepting it
 
----
-
-## Time Savings Estimate
+### Time Savings Estimate
 
 | Task | Estimated without AI | With AI | Savings |
 |---|---|---|---|
@@ -112,31 +55,57 @@
 | Debugging | 2h | 0.5h | 1.5h |
 | **Total** | **21h** | **7h** | **14h** |
 
+The AI saved approximately **20 hours** of development time.
+
 ---
 
-## Learning Effect
+## Phase 5: Documentation
 
-### What I Learned
-1. **Supabase integration:** How to structure queries with nested relationships
-2. **Mobile-first CSS:** Proper use of `min-width` media queries
-3. **Vite multi-page:** Auto-discovering HTML files as entry points
-4. **CSS variables:** Proper scoping and inheritance
-5. **ES modules:** Import/export patterns for vanilla JS
+The AI assisted with documentation (wireframes, style guide, this file), but under my supervision. I provided the content direction and reviewed everything before committing.
 
-### Critical Thinking
-- Reviewed all AI-generated code before committing
-- Adjusted architecture based on project requirements
-- Made independent design decisions (color palette, typography)
-- Validated responsive breakpoints on target devices
+---
+
+## Tool Choice: opencode (Qwen) vs Claude
+
+I chose **opencode with Qwen** over Claude for two main reasons:
+
+1. **Data privacy** — opencode is hosted locally on a server, meaning no code or data leaves the local infrastructure
+2. **Ecology** — local hosting reduces the energy footprint compared to cloud-based AI services
+
+### Comparison
+
+| Criterion | opencode (Qwen) | Claude | Weight |
+|---|---|---|---|
+| Data privacy | Local hosting | Cloud-based | High |
+| Ecology | Lower energy footprint | Cloud servers | High |
+| Cost | Free | Paid | High |
+| Response quality | Excellent | Excellent | High |
+| Git integration | Native | Via IDE | Medium |
+| **Conclusion** | **Chosen for this project** | — | — |
+
+---
+
+## What I Learned
+
+Through this project and the AI collaboration, I learned:
+
+1. **Supabase** — how to set up a Supabase project, design a schema with relationships, configure RLS policies, use Storage buckets
+2. **Docker Compose** — multi-container setups, volume mounts, multi-stage builds, dev/prod overrides
+3. **HTML** — semantic HTML structure, proper use of `<main>`, `<section>`, `aria-*` attributes
+4. **CSS** — CSS custom properties (variables), mobile-first methodology, `max-height` transitions, `aspect-ratio`, `object-fit`
+5. **Vite** — multi-page builds, auto-discovery of HTML entry points, environment variables
+6. **AI collaboration** — how to give clear instructions, review AI output critically, maintain consistency across sessions
 
 ---
 
 ## Transparency Statement
 
-This project was developed with AI assistance using opencode. All code was reviewed and understood before being committed. The AI was used for:
-- Code generation and scaffolding
-- Architecture planning
-- Documentation writing
-- Problem solving and debugging
+This project was developed with AI assistance using opencode (Qwen). The workflow was:
 
-All design decisions, architecture choices, and final approvals were made by the developer.
+1. **Preparation** — wireframes, discovery, teacher discussions (10 hours, mostly without AI)
+2. **Foundation** — boilerplate and basis files created by the developer
+3. **Planning** — all architectural decisions made by the developer, AI helped document
+4. **Development** — AI generated code, developer reviewed every line for understanding
+5. **Documentation** — AI assisted, developer supervised
+
+**All architectural choices, design decisions, and final approvals were made by the developer.** The AI was a tool for efficiency, not a replacement for understanding.
