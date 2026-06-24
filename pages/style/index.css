@@ -1,3 +1,9 @@
+.title-section {
+  font-size: 40px;
+  text-align: center;
+  margin-top: 10px;
+}
+
 .hero-section {
   position: relative;
   background-color: black;
@@ -20,46 +26,6 @@
 
 .hero-subhead {
   line-height: 20px;
-}
-
-.new-podcast-section {
-  min-height: 90vh;
-}
-
-.podcast-card {
-  min-height: 75vh;
-  max-width: 350px;
-  background-color: black;
-  margin: 40px;
-  border-radius: 20px;
-}
-
-.podcast-img {
-  min-height: 43vh;
-}
-
-.podcast-content {
-  display: grid;
-  grid-template-columns: repeat(3, auto);
-  grid-template-rows: repeat(2, auto);
-  color: white;
-  padding: 20px;
-  height: 100%;
-}
-
-.podcast-info {
-  grid-column: 1 / 4;
-  grid-row: 1 / 2;
-}
-
-.podcast-title {
-  margin-bottom: 10px;
-}
-
-.podcast-play-button {
-  grid-column: 2 / 4;
-  grid-row: 2;
-  text-align: start;
 }
 
 .categorie-section {
