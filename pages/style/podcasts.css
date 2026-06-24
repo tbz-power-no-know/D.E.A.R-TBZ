@@ -10,7 +10,7 @@
 .podcast-card {
   min-height: 75vh;
   max-width: 350px;
-  background-color: black;
+  background-color: var(--primary);
   margin: 40px;
   border-radius: 20px;
 }
@@ -23,7 +23,7 @@
   display: grid;
   grid-template-columns: repeat(3, auto);
   grid-template-rows: repeat(2, auto);
-  color: white;
+  color: var(--secondary);
   padding: 20px;
   height: 100%;
 }

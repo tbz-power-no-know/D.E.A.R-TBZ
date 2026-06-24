@@ -1,3 +1,11 @@
+:root {
+  --primary: #000000;
+  --secondary: #ffffff;
+  --text-color: #1a1a1a;
+  --border-color: #e0e0e0;
+  --bg-color: #ffffff;
+}
+
 h1 {
   font-size: 30px;
 }
@@ -34,7 +42,7 @@ h2 {
 .more-nav-button {
   margin: 30px;
   background-color: transparent;
-  border-color: black;
+  border-color: var(--primary);
   border-radius: 10px;
 }
 
@@ -61,7 +69,7 @@ h2 {
   justify-content: space-around;
   flex-direction: row;
   width: 100%;
-  color: white;
-  background-color: black;
+  color: var(--secondary);
+  background-color: var(--primary);
   padding: 30px 0px;
 }
