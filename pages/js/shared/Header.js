@@ -17,7 +17,6 @@ export function renderHeader() {
   const moreBtn = document.querySelector('.more-nav-button');
   const navbar = document.querySelector('.navbar');
   moreBtn.addEventListener('click', () => {
-    const isVisible = navbar.style.display === 'flex';
-    navbar.style.display = isVisible ? 'none' : 'flex';
+    navbar.classList.toggle('open');
   });
 }
