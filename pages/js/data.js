@@ -1,6 +1,13 @@
 import { supabase } from './supabase.js'
 
+function requireSupabase() {
+  if (!supabase) {
+    throw new Error('Supabase not configured. Add VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY to .env')
+  }
+}
+
 export async function fetchPodcasts(limit = null) {
+  requireSupabase()
   let query = supabase
     .from('podcasts')
     .select(`
@@ -22,6 +29,7 @@ export async function fetchPodcasts(limit = null) {
 }
 
 export async function fetchPodcastById(id) {
+  requireSupabase()
   const { data, error } = await supabase
     .from('podcasts')
     .select(`
@@ -39,6 +47,7 @@ export async function fetchPodcastById(id) {
 }
 
 export async function fetchCategories() {
+  requireSupabase()
   const { data, error } = await supabase
     .from('categories')
     .select('*')
@@ -49,6 +58,7 @@ export async function fetchCategories() {
 }
 
 export async function fetchPodcastsByCategory(categoryId) {
+  requireSupabase()
   const { data, error } = await supabase
     .from('podcasts')
     .select(`
@@ -66,6 +76,7 @@ export async function fetchPodcastsByCategory(categoryId) {
 }
 
 export async function searchPodcasts(query) {
+  requireSupabase()
   const { data, error } = await supabase
     .from('podcasts')
     .select(`
