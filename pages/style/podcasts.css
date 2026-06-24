@@ -39,7 +39,9 @@
   font-family: inherit;
   cursor: pointer;
   min-height: 44px;
-  transition: background-color 0.2s, color 0.2s;
+  transition:
+    background-color 0.2s,
+    color 0.2s;
 }
 
 .filter-btn:hover {
@@ -94,6 +96,7 @@
 
 .loading-text {
   text-align: center;
+  grid-column: 2;
   padding: 24px;
   color: var(--text-color);
   opacity: 0.6;
