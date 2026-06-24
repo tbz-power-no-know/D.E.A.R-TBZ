@@ -18,6 +18,10 @@
 
 ## Typography
 
+**Font families (Google Fonts):**
+- **Headings:** Lora (serif) — `--font-heading: 'Lora', Georgia, serif`
+- **Body:** Inter (sans-serif) — `--font-body: 'Inter', system-ui, sans-serif`
+
 | Element | Size (mobile) | Size (tablet) | Size (desktop) | Weight |
 |---|---|---|---|---|
 | `h1` | 30px | 30px | 30px | 900 |
@@ -29,8 +33,6 @@
 | Body text | 16px | 16px | 16px | 400 |
 | Small text | 14px | 14px | 14px | 400 |
 | Labels | 14px | 14px | 14px | 600 |
-
-**Font family:** System fonts (no custom fonts)
 
 **Line heights:**
 - Body: `1.6`
