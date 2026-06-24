@@ -8,7 +8,13 @@ h2 {
 
 /* predefined class */
 .expandable-text {
+  max-height: 5em;
   overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.expandable-text.expanded {
+  max-height: 1000px;
 }
 
 /* Header Section */
