@@ -7,90 +7,27 @@
     <link rel="stylesheet" href="style/main.css" />
     <link rel="stylesheet" href="style/podcasts.css" />
     <script type="module" src="/js/main.js"></script>
-    <title>D.E.A.R</title>
+    <script type="module" src="/js/filter.js"></script>
+    <script type="module" src="/js/search.js"></script>
+    <title>D.E.A.R — Podcasts</title>
   </head>
   <body>
     <main>
-      <div></div>
-      <ul class="podcast-list">
-        <li class="podcast-card">
-          <img class="podcast-img" src="" alt="" />
-          <div class="podcast-content">
-            <div class="podcast-info">
-              <h3 class="podcast-title">Titel</h3>
-              <p>
-                Aspernatur ea consequatur commodi ut quia exercitationem.
-                Reiciendis exercitationem est quis voluptatem ea. Rem eum dolor
-              </p>
-            </div>
-            <a class="podcast-play-button" href="">Play</a>
-          </div>
-        </li>
-        <li class="podcast-card">
-          <img class="podcast-img" src="" alt="" />
-          <div class="podcast-content">
-            <div class="podcast-info">
-              <h3 class="podcast-title">Titel</h3>
-              <p>
-                Aspernatur ea consequatur commodi ut quia exercitationem.
-                Reiciendis exercitationem est quis voluptatem ea. Rem eum dolor
-                consequuntur excepturi doloremque. Enim nihil velit dolorum
-                culpa voluptatibus. Eum qui illo omnis quisquam. Sunt est sit
-                qui recusandae asperiores unde.…
-              </p>
-            </div>
-            <a class="podcast-play-button" href="">Play</a>
-          </div>
-        </li>
-        <li class="podcast-card">
-          <img class="podcast-img" src="" alt="" />
-          <div class="podcast-content">
-            <div class="podcast-info">
-              <h3 class="podcast-title">Titel</h3>
-              <p>
-                Aspernatur ea consequatur commodi ut quia exercitationem.
-                Reiciendis exercitationem est quis voluptatem ea. Rem eum dolor
-                consequuntur excepturi doloremque. Enim nihil velit dolorum
-                culpa voluptatibus. Eum qui illo omnis quisquam. Sunt est sit
-                qui recusandae asperiores unde.…
-              </p>
-            </div>
-            <a class="podcast-play-button" href="">Play</a>
-          </div>
-        </li>
-        <li class="podcast-card">
-          <img class="podcast-img" src="" alt="" />
-          <div class="podcast-content">
-            <div class="podcast-info">
-              <h3 class="podcast-title">Titel</h3>
-              <p>
-                Aspernatur ea consequatur commodi ut quia exercitationem.
-                Reiciendis exercitationem est quis voluptatem ea. Rem eum dolor
-                consequuntur excepturi doloremque. Enim nihil velit dolorum
-                culpa voluptatibus. Eum qui illo omnis quisquam. Sunt est sit
-                qui recusandae asperiores unde.…
-              </p>
-            </div>
-            <a class="podcast-play-button" href="">Play</a>
-          </div>
-        </li>
-        <li class="podcast-card">
-          <img class="podcast-img" src="" alt="" />
-          <div class="podcast-content">
-            <div class="podcast-info">
-              <h3 class="podcast-title">Titel</h3>
-              <p>
-                Aspernatur ea consequatur commodi ut quia exercitationem.
-                Reiciendis exercitationem est quis voluptatem ea. Rem eum dolor
-                consequuntur excepturi doloremque. Enim nihil velit dolorum
-                culpa voluptatibus. Eum qui illo omnis quisquam. Sunt est sit
-                qui recusandae asperiores unde.…
-              </p>
-            </div>
-            <a class="podcast-play-button" href="">Play</a>
-          </div>
-        </li>
-      </ul>
+      <section class="search-section">
+        <input type="text" id="search-input" class="search-input" placeholder="Search podcasts..." aria-label="Search podcasts" />
+      </section>
+
+      <section class="filter-section">
+        <div id="filter-buttons" class="filter-buttons">
+          <button class="filter-btn active" data-category="all">All</button>
+        </div>
+      </section>
+
+      <section class="podcasts-section">
+        <div id="podcasts-grid" class="podcasts-grid">
+          <p class="loading-text">Loading podcasts...</p>
+        </div>
+      </section>
     </main>
   </body>
 </html>
