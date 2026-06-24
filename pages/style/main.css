@@ -4,6 +4,16 @@
   --text-color: #1a1a1a;
   --border-color: #e0e0e0;
   --bg-color: #ffffff;
+  --font-heading: 'Lora', Georgia, serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+}
+
+body {
+  font-family: var(--font-body);
+}
+
+h1, h2, h3 {
+  font-family: var(--font-heading);
 }
 
 h1 {
