@@ -26,15 +26,15 @@ export function renderFooter() {
       </ul>
     </footer>
   `;
-  document.body.insertAdjacentHTML('beforeend', html);
+  document.body.insertAdjacentHTML("beforeend", html);
 
-  document.querySelectorAll('.footer-toggle').forEach((toggle) => {
-    toggle.addEventListener('click', () => {
+  document.querySelectorAll(".footer-toggle").forEach((toggle) => {
+    toggle.addEventListener("click", () => {
       const menu = toggle.nextElementSibling;
-      const isOpen = toggle.getAttribute('aria-expanded') === 'true';
+      const isOpen = toggle.getAttribute("aria-expanded") === "true";
 
-      toggle.setAttribute('aria-expanded', !isOpen);
-      menu.classList.toggle('open');
+      toggle.setAttribute("aria-expanded", !isOpen);
+      menu.classList.toggle("open");
     });
   });
 }
