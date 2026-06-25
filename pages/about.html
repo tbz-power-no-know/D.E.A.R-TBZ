@@ -22,6 +22,16 @@
       <section class="contact-section">
         <h2>Contact Us</h2>
         <form class="contact-form" action="#" method="POST" novalidate>
+          <!-- Honeypot: hidden from users, catches bots that fill every field -->
+          <input
+            type="text"
+            class="hp-field"
+            name="company"
+            tabindex="-1"
+            autocomplete="off"
+            aria-hidden="true"
+          />
+
           <div class="form-group">
             <label for="contact-name">Name</label>
             <input type="text" id="contact-name" name="name" required />
@@ -49,6 +59,8 @@
           </div>
 
           <button type="submit" class="submit-btn">Send</button>
+
+          <p class="form-status" role="status" aria-live="polite"></p>
         </form>
       </section>
     </main>
