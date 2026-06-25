@@ -27,6 +27,7 @@ export async function initFilter() {
 
     const allBtn = filterContainer.querySelector('[data-category="all"]')
     if (allBtn) {
+      allBtn.addEventListener('click', () => handleFilter('all', allBtn))
       renderPodcasts(podcasts, gridContainer)
     }
   } catch (error) {
