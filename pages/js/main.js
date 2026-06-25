@@ -4,6 +4,7 @@ import { initExpandable } from './expandable.js'
 import { renderLatestPodcasts, renderCategories } from './home.js'
 import { initFilter } from './filter.js'
 import { initSearch } from './search.js'
+import { initPodcastDetail } from './podcast-detail.js'
 import { initContactForm } from './contact.js'
 
 renderHeader()
@@ -21,6 +22,10 @@ if (document.getElementById('categories-list')) {
 if (document.getElementById('podcasts-grid')) {
   initFilter()
   initSearch()
+}
+
+if (document.getElementById('podcast-detail')) {
+  initPodcastDetail()
 }
 
 const contactForm = document.querySelector('.contact-form')
