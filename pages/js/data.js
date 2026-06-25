@@ -92,3 +92,16 @@ export async function searchPodcasts(query) {
   if (error) throw error
   return data
 }
+
+// Send a contact message through the `contact` Edge Function (server-side write).
+// The function validates the input and inserts with the service_role key, so the
+// browser never writes to the database directly.
+export async function sendContactMessage({ name, email, subject, message, company }) {
+  requireSupabase()
+  const { data, error } = await supabase.functions.invoke('contact', {
+    body: { name, email, subject, message, company },
+  })
+
+  if (error) throw error
+  return data
+}
