@@ -4,6 +4,8 @@
   --text-color: #1a1a1a;
   --border-color: #e0e0e0;
   --bg-color: #ffffff;
+  --success: #1b7f3b;
+  --error: #c0392b;
   --font-heading: "Lora", Georgia, serif;
   --font-body: "Inter", system-ui, sans-serif;
 }

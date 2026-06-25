@@ -67,6 +67,34 @@
   opacity: 0.9;
 }
 
+.submit-btn:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+/* Honeypot — visually hidden, kept in the layout for bots to fill */
+.hp-field {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.form-status {
+  margin-top: 4px;
+  min-height: 20px;
+  font-size: 14px;
+}
+
+.form-status.is-success {
+  color: var(--success);
+}
+
+.form-status.is-error {
+  color: var(--error);
+}
+
 /* Tablet */
 @media (min-width: 481px) {
   .about-section,
@@ -106,5 +134,9 @@
   .submit-btn {
     grid-column: 1 / -1;
     justify-self: start;
+  }
+
+  .form-status {
+    grid-column: 1 / -1;
   }
 }
