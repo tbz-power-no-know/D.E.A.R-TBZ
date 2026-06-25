@@ -13,6 +13,7 @@ const input = Object.fromEntries(
 export default defineConfig({
   root: 'pages',
   publicDir: '../public',
+  envDir: '..',
   build: {
     outDir: '../dist',
     emptyOutDir: true,
