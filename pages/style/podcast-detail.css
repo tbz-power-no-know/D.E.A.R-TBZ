@@ -122,6 +122,11 @@
   background-color: var(--bg-color);
   border: 1px solid var(--border-color);
   border-radius: 12px;
+  transition: border-color 0.2s ease;
+}
+
+.presenter-card:hover {
+  border-color: var(--primary);
 }
 
 .presenter-photo {
