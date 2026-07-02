@@ -37,40 +37,4 @@ export function renderFooter() {
       menu.classList.toggle("open");
     });
   });
-
-  const footer = document.querySelector("footer");
-  if (!footer) return;
-
-  const footerHeight = footer.offsetHeight;
-  document.body.style.setProperty("--footer-height", `${footerHeight}px`);
-
-  footer.classList.add("footer-hidden");
-
-  const threshold = 20;
-
-  const checkAtBottom = () => {
-    const atBottom =
-      window.innerHeight + window.scrollY >= document.body.offsetHeight - 10;
-    if (atBottom) {
-      footer.classList.remove("footer-hidden");
-    }
-  };
-
-  checkAtBottom();
-
-  let lastScrollY = window.scrollY;
-
-  window.addEventListener("scroll", () => {
-    const currentScrollY = window.scrollY;
-    const diff = currentScrollY - lastScrollY;
-
-    if (diff > threshold && currentScrollY > footerHeight) {
-      footer.classList.add("footer-hidden");
-    } else if (diff < -threshold) {
-      footer.classList.remove("footer-hidden");
-    }
-
-    checkAtBottom();
-    lastScrollY = currentScrollY;
-  });
 }
