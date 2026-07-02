@@ -58,6 +58,7 @@
   background-color: var(--primary);
   border-radius: 16px;
   overflow: hidden;
+  text-decoration: none;
 }
 
 .podcast-cover {
