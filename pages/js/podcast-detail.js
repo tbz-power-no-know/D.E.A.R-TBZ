@@ -56,6 +56,10 @@ function renderPodcast(podcast, container) {
       </section>
     ` : ''}
   `
+
+  const audioEl = container.querySelector('audio')
+  const transcriptionEl = container.querySelector('.transcription-text')
+  initTranscriptionSync(audioEl, transcriptionEl)
 }
 
 function renderPresenter(presenter) {
@@ -72,6 +76,75 @@ function renderPresenter(presenter) {
 
 function formatTranscription(text) {
   return text.replace(/\[([0-9]{2}:[0-9]{2})\]/g, '<span class="timestamp" data-time="$1">[$1]</span>')
+}
+
+function initTranscriptionSync(audioEl, transcriptionEl) {
+  if (!audioEl || !transcriptionEl) return
+
+  const timestamps = Array.from(transcriptionEl.querySelectorAll('.timestamp')).map((el) => ({
+    el,
+    time: parseTime(el.dataset.time),
+  })).sort((a, b) => a.time - b.time)
+
+  if (timestamps.length === 0) return
+
+  let activeIndex = -1
+
+  audioEl.addEventListener('timeupdate', () => {
+    const current = audioEl.currentTime
+
+    let idx = -1
+    for (let i = timestamps.length - 1; i >= 0; i--) {
+      if (current >= timestamps[i].time) {
+        idx = i
+        break
+      }
+    }
+
+    if (idx !== activeIndex) {
+      if (activeIndex >= 0) {
+        timestamps[activeIndex].el.classList.remove('active')
+      }
+      activeIndex = idx
+      if (activeIndex >= 0) {
+        timestamps[activeIndex].el.classList.add('active')
+        timestamps[activeIndex].el.scrollIntoView({ behavior: 'smooth', block: 'center' })
+      }
+    }
+  })
+
+  audioEl.addEventListener('pause', () => {
+    if (activeIndex >= 0) {
+      timestamps[activeIndex].el.classList.remove('active')
+      activeIndex = -1
+    }
+  })
+
+  audioEl.addEventListener('ended', () => {
+    if (activeIndex >= 0) {
+      timestamps[activeIndex].el.classList.remove('active')
+      activeIndex = -1
+    }
+  })
+
+  audioEl.addEventListener('seeking', () => {
+    if (activeIndex >= 0) {
+      timestamps[activeIndex].el.classList.remove('active')
+      activeIndex = -1
+    }
+  })
+
+  timestamps.forEach((ts) => {
+    ts.el.addEventListener('click', () => {
+      audioEl.currentTime = ts.time
+      audioEl.play()
+    })
+  })
+}
+
+function parseTime(timeStr) {
+  const parts = timeStr.split(':')
+  return parseInt(parts[0]) * 60 + parseInt(parts[1])
 }
 
 function formatDuration(duration) {

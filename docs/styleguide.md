@@ -89,6 +89,12 @@
 - Width: `100%`
 - Max-width: none (fills container)
 
+### Transcription Sync
+- Container: `.transcription-text` — `max-height: 400px`, `overflow-y: auto`
+- Timestamps: `.timestamp` — clickable, seeks audio to that time
+- Active state: `.timestamp.active` — `background: --primary`, `color: --secondary`, `padding: 2px 4px`, `border-radius: 4px`
+- Behavior: auto-scrolls to active timestamp on `timeupdate`, clears on `pause`/`ended`/`seeking`
+
 ### Navigation
 - Mobile: hamburger toggle (`☰`), nav hidden by default
 - Desktop: full nav always visible, hamburger hidden
