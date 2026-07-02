@@ -26,8 +26,6 @@ export function renderHeader() {
   const headerHeight = header.offsetHeight;
   document.body.style.setProperty('--header-height', `${headerHeight}px`);
 
-  header.classList.add('header-hidden');
-
   const threshold = 20;
 
   let lastScrollY = window.scrollY;
