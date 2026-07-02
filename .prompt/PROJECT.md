@@ -18,11 +18,12 @@
 
 ## Recent Features
 - Sticky audio player above transcription (full text, no overflow)
-- Sticky footer (hides on scroll down, shows on scroll up)
+- Sticky header (hides on scroll down, shows on scroll up)
 - Page orientation: back link on detail, section title on podcasts page
 - Category colors + images in DB, rendered in UI
 - Category filter via URL parameter (`?category=uuid`)
 - Hover animations on cards, buttons, links
+- Newsletter subscription on homepage with email validation
 
 ## Pages
 

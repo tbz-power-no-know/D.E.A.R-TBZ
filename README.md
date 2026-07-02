@@ -37,6 +37,7 @@ D.E.A.R. is a podcast website built for the **Technical Vocational School Zurich
 - Transcription synced with audio playback (`[MM:SS]` timestamps)
 - Sticky audio player that stays at top while scrolling
 - Sticky header that hides on scroll down, shows on scroll up
+- Newsletter subscription with email validation
 - Hover animations on cards, buttons, and links
 - Contact form with honeypot spam protection (Edge Function submit)
 

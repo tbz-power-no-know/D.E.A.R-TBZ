@@ -198,9 +198,9 @@ Full SQL files in `docs/`:
 | `docs/supabase-seed.sql` | 8 categories, 3 presenters, 12 sample podcasts |
 | `docs/supabase-contact.sql` | `contact_messages` table + RLS (no public policies) |
 
-**Tables:** `categories` (with `image_url`, `color`), `podcasts`, `presenters`, `podcast_presenters`, `contact_messages` (write-only via Edge Function)
+**Tables:** `categories` (with `image_url`, `color`), `podcasts`, `presenters`, `podcast_presenters`, `contact_messages` (write-only via Edge Function), `newsletter_subscribers`
 **Storage buckets:** `podcast-audio`, `podcast-covers`, `presenter-photos`, `category-images`
-**Run order:** schema first, then seed, then contact
+**Run order:** schema first, then seed (contact table is now in schema)
 
 ---
 
@@ -369,6 +369,7 @@ Full SQL files in `docs/`:
 - [x] Transcription auto-scroll and highlight synced with audio playback (page scroll, no overflow)
 - [x] Contact form: client-side validation + Edge Function submit
 - [x] Category filter via URL parameter (`?category=uuid`)
+- [x] Newsletter subscription: email validation + subscribe button
 - [ ] Loading/error states (skeleton loaders) — currently plain text
 
 ### Phase 4: Responsive Design — DONE
@@ -413,7 +414,7 @@ Full SQL files in `docs/`:
 - **`public/` directory is empty** — no favicon or static assets yet
 
 ### Missing (per original assignment)
-- **Newsletter subscription** — required by `objective.md` feature checklist, not in VERITE page structure, not implemented on homepage
+- ~~Newsletter subscription~~ — **implemented** on homepage with email validation
 
 ### Remaining Tasks
 - **Supabase SQL schema** — SQL files exist in `docs/` but haven't been run in the Supabase dashboard yet. **Note:** `categories` table now has `image_url TEXT` and `color TEXT` columns — run updated `supabase-schema.sql`.

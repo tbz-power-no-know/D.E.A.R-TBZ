@@ -97,6 +97,12 @@
 ### Footer
 - Normal document flow, at end of page (not sticky)
 
+### Newsletter Form
+- Input: `12px 16px` padding, `8px` border-radius, `16px` font, `min-height: 44px`
+- Button: `12px 24px` padding, `8px` border-radius, `16px` font, `min-height: 44px`
+- Validation: frontend email regex check
+- Status messages: success (green), error (red)
+
 ### Inputs
 - Padding: `10px`
 - Border: `1px solid --border-color`
