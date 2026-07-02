@@ -6,15 +6,15 @@
 -- CATEGORIES
 -- =====================================================
 
-INSERT INTO categories (name) VALUES
-  ('Crime'),
-  ('Fantasy'),
-  ('Non-Fiction'),
-  ('Biography'),
-  ('Classics'),
-  ('Young Adult'),
-  ('Science Fiction'),
-  ('Romance');
+INSERT INTO categories (name, color) VALUES
+  ('Crime', '#8b0000'),
+  ('Fantasy', '#4b0082'),
+  ('Non-Fiction', '#00695c'),
+  ('Biography', '#1a237e'),
+  ('Classics', '#4e342e'),
+  ('Young Adult', '#e64a19'),
+  ('Science Fiction', '#0d47a1'),
+  ('Romance', '#880e4f');
 
 -- =====================================================
 -- PRESENTERS

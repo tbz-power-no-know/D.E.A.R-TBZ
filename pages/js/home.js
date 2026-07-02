@@ -41,12 +41,17 @@ export async function renderCategories(container) {
     }
 
     categories.forEach((category) => {
-      const card = document.createElement('div')
+      const card = document.createElement('a')
+      card.href = `podcasts.html?category=${category.id}`
       card.className = 'category-card'
+      if (category.color) {
+        card.style.backgroundColor = category.color
+      }
 
       card.innerHTML = `
+        ${category.image_url ? `<img class="category-image" src="${category.image_url}" alt="${category.name}" />` : ''}
         <h3>${category.name}</h3>
-        <a href="podcasts.html?category=${category.id}">View podcasts →</a>
+        <span class="category-link">View podcasts →</span>
       `
 
       container.appendChild(card)

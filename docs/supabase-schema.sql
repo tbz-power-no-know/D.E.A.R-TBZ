@@ -19,6 +19,8 @@
 CREATE TABLE categories (
   id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
   name TEXT NOT NULL UNIQUE,
+  image_url TEXT,
+  color TEXT,
   created_at TIMESTAMPTZ DEFAULT now()
 );
 
@@ -92,3 +94,8 @@ DROP POLICY IF EXISTS "Presenter photos are publicly accessible" ON storage.obje
 CREATE POLICY "Presenter photos are publicly accessible"
   ON storage.objects FOR SELECT
   USING (bucket_id = 'presenter-photos');
+
+DROP POLICY IF EXISTS "Category images are publicly accessible" ON storage.objects;
+CREATE POLICY "Category images are publicly accessible"
+  ON storage.objects FOR SELECT
+  USING (bucket_id = 'category-images');
