@@ -86,7 +86,7 @@ export async function searchPodcasts(query) {
         presenters (id, name, photo_url, bio)
       )
     `)
-    .or(`title.ilike.%${query}%,description.ilike.%${query}%`)
+    .or(`title.ilike.%${query.replace(/[\-\\%_]/g, '\\$&')}%,description.ilike.%${query.replace(/[\-\\%_]/g, '\\$&')}%`)
     .order('published_at', { ascending: false })
 
   if (error) throw error

@@ -170,7 +170,7 @@ function initTranscriptionSync(audioEl, transcriptionEl) {
   timestamps.forEach((ts) => {
     ts.el.addEventListener("click", () => {
       audioEl.currentTime = ts.time;
-      audioEl.play();
+      audioEl.play().catch(() => {});
     });
   });
 }

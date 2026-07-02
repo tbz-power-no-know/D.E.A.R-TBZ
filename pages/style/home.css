@@ -131,7 +131,7 @@
 
 .loading-text {
   text-align: center;
-  grid-column: 2;
+  grid-column: 1 / -1;
   padding: 24px;
   color: var(--text-color);
   opacity: 0.6;

@@ -14,7 +14,7 @@ export function initSearch() {
       const query = e.target.value.trim()
       if (query.length === 0) {
         window.location.hash = ''
-        window.location.reload()
+        window.dispatchEvent(new CustomEvent('search-clear'))
         return
       }
       performSearch(query, gridContainer)
