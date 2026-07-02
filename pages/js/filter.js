@@ -32,8 +32,19 @@ export async function initFilter() {
     const allBtn = filterContainer.querySelector('[data-category="all"]')
     if (allBtn) {
       allBtn.addEventListener('click', () => handleFilter('all', allBtn))
-      renderPodcasts(podcasts, gridContainer)
     }
+
+    const urlParams = new URLSearchParams(window.location.search)
+    const urlCategory = urlParams.get('category')
+    if (urlCategory) {
+      const urlBtn = filterContainer.querySelector(`[data-category="${urlCategory}"]`)
+      if (urlBtn) {
+        handleFilter(urlCategory, urlBtn)
+        return
+      }
+    }
+
+    renderPodcasts(podcasts, gridContainer)
 
     const sortBtn = document.getElementById('sort-toggle')
     if (sortBtn) {
