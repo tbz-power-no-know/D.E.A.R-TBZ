@@ -16,13 +16,9 @@
 -- =====================================================
 -- DROP EXISTING (idempotent)
 -- =====================================================
-
-DROP POLICY IF EXISTS "Categories are viewable by everyone" ON categories;
-DROP POLICY IF EXISTS "Podcasts are viewable by everyone" ON podcasts;
-DROP POLICY IF EXISTS "Presenters are viewable by everyone" ON presenters;
-DROP POLICY IF EXISTS "Podcast presenters are viewable by everyone" ON podcast_presenters;
-DROP POLICY IF EXISTS "Newsletter subscribers can insert their own email" ON newsletter_subscribers;
-DROP POLICY IF EXISTS "Newsletter subscribers are viewable by everyone" ON newsletter_subscribers;
+-- Drop tables in reverse dependency order. DROP TABLE IF EXISTS
+-- automatically cascades and drops all attached RLS policies.
+-- Storage policies on storage.objects are dropped separately.
 
 DROP POLICY IF EXISTS "Podcast audio is publicly accessible" ON storage.objects;
 DROP POLICY IF EXISTS "Podcast covers are publicly accessible" ON storage.objects;
