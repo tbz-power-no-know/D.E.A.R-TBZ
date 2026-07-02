@@ -3,10 +3,52 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>D.E.A.R</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Lora:wght@600;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style/reset.css" />
+    <link rel="stylesheet" href="style/main.css" />
+    <link rel="stylesheet" href="style/home.css" />
+    <script type="module" src="/js/main.js"></script>
+    <title>D.E.A.R — Home</title>
   </head>
   <body>
-    <main>Main</main>
-    <script type="module" src="../src/main.js"></script>
+    <main>
+      <section class="hero-section">
+        <div class="hero-text">
+          <h1 class="hero-title">D.E.A.R</h1>
+          <h2 class="hero-subhead">
+            Drop Everything And Read — Student podcast presentations about books
+          </h2>
+        </div>
+      </section>
+
+      <section id="intro" class="intro-section center-item">
+        <h2 class="section-title">What is D.E.A.R?</h2>
+        <p class="intro-text">
+          D.E.A.R. stands for <strong>Drop Everything And Read</strong>. This
+          project showcases book presentations produced as podcasts by students
+          in ABU (General Education) classes. Each podcast features a student
+          sharing their thoughts on a book they've read.
+        </p>
+      </section>
+
+      <section id="latest" class="latest-section">
+        <h2 class="section-title">Latest Podcasts</h2>
+        <div id="latest-podcasts" class="podcast-grid">
+          <p class="loading-text">Loading podcasts...</p>
+        </div>
+      </section>
+
+      <section id="categories" class="categories-section">
+        <h2 class="section-title">Categories</h2>
+        <div id="categories-list" class="categories-grid">
+          <p class="loading-text">Loading categories...</p>
+        </div>
+      </section>
+    </main>
   </body>
 </html>
