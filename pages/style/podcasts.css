@@ -19,6 +19,38 @@
   border-color: var(--primary);
 }
 
+.sort-section {
+  padding: 0 16px 8px;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.sort-btn {
+  padding: 8px 16px;
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-size: 14px;
+  font-family: inherit;
+  cursor: pointer;
+  min-height: 44px;
+  transition:
+    background-color 0.2s,
+    color 0.2s;
+}
+
+.sort-btn:hover {
+  background-color: var(--primary);
+  color: var(--secondary);
+}
+
+.sort-btn.active {
+  background-color: var(--primary);
+  color: var(--secondary);
+  border-color: var(--primary);
+}
+
 .filter-section {
   padding: 0 16px 16px;
 }

@@ -54,7 +54,8 @@ Once the plan was fixed, the AI generated code, but I enforced consistency:
 | Documentation | 3h | 1h | 2h |
 | Debugging | 2h | 0.5h | 1.5h |
 | Transcription sync | 3h | 1h | 2h |
-| **Total** | **24h** | **8h** | **16h** |
+| Sort toggle (newest/oldest) | 2h | 0.5h | 1.5h |
+| **Total** | **26h** | **8.5h** | **17.5h** |
 
 The AI saved approximately **20 hours** of development time.
 

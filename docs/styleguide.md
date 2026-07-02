@@ -74,6 +74,7 @@
 
 ### Buttons
 - Filter button: `8px 16px` padding, `20px` border-radius, `14px` font
+- Sort button (`.sort-btn`): same style as filter button, left-aligned above filter bar
 - Submit button: `12px` padding, `8px` border-radius, `16px` font, `min-height: 44px`
 - Touch target: minimum `44px`
 

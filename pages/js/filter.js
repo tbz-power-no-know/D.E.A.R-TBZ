@@ -1,6 +1,7 @@
 import { fetchPodcasts, fetchCategories } from './data.js'
 
 let allPodcasts = []
+let sortOrder = 'newest'
 
 export async function initFilter() {
   const filterContainer = document.getElementById('filter-buttons')
@@ -30,6 +31,19 @@ export async function initFilter() {
       allBtn.addEventListener('click', () => handleFilter('all', allBtn))
       renderPodcasts(podcasts, gridContainer)
     }
+
+    const sortBtn = document.getElementById('sort-toggle')
+    if (sortBtn) {
+      sortBtn.addEventListener('click', () => {
+        sortOrder = sortOrder === 'newest' ? 'oldest' : 'newest'
+        sortBtn.textContent = sortOrder === 'newest' ? 'Newest first' : 'Oldest first'
+        sortBtn.classList.toggle('active', sortOrder === 'oldest')
+
+        const activeFilter = document.querySelector('.filter-btn.active')
+        const categoryId = activeFilter ? activeFilter.dataset.category : 'all'
+        handleFilter(categoryId, activeFilter)
+      })
+    }
   } catch (error) {
     gridContainer.innerHTML = `<p class="loading-text">Error: ${error.message}</p>`
   }
@@ -38,16 +52,24 @@ export async function initFilter() {
 function handleFilter(categoryId, clickedBtn) {
   const buttons = document.querySelectorAll('.filter-btn')
   buttons.forEach((btn) => btn.classList.remove('active'))
-  clickedBtn.classList.add('active')
+  if (clickedBtn) clickedBtn.classList.add('active')
 
   const gridContainer = document.getElementById('podcasts-grid')
 
+  let filtered
   if (categoryId === 'all') {
-    renderPodcasts(allPodcasts, gridContainer)
+    filtered = [...allPodcasts]
   } else {
-    const filtered = allPodcasts.filter((p) => p.category_id === categoryId)
-    renderPodcasts(filtered, gridContainer)
+    filtered = allPodcasts.filter((p) => p.category_id === categoryId)
   }
+
+  filtered.sort((a, b) => {
+    const dateA = new Date(a.published_at).getTime()
+    const dateB = new Date(b.published_at).getTime()
+    return sortOrder === 'newest' ? dateB - dateA : dateA - dateB
+  })
+
+  renderPodcasts(filtered, gridContainer)
 }
 
 function renderPodcasts(podcasts, container) {
