@@ -21,9 +21,9 @@ INSERT INTO categories (name) VALUES
 -- =====================================================
 
 INSERT INTO presenters (name, photo_url, bio) VALUES
-  ('Anna Müller', NULL, 'Student in class 3B, loves mystery novels and classic literature.'),
-  ('Lukas Schneider', NULL, 'Student in class 3A, passionate about science fiction and fantasy.'),
-  ('Sara Fischer', NULL, 'Student in class 3C, enjoys biographies and non-fiction works.');
+  ('Anna Müller', 'https://ohksnpnmcuoxbyrswjyz.supabase.co/storage/v1/object/public/presenter-photos/lpp.png', 'Student in class 3B, loves mystery novels and classic literature.'),
+  ('Lukas Schneider', 'https://ohksnpnmcuoxbyrswjyz.supabase.co/storage/v1/object/public/presenter-photos/lpp.png', 'Student in class 3A, passionate about science fiction and fantasy.'),
+  ('Sara Fischer', 'https://ohksnpnmcuoxbyrswjyz.supabase.co/storage/v1/object/public/presenter-photos/lpp.png', 'Student in class 3C, enjoys biographies and non-fiction works.');
 
 -- =====================================================
 -- PODCASTS
@@ -34,7 +34,8 @@ INSERT INTO podcasts (title, description, cover_url, audio_url, transcription, d
   (
     'The Hound of the Baskervilles',
     'A classic Sherlock Holmes mystery set on the eerie Dartmoor. Anna explores the legend of the supernatural hound and Holmes'' brilliant deduction.',
-    NULL, NULL,
+    'https://ohksnpnmcuoxbyrswjyz.supabase.co/storage/v1/object/public/podcast-cover/lpp.png',
+    'https://ohksnpnmcuoxbyrswjyz.supabase.co/storage/v1/object/public/podcast-audio/rain.mp3',
     '[00:00] Welcome to this presentation of The Hound of the Baskervilles.
 [00:15] This classic mystery by Arthur Conan Doyle follows Sherlock Holmes...
 [01:00] The story is set on the wild and desolate Dartmoor...
@@ -48,7 +49,8 @@ INSERT INTO podcasts (title, description, cover_url, audio_url, transcription, d
   (
     'The Hobbit',
     'Lukas presents J.R.R. Tolkien''s beloved tale of Bilbo Baggins'' unexpected journey with a company of dwarves.',
-    NULL, NULL,
+    'https://ohksnpnmcuoxbyrswjyz.supabase.co/storage/v1/object/public/podcast-cover/lpp.png',
+    'https://ohksnpnmcuoxbyrswjyz.supabase.co/storage/v1/object/public/podcast-audio/rain.mp3',
     '[00:00] Today I want to talk about The Hobbit by J.R.R. Tolkien.
 [00:20] The story follows Bilbo Baggins, a comfortable hobbit...
 [01:30] What I loved most was the world-building...
@@ -62,7 +64,8 @@ INSERT INTO podcasts (title, description, cover_url, audio_url, transcription, d
   (
     'Sapiens: A Brief History of Humankind',
     'Sara summarizes Yuval Noah Harari''s exploration of human history from the Stone Age to the modern world.',
-    NULL, NULL,
+    'https://ohksnpnmcuoxbyrswjyz.supabase.co/storage/v1/object/public/podcast-cover/lpp.png', 
+    'https://ohksnpnmcuoxbyrswjyz.supabase.co/storage/v1/object/public/podcast-audio/rain.mp3',
     '[00:00] Welcome to my presentation of Sapiens.
 [00:10] This book by Yuval Noah Harari covers the entire history of humankind...
 [01:00] The cognitive revolution is one of the key concepts...
@@ -76,7 +79,8 @@ INSERT INTO podcasts (title, description, cover_url, audio_url, transcription, d
   (
     'Steve Jobs',
     'Anna presents Walter Isaacson''s biography of the Apple co-founder, covering his life from adoption to revolutionizing technology.',
-    NULL, NULL,
+    'https://ohksnpnmcuoxbyrswjyz.supabase.co/storage/v1/object/public/podcast-cover/lpp.png', 
+    'https://ohksnpnmcuoxbyrswjyz.supabase.co/storage/v1/object/public/podcast-audio/rain.mp3',
     '[00:00] Today I''m presenting the biography of Steve Jobs.
 [00:15] Written by Walter Isaacson, this book gives an intimate look...
 [01:20] What struck me most was Jobs'' reality distortion field...
@@ -90,7 +94,8 @@ INSERT INTO podcasts (title, description, cover_url, audio_url, transcription, d
   (
     'Pride and Prejudice',
     'Sara discusses Jane Austen''s timeless novel about Elizabeth Bennet and Mr. Darcy, exploring themes of love, class, and reputation.',
-    NULL, NULL,
+    'https://ohksnpnmcuoxbyrswjyz.supabase.co/storage/v1/object/public/podcast-cover/lpp.png', 
+    'https://ohksnpnmcuoxbyrswjyz.supabase.co/storage/v1/object/public/podcast-audio/rain.mp3',
     '[00:00] Hello, today I''m talking about Pride and Prejudice.
 [00:12] Jane Austen wrote this novel in 1813...
 [01:15] Elizabeth Bennet is one of literature''s most beloved heroines...
@@ -104,7 +109,8 @@ INSERT INTO podcasts (title, description, cover_url, audio_url, transcription, d
   (
     'The Fault in Our Stars',
     'Lukas presents John Green''s emotional story of two teenagers who fall in love while dealing with cancer.',
-    NULL, NULL,
+    'https://ohksnpnmcuoxbyrswjyz.supabase.co/storage/v1/object/public/podcast-cover/lpp.png', 
+    'https://ohksnpnmcuoxbyrswjyz.supabase.co/storage/v1/object/public/podcast-audio/rain.mp3',
     '[00:00] Today I want to talk about The Fault in Our Stars.
 [00:10] This book by John Green tells the story of Hazel Grace Lancaster...
 [01:00] What makes this book powerful is its honesty about illness...
@@ -118,7 +124,8 @@ INSERT INTO podcasts (title, description, cover_url, audio_url, transcription, d
   (
     'Dune',
     'Lukas explores Frank Herbert''s epic science fiction masterpiece about politics, religion, and survival on the desert planet Arrakis.',
-    NULL, NULL,
+    'https://ohksnpnmcuoxbyrswjyz.supabase.co/storage/v1/object/public/podcast-cover/lpp.png', 
+    'https://ohksnpnmcuoxbyrswjyz.supabase.co/storage/v1/object/public/podcast-audio/rain.mp3',
     '[00:00] Welcome to my presentation of Dune by Frank Herbert.
 [00:15] Published in 1965, Dune is often called the greatest sci-fi novel...
 [01:30] The world-building on Arrakis is incredible...
@@ -132,7 +139,8 @@ INSERT INTO podcasts (title, description, cover_url, audio_url, transcription, d
   (
     'Outlander',
     'Sara presents Diana Gabaldon''s historical romance about Claire Randall, a WWII nurse transported back to 18th-century Scotland.',
-    NULL, NULL,
+    'https://ohksnpnmcuoxbyrswjyz.supabase.co/storage/v1/object/public/podcast-cover/lpp.png', 
+    'https://ohksnpnmcuoxbyrswjyz.supabase.co/storage/v1/object/public/podcast-audio/rain.mp3',
     '[00:00] Today I''m presenting Outlander by Diana Gabaldon.
 [00:12] The story follows Claire Randall, a nurse from 1945...
 [01:10] The time travel element combined with historical detail is fascinating...
@@ -147,7 +155,8 @@ INSERT INTO podcasts (title, description, cover_url, audio_url, transcription, d
   (
     'Gone Girl',
     'Anna presents Gillian Flynn''s psychological thriller about a marriage gone terribly wrong.',
-    NULL, NULL,
+    'https://ohksnpnmcuoxbyrswjyz.supabase.co/storage/v1/object/public/podcast-cover/lpp.png',
+    'https://ohksnpnmcuoxbyrswjyz.supabase.co/storage/v1/object/public/podcast-audio/rain.mp3',
     '[00:00] Today I want to talk about Gone Girl.
 [00:10] This thriller by Gillian Flynn keeps you guessing until the end...
 [01:20] The unreliable narrators make this book unique...
@@ -160,7 +169,8 @@ INSERT INTO podcasts (title, description, cover_url, audio_url, transcription, d
   (
     'The Alchemist',
     'Sara discusses Paulo Coelho''s philosophical fable about Santiago''s journey to find his personal legend.',
-    NULL, NULL,
+    'https://ohksnpnmcuoxbyrswjyz.supabase.co/storage/v1/object/public/podcast-cover/lpp.png', 
+    'https://ohksnpnmcuoxbyrswjyz.supabase.co/storage/v1/object/public/podcast-audio/rain.mp3',
     '[00:00] Welcome to my presentation of The Alchemist.
 [00:10] This novel by Paulo Coelho is about a young shepherd named Santiago...
 [01:00] The concept of the Personal Legend is the heart of the book...
@@ -173,7 +183,8 @@ INSERT INTO podcasts (title, description, cover_url, audio_url, transcription, d
   (
     'Educated',
     'Anna presents Tara Westover''s memoir about growing up in a survivalist family and eventually earning a PhD from Cambridge.',
-    NULL, NULL,
+    'https://ohksnpnmcuoxbyrswjyz.supabase.co/storage/v1/object/public/podcast-cover/lpp.png', 
+    'https://ohksnpnmcuoxbyrswjyz.supabase.co/storage/v1/object/public/podcast-audio/rain.mp3',
     '[00:00] Today I''m presenting Educated by Tara Westover.
 [00:15] This memoir tells the incredible story of a girl who never went to school...
 [01:20] Her journey from isolation to education is both inspiring and heartbreaking...
@@ -186,7 +197,8 @@ INSERT INTO podcasts (title, description, cover_url, audio_url, transcription, d
   (
     '1984',
     'Lukas presents George Orwell''s dystopian masterpiece about totalitarianism, surveillance, and the power of language.',
-    NULL, NULL,
+    'https://ohksnpnmcuoxbyrswjyz.supabase.co/storage/v1/object/public/podcast-cover/lpp.png', 
+    'https://ohksnpnmcuoxbyrswjyz.supabase.co/storage/v1/object/public/podcast-audio/rain.mp3',
     '[00:00] Today I want to talk about 1984 by George Orwell.
 [00:10] Written in 1949, this novel describes a totalitarian society...
 [01:15] Big Brother, doublethink, and Newspeak are concepts that still resonate...
