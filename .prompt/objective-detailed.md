@@ -219,6 +219,8 @@ Full SQL files in `docs/`:
 ├─────────────────────────┤
 │ Category Overview       │  ← All categories (name + link, no descriptions yet)
 ├─────────────────────────┤
+│ Newsletter              │  ← Email input + subscribe button, frontend validation
+├─────────────────────────┤
 │ Footer (JS-rendered)    │
 └─────────────────────────┘
 ```
