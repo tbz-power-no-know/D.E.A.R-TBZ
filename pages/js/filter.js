@@ -44,6 +44,12 @@ export async function initFilter() {
         handleFilter(categoryId, activeFilter)
       })
     }
+
+    window.addEventListener('search-clear', () => {
+      const activeFilter = document.querySelector('.filter-btn.active')
+      const categoryId = activeFilter ? activeFilter.dataset.category : 'all'
+      handleFilter(categoryId, activeFilter)
+    })
   } catch (error) {
     gridContainer.innerHTML = `<p class="loading-text">Error: ${error.message}</p>`
   }
