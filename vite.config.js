@@ -14,6 +14,7 @@ export default defineConfig({
   root: 'pages',
   publicDir: '../public',
   envDir: '..',
+  base: '/D.E.A.R-TBZ/',
   build: {
     outDir: '../dist',
     emptyOutDir: true,
