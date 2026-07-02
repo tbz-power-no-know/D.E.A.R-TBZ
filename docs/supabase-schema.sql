@@ -78,14 +78,17 @@ CREATE POLICY "Podcast presenters are viewable by everyone"
 -- STORAGE POLICIES (public read)
 -- =====================================================
 
+DROP POLICY IF EXISTS "Podcast audio is publicly accessible" ON storage.objects;
 CREATE POLICY "Podcast audio is publicly accessible"
   ON storage.objects FOR SELECT
   USING (bucket_id = 'podcast-audio');
 
+DROP POLICY IF EXISTS "Podcast covers are publicly accessible" ON storage.objects;
 CREATE POLICY "Podcast covers are publicly accessible"
   ON storage.objects FOR SELECT
   USING (bucket_id = 'podcast-covers');
 
+DROP POLICY IF EXISTS "Presenter photos are publicly accessible" ON storage.objects;
 CREATE POLICY "Presenter photos are publicly accessible"
   ON storage.objects FOR SELECT
   USING (bucket_id = 'presenter-photos');
