@@ -53,7 +53,8 @@ Once the plan was fixed, the AI generated code, but I enforced consistency:
 | CSS styling | 6h | 2h | 4h |
 | Documentation | 3h | 1h | 2h |
 | Debugging | 2h | 0.5h | 1.5h |
-| **Total** | **21h** | **7h** | **14h** |
+| Transcription sync | 3h | 1h | 2h |
+| **Total** | **24h** | **8h** | **16h** |
 
 The AI saved approximately **20 hours** of development time.
 

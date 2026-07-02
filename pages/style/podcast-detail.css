@@ -51,12 +51,22 @@
   line-height: 1.8;
   color: var(--text-color);
   white-space: pre-wrap;
+  max-height: 400px;
+  overflow-y: auto;
+  padding-right: 4px;
 }
 
 .transcription-text .timestamp {
   color: var(--primary);
   font-weight: 600;
   cursor: pointer;
+}
+
+.transcription-text .timestamp.active {
+  background: var(--primary);
+  color: var(--secondary);
+  padding: 2px 4px;
+  border-radius: 4px;
 }
 
 .detail-audio {
