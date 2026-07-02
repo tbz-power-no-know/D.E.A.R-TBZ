@@ -67,16 +67,35 @@
 - Padding: `16px`
 
 ### Card (Category)
-- Background: `--primary`
+- Background: category `color` from DB (falls back to `--primary`)
 - Border radius: `12px`
 - Color: `--secondary`
 - Padding: `20px`
+- Image: `64px` circle if `image_url` set
+- Clickable: links to `podcasts.html?category=<id>`
 
 ### Buttons
 - Filter button: `8px 16px` padding, `20px` border-radius, `14px` font
 - Sort button (`.sort-btn`): same style as filter button, left-aligned above filter bar
 - Submit button: `12px` padding, `8px` border-radius, `16px` font, `min-height: 44px`
 - Touch target: minimum `44px`
+- Filter active: uses category color from DB as background
+
+### Hover Animations
+- Podcast/category cards: `translateY(-2px)` + shadow `0 4px 12px rgba(0,0,0,0.15)`, `transition: 0.2s ease`
+- Filter/sort buttons: `scale(0.97)`, `transition: 0.2s`
+- Submit button: `translateY(-1px)`, `transition: 0.2s ease`
+- Presenter card: border color changes to `--primary` on hover
+- Back link: opacity 0.7→1 + underline on hover
+
+### Sticky Header
+- `position: fixed; top: 0`, `z-index: 100`
+- Hidden by default on load, hides on scroll down (20px threshold), shows on scroll up
+- Always visible at top of page (scrollY <= 10)
+- `--header-height` CSS variable prevents content overlap
+
+### Footer
+- Normal document flow, at end of page (not sticky)
 
 ### Inputs
 - Padding: `10px`
@@ -89,12 +108,15 @@
 - Native HTML5 `<audio controls>`
 - Width: `100%`
 - Max-width: none (fills container)
+- **Sticky:** `position: sticky; top: 0` — stays at viewport top while scrolling
+- Renders above transcription, not below
 
 ### Transcription Sync
-- Container: `.transcription-text` — `max-height: 400px`, `overflow-y: auto`
+- Container: `.transcription-text` — no max-height, no overflow (full text visible)
 - Timestamps: `.timestamp` — clickable, seeks audio to that time
 - Active state: `.timestamp.active` — `background: --primary`, `color: --secondary`, `padding: 2px 4px`, `border-radius: 4px`
-- Behavior: auto-scrolls to active timestamp on `timeupdate`, clears on `pause`/`ended`/`seeking`
+- Behavior: `scrollIntoView` scrolls the **page** (not container) to center active timestamp
+- Audio player is sticky above transcription, stays visible while page scrolls
 
 ### Navigation
 - Mobile: hamburger toggle (`☰`), nav hidden by default
