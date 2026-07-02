@@ -39,21 +39,21 @@ function renderPodcast(podcast, container) {
     </div>
 
     ${
-      podcast.transcription
+      podcast.audio_url
         ? `
-      <section class="detail-transcription">
-        <h2>Transcription</h2>
-        <div class="transcription-text">${formatTranscription(podcast.transcription)}</div>
+      <section class="detail-audio">
+        <audio controls src="${podcast.audio_url}"></audio>
       </section>
     `
         : ""
     }
 
     ${
-      podcast.audio_url
+      podcast.transcription
         ? `
-      <section class="detail-audio">
-        <audio controls src="${podcast.audio_url}"></audio>
+      <section class="detail-transcription">
+        <h2>Transcription</h2>
+        <div class="transcription-text">${formatTranscription(podcast.transcription)}</div>
       </section>
     `
         : ""
