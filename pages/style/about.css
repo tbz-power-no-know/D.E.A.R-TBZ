@@ -1,0 +1,142 @@
+.about-section,
+.contact-section {
+  padding: 20px 16px;
+}
+
+.about-section h2,
+.contact-section h2 {
+  margin-bottom: 12px;
+  color: var(--primary);
+}
+
+.about-section p {
+  line-height: 1.6;
+  color: var(--text-color);
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-group label {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--primary);
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  padding: 10px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  font-size: 16px;
+  font-family: inherit;
+  color: var(--text-color);
+  background-color: var(--secondary);
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+.submit-btn {
+  padding: 12px;
+  background-color: var(--primary);
+  color: var(--secondary);
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  min-height: 44px;
+}
+
+.submit-btn:hover {
+  opacity: 0.9;
+}
+
+.submit-btn:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+/* Honeypot — visually hidden, kept in the layout for bots to fill */
+.hp-field {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.form-status {
+  margin-top: 4px;
+  min-height: 20px;
+  font-size: 14px;
+}
+
+.form-status.is-success {
+  color: var(--success);
+}
+
+.form-status.is-error {
+  color: var(--error);
+}
+
+/* Tablet */
+@media (min-width: 481px) {
+  .about-section,
+  .contact-section {
+    padding: 32px 24px;
+  }
+
+  .about-section h2,
+  .contact-section h2 {
+    font-size: 24px;
+  }
+
+  .about-section p {
+    font-size: 16px;
+  }
+}
+
+/* Desktop */
+@media (min-width: 1025px) {
+  .about-section,
+  .contact-section {
+    padding: 48px 40px;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .contact-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  .contact-form .form-group:last-of-type {
+    grid-column: 1 / -1;
+  }
+
+  .submit-btn {
+    grid-column: 1 / -1;
+    justify-self: start;
+  }
+
+  .form-status {
+    grid-column: 1 / -1;
+  }
+}

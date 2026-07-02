@@ -1,0 +1,139 @@
+.podcast-detail {
+  padding: 16px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.detail-cover {
+  width: 100%;
+  max-width: 300px;
+  margin: 0 auto 24px;
+  display: block;
+  border-radius: 12px;
+  aspect-ratio: 9 / 16;
+  object-fit: cover;
+}
+
+.detail-title {
+  font-size: 28px;
+  text-align: center;
+  margin-bottom: 8px;
+  color: var(--primary);
+}
+
+.detail-meta {
+  text-align: center;
+  font-size: 14px;
+  color: var(--text-color);
+  opacity: 0.7;
+  margin-bottom: 24px;
+}
+
+.detail-description {
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--text-color);
+  margin-bottom: 32px;
+}
+
+.detail-transcription {
+  margin-bottom: 32px;
+}
+
+.detail-transcription h2 {
+  font-size: 20px;
+  margin-bottom: 16px;
+  color: var(--primary);
+}
+
+.transcription-text {
+  font-size: 14px;
+  line-height: 1.8;
+  color: var(--text-color);
+  white-space: pre-wrap;
+  max-height: 400px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.transcription-text .timestamp {
+  color: var(--primary);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.transcription-text .timestamp.active {
+  background: var(--primary);
+  color: var(--secondary);
+  padding: 2px 4px;
+  border-radius: 4px;
+}
+
+.transcription-text .timestamp.pause {
+  background: var(--extra-color);
+  color: var(--secondary);
+  padding: 2px 4px;
+  border-radius: 4px;
+}
+
+.detail-audio {
+  margin-bottom: 32px;
+}
+
+.detail-audio audio {
+  width: 100%;
+}
+
+.detail-presenter {
+  margin-bottom: 32px;
+}
+
+.detail-presenter h2 {
+  font-size: 20px;
+  margin-bottom: 16px;
+  color: var(--primary);
+}
+
+.presenter-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  background-color: var(--bg-color);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+}
+
+.presenter-photo {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.presenter-name {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--primary);
+  margin-bottom: 4px;
+}
+
+.presenter-bio {
+  font-size: 14px;
+  color: var(--text-color);
+  line-height: 1.4;
+}
+
+.loading-text {
+  text-align: center;
+  padding: 24px;
+  color: var(--text-color);
+  opacity: 0.6;
+}
+
+@media (min-width: 481px) {
+  .detail-title {
+    font-size: 32px;
+  }
+}
