@@ -22,6 +22,9 @@ export async function initFilter() {
       btn.className = 'filter-btn'
       btn.dataset.category = category.id
       btn.textContent = category.name
+      if (category.color) {
+        btn.dataset.color = category.color
+      }
       btn.addEventListener('click', () => handleFilter(category.id, btn))
       filterContainer.appendChild(btn)
     })
@@ -57,8 +60,20 @@ export async function initFilter() {
 
 function handleFilter(categoryId, clickedBtn) {
   const buttons = document.querySelectorAll('.filter-btn')
-  buttons.forEach((btn) => btn.classList.remove('active'))
-  if (clickedBtn) clickedBtn.classList.add('active')
+  buttons.forEach((btn) => {
+    btn.classList.remove('active')
+    btn.style.removeProperty('background-color')
+    btn.style.removeProperty('color')
+    btn.style.removeProperty('border-color')
+  })
+  if (clickedBtn) {
+    clickedBtn.classList.add('active')
+    if (clickedBtn.dataset.color) {
+      clickedBtn.style.backgroundColor = clickedBtn.dataset.color
+      clickedBtn.style.color = '#fff'
+      clickedBtn.style.borderColor = clickedBtn.dataset.color
+    }
+  }
 
   const gridContainer = document.getElementById('podcasts-grid')
 
