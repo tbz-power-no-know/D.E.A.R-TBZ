@@ -1,3 +1,10 @@
+.section-title {
+  font-size: 28px;
+  text-align: center;
+  margin: 24px 16px 8px;
+  color: var(--primary);
+}
+
 .search-section {
   padding: 16px;
 }

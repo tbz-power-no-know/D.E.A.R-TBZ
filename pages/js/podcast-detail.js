@@ -26,6 +26,7 @@ function renderPodcast(podcast, container) {
     [];
 
   container.innerHTML = `
+    <a href="podcasts.html" class="detail-back">&larr; All Podcasts</a>
     <img class="detail-cover" src="${podcast.cover_url || ""}" alt="${podcast.title}" />
 
     <h1 class="detail-title">${podcast.title}</h1>
