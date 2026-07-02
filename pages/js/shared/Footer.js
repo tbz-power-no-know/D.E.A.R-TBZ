@@ -37,4 +37,29 @@ export function renderFooter() {
       menu.classList.toggle("open");
     });
   });
+
+  const footer = document.querySelector("footer");
+  if (!footer) return;
+
+  const footerHeight = footer.offsetHeight;
+  document.body.style.setProperty("--footer-height", `${footerHeight}px`);
+
+  let lastScrollY = window.scrollY;
+  const threshold = 20;
+
+  window.addEventListener("scroll", () => {
+    const currentScrollY = window.scrollY;
+    const diff = currentScrollY - lastScrollY;
+    const scrollBottom = window.innerHeight + currentScrollY >= document.body.offsetHeight - 10;
+
+    if (scrollBottom) {
+      footer.classList.remove("footer-hidden");
+    } else if (diff > threshold && currentScrollY > footerHeight) {
+      footer.classList.add("footer-hidden");
+    } else if (diff < -threshold) {
+      footer.classList.remove("footer-hidden");
+    }
+
+    lastScrollY = currentScrollY;
+  });
 }

@@ -16,6 +16,7 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  padding-bottom: var(--footer-height, 0px);
 }
 
 main {
@@ -123,6 +124,19 @@ h2 {
 }
 
 /* Footer Section */
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 90;
+  transition: transform 0.3s ease;
+}
+
+footer.footer-hidden {
+  transform: translateY(100%);
+}
+
 .footer-list {
   display: flex;
   justify-content: space-around;
