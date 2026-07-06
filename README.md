@@ -81,7 +81,7 @@ Go to **Storage** and create these 4 buckets. Set each to **Public**:
 | Bucket | Purpose |
 |---|---|
 | `podcast-audio` | MP3 audio files |
-| `podcast-covers` | 9:16 cover images |
+| `podcast-cover` | 9:16 cover images |
 | `presenter-photos` | Presenter headshots |
 | `category-images` | Category icons |
 

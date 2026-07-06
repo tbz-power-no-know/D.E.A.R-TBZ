@@ -8,7 +8,7 @@
 -- 1. Go to Supabase Dashboard → Storage
 -- 2. Create these buckets and set them to PUBLIC:
 --    - podcast-audio      (mp3 files)
---    - podcast-covers     (9:16 cover images)
+--    - podcast-cover      (9:16 cover images)
 --    - presenter-photos   (presenter headshots)
 --    - category-images    (category icons)
 -- =====================================================
@@ -134,7 +134,7 @@ CREATE POLICY "Podcast audio is publicly accessible"
 
 CREATE POLICY "Podcast covers are publicly accessible"
   ON storage.objects FOR SELECT
-  USING (bucket_id = 'podcast-covers');
+  USING (bucket_id = 'podcast-cover');
 
 CREATE POLICY "Presenter photos are publicly accessible"
   ON storage.objects FOR SELECT
