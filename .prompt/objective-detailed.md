@@ -417,13 +417,11 @@ Full SQL files in `docs/`:
 - ~~Newsletter subscription~~ — **implemented** on homepage with email validation
 
 ### Remaining Tasks
-- **Supabase SQL schema** — SQL files exist in `docs/` but haven't been run in the Supabase dashboard yet. **Note:** `categories` table now has `image_url TEXT` and `color TEXT` columns — run updated `supabase-schema.sql`.
-- **Supabase Edge Function** — `supabase/functions/contact/index.ts` exists but hasn't been deployed
-- **Storage buckets** — `podcast-audio`, `podcast-covers`, `presenter-photos`, `category-images` need to be created in Supabase Dashboard
 - **Skeleton loaders** — VERITE Phase 3 specifies skeleton loaders; currently uses plain text placeholders
 - **Publish on web server** — required by assignment, GitHub Actions workflow created but needs manual push + Pages config
 
 ### Resolved
+- ~~Supabase SQL schema, seed data, Edge Function, storage buckets~~ — deployed
 - ~~Page renaming (index-home → index, etc.)~~ — done
 - ~~Footer nav links~~ — wired to actual pages
 - ~~Responsive breakpoints~~ — all `@media` queries implemented
