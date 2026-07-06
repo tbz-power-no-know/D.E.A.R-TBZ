@@ -13,6 +13,14 @@ renderHeader()
 renderFooter()
 initExpandable()
 
+document.body.insertAdjacentHTML('afterbegin', `
+  <div class="bg-circles">
+    <div class="bg-circle bg-circle-1"></div>
+    <div class="bg-circle bg-circle-2"></div>
+    <div class="bg-circle bg-circle-3"></div>
+  </div>
+`)
+
 if (document.getElementById('latest-podcasts')) {
   renderLatestPodcasts(document.getElementById('latest-podcasts'))
 }
