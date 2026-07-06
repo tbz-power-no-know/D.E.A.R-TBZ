@@ -12,10 +12,12 @@ const logoSvg = `
   </g>
   <text x="150" y="110" text-anchor="middle" font-family="Georgia, serif" font-size="48" font-weight="bold" fill="#000" letter-spacing="6">D.E.A.R.</text>
   <line x1="80" y1="125" x2="220" y2="125" stroke="#000" stroke-width="1.5" stroke-linecap="round"/>
-  <g stroke="#000" stroke-width="2.5" fill="#fff" stroke-linejoin="round">
-    <path d="M150 145 Q190 135 240 150 L240 240 Q190 225 150 235 Z"/>
-    <line x1="150" y1="145" x2="150" y2="235" stroke-width="2"/>
-  </g>
+  <!-- Black cover (bigger than pages) -->
+  <path d="M150 140 Q105 130 55 145 L55 245 Q105 230 150 240 Z" fill="#000"/>
+  <path d="M150 140 Q195 130 245 145 L245 245 Q195 230 150 240 Z" fill="#000"/>
+  <!-- Right page (static, underneath) -->
+  <path d="M150 145 Q190 135 240 150 L240 240 Q190 225 150 235 Z" fill="#fff" stroke="#000" stroke-width="2" stroke-linejoin="round"/>
+  <!-- Right page lines -->
   <g stroke="#000" stroke-width="1" fill="none" stroke-linecap="round">
     <path d="M155 160 Q192 150 232 162"/>
     <path d="M155 175 Q192 165 232 177"/>
@@ -23,8 +25,9 @@ const logoSvg = `
     <path d="M155 205 Q192 195 232 207"/>
     <path d="M155 220 Q192 210 232 222"/>
   </g>
+  <!-- Left page (animated, flips to right) -->
   <g class="page-left">
-    <path d="M150 145 Q110 135 60 150 L60 240 Q110 225 150 235 Z" stroke="#000" stroke-width="2.5" fill="#fff" stroke-linejoin="round"/>
+    <path d="M150 145 Q110 135 60 150 L60 240 Q110 225 150 235 Z" fill="#fff" stroke="#000" stroke-width="2" stroke-linejoin="round"/>
     <g stroke="#000" stroke-width="1" fill="none" stroke-linecap="round">
       <path d="M145 160 Q108 150 68 162"/>
       <path d="M145 175 Q108 165 68 177"/>
@@ -33,6 +36,8 @@ const logoSvg = `
       <path d="M145 220 Q108 210 68 222"/>
     </g>
   </g>
+  <!-- Spine -->
+  <line x1="150" y1="140" x2="150" y2="240" stroke="#000" stroke-width="2"/>
 </svg>
 `;
 
