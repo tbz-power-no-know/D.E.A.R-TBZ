@@ -26,6 +26,7 @@ function renderPodcast(podcast, container) {
     [];
 
   container.innerHTML = `
+    <a href="podcasts.html" class="detail-back">&larr; All Podcasts</a>
     <img class="detail-cover" src="${podcast.cover_url || ""}" alt="${podcast.title}" />
 
     <h1 class="detail-title">${podcast.title}</h1>
@@ -39,21 +40,21 @@ function renderPodcast(podcast, container) {
     </div>
 
     ${
-      podcast.transcription
+      podcast.audio_url
         ? `
-      <section class="detail-transcription">
-        <h2>Transcription</h2>
-        <div class="transcription-text">${formatTranscription(podcast.transcription)}</div>
+      <section class="detail-audio">
+        <audio controls src="${podcast.audio_url}"></audio>
       </section>
     `
         : ""
     }
 
     ${
-      podcast.audio_url
+      podcast.transcription
         ? `
-      <section class="detail-audio">
-        <audio controls src="${podcast.audio_url}"></audio>
+      <section class="detail-transcription">
+        <h2>Transcription</h2>
+        <div class="transcription-text">${formatTranscription(podcast.transcription)}</div>
       </section>
     `
         : ""

@@ -61,10 +61,12 @@
   font-weight: 600;
   cursor: pointer;
   min-height: 44px;
+  transition: transform 0.2s ease, opacity 0.2s ease;
 }
 
 .submit-btn:hover {
   opacity: 0.9;
+  transform: translateY(-1px);
 }
 
 .submit-btn:disabled {

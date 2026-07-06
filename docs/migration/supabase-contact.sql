@@ -1,0 +1,7 @@
+-- D.E.A.R. Podcast Website — Contact Messages
+-- DEPRECATED: This table has been merged into supabase-schema.sql.
+-- Run supabase-schema.sql instead.
+--
+-- This table is written ONLY by the `contact` Edge Function, which uses the
+-- service_role key (server-side). It is intentionally left with NO RLS policies,
+-- so the public anon key can neither read nor write it.
