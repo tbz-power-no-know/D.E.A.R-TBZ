@@ -136,7 +136,7 @@
   margin-left: -350px;
   margin-top: -350px;
   transform-origin: 350px 350px;
-  animation: orbit 30s linear infinite;
+  animation: orbit 60s linear infinite;
 }
 
 .bg-circle-2 {
@@ -148,8 +148,8 @@
   margin-left: -350px;
   margin-top: -350px;
   transform-origin: 350px 350px;
-  animation: orbit 30s linear infinite;
-  animation-delay: -10s;
+  animation: orbit 60s linear infinite;
+  animation-delay: -20s;
 }
 
 .bg-circle-3 {
@@ -161,8 +161,8 @@
   margin-left: -350px;
   margin-top: -350px;
   transform-origin: 350px 350px;
-  animation: orbit 30s linear infinite;
-  animation-delay: -20s;
+  animation: orbit 60s linear infinite;
+  animation-delay: -40s;
 }
 
 @keyframes orbit {

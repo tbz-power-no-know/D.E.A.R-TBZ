@@ -1,10 +1,10 @@
-# Wireframes — D.E.A.R. Podcast Website
+# Wireframes — D.E.A.R. Podcast-Website
 
-> ASCII wireframes for mobile (< 480px), tablet (481-1024px), and desktop (1025px+).
+> ASCII-Wireframes für Mobile (< 480px), Tablet (481–1024px) und Desktop (1025px+).
 
 ---
 
-## Home Page
+## Startseite
 
 ### Mobile (< 480px)
 
@@ -18,27 +18,27 @@
 │      And Read               │
 │                             │
 ├─────────────────────────────┤
-│  What is D.E.A.R?           │  ← Intro
-│  Project description...     │
+│  Was ist D.E.A.R?           │  ← Einführung
+│  Projektbeschreibung...     │
 ├─────────────────────────────┤
-│  Latest Podcasts            │
+│  Neueste Podcasts           │
 │  ┌───────────────────┐      │
-│  │   [cover 9:16]    │      │  ← 1 col
-│  │  Title            │      │
-│  │  Description...   │      │
+│  │   [Cover 9:16]    │      │  ← 1 Spalte
+│  │  Titel            │      │
+│  │  Beschreibung...  │      │
 │  └───────────────────┘      │
 ├─────────────────────────────┤
-│  Categories                 │
+│  Kategorien                 │
 │  ┌───────────────────┐      │
-│  │ Crime             │      │  ← 1 col
-│  │ View podcasts →   │      │
+│  │ Krimi             │      │  ← 1 Spalte
+│  │ Podcasts ansehen →│     │
 │  └───────────────────┘      │
 ├─────────────────────────────┤
-│  Home │ Podcasts │ About    │  ← Footer
+│  Startseite │ Podcasts │ Über uns │  ← Footer
 └─────────────────────────────┘
 ```
 
-### Tablet (481-1024px)
+### Tablet (481–1024px)
 
 ```
 ┌──────────────────────────────────────────┐
@@ -49,22 +49,22 @@
 │        Drop Everything And Read          │
 │                                          │
 ├──────────────────────────────────────────┤
-│   What is D.E.A.R?                       │  ← Intro
-│   Project description...                 │
+│   Was ist D.E.A.R?                       │  ← Einführung
+│   Projektbeschreibung...                 │
 ├──────────────────────────────────────────┤
-│   Latest Podcasts                        │
+│   Neueste Podcasts                       │
 │   ┌──────────────┐ ┌──────────────┐      │
-│   │  [cover]     │ │  [cover]     │      │  ← 2 col
-│   │  Title       │ │  Title       │      │
+│   │  [Cover]     │ │  [Cover]     │      │  ← 2 Spalten
+│   │  Titel       │ │  Titel       │      │
 │   └──────────────┘ └──────────────┘      │
 ├──────────────────────────────────────────┤
-│   Categories                             │
+│   Kategorien                             │
 │   ┌──────────────┐ ┌──────────────┐      │
-│   │ Crime        │ │ Fantasy      │      │  ← 2 col
-│   │ View →       │ │ View →       │      │
+│   │ Krimi        │ │ Fantasy      │      │  ← 2 Spalten
+│   │ Ansehen →    │ │ Ansehen →    │      │
 │   └──────────────┘ └──────────────┘      │
 ├──────────────────────────────────────────┤
-│   Home │ Podcasts │ About                │  ← Footer
+│   Startseite │ Podcasts │ Über uns       │  ← Footer
 └──────────────────────────────────────────┘
 ```
 
@@ -72,35 +72,35 @@
 
 ```
 ┌──────────────────────────────────────────────────────┐
-│  D.E.A.R          Home │ Podcasts │ About            │  ← Header
+│  D.E.A.R          Startseite │ Podcasts │ Über uns   │  ← Header
 ├──────────────────────────────────────────────────────┤
 │                                                      │
 │                  D.E.A.R                             │  ← Hero
 │            Drop Everything And Read                  │
 │                                                      │
 ├──────────────────────────────────────────────────────┤
-│      What is D.E.A.R?                                │  ← Intro
-│      Project description...                          │
+│      Was ist D.E.A.R?                                │  ← Einführung
+│      Projektbeschreibung...                          │
 ├──────────────────────────────────────────────────────┤
-│      Latest Podcasts                                 │
+│      Neueste Podcasts                                │
 │      ┌──────────┐ ┌──────────┐ ┌──────────┐          │
-│      │ [cover]  │ │ [cover]  │ │ [cover]  │          │  ← 3 col
-│      │ Title    │ │ Title    │ │ Title    │          │
+│      │ [Cover]  │ │ [Cover]  │ │ [Cover]  │          │  ← 3 Spalten
+│      │ Titel    │ │ Titel    │ │ Titel    │          │
 │      └──────────┘ └──────────┘ └──────────┘          │
 ├──────────────────────────────────────────────────────┤
-│      Categories                                      │
+│      Kategorien                                      │
 │      ┌──────────┐ ┌──────────┐ ┌──────────┐          │
-│      │ Crime    │ │ Fantasy  │ │ Non-Fic  │          │  ← 3 col
-│      │ View →   │ │ View →   │ │ View →   │          │
+│      │ Krimi    │ │ Fantasy  │ │ Sachbuch │          │  ← 3 Spalten
+│      │ Ansehen →│ │ Ansehen →│ │ Ansehen →│          │
 │      └──────────┘ └──────────┘ └──────────┘          │
 ├──────────────────────────────────────────────────────┤
-│      Home │ Podcasts │ About                         │  ← Footer
+│      Startseite │ Podcasts │ Über uns                │  ← Footer
 └──────────────────────────────────────────────────────┘
 ```
 
 ---
 
-## Podcasts List Page
+## Podcast-Liste
 
 ### Mobile (< 480px)
 
@@ -108,36 +108,36 @@
 ┌─────────────────────────────┐
 │  D.E.A.R        [☰]         │  ← Header
 ├─────────────────────────────┤
-│  [  Search podcasts...  ]   │  ← Search
+│  [  Podcasts suchen...  ]   │  ← Suche
 ├─────────────────────────────┤
-│  [All] [Crime] [Fantasy]    │  ← Filter
+│  [Alle] [Krimi] [Fantasy]   │  ← Filter
 ├─────────────────────────────┤
 │  ┌───────────────────┐      │
-│  │   [cover 9:16]    │      │  ← 1 col
-│  │  Title            │      │
-│  │  Description...   │      │
+│  │   [Cover 9:16]    │      │  ← 1 Spalte
+│  │  Titel            │      │
+│  │  Beschreibung...  │      │
 │  └───────────────────┘      │
 ├─────────────────────────────┤
-│  Home │ Podcasts │ About    │  ← Footer
+│  Startseite │ Podcasts │ Über uns │  ← Footer
 └─────────────────────────────┘
 ```
 
-### Tablet (481-1024px)
+### Tablet (481–1024px)
 
 ```
 ┌──────────────────────────────────────────┐
 │  D.E.A.R        [☰]                      │
 ├──────────────────────────────────────────┤
-│  [    Search podcasts...       ]         │
+│  [    Podcasts suchen...         ]       │
 ├──────────────────────────────────────────┤
-│  [All] [Crime] [Fantasy] [Biography]     │
+│  [Alle] [Krimi] [Fantasy] [Biografie]    │
 ├──────────────────────────────────────────┤
 │  ┌──────────────┐ ┌──────────────┐       │
-│  │  [cover]     │ │  [cover]     │       │  ← 2 col
-│  │  Title       │ │  Title       │       │
+│  │  [Cover]     │ │  [Cover]     │       │  ← 2 Spalten
+│  │  Titel       │ │  Titel       │       │
 │  └──────────────┘ └──────────────┘       │
 ├──────────────────────────────────────────┤
-│  Home │ Podcasts │ About                 │
+│  Startseite │ Podcasts │ Über uns        │
 └──────────────────────────────────────────┘
 ```
 
@@ -145,24 +145,24 @@
 
 ```
 ┌────────────────────────────────────────────────────┐
-│  D.E.A.R          Home │ Podcasts │ About          │
+│  D.E.A.R          Startseite │ Podcasts │ Über uns │
 ├────────────────────────────────────────────────────┤
-│  [    Search podcasts...              ]            │
+│  [    Podcasts suchen...               ]           │
 ├────────────────────────────────────────────────────┤
-│  [All] [Crime] [Fantasy] [Non-Fiction] [Biography] │
+│  [Alle] [Krimi] [Fantasy] [Sachbuch] [Biografie]   │
 ├────────────────────────────────────────────────────┤
 │  ┌──────────┐ ┌──────────┐ ┌──────────┐            │
-│  │ [cover]  │ │ [cover]  │ │ [cover]  │            │  ← 3 col
-│  │ Title    │ │ Title    │ │ Title    │            │
+│  │ [Cover]  │ │ [Cover]  │ │ [Cover]  │            │  ← 3 Spalten
+│  │ Titel    │ │ Titel    │ │ Titel    │            │
 │  └──────────┘ └──────────┘ └──────────┘            │
 ├────────────────────────────────────────────────────┤
-│  Home │ Podcasts │ About                           │
+│  Startseite │ Podcasts │ Über uns                  │
 └────────────────────────────────────────────────────┘
 ```
 
 ---
 
-## Podcast Detail Page
+## Podcast-Detailseite
 
 ### Mobile (< 480px)
 
@@ -170,65 +170,65 @@
 ┌─────────────────────────────┐
 │  D.E.A.R        [☰]         │  ← Header
 ├─────────────────────────────┤
-│  ← All Podcasts             │  ← Back link
+│  ← Alle Podcasts            │  ← Zurück-Link
 ├─────────────────────────────┤
 │   ┌───────────────────┐     │
 │   │                   │     │
-│   │   [cover 9:16]    │     │  ← Cover
+│   │   [Cover 9:16]    │     │  ← Cover
 │   │                   │     │
 │   └───────────────────┘     │
 │                             │
-│      Book Title             │  ← Title
-│      Category • 12m 30s     │  ← Meta
+│      Buchtitel              │  ← Titel
+│      Kategorie • 12m 30s    │  ← Meta
 ├─────────────────────────────┤
-│  Description text...        │  ← Description
+│  Beschreibungstext...       │  ← Beschreibung
 ├─────────────────────────────┤
-│ [▶ ─── Audio ────── ■]     │  ← Sticky audio player
+│ [▶ ─── Audio ────── ■]     │  ← Feststehender Audioplayer
 ├─────────────────────────────┤
-│  Transcription              │
-│  [00:00] Welcome to...      │  ← Full text, no overflow
-│  [01:23] The author...      │  ← Page scrolls, audio stays
-│  [02:45] The climax...      │    sticky at top
+│  Transkription              │
+│  [00:00] Willkommen zu...   │  ← Vollständiger Text, kein Overflow
+│  [01:23] Die Autorin...     │  ← Seite scrollt, Audio bleibt
+│  [02:45] Der Höhepunkt...   │    feststehend oben
 │  ...                        │
 ├─────────────────────────────┤
-│  Presenter                  │
-│  (photo) Name               │  ← Presenter
-│          Bio text...        │
+│  Präsentator                │
+│  (Foto) Name                │  ← Präsentator
+│          Biografie...       │
 ├─────────────────────────────┤
-│  Home │ Podcasts │ About    │  ← Sticky footer
+│  Startseite │ Podcasts │ Über uns │  ← Footer
 └─────────────────────────────┘
 ```
 
-### Tablet (481-1024px)
+### Tablet (481–1024px)
 
 ```
 ┌──────────────────────────────────────────┐
 │  D.E.A.R        [☰]                      │
 ├──────────────────────────────────────────┤
-│  ← All Podcasts                          │
+│  ← Alle Podcasts                         │
 ├──────────────────────────────────────────┤
 │        ┌──────────────────┐              │
 │        │                  │              │
-│        │   [cover 9:16]   │              │
+│        │   [Cover 9:16]   │              │
 │        │                  │              │
 │        └──────────────────┘              │
 │                                          │
-│           Book Title                     │
-│           Category • 12m 30s             │
+│           Buchtitel                      │
+│           Kategorie • 12m 30s            │
 ├──────────────────────────────────────────┤
-│  Description text...                     │
+│  Beschreibungstext...                    │
 ├──────────────────────────────────────────┤
-│ [▶ ─── Audio ───────────────── ■]        │  ← Sticky
+│ [▶ ─── Audio ───────────────── ■]        │  ← Feststehend
 ├──────────────────────────────────────────┤
-│  Transcription                           │
-│  [00:00] Welcome to...                   │  ← Full text
-│  [01:23] The author...                   │
+│  Transkription                           │
+│  [00:00] Willkommen zu...                │  ← Vollständiger Text
+│  [01:23] Die Autorin...                  │
 │  ...                                     │
 ├──────────────────────────────────────────┤
-│  (photo) Name                            │
-│          Bio text...                     │
+│  (Foto) Name                             │
+│          Biografie...                    │
 ├──────────────────────────────────────────┤
-│  Home │ Podcasts │ About                │  ← Sticky footer
+│  Startseite │ Podcasts │ Über uns       │  ← Footer
 └──────────────────────────────────────────┘
 ```
 
@@ -236,38 +236,38 @@
 
 ```
 ┌────────────────────────────────────────────────────┐
-│  D.E.A.R          Home │ Podcasts │ About          │
+│  D.E.A.R          Startseite │ Podcasts │ Über uns │
 ├────────────────────────────────────────────────────┤
-│  ← All Podcasts                                     │
+│  ← Alle Podcasts                                    │
 ├────────────────────────────────────────────────────┤
 │          ┌──────────────────┐                      │
 │          │                  │                      │
-│          │   [cover 9:16]   │                      │
+│          │   [Cover 9:16]   │                      │
 │          │                  │                      │
 │          └──────────────────┘                      │
 │                                                    │
-│               Book Title                           │
-│               Category • 12m 30s                   │
+│               Buchtitel                            │
+│               Kategorie • 12m 30s                  │
 ├────────────────────────────────────────────────────┤
-│     Description text...                            │
+│     Beschreibungstext...                           │
 ├────────────────────────────────────────────────────┤
-│     [▶ ─── Audio ────────────────────── ■]         │  ← Sticky
+│     [▶ ─── Audio ────────────────────── ■]         │  ← Feststehend
 ├────────────────────────────────────────────────────┤
-│     Transcription                                  │
-│     [00:00] Welcome to...                          │  ← Full text
-│     [01:23] The author...                          │
+│     Transkription                                  │
+│     [00:00] Willkommen zu...                       │  ← Vollständiger Text
+│     [01:23] Die Autorin...                         │
 │     ...                                            │
 ├────────────────────────────────────────────────────┤
-│     (photo) Name                                   │
-│             Bio text...                            │
+│     (Foto) Name                                    │
+│             Biografie...                           │
 ├────────────────────────────────────────────────────┤
-│     Home │ Podcasts │ About                        │  ← Sticky
+│     Startseite │ Podcasts │ Über uns               │  ← Footer
 └────────────────────────────────────────────────────┘
 ```
 
 ---
 
-## About Page
+## Über-uns-Seite
 
 ### Mobile (< 480px)
 
@@ -275,35 +275,35 @@
 ┌─────────────────────────────┐
 │  D.E.A.R        [☰]         │  ← Header
 ├─────────────────────────────┤
-│  About D.E.A.R              │  ← About
-│  Project description...     │
+│  Über D.E.A.R               │  ← Über uns
+│  Projektbeschreibung...     │
 ├─────────────────────────────┤
-│  Contact Us                 │  ← Contact
+│  Kontakt                    │  ← Kontakt
 │  [ Name          ]          │
-│  [ Email         ]          │
-│  [ Subject ▼     ]          │
-│  [ Message       ]          │
-│  [ Send        ]            │
+│  [ E-Mail        ]          │
+│  [ Betreff ▼     ]          │
+│  [ Nachricht     ]          │
+│  [ Senden        ]          │
 ├─────────────────────────────┤
-│  Home │ Podcasts │ About    │  ← Footer
+│  Startseite │ Podcasts │ Über uns │  ← Footer
 └─────────────────────────────┘
 ```
 
-### Tablet (481-1024px)
+### Tablet (481–1024px)
 
 ```
 ┌──────────────────────────────────────────┐
 │  D.E.A.R        [☰]                      │
 ├──────────────────────────────────────────┤
-│  About D.E.A.R                           │
-│  Project description...                  │
+│  Über D.E.A.R                            │
+│  Projektbeschreibung...                  │
 ├──────────────────────────────────────────┤
-│  Contact Us                              │
-│  [ Name          ] [ Email       ]       │
-│  [ Subject ▼     ] [ Message    ]        │
-│  [ Send        ]                         │
+│  Kontakt                                 │
+│  [ Name          ] [ E-Mail       ]      │
+│  [ Betreff ▼     ] [ Nachricht   ]       │
+│  [ Senden        ]                       │
 ├──────────────────────────────────────────┤
-│  Home │ Podcasts │ About                │
+│  Startseite │ Podcasts │ Über uns       │
 └──────────────────────────────────────────┘
 ```
 
@@ -311,16 +311,16 @@
 
 ```
 ┌────────────────────────────────────────────────────┐
-│  D.E.A.R          Home │ Podcasts │ About          │
+│  D.E.A.R          Startseite │ Podcasts │ Über uns │
 ├────────────────────────────────────────────────────┤
-│     About D.E.A.R                                    │
-│     Project description...                           │
+│     Über D.E.A.R                                     │
+│     Projektbeschreibung...                           │
 ├────────────────────────────────────────────────────┤
-│     Contact Us                                      │
-│     [ Name          ] [ Email          ]             │
-│     [ Subject ▼     ] [ Message        ]             │
-│     [ Send        ]                                  │
+│     Kontakt                                        │
+│     [ Name          ] [ E-Mail          ]           │
+│     [ Betreff ▼     ] [ Nachricht       ]           │
+│     [ Senden        ]                              │
 ├────────────────────────────────────────────────────┤
-│     Home │ Podcasts │ About                         │
+│     Startseite │ Podcasts │ Über uns               │
 └────────────────────────────────────────────────────┘
 ```

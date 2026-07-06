@@ -1,71 +1,71 @@
-# D.E.A.R — Podcast Website
+# D.E.A.R — Podcast-Website
 
-> **Quick reference.** Full detailed plan is in `.prompt/objective-detailed.md` — **VERITE (absolute source of truth)**.
+> **Schnellreferenz.** Vollständiger detaillierter Plan in `.prompt/objective-detailed.md` — **VERITE (absolute Wahrheitsquelle)**.
 
-## AI Rules
-1. **Ask before acting** — never guess if unsure
-2. **Clean, readable code** — always
-3. **Commit after every meaningful change** — `type: description`
+## KI-Regeln
+1. **Fragen vor dem Handeln** — niemals raten, wenn unsicher
+2. **Sauberer, lesbarer Code** — immer
+3. **Nach jeder sinnvollen Änderung commiten** — `typ: beschreibung`
 
-## Quick Facts
+## Kurzinfos
 
-- **What:** School podcast website for book presentations (D.E.A.R. = Drop Everything And Read)
-- **Stack:** Vite 8, vanilla HTML/CSS/JS, Supabase backend, Docker/Nginx
-- **Mobile-first:** base ~375px (iPhone SE/12), tablet 481px+, desktop 1025px+
-- **Colors:** `--primary: #000`, `--secondary: #fff` (placeholders, will change)
-- **No frameworks** — custom HTML/CSS only, AI assistance allowed
-- **Status:** Phases 1-2, 4-5 done. Phase 3 mostly done (transcription sync done, skeleton loaders pending). Supabase fully deployed (schema, seed, buckets, Edge Function). GitHub Pages workflow created, needs push.
+- **Was:** Schul-Podcast-Website für Buchvorstellungen (D.E.A.R. = Drop Everything And Read)
+- **Stack:** Vite 8, vanilla HTML/CSS/JS, Supabase-Backend, Docker/Nginx
+- **Mobile-First:** Basis ~375px (iPhone SE/12), Tablet 481px+, Desktop 1025px+
+- **Farben:** `--primary: #000`, `--secondary: #fff` (Platzhalter, werden geändert)
+- **Keine Frameworks** — nur eigenes HTML/CSS, KI-Unterstützung erlaubt
+- **Status:** Phase 1–2, 4–5 erledigt. Phase 3 meist erledigt (Transkriptions-Sync fertig, Skeleton-Loader ausstehend). Supabase vollständig bereitgestellt (Schema, Seed, Buckets, Edge-Function). GitHub-Pages-Workflow erstellt, braucht Push.
 
-## Recent Features
-- Sticky audio player above transcription (full text, no overflow)
-- Sticky header (hides on scroll down, shows on scroll up)
-- Page orientation: back link on detail, section title on podcasts page
-- Category colors + images in DB, rendered in UI
-- Category filter via URL parameter (`?category=uuid`)
-- Hover animations on cards, buttons, links
-- Newsletter subscription on homepage with email validation
+## Neueste Funktionen
+- Feststehender Audioplayer über Transkription (voller Text, kein Overflow)
+- Feststehender Header (blendet sich beim Runterscrollen aus, zeigt sich beim Hochscrollen)
+- Seitenorientierung: Zurück-Link auf Detail, Sektionstitel auf Podcasts-Seite
+- Kategorie-Farben + -Bilder in der DB, in der UI gerendert
+- Kategoriefilter via URL-Parameter (`?category=uuid`)
+- Hover-Animationen auf Karten, Buttons, Links
+- Newsletter-Anmeldung auf der Startseite mit E-Mail-Validierung
 
-## Pages
+## Seiten
 
-| File | Purpose |
+| Datei | Zweck |
 |---|---|
-| `index.html` | Home: hero → intro to DEAR → features → latest podcasts → categories |
-| `podcasts.html` | All podcasts: search → sort toggle → category filter → grid |
-| `podcast-detail.html` | Single podcast: cover (9:16), info, description, transcription `[MM:SS]`, audio player, presenter |
-| `about.html` | About project + contact form (honeypot, Edge Function submit) |
+| `index.html` | Startseite: Hero → Einführung zu DEAR → Features → neueste Podcasts → Kategorien |
+| `podcasts.html` | Alle Podcasts: Suche → Sortierumschalter → Kategoriefilter → Raster |
+| `podcast-detail.html` | Einzelner Podcast: Cover (9:16), Info, Beschreibung, Transkription `[MM:SS]`, Audioplayer, Präsentator |
+| `about.html` | Über Projekt + Kontaktformular (Honeypot, Edge-Function-Absendung) |
 
-## Key Architecture
+## Wichtige Architektur
 
-- **Vite root = `pages/`**, auto-discovers `*.html` as entry points
-- **Header/Footer** rendered via JS modules (`insertAdjacentHTML`)
-- **All data from Supabase** — podcasts, categories, presenters, audio, covers
-- **Reads:** direct browser → Supabase anon key (RLS-gated)
-- **Writes:** contact form → Edge Function → `service_role` key (never in browser)
-- **CSS strategy:** `reset.css` → `main.css` (shared + variables) → per-page CSS
-- **Expandable text** kept (`.expandable-text` + `.expand-btn`)
-- **Sticky header** hides on scroll down, shows on scroll up
-- **Sticky audio player** at top of page while scrolling transcription
-- **Footer** at end of page (normal flow)
+- **Vite-Root = `pages/`**, entdeckt automatisch `*.html` als Einstiegspunkte
+- **Header/Footer** über JS-Module gerendert (`insertAdjacentHTML`)
+- **Alle Daten von Supabase** — Podcasts, Kategorien, Präsentatoren, Audio, Cover
+- **Lesezugriffe:** direkter Browser → Supabase anon key (RLS-geschützt)
+- **Schreibzugriffe:** Kontaktformular → Edge-Function → `service_role` key (niemals im Browser)
+- **CSS-Strategie:** `reset.css` → `main.css` (gemeinsam + Variablen) → pro-Seite-CSS
+- **Aufklappbarer Text** beibehalten (`.expandable-text` + `.expand-btn`)
+- **Feststehender Header** blendet sich beim Runterscrollen aus, zeigt sich beim Hochscrollen
+- **Feststehender Audioplayer** oben auf der Seite beim Scrollen der Transkription
+- **Footer** am Seitenende (normaler Fluss)
 
 ## Supabase
 
-- Tables: `categories`, `podcasts`, `presenters`, `podcast_presenters`, `contact_messages`
+- Tabellen: `categories`, `podcasts`, `presenters`, `podcast_presenters`, `contact_messages`
 - Buckets: `podcast-audio`, `podcast-cover`, `presenter-photos`
-- Edge Function: `contact` (server-side validation + insert) — **deployed**
+- Edge-Function: `contact` (serverseitige Validierung + Insert) — **bereitgestellt**
 
-## Outstanding
+## Ausstehend
 
-- Publish on web server (GitHub Pages workflow exists, needs push + Pages config)
-- Skeleton loaders (VERITE Phase 3 specifies them; currently plain text)
+- Auf Webserver veröffentlichen (GitHub-Pages-Workflow existiert, braucht Push + Pages-Konfiguration)
+- Skeleton-Loader (VERITE Phase 3 gibt sie vor; derzeit reiner Text)
 
-## Conventions
+## Konventionen
 
-- ES modules, no CSS preprocessors, no frameworks
-- Mobile-first: base = mobile, `min-width` queries only
-- Touch targets: min 44px
-- Commits: `type: short description` (feat, refactor, fix, docs, chore)
+- ES-Module, keine CSS-Preprozessoren, keine Frameworks
+- Mobile-First: Basis = Mobile, nur `min-width`-Abfragen
+- Touch-Ziele: mindestens 44px
+- Commits: `typ: kurze beschreibung` (feat, refactor, fix, docs, chore)
 
-## Future (not now)
+## Zukunft (nicht jetzt)
 
 - NuxtJS + TypeScript (v2)
-- User accounts, bookmarks
+- Benutzerkonten, Lesezeichen
