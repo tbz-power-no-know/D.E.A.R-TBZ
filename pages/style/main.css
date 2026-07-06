@@ -26,12 +26,76 @@
   --logo-light: #121212;
 }
 
+[data-theme="dark"] .hero-section {
+  background-color: #0a0a0a;
+  color: #ffffff;
+}
+
+[data-theme="dark"] .hero-subhead {
+  color: #ffffff;
+}
+
+[data-theme="dark"] .podcast-card {
+  background-color: #1a1a1a;
+}
+
+[data-theme="dark"] .podcast-card-content,
+[data-theme="dark"] .podcast-card-title,
+[data-theme="dark"] .podcast-card-description {
+  color: #ffffff;
+}
+
+[data-theme="dark"] .category-card {
+  background-color: #1a1a1a;
+  color: #ffffff;
+}
+
+[data-theme="dark"] .category-card h3,
+[data-theme="dark"] .category-link {
+  color: #ffffff;
+}
+
+[data-theme="dark"] .newsletter-btn {
+  background-color: #ffffff;
+  color: #121212;
+}
+
+[data-theme="dark"] .submit-btn {
+  background-color: #ffffff;
+  color: #121212;
+}
+
+[data-theme="dark"] .sort-btn.active,
+[data-theme="dark"] .filter-btn.active {
+  background-color: #ffffff;
+  color: #121212;
+}
+
+[data-theme="dark"] .feature-card {
+  background-color: #1a1a1a;
+  border-color: #333;
+}
+
+[data-theme="dark"] .feature-card:hover {
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.05);
+}
+
+[data-theme="dark"] .presenter-card {
+  background-color: #1a1a1a;
+}
+
+[data-theme="dark"] .detail-audio {
+  background-color: #121212;
+  box-shadow: 0 2px 8px rgba(255, 255, 255, 0.05);
+}
+
 body {
   font-family: var(--font-body);
   display: flex;
   flex-direction: column;
   min-height: 100vh;
   padding-top: var(--header-height, 0px);
+  background-color: var(--bg-color);
 }
 
 main {
