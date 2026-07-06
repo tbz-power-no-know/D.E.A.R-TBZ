@@ -56,7 +56,6 @@
 ## Outstanding
 
 - Add newsletter subscription (per original assignment)
-- Deploy Supabase schema, seed data, Edge Function, storage buckets
 
 ## Conventions
 
