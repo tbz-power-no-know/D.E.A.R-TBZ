@@ -1,3 +1,10 @@
+.section-title {
+  font-size: 28px;
+  text-align: center;
+  margin: 24px 16px 8px;
+  color: var(--primary);
+}
+
 .search-section {
   padding: 16px;
 }
@@ -37,12 +44,14 @@
   min-height: 44px;
   transition:
     background-color 0.2s,
-    color 0.2s;
+    color 0.2s,
+    transform 0.2s;
 }
 
 .sort-btn:hover {
   background-color: var(--primary);
   color: var(--secondary);
+  transform: scale(0.97);
 }
 
 .sort-btn.active {
@@ -73,7 +82,14 @@
   min-height: 44px;
   transition:
     background-color 0.2s,
-    color 0.2s;
+    color 0.2s,
+    transform 0.2s;
+}
+
+.filter-btn:hover {
+  background-color: var(--primary);
+  color: var(--secondary);
+  transform: scale(0.97);
 }
 
 .filter-btn:hover {
@@ -103,6 +119,12 @@
   overflow: hidden;
   text-decoration: none;
   color: var(--secondary);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.podcast-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .podcast-cover {
