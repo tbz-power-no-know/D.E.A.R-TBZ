@@ -34,7 +34,7 @@ INSERT INTO podcasts (title, description, cover_url, audio_url, transcription, d
   (
     'The Hound of the Baskervilles',
     'A classic Sherlock Holmes mystery set on the eerie Dartmoor. Anna explores the legend of the supernatural hound and Holmes'' brilliant deduction.',
-    'https://ohksnpnmcuoxbyrswjyz.supabase.co/storage/v1/object/public/podcast-covers/lpp.png',
+    'https://ohksnpnmcuoxbyrswjyz.supabase.co/storage/v1/object/public/podcast-cover/lpp.png',
     'https://ohksnpnmcuoxbyrswjyz.supabase.co/storage/v1/object/public/podcast-audio/rain.mp3',
     '[00:00] Hello everyone, welcome to my book presentation for the D.E.A.R. project. Today I want to talk about The Hound of the Baskervilles by Arthur Conan Doyle.
 [00:18] This is probably the most famous Sherlock Holmes novel, and for good reason. It was published in 1902 and it''s the fourth of the five novels featuring Holmes and his loyal friend Dr. Watson.
@@ -58,7 +58,7 @@ INSERT INTO podcasts (title, description, cover_url, audio_url, transcription, d
   (
     'The Hobbit',
     'Lukas presents J.R.R. Tolkien''s beloved tale of Bilbo Baggins'' unexpected journey with a company of dwarves.',
-    'https://ohksnpnmcuoxbyrswjyz.supabase.co/storage/v1/object/public/podcast-covers/lpp.png',
+    'https://ohksnpnmcuoxbyrswjyz.supabase.co/storage/v1/object/public/podcast-cover/lpp.png',
     'https://ohksnpnmcuoxbyrswjyz.supabase.co/storage/v1/object/public/podcast-audio/rain.mp3',
     '[00:00] Hi everyone, today I''m going to talk about The Hobbit by J.R.R. Tolkien. This is one of the most famous fantasy books ever written, and it completely changed the genre forever.
 [00:18] The book was published in 1937, long before Lord of the Rings, and it was originally written as a children''s story. But honestly, it''s a book that people of every age can enjoy.
@@ -85,7 +85,7 @@ INSERT INTO podcasts (title, description, cover_url, audio_url, transcription, d
   (
     'Sapiens: A Brief History of Humankind',
     'Sara summarizes Yuval Noah Harari''s exploration of human history from the Stone Age to the modern world.',
-    'https://ohksnpnmcuoxbyrswjyz.supabase.co/storage/v1/object/public/podcast-covers/lpp.png',
+    'https://ohksnpnmcuoxbyrswjyz.supabase.co/storage/v1/object/public/podcast-cover/lpp.png',
     'https://ohksnpnmcuoxbyrswjyz.supabase.co/storage/v1/object/public/podcast-audio/rain.mp3',
     '[00:00] Hello, today I''m presenting Sapiens: A Brief History of Humankind by Yuval Noah Harari. This is not your typical history book, and it completely changed the way I think about our species.
 [00:20] Harari is an Israeli historian, and this book was first published in 2011 in Hebrew. It became a massive bestseller worldwide and has been translated into more than sixty languages.
@@ -115,7 +115,7 @@ INSERT INTO podcasts (title, description, cover_url, audio_url, transcription, d
   (
     'Steve Jobs',
     'Anna presents Walter Isaacson''s biography of the Apple co-founder, covering his life from adoption to revolutionizing technology.',
-    'https://ohksnpnmcuoxbyrswjyz.supabase.co/storage/v1/object/public/podcast-covers/lpp.png',
+    'https://ohksnpnmcuoxbyrswjyz.supabase.co/storage/v1/object/public/podcast-cover/lpp.png',
     'https://ohksnpnmcuoxbyrswjyz.supabase.co/storage/v1/object/public/podcast-audio/rain.mp3',
     '[00:00] Hi everyone, today I''m presenting the biography of Steve Jobs by Walter Isaacson. This book was published in 2011, the year after Jobs died, and it''s based on more than forty interviews with Jobs himself.
 [00:22] Isaacson also spoke with more than one hundred family members, friends, competitors, and colleagues, so the portrait is incredibly detailed and honest.
@@ -145,7 +145,7 @@ INSERT INTO podcasts (title, description, cover_url, audio_url, transcription, d
   (
     'Pride and Prejudice',
     'Sara discusses Jane Austen''s timeless novel about Elizabeth Bennet and Mr. Darcy, exploring themes of love, class, and reputation.',
-    'https://ohksnpnmcuoxbyrswjyz.supabase.co/storage/v1/object/public/podcast-covers/lpp.png',
+    'https://ohksnpnmcuoxbyrswjyz.supabase.co/storage/v1/object/public/podcast-cover/lpp.png',
     'https://ohksnpnmcuoxbyrswjyz.supabase.co/storage/v1/object/public/podcast-audio/rain.mp3',
     '[00:00] Hello everyone, today I''m talking about Pride and Prejudice by Jane Austen. This novel was published in 1813, and it is widely considered one of the greatest works of English literature.
 [00:20] The famous opening line — It is a truth universally acknowledged, that a single man in possession of a good fortune, must be in want of a wife — is one of the most recognizable sentences in all of literature.
@@ -173,7 +173,7 @@ INSERT INTO podcasts (title, description, cover_url, audio_url, transcription, d
   (
     'The Fault in Our Stars',
     'Lukas presents John Green''s emotional story of two teenagers who fall in love while dealing with cancer.',
-    'https://ohksnpnmcuoxbyrswjyz.supabase.co/storage/v1/object/public/podcast-covers/lpp.png',
+    'https://ohksnpnmcuoxbyrswjyz.supabase.co/storage/v1/object/public/podcast-cover/lpp.png',
     'https://ohksnpnmcuoxbyrswjyz.supabase.co/storage/v1/object/public/podcast-audio/rain.mp3',
     '[00:00] Hey everyone, today I want to talk about The Fault in Our Stars by John Green. This book was published in 2012 and it became one of the best-selling young adult novels of all time.
 [00:20] I have to warn you — this book will make you cry. But it''s not just a sad book. It''s funny, it''s smart, and it''s one of the most honest portrayals of teenage life I''ve ever read.
@@ -201,7 +201,7 @@ INSERT INTO podcasts (title, description, cover_url, audio_url, transcription, d
   (
     'Dune',
     'Lukas explores Frank Herbert''s epic science fiction masterpiece about politics, religion, and survival on the desert planet Arrakis.',
-    'https://ohksnpnmcuoxbyrswjyz.supabase.co/storage/v1/object/public/podcast-covers/lpp.png',
+    'https://ohksnpnmcuoxbyrswjyz.supabase.co/storage/v1/object/public/podcast-cover/lpp.png',
     'https://ohksnpnmcuoxbyrswjyz.supabase.co/storage/v1/object/public/podcast-audio/rain.mp3',
     '[00:00] Welcome to my presentation of Dune by Frank Herbert. This book was published in 1965, and it remains the only science fiction novel to win the Hugo Award, the Nebula Award, and a special Edgar Award.
 [00:20] It is often called the greatest science fiction novel ever written, and I think after reading it, you understand why.
@@ -229,7 +229,7 @@ INSERT INTO podcasts (title, description, cover_url, audio_url, transcription, d
   (
     'Outlander',
     'Sara presents Diana Gabaldon''s historical romance about Claire Randall, a WWII nurse transported back to 18th-century Scotland.',
-    'https://ohksnpnmcuoxbyrswjyz.supabase.co/storage/v1/object/public/podcast-covers/lpp.png',
+    'https://ohksnpnmcuoxbyrswjyz.supabase.co/storage/v1/object/public/podcast-cover/lpp.png',
     'https://ohksnpnmcuoxbyrswjyz.supabase.co/storage/v1/object/public/podcast-audio/rain.mp3',
     '[00:00] Hi everyone, today I''m presenting Outlander by Diana Gabaldon. This is the first book in a series of eight novels, and it was published in 1991. It has since become one of the most beloved historical fiction series ever written.
 [00:22] The story begins in 1945, just after the end of World War II. Claire Randall Beauchamp is a former military nurse returning to Scotland with her husband Frank for their second honeymoon.
@@ -260,7 +260,7 @@ INSERT INTO podcasts (title, description, cover_url, audio_url, transcription, d
   (
     'Gone Girl',
     'Anna presents Gillian Flynn''s psychological thriller about a marriage gone terribly wrong.',
-    'https://ohksnpnmcuoxbyrswjyz.supabase.co/storage/v1/object/public/podcast-covers/lpp.png',
+    'https://ohksnpnmcuoxbyrswjyz.supabase.co/storage/v1/object/public/podcast-cover/lpp.png',
     'https://ohksnpnmcuoxbyrswjyz.supabase.co/storage/v1/object/public/podcast-audio/rain.mp3',
     '[00:00] Hello everyone, today I want to talk about Gone Girl by Gillian Flynn. This novel was published in 2012 and it became an instant bestseller. It was adapted into a film by David Fincher in 2014, but honestly, the book is even better.
 [00:22] The story opens on the morning of Nick and Amy Dunne''s fifth wedding anniversary. Amy has disappeared. The house is a crime scene — there''s blood, a kitchen knife, and signs of a struggle.
@@ -285,7 +285,7 @@ INSERT INTO podcasts (title, description, cover_url, audio_url, transcription, d
   (
     'The Alchemist',
     'Sara discusses Paulo Coelho''s philosophical fable about Santiago''s journey to find his personal legend.',
-    'https://ohksnpnmcuoxbyrswjyz.supabase.co/storage/v1/object/public/podcast-covers/lpp.png',
+    'https://ohksnpnmcuoxbyrswjyz.supabase.co/storage/v1/object/public/podcast-cover/lpp.png',
     'https://ohksnpnmcuoxbyrswjyz.supabase.co/storage/v1/object/public/podcast-audio/rain.mp3',
     '[00:00] Welcome to my presentation of The Alchemist by Paulo Coelho. This book was originally published in Portuguese in 1988, and it has since been translated into more than eighty languages, selling over sixty million copies worldwide.
 [00:22] It''s a short book — you can read it in an afternoon — but it''s the kind of book that stays with you for years.
@@ -311,7 +311,7 @@ INSERT INTO podcasts (title, description, cover_url, audio_url, transcription, d
   (
     'Educated',
     'Anna presents Tara Westover''s memoir about growing up in a survivalist family and eventually earning a PhD from Cambridge.',
-    'https://ohksnpnmcuoxbyrswjyz.supabase.co/storage/v1/object/public/podcast-covers/lpp.png',
+    'https://ohksnpnmcuoxbyrswjyz.supabase.co/storage/v1/object/public/podcast-cover/lpp.png',
     'https://ohksnpnmcuoxbyrswjyz.supabase.co/storage/v1/object/public/podcast-audio/rain.mp3',
     '[00:00] Today I''m presenting Educated by Tara Westover. This memoir was published in 2018, and it won numerous awards including the LA Times Book Award and the Goodreads Choice Award for Memoir and Autobiography.
 [00:20] It was also on Barack Obama''s reading list, and Bill Gates called it one of his favorite books. But awards aside, this is simply one of the most remarkable true stories I have ever read.
@@ -339,7 +339,7 @@ INSERT INTO podcasts (title, description, cover_url, audio_url, transcription, d
   (
     '1984',
     'Lukas presents George Orwell''s dystopian masterpiece about totalitarianism, surveillance, and the power of language.',
-    'https://ohksnpnmcuoxbyrswjyz.supabase.co/storage/v1/object/public/podcast-covers/lpp.png',
+    'https://ohksnpnmcuoxbyrswjyz.supabase.co/storage/v1/object/public/podcast-cover/lpp.png',
     'https://ohksnpnmcuoxbyrswjyz.supabase.co/storage/v1/object/public/podcast-audio/rain.mp3',
     '[00:00] Today I want to talk about 1984 by George Orwell. This novel was published in 1949, just two years after the end of World War II, and it has become the defining work of dystopian fiction.
 [00:20] Orwell wrote it as a warning about totalitarianism, and seventy-five years later, it feels more relevant than ever.
