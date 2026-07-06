@@ -1,7 +1,7 @@
 export function renderHeader() {
   const html = `
     <header class="header">
-      <a href="index.html" class="header-title"><img src="/logo.svg" alt="D.E.A.R." class="header-logo" /></a>
+      <a href="index.html" class="header-title"><img src="logo.svg" alt="D.E.A.R." class="header-logo" /></a>
       <button class="more-nav-button" aria-label="Toggle navigation">☰</button>
       <nav class="navbar">
         <ul class="nav-list">
@@ -12,36 +12,36 @@ export function renderHeader() {
       </nav>
     </header>
   `;
-  document.body.insertAdjacentHTML('afterbegin', html);
+  document.body.insertAdjacentHTML("afterbegin", html);
 
-  const moreBtn = document.querySelector('.more-nav-button');
-  const navbar = document.querySelector('.navbar');
-  moreBtn.addEventListener('click', () => {
-    navbar.classList.toggle('open');
+  const moreBtn = document.querySelector(".more-nav-button");
+  const navbar = document.querySelector(".navbar");
+  moreBtn.addEventListener("click", () => {
+    navbar.classList.toggle("open");
   });
 
-  const header = document.querySelector('header');
+  const header = document.querySelector("header");
   if (!header) return;
 
   const headerHeight = header.offsetHeight;
-  document.body.style.setProperty('--header-height', `${headerHeight}px`);
+  document.body.style.setProperty("--header-height", `${headerHeight}px`);
 
   const threshold = 20;
 
   let lastScrollY = window.scrollY;
 
-  window.addEventListener('scroll', () => {
+  window.addEventListener("scroll", () => {
     const currentScrollY = window.scrollY;
     const diff = currentScrollY - lastScrollY;
 
     if (diff > threshold && currentScrollY > headerHeight) {
-      header.classList.add('header-hidden');
+      header.classList.add("header-hidden");
     } else if (diff < -threshold) {
-      header.classList.remove('header-hidden');
+      header.classList.remove("header-hidden");
     }
 
     if (currentScrollY <= 10) {
-      header.classList.remove('header-hidden');
+      header.classList.remove("header-hidden");
     }
 
     lastScrollY = currentScrollY;
