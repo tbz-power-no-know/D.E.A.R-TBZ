@@ -24,6 +24,9 @@
   <path d="M150 140 Q105 130 55 145 L55 245 Q105 230 150 240 Z" fill="#000"/>
   <path d="M150 140 Q195 130 245 145 L245 245 Q195 230 150 240 Z" fill="#000"/>
 
+  <!-- Second page on left (underneath) -->
+  <path d="M150 147 Q112 137 62 152 L62 238 Q112 223 150 233 Z" fill="#fff" stroke="#000" stroke-width="1.5" stroke-linejoin="round"/>
+
   <!-- Left page -->
   <path d="M150 145 Q110 135 60 150 L60 240 Q110 225 150 235 Z" fill="#fff" stroke="#000" stroke-width="2" stroke-linejoin="round"/>
 

@@ -25,6 +25,15 @@ const logoSvg = `
     <path d="M155 205 Q192 195 232 207"/>
     <path d="M155 220 Q192 210 232 222"/>
   </g>
+  <!-- Second page on left (static, revealed when first page flips) -->
+  <path d="M150 147 Q112 137 62 152 L62 238 Q112 223 150 233 Z" fill="#fff" stroke="#000" stroke-width="1.5" stroke-linejoin="round"/>
+  <g stroke="#000" stroke-width="1" fill="none" stroke-linecap="round">
+    <path d="M147 162 Q110 152 68 164"/>
+    <path d="M147 177 Q110 167 68 179"/>
+    <path d="M147 192 Q110 182 68 194"/>
+    <path d="M147 207 Q110 197 68 209"/>
+    <path d="M147 222 Q110 212 68 224"/>
+  </g>
   <!-- Left page (animated, flips to right) -->
   <g class="page-left">
     <path d="M150 145 Q110 135 60 150 L60 240 Q110 225 150 235 Z" fill="#fff" stroke="#000" stroke-width="2" stroke-linejoin="round"/>
