@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" width="300" height="300">
+  <!-- Antlers -->
+  <g stroke="#000" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Left antler -->
+    <path d="M150 65 Q140 50 125 35"/>
+    <path d="M125 35 Q115 25 105 20"/>
+    <path d="M132 42 Q120 35 112 30"/>
+    <path d="M120 50 Q108 45 100 42"/>
+
+    <!-- Right antler -->
+    <path d="M150 65 Q160 50 175 35"/>
+    <path d="M175 35 Q185 25 195 20"/>
+    <path d="M168 42 Q180 35 188 30"/>
+    <path d="M180 50 Q192 45 200 42"/>
+  </g>
+
+  <!-- D.E.A.R. text -->
+  <text x="150" y="110" text-anchor="middle" font-family="Georgia, serif" font-size="48" font-weight="bold" fill="#000" letter-spacing="6">D.E.A.R.</text>
+
+  <!-- Divider line -->
+  <line x1="80" y1="125" x2="220" y2="125" stroke="#000" stroke-width="1.5" stroke-linecap="round"/>
+
+  <!-- Black cover (bigger than pages) -->
+  <path d="M150 140 Q105 130 55 145 L55 245 Q105 230 150 240 Z" fill="#000"/>
+  <path d="M150 140 Q195 130 245 145 L245 245 Q195 230 150 240 Z" fill="#000"/>
+
+  <!-- Second page on left (underneath) -->
+  <path d="M150 147 Q112 137 62 152 L62 238 Q112 223 150 233 Z" fill="#fff" stroke="#000" stroke-width="1.5" stroke-linejoin="round"/>
+
+  <!-- Left page -->
+  <path d="M150 145 Q110 135 60 150 L60 240 Q110 225 150 235 Z" fill="#fff" stroke="#000" stroke-width="2" stroke-linejoin="round"/>
+
+  <!-- Right page -->
+  <path d="M150 145 Q190 135 240 150 L240 240 Q190 225 150 235 Z" fill="#fff" stroke="#000" stroke-width="2" stroke-linejoin="round"/>
+
+  <!-- Page lines - left -->
+  <g stroke="#000" stroke-width="1" fill="none" stroke-linecap="round">
+    <path d="M145 160 Q108 150 68 162"/>
+    <path d="M145 175 Q108 165 68 177"/>
+    <path d="M145 190 Q108 180 68 192"/>
+    <path d="M145 205 Q108 195 68 207"/>
+    <path d="M145 220 Q108 210 68 222"/>
+  </g>
+
+  <!-- Page lines - right -->
+  <g stroke="#000" stroke-width="1" fill="none" stroke-linecap="round">
+    <path d="M155 160 Q192 150 232 162"/>
+    <path d="M155 175 Q192 165 232 177"/>
+    <path d="M155 190 Q192 180 232 192"/>
+    <path d="M155 205 Q192 195 232 207"/>
+    <path d="M155 220 Q192 210 232 222"/>
+  </g>
+
+  <!-- Spine -->
+  <line x1="150" y1="140" x2="150" y2="240" stroke="#000" stroke-width="2"/>
+</svg>
