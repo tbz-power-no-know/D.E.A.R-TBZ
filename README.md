@@ -56,20 +56,60 @@ D.E.A.R. is a podcast website built for the **Technical Vocational School Zurich
    ```bash
    cp .env.example .env
    ```
-3. Run the Supabase SQL files in order (Supabase Dashboard → SQL Editor):
-   - `docs/supabase-schema.sql` — tables, RLS, storage policies
-   - `docs/supabase-seed.sql` — 8 categories, 3 presenters, 12 sample podcasts
-   - `docs/supabase-contact.sql` — contact_messages table
-4. Create storage buckets in Supabase Dashboard → Storage:
-   - `podcast-audio` (public)
-   - `podcast-covers` (public)
-   - `presenter-photos` (public)
-   - `category-images` (public)
-5. Deploy the Edge Function: `supabase/functions/contact/index.ts`
-6. Start the dev server:
+3. Start the dev server:
    ```bash
    docker compose up
    ```
+
+### Supabase Setup (one-time)
+
+All steps below are done in the [Supabase Dashboard](https://supabase.com/dashboard).
+
+#### 1. Run SQL files
+
+Go to **SQL Editor** and run these files in order:
+
+- `docs/supabase-schema.sql` — creates all tables, RLS policies, and storage policies
+- `docs/supabase-seed.sql` — inserts 8 categories, 3 presenters, and 12 sample podcasts
+
+> **Note:** `docs/supabase-contact.sql` is deprecated — the `contact_messages` table is now included in `supabase-schema.sql`.
+
+#### 2. Create storage buckets
+
+Go to **Storage** and create these 4 buckets. Set each to **Public**:
+
+| Bucket | Purpose |
+|---|---|
+| `podcast-audio` | MP3 audio files |
+| `podcast-covers` | 9:16 cover images |
+| `presenter-photos` | Presenter headshots |
+| `category-images` | Category icons |
+
+#### 3. Deploy the Edge Function
+
+The contact form sends submissions through the `contact` Edge Function (server-side validation + spam protection). You can deploy it via CLI or Dashboard.
+
+**Option A — CLI (recommended):**
+
+```bash
+npm install -g supabase
+supabase login
+supabase link --project-ref <your-project-ref>
+supabase functions deploy contact
+```
+
+**Option B — Dashboard:**
+
+1. Go to **Edge Functions** → **New Function**
+2. Name it `contact` → choose **Blank** template
+3. Replace the template code with the contents of `supabase/functions/contact/index.ts`
+4. Select **Production** → click **Deploy**
+
+> `SUPABASE_URL` and `SUPABASE_SERVICE_ROLE_KEY` are injected automatically by Supabase — no extra environment variables needed.
+
+#### 4. Verify
+
+Open the contact form on the About page and submit a test message. Check **Table Editor → contact_messages** to confirm the row was inserted.
 
 ### Scripts
 
