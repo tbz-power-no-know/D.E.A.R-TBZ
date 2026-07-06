@@ -14,7 +14,7 @@
 - **Mobile-first:** base ~375px (iPhone SE/12), tablet 481px+, desktop 1025px+
 - **Colors:** `--primary: #000`, `--secondary: #fff` (placeholders, will change)
 - **No frameworks** — custom HTML/CSS only, AI assistance allowed
-- **Status:** Phases 1-2, 4-5 done. Phase 3 mostly done (transcription sync done, skeleton loaders pending). GitHub Pages workflow created, needs push.
+- **Status:** Phases 1-2, 4-5 done. Phase 3 mostly done (transcription sync done, skeleton loaders pending). Supabase fully deployed (schema, seed, buckets, Edge Function). GitHub Pages workflow created, needs push.
 
 ## Recent Features
 - Sticky audio player above transcription (full text, no overflow)
@@ -29,7 +29,7 @@
 
 | File | Purpose |
 |---|---|
-| `index.html` | Home: hero → intro to DEAR → latest podcasts → categories |
+| `index.html` | Home: hero → intro to DEAR → features → latest podcasts → categories |
 | `podcasts.html` | All podcasts: search → sort toggle → category filter → grid |
 | `podcast-detail.html` | Single podcast: cover (9:16), info, description, transcription `[MM:SS]`, audio player, presenter |
 | `about.html` | About project + contact form (honeypot, Edge Function submit) |
@@ -50,12 +50,13 @@
 ## Supabase
 
 - Tables: `categories`, `podcasts`, `presenters`, `podcast_presenters`, `contact_messages`
-- Buckets: `podcast-audio`, `podcast-covers`, `presenter-photos`
-- Edge Function: `contact` (server-side validation + insert)
+- Buckets: `podcast-audio`, `podcast-cover`, `presenter-photos`
+- Edge Function: `contact` (server-side validation + insert) — **deployed**
 
 ## Outstanding
 
-- Add newsletter subscription (per original assignment)
+- Publish on web server (GitHub Pages workflow exists, needs push + Pages config)
+- Skeleton loaders (VERITE Phase 3 specifies them; currently plain text)
 
 ## Conventions
 
