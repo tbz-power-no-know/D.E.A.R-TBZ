@@ -11,6 +11,8 @@
   --font-body: "Inter", system-ui, sans-serif;
   --logo-dark: #000000;
   --logo-light: #ffffff;
+  --footer-bg: #000000;
+  --footer-text: #ffffff;
 }
 
 [data-theme="dark"] {
@@ -24,6 +26,8 @@
   --error: #ef5350;
   --logo-dark: #ffffff;
   --logo-light: #121212;
+  --footer-bg: #0a0a0a;
+  --footer-text: #ffffff;
 }
 
 [data-theme="dark"] .hero-section {
@@ -89,9 +93,7 @@
   box-shadow: 0 2px 8px rgba(255, 255, 255, 0.05);
 }
 
-[data-theme="dark"] .footer-list {
-  background-color: #0a0a0a;
-}
+
 
 body {
   font-family: var(--font-body);
@@ -279,18 +281,18 @@ header.header-hidden {
   overflow: hidden;
   padding: 20px 16px;
   width: 100%;
-  color: var(--secondary);
-  background-color: var(--primary);
+  color: var(--footer-text);
+  background-color: var(--footer-bg);
 }
 
 .footer-list h2 {
-  color: var(--secondary);
+  color: var(--footer-text);
   font-size: 14px;
   margin-bottom: 8px;
 }
 
 .footer-list a {
-  color: var(--secondary);
+  color: var(--footer-text);
   font-size: 13px;
 }
 
