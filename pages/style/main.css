@@ -13,6 +13,13 @@
   --logo-light: #ffffff;
   --footer-bg: #000000;
   --footer-text: #ffffff;
+  --hero-bg: #000000;
+  --card-bg: #000000;
+  --card-text: #ffffff;
+  --btn-bg: #000000;
+  --btn-text: #ffffff;
+  --shadow-dark: rgba(0, 0, 0, 0.15);
+  --shadow-light: rgba(0, 0, 0, 0.08);
 }
 
 [data-theme="dark"] {
@@ -28,69 +35,76 @@
   --logo-light: #121212;
   --footer-bg: #0a0a0a;
   --footer-text: #ffffff;
+  --hero-bg: #0a0a0a;
+  --card-bg: #1a1a1a;
+  --card-text: #ffffff;
+  --btn-bg: #ffffff;
+  --btn-text: #121212;
+  --shadow-dark: rgba(255, 255, 255, 0.05);
+  --shadow-light: rgba(255, 255, 255, 0.05);
 }
 
 [data-theme="dark"] .hero-section {
-  background-color: #0a0a0a;
-  color: #ffffff;
+  background-color: var(--hero-bg);
+  color: var(--card-text);
 }
 
 [data-theme="dark"] .hero-subhead {
-  color: #ffffff;
+  color: var(--card-text);
 }
 
 [data-theme="dark"] .podcast-card {
-  background-color: #1a1a1a;
+  background-color: var(--card-bg);
 }
 
 [data-theme="dark"] .podcast-card-content,
 [data-theme="dark"] .podcast-card-title,
 [data-theme="dark"] .podcast-card-description {
-  color: #ffffff;
+  color: var(--card-text);
 }
 
 [data-theme="dark"] .category-card {
-  background-color: #1a1a1a;
-  color: #ffffff;
+  background-color: var(--card-bg);
+  color: var(--card-text);
 }
 
 [data-theme="dark"] .category-card h3,
 [data-theme="dark"] .category-link {
-  color: #ffffff;
+  color: var(--card-text);
 }
 
 [data-theme="dark"] .newsletter-btn {
-  background-color: #ffffff;
-  color: #121212;
+  background-color: var(--btn-bg);
+  color: var(--btn-text);
 }
 
 [data-theme="dark"] .submit-btn {
-  background-color: #ffffff;
-  color: #121212;
+  background-color: var(--btn-bg);
+  color: var(--btn-text);
 }
 
 [data-theme="dark"] .sort-btn.active,
 [data-theme="dark"] .filter-btn.active {
-  background-color: #ffffff;
-  color: #121212;
+  background-color: var(--btn-bg);
+  color: var(--btn-text);
 }
 
 [data-theme="dark"] .feature-card {
-  background-color: #1a1a1a;
-  border-color: #333;
+  background-color: var(--card-bg);
+  border-color: var(--border-color);
 }
 
 [data-theme="dark"] .feature-card:hover {
-  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.05);
+  box-shadow: 0 4px 12px var(--shadow-dark);
 }
 
 [data-theme="dark"] .presenter-card {
-  background-color: #1a1a1a;
+  background-color: var(--card-bg);
 }
 
 [data-theme="dark"] .detail-audio {
-  background-color: #121212;
-  box-shadow: 0 2px 8px rgba(255, 255, 255, 0.05);
+  background-color: var(--bg-color);
+  box-shadow: 0 2px 8px var(--shadow-light);
 }
 
 
