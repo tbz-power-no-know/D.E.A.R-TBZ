@@ -120,7 +120,7 @@
   position: absolute;
   border-radius: 50%;
   filter: blur(80px);
-  opacity: 0.15;
+  opacity: 0.3;
 }
 
 [data-theme="dark"] .bg-circle {
