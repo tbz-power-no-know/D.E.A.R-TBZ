@@ -92,6 +92,28 @@ header.header-hidden {
   width: auto;
 }
 
+/* Page flip animation */
+.page-left {
+  transform-origin: 150px 190px;
+  animation: pageFlip 3s ease-in-out infinite;
+}
+
+.header-logo:hover .page-left {
+  animation-play-state: paused;
+}
+
+@keyframes pageFlip {
+  0%, 15% {
+    transform: rotateY(0deg);
+  }
+  40%, 55% {
+    transform: rotateY(-180deg);
+  }
+  80%, 100% {
+    transform: rotateY(0deg);
+  }
+}
+
 .more-nav-button {
   margin: 30px;
   background-color: transparent;
