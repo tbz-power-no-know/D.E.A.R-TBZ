@@ -9,6 +9,21 @@
   --error: #c0392b;
   --font-heading: "Lora", Georgia, serif;
   --font-body: "Inter", system-ui, sans-serif;
+  --logo-dark: #000000;
+  --logo-light: #ffffff;
+}
+
+[data-theme="dark"] {
+  --primary: #ffffff;
+  --secondary: #1a1a1a;
+  --text-color: #e0e0e0;
+  --border-color: #333333;
+  --bg-color: #121212;
+  --extra-color: #e2b216;
+  --success: #4caf50;
+  --error: #ef5350;
+  --logo-dark: #ffffff;
+  --logo-light: #121212;
 }
 
 body {
@@ -90,6 +105,27 @@ header.header-hidden {
 .header-logo {
   height: 40px;
   width: auto;
+}
+
+/* Dark mode toggle */
+.dark-toggle {
+  background: transparent;
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  font-size: 18px;
+  min-height: 44px;
+  min-width: 44px;
+  cursor: pointer;
+  margin-right: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary);
+  transition: background-color 0.2s, transform 0.2s;
+}
+
+.dark-toggle:hover {
+  transform: scale(0.97);
 }
 
 /* Page flip animation */
@@ -236,6 +272,10 @@ header.header-hidden {
     height: 48px;
   }
 
+  .dark-toggle {
+    margin-right: 20px;
+  }
+
   .more-nav-button {
     margin: 20px;
   }
@@ -270,6 +310,10 @@ header.header-hidden {
 
   .header-logo {
     height: 56px;
+  }
+
+  .dark-toggle {
+    margin-right: 40px;
   }
 
   .more-nav-button {
