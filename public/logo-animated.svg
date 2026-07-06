@@ -26,6 +26,8 @@
 
   <!-- Right page (static, underneath) -->
   <path d="M150 145 Q190 135 240 150 L240 240 Q190 225 150 235 Z" fill="#fff" stroke="#000" stroke-width="2" stroke-linejoin="round"/>
+  <!-- Second page on left (static, revealed when first page flips) -->
+  <path d="M150 147 Q112 137 62 152 L62 238 Q112 223 150 233 Z" fill="#fff" stroke="#000" stroke-width="1.5" stroke-linejoin="round"/>
 
   <!-- Page lines - right -->
   <g stroke="#000" stroke-width="1" fill="none" stroke-linecap="round">
