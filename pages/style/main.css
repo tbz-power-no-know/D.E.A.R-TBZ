@@ -82,8 +82,14 @@ header.header-hidden {
 }
 
 .header-title {
-  margin: 30px;
-  font-size: 30px;
+  margin: 10px 30px;
+  display: flex;
+  align-items: center;
+}
+
+.header-logo {
+  height: 40px;
+  width: auto;
 }
 
 .more-nav-button {
@@ -201,8 +207,11 @@ header.header-hidden {
 /* Tablet */
 @media (min-width: 481px) {
   .header-title {
-    font-size: 34px;
-    margin: 20px;
+    margin: 10px 20px;
+  }
+
+  .header-logo {
+    height: 48px;
   }
 
   .more-nav-button {
@@ -234,8 +243,11 @@ header.header-hidden {
 /* Desktop */
 @media (min-width: 1025px) {
   .header-title {
-    font-size: 36px;
-    margin: 30px 40px;
+    margin: 10px 40px;
+  }
+
+  .header-logo {
+    height: 56px;
   }
 
   .more-nav-button {

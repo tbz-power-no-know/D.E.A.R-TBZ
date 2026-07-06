@@ -1,7 +1,7 @@
 export function renderHeader() {
   const html = `
     <header class="header">
-      <a href="index.html" class="header-title">D.E.A.R</a>
+      <a href="index.html" class="header-title"><img src="/logo.svg" alt="D.E.A.R." class="header-logo" /></a>
       <button class="more-nav-button" aria-label="Toggle navigation">☰</button>
       <nav class="navbar">
         <ul class="nav-list">
