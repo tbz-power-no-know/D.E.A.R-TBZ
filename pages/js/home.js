@@ -16,20 +16,20 @@ export function initNewsletter() {
     const email = input.value.trim()
 
     if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-      status.textContent = 'Please enter a valid email address.'
+      status.textContent = 'Bitte gib eine gültige E-Mail-Adresse ein.'
       status.className = 'newsletter-status is-error'
       return
     }
 
     btn.disabled = true
-    btn.textContent = 'Sending...'
+    btn.textContent = 'Wird gesendet…'
 
     setTimeout(() => {
-      status.textContent = 'Thanks! You\'re subscribed.'
+      status.textContent = 'Danke! Du bist jetzt abonniert.'
       status.className = 'newsletter-status is-success'
       input.value = ''
       btn.disabled = false
-      btn.textContent = 'Subscribe'
+      btn.textContent = 'Abonnieren'
     }, 800)
   })
 }
@@ -40,7 +40,7 @@ export async function renderLatestPodcasts(container, limit = 3) {
     container.innerHTML = ''
 
     if (podcasts.length === 0) {
-      container.innerHTML = '<p class="loading-text">No podcasts yet.</p>'
+      container.innerHTML = '<p class="loading-text">Noch keine Podcasts vorhanden.</p>'
       return
     }
 
@@ -60,7 +60,7 @@ export async function renderLatestPodcasts(container, limit = 3) {
       container.appendChild(card)
     })
   } catch (error) {
-    container.innerHTML = `<p class="loading-text">Error loading podcasts: ${error.message}</p>`
+    container.innerHTML = `<p class="loading-text">Fehler beim Laden der Podcasts: ${error.message}</p>`
   }
 }
 
@@ -70,7 +70,7 @@ export async function renderCategories(container) {
     container.innerHTML = ''
 
     if (categories.length === 0) {
-      container.innerHTML = '<p class="loading-text">No categories yet.</p>'
+      container.innerHTML = '<p class="loading-text">Noch keine Kategorien vorhanden.</p>'
       return
     }
 
@@ -85,12 +85,12 @@ export async function renderCategories(container) {
       card.innerHTML = `
         ${category.image_url ? `<img class="category-image" src="${category.image_url}" alt="${category.name}" />` : ''}
         <h3>${category.name}</h3>
-        <span class="category-link">View podcasts →</span>
+        <span class="category-link">Podcasts ansehen →</span>
       `
 
       container.appendChild(card)
     })
   } catch (error) {
-    container.innerHTML = `<p class="loading-text">Error loading categories: ${error.message}</p>`
+    container.innerHTML = `<p class="loading-text">Fehler beim Laden der Kategorien: ${error.message}</p>`
   }
 }

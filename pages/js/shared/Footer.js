@@ -3,24 +3,24 @@ export function renderFooter() {
     <footer>
       <ul class="footer-list">
         <li>
-          <h2 class="footer-toggle" aria-expanded="false">Home <span class="footer-chevron">▼</span></h2>
+          <h2 class="footer-toggle" aria-expanded="false">Startseite <span class="footer-chevron">▼</span></h2>
           <ul class="footer-menu">
-            <li><a href="index.html#intro">What is that?</a></li>
-            <li><a href="index.html#latest">Latest Podcasts</a></li>
-            <li><a href="index.html#categories">Categories</a></li>
+            <li><a href="index.html#intro">Was ist das?</a></li>
+            <li><a href="index.html#latest">Neueste Podcasts</a></li>
+            <li><a href="index.html#categories">Kategorien</a></li>
           </ul>
         </li>
         <li>
           <h2 class="footer-toggle" aria-expanded="false">Podcasts <span class="footer-chevron">▼</span></h2>
           <ul class="footer-menu">
-            <li><a href="podcasts.html">All Podcasts</a></li>
+            <li><a href="podcasts.html">Alle Podcasts</a></li>
           </ul>
         </li>
         <li>
-          <h2 class="footer-toggle" aria-expanded="false">About <span class="footer-chevron">▼</span></h2>
+          <h2 class="footer-toggle" aria-expanded="false">Über uns <span class="footer-chevron">▼</span></h2>
           <ul class="footer-menu">
-            <li><a href="about.html">About this project</a></li>
-            <li><a href="about.html#contact">Contact Form</a></li>
+            <li><a href="about.html">Über dieses Projekt</a></li>
+            <li><a href="about.html#contact">Kontaktformular</a></li>
           </ul>
         </li>
       </ul>

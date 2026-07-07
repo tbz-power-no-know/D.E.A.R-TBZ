@@ -30,14 +30,14 @@ Deno.serve(async (req) => {
   }
 
   if (req.method !== "POST") {
-    return jsonResponse({ ok: false, error: "Method not allowed" }, 405);
+    return jsonResponse({ ok: false, error: "Methode nicht erlaubt" }, 405);
   }
 
   let payload: Record<string, unknown>;
   try {
     payload = await req.json();
   } catch {
-    return jsonResponse({ ok: false, error: "Invalid JSON body" }, 400);
+    return jsonResponse({ ok: false, error: "Ungültiger JSON-Body" }, 400);
   }
 
   // Honeypot: humans leave this empty, bots fill it. Pretend success and drop.
@@ -59,7 +59,7 @@ Deno.serve(async (req) => {
   if (!message || message.length > 5000) invalidFields.push("message");
 
   if (invalidFields.length > 0) {
-    return jsonResponse({ ok: false, error: `Invalid fields: ${invalidFields.join(", ")}` }, 400);
+    return jsonResponse({ ok: false, error: `Ungültige Felder: ${invalidFields.join(", ")}` }, 400);
   }
 
   // service_role client — server-side only, bypasses RLS to write the private table.
@@ -76,7 +76,7 @@ Deno.serve(async (req) => {
   if (error) {
     console.error("contact_messages insert failed:", error);
     return jsonResponse(
-      { ok: false, error: "Could not save your message. Please try again later." },
+      { ok: false, error: "Deine Nachricht konnte nicht gespeichert werden. Bitte versuche es später erneut." },
       500,
     );
   }
