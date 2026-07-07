@@ -119,7 +119,9 @@
   overflow: hidden;
   text-decoration: none;
   color: var(--secondary);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .podcast-card:hover {
@@ -166,5 +168,9 @@
 @media (min-width: 1025px) {
   .podcasts-grid {
     grid-template-columns: repeat(3, 1fr);
+  }
+
+  .podcast-cover {
+    object-fit: contain;
   }
 }
