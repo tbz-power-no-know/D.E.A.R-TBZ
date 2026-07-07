@@ -305,6 +305,10 @@
     grid-template-columns: repeat(3, 1fr);
   }
 
+  .podcast-cover {
+    object-fit: contain;
+  }
+
   .intro-text {
     max-width: 50%;
   }
