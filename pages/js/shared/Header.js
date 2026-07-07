@@ -1,4 +1,4 @@
-import { toggleDarkMode } from '../darkmode.js'
+import { toggleDarkMode } from "../darkmode.js";
 
 const logoSvg = `
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" class="header-logo">
@@ -64,12 +64,30 @@ const logoSvg = `
 `;
 
 function updateToggleIcon() {
-  const btn = document.querySelector('.dark-toggle')
-  if (!btn) return
-  const theme = document.documentElement.getAttribute('data-theme')
-  const iconSrc = theme === 'dark' ? '/sun-icon.svg' : '/moon-icon.svg'
-  btn.innerHTML = `<img src="${iconSrc}" alt="" class="dark-toggle-icon" />`
-  btn.setAttribute('aria-label', theme === 'dark' ? 'Zum hellen Modus wechseln' : 'Zum dunklen Modus wechseln')
+  const btn = document.querySelector(".dark-toggle");
+  if (!btn) return;
+  const theme = document.documentElement.getAttribute("data-theme");
+  const sunSvg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="12" cy="12" r="5"/>
+    <line x1="12" y1="1" x2="12" y2="3"/>
+    <line x1="12" y1="21" x2="12" y2="23"/>
+    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+    <line x1="1" y1="12" x2="3" y2="12"/>
+    <line x1="21" y1="12" x2="23" y2="12"/>
+    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+  </svg>`;
+  const moonSvg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+  </svg>`;
+  btn.innerHTML = theme === "dark" ? sunSvg : moonSvg;
+  btn.setAttribute(
+    "aria-label",
+    theme === "dark"
+      ? "Zum hellen Modus wechseln"
+      : "Zum dunklen Modus wechseln",
+  );
 }
 
 export function renderHeader() {
@@ -107,7 +125,10 @@ export function renderHeader() {
 
   const updateHeaderHeight = () => {
     const headerHeight = header.offsetHeight;
-    document.documentElement.style.setProperty("--header-height", `${headerHeight}px`);
+    document.documentElement.style.setProperty(
+      "--header-height",
+      `${headerHeight}px`,
+    );
   };
 
   requestAnimationFrame(updateHeaderHeight);
@@ -134,7 +155,11 @@ export function renderHeader() {
     const isVisible = !header.classList.contains("header-hidden");
     if (isVisible !== lastVisible) {
       lastVisible = isVisible;
-      window.dispatchEvent(new CustomEvent("header-visibility-changed", { detail: { visible: isVisible } }));
+      window.dispatchEvent(
+        new CustomEvent("header-visibility-changed", {
+          detail: { visible: isVisible },
+        }),
+      );
     }
 
     lastScrollY = currentScrollY;

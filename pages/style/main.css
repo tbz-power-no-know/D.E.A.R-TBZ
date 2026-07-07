@@ -278,12 +278,6 @@ header.header-hidden {
   transform: scale(0.97);
 }
 
-.dark-toggle-icon {
-  width: 20px;
-  height: 20px;
-  display: block;
-}
-
 /* Page flip animation */
 .page-left {
   transform-origin: 150px 190px;
@@ -342,6 +336,10 @@ header.header-hidden {
   min-height: 44px;
   min-width: 44px;
   cursor: pointer;
+}
+
+[data-theme="dark"] .more-nav-button {
+  color: var(--primary);
 }
 
 .navbar {
