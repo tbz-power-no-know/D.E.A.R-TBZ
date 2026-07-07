@@ -50,7 +50,7 @@ export async function initFilter() {
     if (sortBtn) {
       sortBtn.addEventListener('click', () => {
         sortOrder = sortOrder === 'newest' ? 'oldest' : 'newest'
-        sortBtn.textContent = sortOrder === 'newest' ? 'Newest first' : 'Oldest first'
+        sortBtn.textContent = sortOrder === 'newest' ? 'Neueste zuerst' : 'Älteste zuerst'
         sortBtn.classList.toggle('active', sortOrder === 'oldest')
 
         const activeFilter = document.querySelector('.filter-btn.active')
@@ -65,7 +65,7 @@ export async function initFilter() {
       handleFilter(categoryId, activeFilter)
     })
   } catch (error) {
-    gridContainer.innerHTML = `<p class="loading-text">Error: ${error.message}</p>`
+    gridContainer.innerHTML = `<p class="loading-text">Fehler: ${error.message}</p>`
   }
 }
 
@@ -108,7 +108,7 @@ function renderPodcasts(podcasts, container) {
   container.innerHTML = ''
 
   if (podcasts.length === 0) {
-    container.innerHTML = '<p class="loading-text">No podcasts found.</p>'
+    container.innerHTML = '<p class="loading-text">Keine Podcasts gefunden.</p>'
     return
   }
 

@@ -47,6 +47,17 @@ const logoSvg = `
       <path d="M145 220 Q108 210 68 222"/>
     </g>
   </g>
+  <!-- Right page (animated, flips to left) -->
+  <g class="page-right">
+    <path d="M150 145 Q190 135 240 150 L240 240 Q190 225 150 235 Z" fill="var(--logo-light)" stroke="var(--logo-dark)" stroke-width="2" stroke-linejoin="round"/>
+    <g stroke="var(--logo-dark)" stroke-width="1" fill="none" stroke-linecap="round">
+      <path d="M155 160 Q192 150 232 162"/>
+      <path d="M155 175 Q192 165 232 177"/>
+      <path d="M155 190 Q192 180 232 192"/>
+      <path d="M155 205 Q192 195 232 207"/>
+      <path d="M155 220 Q192 210 232 222"/>
+    </g>
+  </g>
   <!-- Spine -->
   <line x1="150" y1="140" x2="150" y2="240" stroke="var(--logo-dark)" stroke-width="2"/>
 </svg>
@@ -57,20 +68,20 @@ function updateToggleIcon() {
   if (!btn) return
   const theme = document.documentElement.getAttribute('data-theme')
   btn.textContent = theme === 'dark' ? '☀️' : '🌙'
-  btn.setAttribute('aria-label', theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode')
+  btn.setAttribute('aria-label', theme === 'dark' ? 'Zum hellen Modus wechseln' : 'Zum dunklen Modus wechseln')
 }
 
 export function renderHeader() {
   const html = `
     <header class="header">
       <a href="index.html" class="header-title">${logoSvg}</a>
-      <button class="dark-toggle" aria-label="Toggle dark mode"></button>
-      <button class="more-nav-button" aria-label="Toggle navigation">☰</button>
+      <button class="dark-toggle" aria-label="Dunklen Modus umschalten"></button>
+      <button class="more-nav-button" aria-label="Navigation umschalten">☰</button>
       <nav class="navbar">
         <ul class="nav-list">
-          <li class="nav-item"><a href="index.html">Home</a></li>
+          <li class="nav-item"><a href="index.html">Startseite</a></li>
           <li class="nav-item"><a href="podcasts.html">Podcasts</a></li>
-          <li class="nav-item"><a href="about.html">About</a></li>
+          <li class="nav-item"><a href="about.html">Über uns</a></li>
         </ul>
       </nav>
     </header>
@@ -93,18 +104,23 @@ export function renderHeader() {
   const header = document.querySelector("header");
   if (!header) return;
 
-  const headerHeight = header.offsetHeight;
-  document.body.style.setProperty("--header-height", `${headerHeight}px`);
+  const updateHeaderHeight = () => {
+    const headerHeight = header.offsetHeight;
+    document.documentElement.style.setProperty("--header-height", `${headerHeight}px`);
+  };
+
+  requestAnimationFrame(updateHeaderHeight);
+  window.addEventListener("resize", updateHeaderHeight);
 
   const threshold = 20;
-
   let lastScrollY = window.scrollY;
+  let lastVisible = true;
 
   window.addEventListener("scroll", () => {
     const currentScrollY = window.scrollY;
     const diff = currentScrollY - lastScrollY;
 
-    if (diff > threshold && currentScrollY > headerHeight) {
+    if (diff > threshold && currentScrollY > threshold) {
       header.classList.add("header-hidden");
     } else if (diff < -threshold) {
       header.classList.remove("header-hidden");
@@ -112,6 +128,12 @@ export function renderHeader() {
 
     if (currentScrollY <= 10) {
       header.classList.remove("header-hidden");
+    }
+
+    const isVisible = !header.classList.contains("header-hidden");
+    if (isVisible !== lastVisible) {
+      lastVisible = isVisible;
+      window.dispatchEvent(new CustomEvent("header-visibility-changed", { detail: { visible: isVisible } }));
     }
 
     lastScrollY = currentScrollY;

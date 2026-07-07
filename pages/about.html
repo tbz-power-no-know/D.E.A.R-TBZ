@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="de">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -14,21 +14,22 @@
     <link rel="stylesheet" href="style/main.css" />
     <link rel="stylesheet" href="style/about.css" />
     <script type="module" src="/js/main.js"></script>
-    <title>D.E.A.R — About</title>
+    <title>D.E.A.R — Über uns</title>
   </head>
   <body>
     <main>
       <section class="about-section">
-        <h2>About D.E.A.R</h2>
+        <h2>Über D.E.A.R.</h2>
         <p>
-          D.E.A.R. stands for "Drop Everything And Read". This project showcases
-          book presentations produced as podcasts by students in ABU (General
-          Education) classes.
+          D.E.A.R. steht für „Drop Everything And Read" (Lass alles fallen und
+          lies). Dieses Projekt präsentiert Buchvorstellungen, die als Podcasts
+          von Schülerinnen und Schülern in ABU- (Allgemeinbildung) Klassen
+          produziert wurden.
         </p>
       </section>
 
       <section class="contact-section">
-        <h2>Contact Us</h2>
+        <h2>Kontakt</h2>
         <form class="contact-form" action="#" method="POST" novalidate>
           <!-- Honeypot: hidden from users, catches bots that fill every field -->
           <input
@@ -46,23 +47,23 @@
           </div>
 
           <div class="form-group">
-            <label for="contact-email">Email</label>
+            <label for="contact-email">E-Mail</label>
             <input type="email" id="contact-email" name="email" required />
           </div>
 
           <div class="form-group">
-            <label for="contact-subject">Subject</label>
+            <label for="contact-subject">Betreff</label>
             <select id="contact-subject" name="subject" required>
-              <option value="" disabled selected>Select a subject</option>
+              <option value="" disabled selected>Wähle einen Betreff</option>
               <option value="feedback">Feedback</option>
-              <option value="technical">Technical Issue</option>
-              <option value="recommendation">Book Recommendation</option>
-              <option value="other">Other</option>
+              <option value="technical">Technisches Problem</option>
+              <option value="recommendation">Buchempfehlung</option>
+              <option value="other">Sonstiges</option>
             </select>
           </div>
 
           <div class="form-group">
-            <label for="contact-message">Message</label>
+            <label for="contact-message">Nachricht</label>
             <textarea
               id="contact-message"
               style="resize: none"
@@ -72,7 +73,7 @@
             ></textarea>
           </div>
 
-          <button type="submit" class="submit-btn">Send</button>
+          <button type="submit" class="submit-btn">Senden</button>
 
           <p class="form-status" role="status" aria-live="polite"></p>
         </form>

@@ -1,197 +1,197 @@
--- D.E.A.R. Podcast Website — Seed Data
--- Run AFTER supabase-schema.sql
--- Replace placeholder URLs with real Supabase Storage URLs
+-- D.E.A.R. Podcast-Website — Seed-Daten
+-- Nach supabase-schema.sql ausführen
+-- Platzhalter-URLs durch echte Supabase Storage-URLs ersetzen
 
 -- =====================================================
--- CATEGORIES
+-- KATEGORIEN
 -- =====================================================
 
 INSERT INTO categories (name, color) VALUES
-  ('Crime', '#8b0000'),
+  ('Krimi', '#8b0000'),
   ('Fantasy', '#4b0082'),
-  ('Non-Fiction', '#00695c'),
-  ('Biography', '#1a237e'),
-  ('Classics', '#4e342e'),
+  ('Sachbuch', '#00695c'),
+  ('Biografie', '#1a237e'),
+  ('Klassiker', '#4e342e'),
   ('Young Adult', '#e64a19'),
   ('Science Fiction', '#0d47a1'),
-  ('Romance', '#880e4f');
+  ('Romantik', '#880e4f');
 
 -- =====================================================
--- PRESENTERS
+-- PRÄSENTATOREN
 -- =====================================================
 
 INSERT INTO presenters (name, photo_url, bio) VALUES
-  ('Anna Müller', 'https://ohksnpnmcuoxbyrswjyz.supabase.co/storage/v1/object/public/presenter-photos/lpp.png', 'Student in class 3B, loves mystery novels and classic literature.'),
-  ('Lukas Schneider', 'https://ohksnpnmcuoxbyrswjyz.supabase.co/storage/v1/object/public/presenter-photos/lpp.png', 'Student in class 3A, passionate about science fiction and fantasy.'),
-  ('Sara Fischer', 'https://ohksnpnmcuoxbyrswjyz.supabase.co/storage/v1/object/public/presenter-photos/lpp.png', 'Student in class 3C, enjoys biographies and non-fiction works.');
+  ('Anna Müller', 'https://ohksnpnmcuoxbyrswjyz.supabase.co/storage/v1/object/public/presenter-photos/lpp.png', 'Schülerin in der Klasse 3B, liebt Krimis und klassische Literatur.'),
+  ('Lukas Schneider', 'https://ohksnpnmcuoxbyrswjyz.supabase.co/storage/v1/object/public/presenter-photos/lpp.png', 'Schüler in der Klasse 3A, begeistert von Science Fiction und Fantasy.'),
+  ('Sara Fischer', 'https://ohksnpnmcuoxbyrswjyz.supabase.co/storage/v1/object/public/presenter-photos/lpp.png', 'Schülerin in der Klasse 3C, interessiert sich für Biografien und Sachbücher.');
 
 -- =====================================================
 -- PODCASTS
 -- =====================================================
 
--- Crime
+-- Krimi
 INSERT INTO podcasts (title, description, cover_url, audio_url, transcription, duration, category_id) VALUES
   (
-    'The Hound of the Baskervilles',
-    'A classic Sherlock Holmes mystery set on the eerie Dartmoor. Anna explores the legend of the supernatural hound and Holmes'' brilliant deduction.',
+    'Die Hund von Baskerville',
+    'Ein klassischer Sherlock-Holmes-Krimi im unheimlichen Dartmoor. Anna erforscht die Legende vom übernatürlichen Hund und Holmes'' brillante Deduktion.',
     'https://ohksnpnmcuoxbyrswjyz.supabase.co/storage/v1/object/public/podcast-cover/lpp.png',
     'https://ohksnpnmcuoxbyrswjyz.supabase.co/storage/v1/object/public/podcast-audio/rain.mp3',
-    '[00:00] Hello everyone, welcome to my book presentation for the D.E.A.R. project. Today I want to talk about The Hound of the Baskervilles by Arthur Conan Doyle.
-[00:18] This is probably the most famous Sherlock Holmes novel, and for good reason. It was published in 1902 and it''s the fourth of the five novels featuring Holmes and his loyal friend Dr. Watson.
-[00:38] The story begins with a letter that Dr. Watson receives from Sir Henry Baskerville, a young man who has just inherited the Baskerville estate in Devonshire. The letter warns him about a family curse involving a monstrous hound.
-[00:58] Now, what makes this book so special is the setting. Dartmoor is not just a backdrop — it''s almost a character itself. The fog, the marshes, the isolated moorland houses, everything creates this incredible atmosphere of dread and mystery.
-[01:20] The legend goes back generations. A man named Hugo Baskerville was said to have been killed by a giant hound after a night of debauchery. And now, Sir Charles Baskerville, the previous owner of the estate, has died under mysterious circumstances.
-[01:40] Holmes is called in to investigate, but instead of going himself right away, he sends Watson to Baskerville Hall while he stays behind in London. This is a brilliant narrative choice by Doyle because it means we experience the mystery through Watson''s eyes first.
-[02:00] As Watson explores the moor and talks to the locals, strange things keep happening. A ghostly figure is seen walking the moor at night. Someone is following Sir Henry. And there are these terrible howls echoing across the moorland.
-[02:20] The genius of this novel is that Doyle gives us so many possible explanations. Is it really a supernatural hound? Is it a criminal plot? Or is it something else entirely? Each chapter adds new clues and new red herrings.
-[02:40] When Holmes finally arrives on the moor, he reveals that he''s been investigating from London all along. His method of deduction is absolutely fascinating — he pieces together the truth from the smallest details.
-[03:00] The climax takes place on the moor at night, and it''s one of the most thrilling scenes in all of literature. The fog is so thick you can barely see, and then the hound appears — a real hound, but covered in phosphorus to make it look supernatural.
-[03:20] In the end, the villain is revealed to be Stapleton, a member of the Baskerville family who wanted to inherit the estate. He used the legend of the hound to frighten people and carry out his murders.
-[03:40] What I loved most about this book is how Doyle balances the supernatural with the rational. The story makes you believe in the impossible, but then Holmes always brings reason back. It''s a perfect mystery.
-[04:00] I would highly recommend this book to anyone who loves a good mystery. It''s not too long, the pacing is excellent, and the atmosphere is unforgettable. Thank you for listening to my presentation!',
+    '[00:00] Hallo zusammen, willkommen zu meiner Buchpräsentation für das D.E.A.R.-Projekt. Heute möchte ich über Die Hund von Baskerville von Arthur Conan Doyle sprechen.
+[00:18] Dies ist wahrscheinlich der berühmteste Sherlock-Holmes-Roman, und das aus gutem Grund. Er erschien 1902 und ist der vierte von fünf Romanen mit Holmes und seinem treuen Freund Dr. Watson.
+[00:38] Die Geschichte beginnt mit einem Brief, den Dr. Watson von Sir Henry Baskerville erhält, einem jungen Mann, der gerade das Anwesen der Baskervilles in Devonshire geerbt hat. Der Brief warnt ihn vor einem Familienfluch, der einen monströsen Hund beinhaltet.
+[00:58] Was dieses Buch so besonders macht, ist die Kulisse. Dartmoor ist nicht nur ein Hintergrund — es ist fast ein Charakter für sich. Der Nebel, die Moore, die isolierten Häuser auf der Heide, alles erzeugt diese unglaubliche Atmosphäre der Angst und des Geheimnisvollen.
+[01:20] Die Legende reicht Generationen zurück. Ein Mann namens Hugo Baskerville soll nach einer Nacht des Lasters von einem riesigen Hund getötet worden sein. Und jetzt ist Sir Charles Baskerville, der vorherige Besitzer des Anwesens, unter mysteriösen Umständen gestorben.
+[01:40] Holmes wird zur Untersuchung gerufen, statt selbst hinzugehen, schickt er Watson nach Baskerville Hall, während er in London bleibt. Das ist eine brillante narrative Entscheidung von Doyle, denn so erleben wir das Geheimnis zuerst durch Watsons Augen.
+[02:00] Während Watson die Heide erforscht und mit den Einwohnern spricht, passieren seltsame Dinge. Eine gespenstische Gestalt wird nachts auf der Heide gesehen. Jemand verfolgt Sir Henry. Und es gibt diese schrecklichen Geheulgeräusche, die über die Moore widerhallen.
+[02:20] Das Geniale an diesem Roman ist, dass Doyle uns so viele mögliche Erklärungen gibt. Ist es wirklich ein übernatürlicher Hund? Ist es ein krimineller Plan? Oder ist es etwas ganz anderes? Jedes Kapitel fügt neue Hinweise und neue rote Fäden hinzu.
+[02:40] Als Holmes endlich auf der Heide eintrifft, enthüllt er, dass er schon die ganze Zeit von London aus ermittelt hat. Seine Methode der Deduktion ist absolut faszinierend — er setzt die Wahrheit aus den kleinsten Details zusammen.
+[03:00] Der Höhepunkt spielt nachts auf der Heide und ist eine der spannendsten Szenen in der gesamten Literatur. Der Nebel ist so dicht, dass man kaum etwas sieht, und dann erscheint der Hund — ein echter Hund, aber mit Phosphor bedeckt, um übernatürlich zu wirken.
+[03:20] Am Ende stellt sich heraus, dass der Bösewicht Stapleton ist, ein Mitglied der Familie Baskerville, das das Anwesen erben wollte. Er nutzte die Legende vom Hund, um Menschen zu erschrecken und seine Morde zu begehen.
+[03:40] Was mir am meisten an diesem Buch gefallen hat, ist, wie Doyle das Übernatürliche mit dem Rationalen ausbalanciert. Die Geschichte lässt einen an das Unmögliche glauben, aber dann bringt Holmes immer die Vernunft zurück. Es ist ein perfekter Krimi.
+[04:00] Ich würde dieses Buch jedem wärmstens empfehlen, der einen guten Krimi liebt. Es ist nicht zu lang, das Tempo ist ausgezeichnet und die Atmosphäre ist unvergesslich. Danke fürs Zuhören!',
     INTERVAL '5 minutes',
-    (SELECT id FROM categories WHERE name = 'Crime')
+    (SELECT id FROM categories WHERE name = 'Krimi')
   );
 
 -- Fantasy
 INSERT INTO podcasts (title, description, cover_url, audio_url, transcription, duration, category_id) VALUES
   (
-    'The Hobbit',
-    'Lukas presents J.R.R. Tolkien''s beloved tale of Bilbo Baggins'' unexpected journey with a company of dwarves.',
+    'Der Hobbit',
+    'Lukas präsentiert J.R.R. Tolkiens geliebte Geschichte von Bilbo Beutlins unerwarteter Reise mit einer Gruppe von Zwergen.',
     'https://ohksnpnmcuoxbyrswjyz.supabase.co/storage/v1/object/public/podcast-cover/lpp.png',
     'https://ohksnpnmcuoxbyrswjyz.supabase.co/storage/v1/object/public/podcast-audio/rain.mp3',
-    '[00:00] Hi everyone, today I''m going to talk about The Hobbit by J.R.R. Tolkien. This is one of the most famous fantasy books ever written, and it completely changed the genre forever.
-[00:18] The book was published in 1937, long before Lord of the Rings, and it was originally written as a children''s story. But honestly, it''s a book that people of every age can enjoy.
-[00:36] The story starts in the most unexpected way. We meet Bilbo Baggins, a hobbit who lives in a comfortable hole in the ground in the Shire. He likes quiet evenings, good food, and no adventures. He is the last person you would expect to go on a quest.
-[00:55] But one day, the wizard Gandalf shows up at his door with a company of thirteen dwarves led by Thorin Oakenshield. They need a burglar for their mission, and Gandalf thinks Bilbo is the perfect choice.
-[01:13] The dwarves want to reclaim their homeland, the Lonely Mountain, from the dragon Smaug. It''s a huge task, and Bilbo is terrified at first. He doesn''t want to leave his comfortable home. But something inside him wants adventure, and so the journey begins.
-[01:32] One of my favorite parts of the book is when Bilbo gets separated from the dwarves and has to save himself from three trolls. He learns to be resourceful and clever, and this is the beginning of his transformation from a timid hobbit to a brave adventurer.
-[01:50] Then there''s the scene in the Misty Mountains with the goblins, and the escape through the caves. And of course, the encounter with Gollum in the dark underground tunnels. The riddle game between Bilbo and Gollum is one of the most famous scenes in fantasy literature.
-[02:10] During this encounter, Bilbo finds a ring that makes him invisible. At this point, Tolkien probably didn''t plan for this ring to become the central object of Lord of the Rings, but it ends up being the most important discovery in all of Middle-earth.
-[02:28] The journey continues through the forests of Mirkwood, where the dwarves get captured by elves, and Bilbo has to find a way to free them using the barrels. It''s funny and clever and shows how Bilbo has become much braver.
-[02:46] When they finally reach the Lonely Mountain, Bilbo has to face the dragon Smaug. This is an incredible scene because Bilbo is just a small hobbit talking to the most powerful creature in the region. And he does it with wit and courage.
-[03:05] Smaug is such a well-written villain. He''s intelligent, arrogant, and dangerous. The conversation between Bilbo and Smaug is like a psychological battle, and Bilbo manages to outsmart him.
-[03:23] But the story doesn''t end there. Smaug''s defeat leads to a conflict between the dwarves, the elves, and the men of Lake-town. Greed takes over, and Thorin is affected by the curse of the Arkenstone.
-[03:40] In the end, the Battle of Five Armies takes place, and Bilbo plays a crucial role in saving everyone. He returns to the Shire changed — wiser, braver, and richer. He''s no longer just a simple hobbit who likes quiet evenings.
-[03:58] What I love most about The Hobbit is the sense of wonder. Tolkien creates a world that feels completely real, with its own history, languages, and cultures. Every place you visit on the journey feels unique and alive.
-[04:15] The book also teaches us that even the smallest person can change the course of the future. Bilbo proves that courage isn''t about being big and strong — it''s about doing the right thing even when you''re scared.
-[04:32] I think everyone should read The Hobbit at least once. It''s a beautiful story about friendship, courage, and finding out who you really are. Thank you for listening!',
+    '[00:00] Hallo zusammen, heute spreche ich über Der Hobbit von J.R.R. Tolkien. Dies ist eines der berühmtesten Fantasy-Bücher, die je geschrieben wurden, und es hat das Genre für immer verändert.
+[00:18] Das Buch erschien 1937, lange vor Der Herr der Ringe, und war ursprünglich als Kindergeschichte geschrieben. Ehrlich gesagt ist es aber ein Buch, das Menschen jeden Alters genießen können.
+[00:36] Die Geschichte beginnt auf die unerwartetste Weise. Wir treffen Bilbo Beutlin, einen Hobbit, der in einem gemütlichen Loch im Boden in der Graunschur lebt. Er mag ruhige Abende, gutes Essen und keine Abenteuer. Er ist die letzte Person, von der man erwarten würde, dass sie sich auf eine Quest macht.
+[00:55] Aber eines Tages erscheint der Zauberer Gandalf an seiner Tür mit einer Gruppe von dreizehn Zwergen unter der Führung von Thorin Eichenherz. Sie brauchen einen Einbrecher für ihre Mission, und Gandalf denkt, Bilbo ist die perfekte Wahl.
+[01:13] Die Zwerge wollen ihre Heimat, den Einstenberg, vom Drachen Smaug zurückerobern. Es ist eine riesige Aufgabe und Bilbo ist anfangs erschrocken. Er will sein gemütliches Zuhause nicht verlassen. Aber etwas in ihm sehnt sich nach Abenteuer und so beginnt die Reise.
+[01:32] Einer meiner Lieblingsteile des Buches ist, wenn Bilbo sich von den Zwergen trennt und sich selbst vor drei Trollen retten muss. Er lernt, resourceful und clever zu sein, und das ist der Beginn seiner Verwandlung von einem ängstlichen Hobbit zu einem tapferen Abenteurer.
+[01:50] Dann gibt es die Szene in den Nebelbergen mit den Orks und die Flucht durch die Höhlen. Und natürlich die Begegnung mit dem Sméagol in den dunklen unterirdischen Tunneln. Das Ratespiel zwischen Bilbo und dem Sméagol ist eine der berühmtesten Szenen in der Fantasy-Literatur.
+[02:10] Während dieser Begegnung findet Bilbo einen Ring, der ihn unsichtbar macht. Zu diesem Zeitpunkt plante Tolkien wahrscheinlich nicht, dass dieser Ring zum zentralen Objekt von Der Herr der Ringe wird, aber am Ende ist es die wichtigste Entdeckung in ganz Mittelerde.
+[02:28] Die Reise geht durch die Wälder von Mirkwood weiter, wo die Zwerge von Elben gefangen werden und Bilbo einen Weg finden muss, sie mit Fässern zu befreien. Es ist lustig und clever und zeigt, wie viel tapferer Bilbo geworden ist.
+[02:46] Als sie endlich den Einstenberg erreichen, muss Bilbo den Drachen Smaug gegenüberstehen. Das ist eine unglaubliche Szene, denn Bilbo ist nur ein kleiner Hobbit, der mit der mächtigsten Kreatur in der Region spricht. Und er tut es mit Witz und Mut.
+[03:05] Smaug ist ein so gut geschriebener Bösewicht. Er ist intelligent, arrogant und gefährlich. Das Gespräch zwischen Bilbo und Smaug ist wie eine psychologische Schlacht und Bilbo schafft es, ihn auszutricksen.
+[03:23] Aber die Geschichte endet damit noch nicht. Smaugs Niederlage führt zu einem Konflikt zwischen den Zwergen, den Elben und den Menschen von Esgaroth. Gier übernimmt die Kontrolle und Thorin wird von dem Fluch des Arkensteins betroffen.
+[03:40] Am Ende findet die Fünf-Heere-Schlacht statt und Bilbo spielt eine entscheidende Rolle dabei, alle zu retten. Er kehrt in die Graunschur zurück — verändert, weiser, tapferer und reicher. Er ist nicht mehr nur ein einfacher Hobbit, der ruhige Abende mag.
+[03:58] Was ich am meisten an Der Hobbit liebe, ist das Gefühl der Wunder. Tolkien erschafft eine Welt, die sich komplett real anfühlt, mit ihrer eigenen Geschichte, Sprachen und Kulturen. Jeder Ort, den man auf der Reise besucht, fühlt sich einzigartig und lebendig an.
+[04:15] Das Buch lehrt uns auch, dass selbst der kleinste Mensch den Lauf der Zukunft verändern kann. Bilbo beweist, dass Mut nicht davon abhängt, groß und stark zu sein — es geht darum, das Richtige zu tun, auch wenn man Angst hat.
+[04:32] Ich denke, jeder sollte Der Hobbit mindestens einmal lesen. Es ist eine schöne Geschichte über Freundschaft, Mut und die Erkenntnis, wer man wirklich ist. Danke fürs Zuhören!',
     INTERVAL '6 minutes',
     (SELECT id FROM categories WHERE name = 'Fantasy')
   );
 
--- Non-Fiction
+-- Sachbuch
 INSERT INTO podcasts (title, description, cover_url, audio_url, transcription, duration, category_id) VALUES
   (
-    'Sapiens: A Brief History of Humankind',
-    'Sara summarizes Yuval Noah Harari''s exploration of human history from the Stone Age to the modern world.',
+    'Sapiens: Eine kurze Geschichte der Menschheit',
+    'Sara fasst Yuval Noah Hararis Erforschung der Menschheitsgeschichte von der Steinzeit bis in die moderne Welt zusammen.',
     'https://ohksnpnmcuoxbyrswjyz.supabase.co/storage/v1/object/public/podcast-cover/lpp.png',
     'https://ohksnpnmcuoxbyrswjyz.supabase.co/storage/v1/object/public/podcast-audio/rain.mp3',
-    '[00:00] Hello, today I''m presenting Sapiens: A Brief History of Humankind by Yuval Noah Harari. This is not your typical history book, and it completely changed the way I think about our species.
-[00:20] Harari is an Israeli historian, and this book was first published in 2011 in Hebrew. It became a massive bestseller worldwide and has been translated into more than sixty languages.
-[00:38] The book is divided into four main parts, each covering a major revolution in human history. The Cognitive Revolution, the Agricultural Revolution, the Unification of Humankind, and the Scientific Revolution.
-[00:56] The Cognitive Revolution happened about seventy thousand years ago, and Harari argues that this is when Homo sapiens developed the ability to create and believe in things that don''t physically exist.
-[01:14] Things like gods, nations, money, and human rights — these are what Harari calls fictional realities. They only exist because we all agree they exist. And this ability to cooperate in large numbers based on shared beliefs is what made us the dominant species on Earth.
-[01:33] The Agricultural Revolution, which began around twelve thousand years ago, is where Harari makes a really provocative argument. He calls it the biggest fraud in history.
-[01:48] He argues that agriculture didn''t make life better for most people. Farmers worked harder, ate a less varied diet, and were more vulnerable to disease. But the population grew enormously, so from the species'' perspective, it was a success.
-[02:06] This idea really made me think. We usually assume that progress always means improvement, but Harari challenges that assumption at every turn.
-[02:18] The third part of the book deals with how the world became unified. Harari identifies three universal orders that never stop expanding: empires, religion, and money.
-[02:33] Empires conquer and assimilate. Religions create shared belief systems across cultures. And money — money is the most successful system of mutual trust ever created between strangers.
-[02:48] Harari explains how money works because everyone believes in it, not because it has intrinsic value. This is a fascinating way to think about economics and how societies function.
-[03:03] The final part covers the Scientific Revolution starting around five hundred years ago. Harari argues that science succeeded because Europeans admitted their ignorance.
-[03:18] Before this, most civilizations believed that all important knowledge already existed in ancient texts. But the scientific mindset says that we don''t know everything, and we can learn more through observation and experimentation.
-[03:35] This led to an unprecedented increase in knowledge and power. Combined with empire and capitalism, it created the modern world we live in today.
-[03:48] One of the most thought-provoking chapters is about happiness. Harari asks whether we are happier than our ancestors who lived as hunter-gatherers tens of thousands of years ago.
-[04:03] He argues that happiness has more to do with our expectations than with our actual circumstances. As our expectations rise, we need more and more just to feel satisfied.
-[04:18] The book ends with a discussion of where we might be heading. With biotechnology and artificial intelligence, Homo sapiens might be on the verge of evolving into a completely different species.
-[04:35] Harari raises serious questions about what it means to be human and whether we should be afraid of our own technological power.
-[04:48] I found this book absolutely mind-blowing. It''s not just a history book — it''s a philosophical exploration of what makes us who we are. I highly recommend it to anyone who wants to understand the big picture of human history. Thank you!',
+    '[00:00] Hallo, heute präsentiere ich Sapiens: Eine kurze Geschichte der Menschheit von Yuval Noah Harari. Das ist nicht dein typisches Geschichtsbuch und es hat komplett verändert, wie ich über unsere Spezies denke.
+[00:20] Harari ist ein israelischer Historiker und dieses Buch wurde zuerst 2011 auf Hebräisch veröffentlicht. Es wurde ein massiver Bestseller weltweit und ist in mehr als sechzig Sprachen übersetzt worden.
+[00:38] Das Buch ist in vier Hauptteile unterteilt, die jeweils eine große Revolution in der Menschheitsgeschichte abdecken: Die kognitive Revolution, die landwirtschaftliche Revolution, die Vereinigung der Menschheit und die wissenschaftliche Revolution.
+[00:56] Die kognitive Revolution geschah vor etwa siebzigtausend Jahren und Harari argumentiert, dass dies der Moment war, in dem Homo sapiens die Fähigkeit entwickelte, Dinge zu erschaffen und zu glauben, die nicht physisch existieren.
+[01:14] Dinge wie Götter, Nationen, Geld und Menschenrechte — das sind das, was Harari fiktive Realitäten nennt. Sie existieren nur, weil wir alle übereinstimmen, dass sie existieren. Und diese Fähigkeit, in großen Gruppen auf der Basis geteilter Überzeugungen zusammenzuarbeiten, hat uns zur dominierenden Spezies auf der Erde gemacht.
+[01:33] Die landwirtschaftliche Revolution, die vor etwa zwölftausend Jahren begann, ist der Ort, an dem Harari ein wirklich provokantes Argument macht. Er nennt es den größten Betrug in der Geschichte.
+[01:48] Er argumentiert, dass die Landwirtschaft das Leben für die meisten Menschen nicht besser gemacht hat. Bauern arbeiteten härter, aßen eine weniger abwechslungsreiche Ernährung und waren anfälliger für Krankheiten. Aber die Bevölkerung wuchs enorm, also war es aus der Sicht der Spezies ein Erfolg.
+[02:06] Diese Idee hat mich wirklich zum Nachdenken gebracht. Wir nehmen normalerweise an, dass Fortschritt immer Verbesserung bedeutet, aber Harari hinterfragt diese Annahme ständig.
+[02:18] Der dritte Teil des Buches behandelt, wie die Welt vereint wurde. Harari identifiziert drei universale Ordnungen, die sich nie aufhören zu expandieren: Imperien, Religion und Geld.
+[02:33] Imperien erobern und assimilieren. Religionen schaffen geteilte Glaubenssysteme über Kulturen hinweg. Und Geld — Geld ist das erfolgreichste System des gegenseitigen Vertrauens, das je zwischen Fremden geschaffen wurde.
+[02:48] Harari erklärt, wie Geld funktioniert, weil alle daran glauben, nicht weil es intrinsischen Wert hat. Das ist eine faszinierende Art, über Wirtschaft und das Funktionieren von Gesellschaften nachzudenken.
+[03:03] Der letzte Teil deckt die wissenschaftliche Revolution ab, die vor etwa fünfhundert Jahren begann. Harari argumentiert, dass die Wissenschaft erfolgreich war, weil die Europäer ihre Unwissenheit zugaben.
+[03:18] Davor glaubten die meisten Zivilisationen, dass alle wichtigen Kenntnisse bereits in alten Texten existierten. Aber die wissenschaftliche Denkweise sagt, dass wir nicht alles wissen und wir mehr durch Beobachtung und Experiment lernen können.
+[03:35] Das führte zu einem beispiellosen Anstieg an Wissen und Macht. Kombiniert mit Imperium und Kapitalismus schuf es die moderne Welt, in der wir heute leben.
+[03:48] Eines der nachdenklichst stimmenden Kapitel handelt von Glück. Harari fragt, ob wir glücklicher sind als unsere Vorfahren, die vor zehntausenden von Jahren als Jäger und Sammler lebten.
+[04:03] Er argumentiert, dass Glück mehr mit unseren Erwartungen zu tun hat als mit unseren tatsächlichen Umständen. Je höher unsere Erwartungen steigen, desto mehr brauchen wir, um uns zufrieden zu fühlen.
+[04:18] Das Buch endet mit einer Diskussion darüber, wohin wir vielleicht unterwegs sind. Mit Biotechnologie und künstlicher Intelligenz könnte Homo sapiens kurz davor stehen, sich in eine völlig andere Spezies zu entwickeln.
+[04:35] Harari stellt ernsthafte Fragen darüber, was es bedeutet, menschlich zu sein, und ob wir uns unserer eigenen technologischen Macht fürchten sollten.
+[04:48] Ich fand dieses Buch absolut genial. Es ist nicht nur ein Geschichtsbuch — es ist eine philosophische Erforschung dessen, was uns zu dem macht, was wir sind. Ich empfehle es wärmstens jedem, der das große Ganze der Menschheitsgeschichte verstehen möchte. Danke!',
     INTERVAL '7 minutes',
-    (SELECT id FROM categories WHERE name = 'Non-Fiction')
+    (SELECT id FROM categories WHERE name = 'Sachbuch')
   );
 
--- Biography
+-- Biografie
 INSERT INTO podcasts (title, description, cover_url, audio_url, transcription, duration, category_id) VALUES
   (
     'Steve Jobs',
-    'Anna presents Walter Isaacson''s biography of the Apple co-founder, covering his life from adoption to revolutionizing technology.',
+    'Anna präsentiert Walter Isaacsons Biografie des Apple-Mitgründers und begleitet sein Leben von der Adoption bis zur Revolutionierung der Technologie.',
     'https://ohksnpnmcuoxbyrswjyz.supabase.co/storage/v1/object/public/podcast-cover/lpp.png',
     'https://ohksnpnmcuoxbyrswjyz.supabase.co/storage/v1/object/public/podcast-audio/rain.mp3',
-    '[00:00] Hi everyone, today I''m presenting the biography of Steve Jobs by Walter Isaacson. This book was published in 2011, the year after Jobs died, and it''s based on more than forty interviews with Jobs himself.
-[00:22] Isaacson also spoke with more than one hundred family members, friends, competitors, and colleagues, so the portrait is incredibly detailed and honest.
-[00:38] Steve Jobs was born in 1955 and adopted by Paul and Clara Jobs. His biological mother was a young unmarried graduate student who wanted him to go to college, but the adoptive parents were only high school graduates.
-[00:55] From a young age, Steve was curious and intense. He loved taking things apart to see how they worked. His father taught him carpentry in their garage, and Steve learned the importance of making the back of a cabinet look as beautiful as the front, even though nobody would ever see it.
-[01:15] This attention to detail would become a defining characteristic of everything he did at Apple.
-[01:23] After dropping out of Reed College, Jobs audited classes for a year, including a calligraphy course that seemed completely useless at the time. But ten years later, when he was designing the Macintosh, that calligraphy knowledge inspired the beautiful typography that became a hallmark of Apple computers.
-[01:43] Jobs traveled to India in search of spiritual enlightenment, where he explored Zen Buddhism. This influence showed up in his design philosophy — simplicity, minimalism, and the idea that technology should feel almost spiritual in its elegance.
-[02:02] In 1976, at age twenty-one, Jobs and his friend Steve Wozniak started Apple in the Jobs family garage. The Apple I was a circuit board, but the Apple II became the first mass-produced personal computer and made them millionaires by their twenties.
-[02:22] But success changed Jobs. He became more demanding, more intense, and sometimes impossible to work with. When Apple hired a professional CEO, John Sculley, Jobs eventually lost a power struggle and was forced out of the company he founded in 1985.
-[02:40] This was a devastating moment for him, but he later said it was the best thing that could have happened. Being fired freed him to be creative again. He started NeXT, a computer company, and bought a small graphics division from Lucasfilm that became Pixar.
-[03:00] Pixar went on to create Toy Story, the first fully computer-animated feature film, and became one of the most successful animation studios in history.
-[03:12] Meanwhile, Apple was struggling, and in 1997 they acquired NeXT, bringing Jobs back to the company he founded. What happened next is almost like a fairy tale.
-[03:25] Jobs streamlined Apple''s product line, focused on design and user experience, and launched a series of products that changed the world. The iMac in 1998, the iPod in 2001, the iPhone in 2007, and the iPad in 2010.
-[03:43] Each of these products didn''t just improve on what existed — they created entirely new categories. The iPhone didn''t just make a better phone; it reinvented what a phone could be.
-[03:58] Isaacson doesn''t shy away from Jobs'' flaws. He was known for his reality distortion field — his ability to convince people that the impossible was possible. But he could also be cruel, impatient, and emotionally unavailable.
-[04:15] He initially refused to acknowledge his daughter Lisa, and his relationship with his children was complicated. The book shows that genius and emotional intelligence don''t always go hand in hand.
-[04:30] When Jobs was diagnosed with pancreatic cancer in 2003, he delayed treatment for nine months, hoping alternative therapies would work. This decision cost him precious time, and he ultimately died in 2011 at age fifty-six.
-[04:48] What I found most inspiring about this book is Jobs'' relentless pursuit of excellence. He had this belief that technology alone is not enough — it must be married with the liberal arts, with design, with an understanding of what makes people happy.
-[05:05] His famous quote, Stay Hungry, Stay Foolish, really captures his spirit. He never stopped questioning, never stopped wanting to make things better, and that drive changed the world. Thank you for listening!',
+    '[00:00] Hallo zusammen, heute präsentiere ich die Biografie von Steve Jobs von Walter Isaacson. Dieses Buch wurde 2011 veröffentlicht, ein Jahr nach Jobs'' Tod, und basiert auf mehr als vierzig Interviews mit Jobs selbst.
+[00:22] Isaacson sprach auch mit mehr als hundert Familienmitgliedern, Freunden, Konkurrenten und Kollegen, so dass das Porträt unglaublich detailliert und ehrlich ist.
+[00:38] Steve Jobs wurde 1955 geboren und von Paul und Clara Jobs adoptiert. Seine leibliche Mutter war eine junge unverheiratete Studentin, die wollte, dass er aufs College geht, aber die Adoptiveltern waren nur High-School-Absolventen.
+[00:55] Von klein auf war Steve neugierig und intensiv. Er liebte es, Dinge auseinanderzunehmen, um zu sehen, wie sie funktionierten. Sein Vater lehrte ihn Tischlerei in ihrer Garage und Steve lernte die Wichtigkeit, die Rückseite eines Schrankes genauso schön zu gestalten wie die Vorderseite, auch wenn niemand sie jemals sehen würde.
+[01:15] Diese Liebe zum Detail würde zu einem prägenden Merkmal von allem werden, was er bei Apple tat.
+[01:23] Nach dem Abbruch am Reed College besuchte Jobs ein Jahr lang Kurse, darunter einen Kalligraphie-Kurs, der damals völlig nutzlos erschien. Aber zehn Jahre später, als er den Macintosh entwarf, inspirierte dieses Kalligraphie-Wissen die wunderschöne Typografie, die zu einem Markenzeichen von Apple-Computern wurde.
+[01:43] Jobs reiste nach Indien auf der Suche nach spiritueller Erleuchtung, wo er den Zen-Buddhismus erforschte. Dieser Einfluss zeigte sich in seiner Designphilosophie — Einfachheit, Minimalismus und die Idee, dass Technologie sich fast spirituell in ihrer Eleganz anfühlen sollte.
+[02:02] 1976, im Alter von einundzwanzig Jahren, gründeten Jobs und sein Freund Steve Wozniak Apple in der Garage der Familie Jobs. Der Apple I war eine Leiterplatte, aber der Apple II wurde der erste massenproduzierte Personalcomputer und machte sie in ihren Zwanzigern zu Millionären.
+[02:22] Aber Erfolg veränderte Jobs. Er wurde fordernder, intensiver und manchmal unmöglich in der Zusammenarbeit. Als Apple einen professionellen CEO, John Sculley, anheuerte, verlor Jobs schließlich einen Machtkampf und wurde 1985 aus dem Unternehmen, das er gründete, geworfen.
+[02:40] Das war ein verheerender Moment für ihn, aber später sagte er, es sei das Beste gewesen, was passieren konnte. Entlassen zu werden, befreite ihn, wieder kreativ zu sein. Er gründete NeXT, ein Computerunternehmen, und kaufte eine kleine Grafikabteilung von Lucasfilm, die zu Pixar wurde.
+[03:00] Pixar schuf Toy Story, den ersten vollständig computergenerierten Animationsfilm, und wurde zu einem der erfolgreichsten Animationsstudios der Geschichte.
+[03:12] Inzwischen kämpfte Apple und 1997 erwarb sie NeXT, was Jobs zurück in das Unternehmen brachte, das er gegründet hatte. Was als Nächstes passierte, ist fast wie ein Märchen.
+[03:25] Jobs strich Apples Produktlinie ein, konzentrierte sich auf Design und Benutzererfahrung und startete eine Reihe von Produkten, die die Welt veränderten. Der iMac 1998, der iPod 2001, das iPhone 2007 und das iPad 2010.
+[03:43] Jedes dieser Produkte verbesserte nicht nur das, was existierte — sie schufen völlig neue Kategorien. Das iPhone machte nicht nur ein besseres Telefon; es erfand das, was ein Telefon sein kann, neu.
+[03:58] Isaacson geht nicht an Jobs'' Schwächen vorbei. Er war bekannt für sein Realitätsverzerrungsfeld — seine Fähigkeit, Menschen davon zu überzeugen, dass das Unmögliche möglich war. Aber er konnte auch grausam, ungeduldig und emotional nicht verfügbar sein.
+[04:15] Er weigerte sich anfangs, seine Tochter Lisa anzuerkennen, und seine Beziehung zu seinen Kindern war kompliziert. Das Buch zeigt, dass Genie und emotionale Intelligenz nicht immer Hand in Hand gehen.
+[04:30] Als Jobs 2003 mit Bauchspeicheldrüsenkrebs diagnostiziert wurde, verzögerte er die Behandlung um neun Monate in der Hoffnung, dass alternative Therapien funktionieren würden. Diese Entscheidung kostete ihn kostbare Zeit und er starb ultimately 2011 im Alter von sechsundfünfzig Jahren.
+[04:48] Was ich an diesem Buch am meisten inspirierend fand, ist Jobs'' unerbittliche Suche nach Exzellenz. Er hatte diesen Glauben, dass Technologie allein nicht genug ist — sie muss mit den Geisteswissenschaften, mit Design und mit einem Verständnis dafür verbunden werden, was Menschen glücklich macht.
+[05:05] Sein berühmtes Zitat Bleib hungrig, bleib naiv fängt seinen Geist wirklich ein. Er hörte nie auf zu hinterfragen, nie auf, Dinge besser machen zu wollen, und dieser Antrieb veränderte die Welt. Danke fürs Zuhören!',
     INTERVAL '5 minutes',
-    (SELECT id FROM categories WHERE name = 'Biography')
+    (SELECT id FROM categories WHERE name = 'Biografie')
   );
 
--- Classics
+-- Klassiker
 INSERT INTO podcasts (title, description, cover_url, audio_url, transcription, duration, category_id) VALUES
   (
-    'Pride and Prejudice',
-    'Sara discusses Jane Austen''s timeless novel about Elizabeth Bennet and Mr. Darcy, exploring themes of love, class, and reputation.',
+    'Stolz und Vorurteil',
+    'Sara diskutiert Jane Austens zeitlosen Roman über Elizabeth Bennet und Mr. Darcy und erforscht Themen wie Liebe, Klasse und Ruf.',
     'https://ohksnpnmcuoxbyrswjyz.supabase.co/storage/v1/object/public/podcast-cover/lpp.png',
     'https://ohksnpnmcuoxbyrswjyz.supabase.co/storage/v1/object/public/podcast-audio/rain.mp3',
-    '[00:00] Hello everyone, today I''m talking about Pride and Prejudice by Jane Austen. This novel was published in 1813, and it is widely considered one of the greatest works of English literature.
-[00:20] The famous opening line — It is a truth universally acknowledged, that a single man in possession of a good fortune, must be in want of a wife — is one of the most recognizable sentences in all of literature.
-[00:38] Austen uses irony from the very first line, because it''s not actually the wealthy bachelor who wants a wife — it''s the mothers of unmarried daughters who are desperate to find him one.
-[00:55] The story follows five sisters — Jane, Elizabeth, Mary, Kitty, and Lydia Bennet — whose mother is determined to marry them off to wealthy men. In Regency England, women had very few options for financial independence, so marriage was essentially a necessity.
-[01:15] Elizabeth Bennet, the second daughter, is the protagonist, and she is one of the most beloved characters in literature. She is intelligent, witty, independent, and she has strong opinions about everything.
-[01:32] The central relationship is between Elizabeth and Mr. Darcy, a wealthy and proud gentleman who attends a local ball. At first, Darcy refuses to dance with Elizabeth because she doesn''t meet his standards of beauty, and Elizabeth is immediately offended by his arrogance.
-[01:50] This sets up the title of the book perfectly — Darcy''s pride and Elizabeth''s prejudice against each other create a wall that both of them have to overcome.
-[02:05] But then Darcy does something unexpected. Despite his dislike of Elizabeth''s family, he falls deeply in love with her and proposes. The problem is that he proposes in the worst possible way — reminding her that she is socially inferior to him.
-[02:23] Elizabeth rejects him fiercely, and in her rejection, she lists all his faults. This confrontation is one of the most powerful scenes in the book because both characters are forced to see themselves honestly for the first time.
-[02:40] As the story progresses, both Elizabeth and Darcy change. Darcy becomes more humble and generous, and Elizabeth realizes that her first impressions were wrong. She learns that prejudice can blind us to the truth about other people.
-[02:58] There are also wonderful supporting characters. Mr. Bennet is witty but detached. Mrs. Bennet is a caricature of a nervous, matchmaking mother. And Mr. Collins, the ridiculous cousin who inherits the family estate, is one of the funniest characters Austen ever wrote.
-[03:18] The character of George Wickham adds a major plot twist. He seems charming at first, but he turns out to be a manipulative villain who tries to elope with the youngest Bennet sister, Lydia, which would ruin the entire family''s reputation.
-[03:35] It turns out that Darcy secretly intervenes to save the family, paying Wickham''s debts and arranging the marriage. Elizabeth discovers this act of kindness, and it completely transforms her feelings toward him.
-[03:52] What makes Pride and Prejudice so timeless is that it''s not just a romance. It''s a sharp social commentary on class, money, gender, and marriage in early nineteenth-century England.
-[04:10] Austen was writing at a time when women had almost no legal rights and their worth was measured by their marriageability. She creates a heroine who refuses to settle — Elizabeth turns down two marriage proposals before accepting the one she truly wants.
-[04:28] The prose is beautiful, the dialogue is sparkling, and the humor is still funny after two hundred years. Every time I read it, I notice something new.
-[04:42] I think this book is essential reading. It teaches us about the dangers of judging people too quickly and the importance of being willing to change our minds. Thank you for listening to my presentation!',
+    '[00:00] Hallo zusammen, heute spreche ich über Stolz und Vorurteil von Jane Austen. Dieser Roman wurde 1813 veröffentlicht und gilt weithin als eines der größten Werke der englischen Literatur.
+[00:20] Die berühmte eröffnende Zeile — Es ist eine allgemein bekannte Wahrheit, dass ein einzelner Mann im Besitz eines guten Vermögens unbedingt eine Frau sucht — ist einer der am besten erkennbaren Sätze in der gesamten Literatur.
+[00:38] Austen nutzt Ironie von der allerersten Zeile an, denn eigentlich ist es nicht der wohlhabende Junggeselle, der eine Frau will — es sind die Mütter unverheirateter Töchter, die verzweifelt versuchen, ihm eine zu finden.
+[00:55] Die Geschichte folgt fünf Schwestern — Jane, Elizabeth, Mary, Kitty und Lydia Bennet — deren Mutter entschlossen ist, sie an wohlhabende Männer zu verheiraten. Im England der Regency-Zeit hatten Frauen sehr wenige Optionen für finanzielle Unabhängigkeit, also war Heirat im Wesentlichen eine Notwendigkeit.
+[01:15] Elizabeth Bennet, die zweite Tochter, ist die Protagonistin und sie ist eine der am meisten geliebten Figuren in der Literatur. Sie ist intelligent, witzig, unabhängig und hat starke Meinungen über alles.
+[01:32] Die zentrale Beziehung ist zwischen Elizabeth und Mr. Darcy, einem wohlhabenden und stolzen Gentleman, der einen lokalen Ball besucht. Zuerst weigert sich Darcy, mit Elizabeth zu tanzen, weil sie seinen Schönheitsstandards nicht entspricht, und Elizabeth ist sofort von seiner Arroganz beleidigt.
+[01:50] Das setzt den Titel des Buches perfekt in Szene — Darcys Stolz und Elizabeths Vorurteil gegeneinander schaffen eine Mauer, die beide überwinden müssen.
+[02:05] Aber dann tut Darcy etwas Unerwartetes. Trotz seiner Abneigung gegen Elizabeths Familie verliebt er sich tief in sie und macht ihr einen Heiratsantrag. Das Problem ist, dass er auf die schlimmstmögliche Weise anhält — indem er ihr erinnert, dass sie ihm sozial unterlegen ist.
+[02:23] Elizabeth lehnt ihn heftig ab und listet in ihrer Absage all seine Fehler auf. Diese Konfrontation ist eine der kraftvollsten Szenen im Buch, denn beide Charaktere sind gezwungen, sich zum ersten Mal ehrlich zu sehen.
+[02:40] Während die Geschichte fortschreitet, verändern sich sowohl Elizabeth als auch Darcy. Darcy wird bescheidener und großzügiger und Elizabeth erkennt, dass ihre ersten Eindrücke falsch waren. Sie lernt, dass Vorurteil uns die Wahrheit über andere Menschen verbergen kann.
+[02:58] Es gibt auch wunderbare Nebencharaktere. Mr. Bennet ist witzig aber distanziert. Mrs. Bennet ist eine Karikatur einer nervösen, heiratsvermittelnden Mutter. Und Mr. Collins, der lächerliche Cousin, der das Familienanwesen erbt, ist eine der lustigsten Figuren, die Austen je geschrieben hat.
+[03:18] Der Charakter von George Wickham fügt eine wichtige Wendung hinzu. Er scheint anfangs charmant, stellt sich aber als manipulativer Schurke heraus, der versucht, mit der jüngsten Bennet-Schwester, Lydia, zu elopieren, was den Ruf der gesamten Familie ruinieren würde.
+[03:35] Es stellt sich heraus, dass Darcy heimlich eingreift, um die Familie zu retten, Wickehms Schulden bezahlt und die Heirat arrangiert. Elizabeth entdeckt diese Tat der Güte und es verwandelt ihre Gefühle gegenüber ihm komplett.
+[03:52] Was Stolz und Vorurteil so zeitlos macht, ist, dass es nicht nur eine Romanze ist. Es ist ein scharfer sozialer Kommentar über Klasse, Geld, Geschlecht und Heirat im frühen neunzehnten Jahrhundert in England.
+[04:10] Austen schrieb zu einer Zeit, als Frauen fast keine Rechtsrechte hatten und ihr Wert an ihrer Heiratsfähigkeit gemessen wurde. Sie erschafft eine Heldin, die sich nicht zufriedengeben will — Elizabeth lehnt zwei Heiratsanträge ab, bevor sie den annimmt, den sie wirklich will.
+[04:28] Die Prosa ist wunderschön, der Dialog sprüht und der Humor ist nach zweihundert Jahren immer noch lustig. Jedes Mal, wenn ich es lese, merke ich etwas Neues.
+[04:42] Ich denke, dieses Buch ist unverzichtbare Lektüre. Es lehrt uns über die Gefahren, Menschen zu schnell zu urteilen, und über die Wichtigkeit, bereit zu sein, seine Meinung zu ändern. Danke fürs Zuhören!',
     INTERVAL '6 minutes',
-    (SELECT id FROM categories WHERE name = 'Classics')
+    (SELECT id FROM categories WHERE name = 'Klassiker')
   );
 
 -- Young Adult
 INSERT INTO podcasts (title, description, cover_url, audio_url, transcription, duration, category_id) VALUES
   (
-    'The Fault in Our Stars',
-    'Lukas presents John Green''s emotional story of two teenagers who fall in love while dealing with cancer.',
+    'Die Schuld liegt nicht an den Sternen',
+    'Lukas präsentiert John Greens emotionale Geschichte von zwei Teenagern, die sich verlieben, während sie mit Krebs umgehen.',
     'https://ohksnpnmcuoxbyrswjyz.supabase.co/storage/v1/object/public/podcast-cover/lpp.png',
     'https://ohksnpnmcuoxbyrswjyz.supabase.co/storage/v1/object/public/podcast-audio/rain.mp3',
-    '[00:00] Hey everyone, today I want to talk about The Fault in Our Stars by John Green. This book was published in 2012 and it became one of the best-selling young adult novels of all time.
-[00:20] I have to warn you — this book will make you cry. But it''s not just a sad book. It''s funny, it''s smart, and it''s one of the most honest portrayals of teenage life I''ve ever read.
-[00:38] The protagonist is Hazel Grace Lancaster, a sixteen-year-old girl who has been surviving thyroid cancer for two and a half years. She''s on a drug called Murine that''s keeping the cancer in check, but it''s damaging her kidneys and lungs.
-[00:56] Hazel attends a cancer support group, which she finds mostly pointless, until she meets Augustus Waters. Gus is charming, confident, and a cancer survivor too — he had his leg amputated below the knee.
-[01:13] Their first conversation starts with Hazel reading Gus'' favorite book out loud at the support group, and he asks her to finish it because the author is stuck on the ending. This becomes the thread that connects their entire relationship.
-[01:28] What I love about John Green''s writing is that Hazel and Gus feel like real teenagers, not stereotypes. They talk about books, they argue about movies, they have awkward moments, and they make each other laugh.
-[01:45] When Hazel and Gus fall in love, their parents are worried. They know that loving someone means you have something to lose. But Hazel has this powerful idea that she doesn''t want to be a bomb, a bombshell, a bomb crater. She just wants to be a girl who falls in love.
-[02:05] The book follows Hazel and Gus on a trip to Amsterdam to meet the author of Hazel''s favorite book, Peter van Houten. This journey is both funny and heartbreaking, and it forces both of them to confront questions about meaning and mortality.
-[02:23] Van Houten turns out to be a bitter, drunken recluse who has lost faith in the power of stories. This creates an interesting contrast with Hazel, who believes deeply in the meaning that stories give our lives.
-[02:38] One of the most powerful lines in the book is when Hazel says that her favorite part of a story is the first sentence of the last chapter — the moment when you know it''s over but you keep reading anyway.
-[02:55] The book doesn''t give us easy answers about death and suffering. Hazel has to face the reality that Gus'' cancer has come back, and the ending is one of the most devastating in modern fiction.
-[03:12] But here''s the thing — the book isn''t really about cancer. Cancer is just the backdrop. The real story is about two kids who find each other and make each other''s lives infinitely better, even if it''s only for a little while.
-[03:30] Gus writes Hazel a letter that she reads at the end of the book, and it captures everything that makes their love so special. He says that he fell in love with her mind, her heart, and yes, her body, but mostly her mind.
-[03:48] The title comes from a line from van Houten''s fictional book — It was not the fault of the stars that we suffered. Green is saying that suffering is random and unfair, but that doesn''t mean our lives don''t matter.
-[04:05] I think this book is important because it shows that teenagers with cancer are still teenagers. They still fall in love, they still want to travel, they still care about books and movies and meaning.
-[04:20] It also teaches us that the measure of a life isn''t how long it lasts, but how deeply you love and how much you love. Hazel and Gus have a small life, but it''s a wide one.
-[04:35] If you haven''t read this book, I really encourage you to pick it up. Bring tissues, but read it anyway. Thank you for listening!',
+    '[00:00] Hey zusammen, heute möchte ich über Die Schuld liegt nicht an den Sternen von John Green sprechen. Dieses Buch wurde 2012 veröffentlicht und wurde zu einem der meistverkauften Young-Adult-Romane aller Zeiten.
+[00:20] Ich muss euch warnen — dieses Buch wird euch zum Weinen bringen. Aber es ist nicht nur ein trauriges Buch. Es ist lustig, klug und eine der ehrlichsten Darstellungen des Teenagerlebens, die ich je gelesen habe.
+[00:38] Die Protagonistin ist Hazel Grace Lancaster, ein sechzehnjähriges Mädchen, das seit zweieinhalb Jahren an Schilddrüsenkrebs überlebt. Sie nimmt ein Medikament namens Murine, das den Krebs in Schach hält, aber ihre Nieren und Lungen schädigt.
+[00:56] Hazel besucht eine Krebs-Selbsthilfegruppe, die sie größtenteils sinnlos findet, bis sie Augustus Waters trifft. Gus ist charmant, selbstbewusst und auch Krebsüberlebender — er hatte sein Bein unter dem Knie amputiert.
+[01:13] Ihr erstes Gespräch beginnt damit, dass Hazel im Selbsthilfegruppen Guss Lieblingsbuch vorliest und er bittet sie, es fertigzustellen, weil der Autor am Ende feststeckt. Das wird zum Faden, der ihre gesamte Beziehung verbindet.
+[01:28] Was ich an John Greens Schreibweise liebe, ist, dass Hazel und Gus sich wie echte Teenager anfühlen, keine Stereotype. Sie sprechen über Bücher, streiten sich über Filme, haben peinliche Momente und bringen einander zum Lachen.
+[01:45] Als Hazel und Gus sich verlieben, machen sich ihre Eltern Sorgen. Sie wissen, dass Liebe bedeutet, etwas zu verlieren zu haben. Aber Hazel hat diese kraftvolle Idee, dass sie keine Bombe, kein Bombardement, kein Bombenkrater sein will. Sie will einfach ein Mädchen sein, das sich verliebt.
+[02:05] Das Buch begleitet Hazel und Gus auf einer Reise nach Amsterdam, um den Autor von Hazels Lieblingsbuch, Peter van Houten, zu treffen. Diese Reise ist sowohl lustig als auch herzerweichend und zwingt beide, sich mit Fragen nach Sinn und Sterblichkeit auseinanderzusetzen.
+[02:23] Van Houten erweist sich als ein verbitterter, trunksüchtiger Einsiedler, der den Glauben an die Kraft von Geschichten verloren hat. Das schafft einen interessanten Kontrast zu Hazel, die tief an die Bedeutung glaubt, die Geschichten unserem Leben geben.
+[02:38] Eine der kraftvollsten Zeilen im Buch ist, wenn Hazel sagt, ihr Lieblingsteil einer Geschichte ist der erste Satz des letzten Kapitels — der Moment, in dem man weiß, dass es vorbei ist, aber trotzdem weiterliest.
+[02:55] Das Buch gibt uns keine einfachen Antworten über Tod und Leid. Hazel muss der Realität ins Auge sehen, dass Guss Krebs zurück ist, und das Ende ist eines der verheerendsten in der modernen Fiktion.
+[03:12] Aber hier ist die Sache — das Buch geht eigentlich nicht um Krebs. Krebs ist nur der Hintergrund. Die eigentliche Geschichte handelt von zwei Kindern, die einander finden und einanders Leben unendlich besser machen, auch wenn es nur für eine kurze Zeit ist.
+[03:30] Gus schreibt Hazel einen Brief, den sie am Ende des Buches liest, und er fängt alles ein, was ihre Liebe so besonders macht. Er sagt, dass er sich in ihren Verstand, ihr Herz und ja, ihren Körper verliebt hat, aber vor allem in ihren Verstand.
+[03:48] Der Titel stammt von einer Zeile aus van Houtens fiktivem Buch — Es war nicht die Schuld der Sterne, dass wir litten. Green sagt damit, dass Leiden zufällig und unfair ist, aber das bedeutet nicht, dass unser Leben nichts bedeutet.
+[04:05] Ich denke, dieses Buch ist wichtig, weil es zeigt, dass Teenager mit Krebs immer noch Teenager sind. Sie verlieben sich immer noch, sie wollen immer noch reisen, sie interessieren sich immer noch für Bücher, Filme und Bedeutung.
+[04:20] Es lehrt uns auch, dass das Maß eines Lebens nicht davon abhängt, wie lange es dauert, sondern wie tief man liebt und wie viel man liebt. Hazel und Gus haben ein kleines Leben, aber es ist ein breites.
+[04:35] Wenn du dieses Buch noch nicht gelesen hast, ermutige dich wirklich, es aufzuschlagen. Bring Taschentücher mit, aber lies es trotzdem. Danke fürs Zuhören!',
     INTERVAL '5 minutes',
     (SELECT id FROM categories WHERE name = 'Young Adult')
   );
@@ -200,184 +200,184 @@ INSERT INTO podcasts (title, description, cover_url, audio_url, transcription, d
 INSERT INTO podcasts (title, description, cover_url, audio_url, transcription, duration, category_id) VALUES
   (
     'Dune',
-    'Lukas explores Frank Herbert''s epic science fiction masterpiece about politics, religion, and survival on the desert planet Arrakis.',
+    'Lukas erforscht Frank Herberts episches Science-Fiction-Meisterwerk über Politik, Religion und Überleben auf dem Wüstenplaneten Arrakis.',
     'https://ohksnpnmcuoxbyrswjyz.supabase.co/storage/v1/object/public/podcast-cover/lpp.png',
     'https://ohksnpnmcuoxbyrswjyz.supabase.co/storage/v1/object/public/podcast-audio/rain.mp3',
-    '[00:00] Welcome to my presentation of Dune by Frank Herbert. This book was published in 1965, and it remains the only science fiction novel to win the Hugo Award, the Nebula Award, and a special Edgar Award.
-[00:20] It is often called the greatest science fiction novel ever written, and I think after reading it, you understand why.
-[00:32] The story is set far in the future, in an interstellar empire where humanity has colonized many planets but has lost the ability to create thinking machines. All computation is done by human mentalists trained by the Mentat order.
-[00:50] The central setting is Arrakis, also known as Dune, the only source of the most valuable substance in the universe — the spice melange. The spice extends life, enhances consciousness, and is essential for space travel.
-[01:08] The noble House Atreides has been given control of Arrakis by the Emperor, replacing the treacherous House Harkonnen. Paul Atreides, the young heir, and his mother Lady Jessica, a Bene Gesserit sister, arrive on the desert planet.
-[01:25] From the beginning, Herbert builds incredible tension. The Atreides are betrayed, Duke Leto is killed, and Paul and Jessica must flee into the desert to survive. This is where Paul''s real education begins.
-[01:43] Paul is taken in by the Fremen, the indigenous people of Arrakis who have adapted to the harsh desert environment over generations. They wear stillsuits that recycle every drop of moisture, and they see themselves as the true masters of Dune.
-[02:00] What makes Dune so unique is that it''s not just about space battles and laser guns. It''s about ecology, politics, religion, and the danger of charismatic leaders. Herbert was deeply concerned about how easily people can be manipulated by messianic figures.
-[02:18] Paul has prescient visions — he can see possible futures — and he realizes that if he leads the Fremen in a jihad, it will spread across the entire universe. The terrifying thing is that he can see this future but he cannot stop it from happening.
-[02:38] The Bene Gesserit sisterhood has been manipulating breeding programs across the galaxy for centuries, trying to create the Kwisatz Haderach — a being who can transcend the limits of time and space. Paul turns out to be exactly that being.
-[02:55] Lady Jessica is a fascinating character. She broke the Bene Gesserit rules by having a son instead of a daughter with Duke Leto, and this single decision sets everything in motion. She''s powerful, intelligent, and deeply conflicted.
-[03:12] The ecology of Arrakis is one of the most detailed world-building achievements in fiction. Herbert, who was an environmentalist, uses the desert planet to explore themes of resource scarcity, environmental adaptation, and the relationship between people and their environment.
-[03:30] The water discipline of the Fremen — their ability to survive in the most hostile environment imaginable — is portrayed with incredible detail. Every drop of water is sacred, and this shapes their entire culture and religion.
-[03:48] The political intrigue is equally complex. The Emperor, the Spacing Guild, the Landsraad, the Bene Gesserit — all these forces are playing a game of power, and Arrakis is the chessboard.
-[04:05] What I find most impressive is how Herbert makes all of this accessible. The book is dense with information, but the story of Paul and his journey keeps you turning pages. It''s a page-turner disguised as a philosophical treatise.
-[04:22] The ending of the first book is a cliffhanger of epic proportions, and Herbert followed it up with five more novels in the series. But the first book stands on its own as a complete and powerful story.
-[04:38] Dune influenced everything that came after it — Star Wars, Game of Thrones, even Avatar. If you want to understand modern science fiction, you have to read Dune. Thank you for listening!',
+    '[00:00] Willkommen zu meiner Präsentation von Dune von Frank Herbert. Dieses Buch wurde 1965 veröffentlicht und bleibt der einzige Science-Fiction-Roman, der den Hugo Award, den Nebula Award und einen speziellen Edgar Award gewonnen hat.
+[00:20] Es wird oft als der größte Science-Fiction-Roman aller Zeiten bezeichnet und ich denke, nach dem Lesen versteht man, warum.
+[00:32] Die Geschichte spielt weit in der Zukunft, in einem interstellarischen Imperium, in dem die Menschheit viele Planeten kolonisiert hat, aber die Fähigkeit verloren hat, denkende Maschinen zu erschaffen. Alle Berechnungen werden von menschlichen Mentalisten durchgeführt, die von der Mentat-Ordnung ausgebildet werden.
+[00:50] Die zentrale Kulisse ist Arrakis, auch bekannt als Dune, die einzige Quelle für die wertvollste Substanz im Universum — das Gewürz Melange. Das Gewürz verlängert das Leben, verbessert das Bewusstsein und ist für den Weltraumflug unerlässlich.
+[01:08] Das adelige Haus Atreides hat vom Kaiser die Kontrolle über Arrakis erhalten und ersetzt das verräterische Haus Harkonnen. Paul Atreides, der junge Erbe, und seine Mutter Lady Jessica, eine Bene-Gesserit-Schwester, kommen auf dem Wüstenplaneten an.
+[01:25] Von Anfang an baut Herbert unglaubliche Spannung auf. Die Atreides werden verraten, Herzog Leto wird getötet und Paul und Jessica müssen in die Wüste fliehen, um zu überleben. Hier beginnt Pauls echte Ausbildung.
+[01:43] Paul wird von den Fremen aufgenommen, den einheimischen Menschen von Arrakis, die sich über Generationen an die harsche Wüstenwelt angepasst haben. Sie tragen Stillsuits, die jeden Tropfen Feuchtigkeit recyceln, und sehen sich als die wahren Herren von Dune.
+[02:00] Was Dune so einzigartig macht, ist, dass es nicht nur um Weltraumschlachten und Laserpistolen geht. Es geht um Ökologie, Politik, Religion und die Gefahr charismatischer Führer. Herbert machte sich große Sorgen darüber, wie leicht Menschen von messianischen Figuren manipuliert werden können.
+[02:18] Paul hat vorsichtige Visionen — er kann mögliche Zukünfte sehen — und er erkennt, dass, wenn er die Fremen in einem Dschihad anführt, sich dieser über das ganze Universum ausbreiten wird. Das Beunruhigende ist, dass er diese Zukunft sehen kann, aber sie nicht aufhalten kann.
+[02:38] Die Bene-Gesserit-Schwesterorden manipuliert seit Jahrhunderten Zuchtprogramme im gesamten Galaxie, um den Kwisatz Haderach zu erschaffen — ein Wesen, das die Grenzen von Zeit und Raum überwinden kann. Paul stellt sich als genau dieses Wesen heraus.
+[02:55] Lady Jessica ist eine faszinierende Figur. Sie brach die Regeln der Bene Gesserit, indem sie einen Sohn statt einer Tochter mit Herzog Leto bekam, und diese einzelne Entscheidung setzt alles in Bewegung. Sie ist mächtig, intelligent und tief zerissen.
+[03:12] Die Ökologie von Arrakis ist eine der detailliertesten Weltbauleistungen in der Fiktion. Herbert, der ein Umweltschützer war, nutzt den Wüstenplaneten, um Themen wie Ressourcenknappheit, Umweltanpassung und die Beziehung zwischen Menschen und ihrer Umwelt zu erforschen.
+[03:30] Die Wasserdisziplin der Fremen — ihre Fähigkeit, in der unwirtlichsten Umgebung zu überleben — wird mit unglaublichen Details dargestellt. Jeder Tropfen Wasser ist heilig und das prägt ihre gesamte Kultur und Religion.
+[03:48] Die politische Intrige ist ebenso komplex. Der Kaiser, die Raumfahrtgilde, der Landsraad, die Bene Gesserit — all diese Kräfte spielen ein Machtspiel und Arrakis ist das Schachbrett.
+[04:05] Was ich am beeindruckendsten finde, ist, wie Herbert all das zugänglich macht. Das Buch ist dicht mit Informationen, aber die Geschichte von Paul und seiner Reise hält einen am Lesen. Es ist ein Pageturner, der sich als philosophische Abhandlung tarnt.
+[04:22] Das Ende des ersten Buches ist ein Cliffhanger epischen Ausmaßes und Herbert folgte mit fünf weiteren Romanen in der Reihe. Aber das erste Buch steht für sich als eine komplette und kraftvolle Geschichte.
+[04:38] Dune hat alles beeinflusst, was danach kam — Star Wars, Game of Thrones, sogar Avatar. Wenn du moderne Science Fiction verstehen willst, musst du Dune lesen. Danke fürs Zuhören!',
     INTERVAL '7 minutes',
     (SELECT id FROM categories WHERE name = 'Science Fiction')
   );
 
--- Romance
+-- Romantik
 INSERT INTO podcasts (title, description, cover_url, audio_url, transcription, duration, category_id) VALUES
   (
     'Outlander',
-    'Sara presents Diana Gabaldon''s historical romance about Claire Randall, a WWII nurse transported back to 18th-century Scotland.',
+    'Sara präsentiert Diana Gabaldons historische Romanze über Claire Randall, eine Krankenschwester des Zweiten Weltkriegs, die ins Schottland des 18. Jahrhunderts zurückversetzt wird.',
     'https://ohksnpnmcuoxbyrswjyz.supabase.co/storage/v1/object/public/podcast-cover/lpp.png',
     'https://ohksnpnmcuoxbyrswjyz.supabase.co/storage/v1/object/public/podcast-audio/rain.mp3',
-    '[00:00] Hi everyone, today I''m presenting Outlander by Diana Gabaldon. This is the first book in a series of eight novels, and it was published in 1991. It has since become one of the most beloved historical fiction series ever written.
-[00:22] The story begins in 1945, just after the end of World War II. Claire Randall Beauchamp is a former military nurse returning to Scotland with her husband Frank for their second honeymoon.
-[00:38] They visit a circle of standing stones in the Scottish Highlands, and when Claire touches the stones, something impossible happens — she is transported back in time to the year 1743.
-[00:53] She wakes up in a medieval Scottish village, speaking English that nobody understands, wearing clothes that mark her as strange, and facing a world that is brutal and unforgiving.
-[01:08] Claire is soon captured and forced to marry Jamie Fraser, a young Highland chieftain, to protect her honor. Jamie is honorable, brave, and kind — everything Claire could admire. But her heart belongs to Frank, who is waiting for her two hundred years in the future.
-[01:28] This creates an impossible love triangle across centuries, and Gabaldon handles it with incredible nuance. Claire is not a passive character — she makes difficult choices, and she lives with the consequences.
-[01:43] What makes Outlander so special is the historical detail. Gabaldon, who has a background in nursing and journalism, researches everything meticulously. The medicine, the politics, the daily life of 18th-century Scotland — it all feels authentic.
-[01:58] Claire uses her knowledge of medicine to become a healer in the Highland community, and this gives her a purpose and a way to earn the respect of the people around her. She saves lives using techniques that are centuries ahead of their time.
-[02:15] The political backdrop is the Jacobite Rising, the attempt to restore the Stuart dynasty to the British throne. The Battle of Culloden, which is coming, will be one of the bloodiest battles fought on British soil, and it will destroy the Highland way of life forever.
-[02:33] This looming catastrophe adds tremendous tension to the story. Claire knows from history books what is going to happen, and she desperately wants to change the course of events.
-[02:48] Jamie Fraser is one of the best-written male characters I''ve ever encountered. He''s a warrior, a leader, and a romantic, but he''s also vulnerable and human. He makes mistakes, he feels guilt, and he loves Claire with a depth that is both beautiful and painful.
-[03:05] The relationship between Claire and Jamie is complex because it begins under coercion, but it grows into something genuine. Gabaldon doesn''t rush this — the love develops slowly and feels earned.
-[03:20] The supporting characters are equally well-developed. There''s Murron, Jamie''s first love; Fergus, his younger brother; and Brianna, Claire''s daughter, who becomes the protagonist of the later books in the series.
-[03:35] One thing that sets Outlander apart from other historical fiction is how seriously it treats its female protagonist. Claire is a modern woman — independent, educated, and used to having agency — thrust into a world where women have almost no rights.
-[03:52] She navigates this with intelligence, courage, and sometimes desperation. She refuses to be a victim of her circumstances, even when the circumstances are nearly unbearable.
-[04:08] The book is long — nearly eight hundred pages — but it never feels slow. The prose is vivid, the dialogue crackles, and the emotional stakes are always high.
-[04:22] Gabaldon also writes about the darker sides of history honestly. Violence, sexual assault, and the brutal realities of war are not romanticized. This makes the moments of tenderness and love even more powerful.
-[04:38] The ending of the first book is emotionally devastating and sets up the rest of the series perfectly. I finished it and immediately started the second book, Voyager.
-[04:52] If you love historical fiction, strong female characters, or epic love stories, Outlander is absolutely essential reading. Thank you for listening to my presentation!',
+    '[00:00] Hallo zusammen, heute präsentiere ich Outlander von Diana Gabaldon. Das ist das erste Buch einer Serie von acht Romanen und es wurde 1991 veröffentlicht. Es ist seither zu einer der am meisten geliebten historischen Fiktionsserien aller Zeiten geworden.
+[00:22] Die Geschichte beginnt 1945, kurz nach dem Ende des Zweiten Weltkriegs. Claire Randall Beauchamp ist eine ehemalige Militärkrankenschwester, die mit ihrem Mann Frank nach Schottland zurückkehrt, für ihren zweiten Hochzeitsmonat.
+[00:38] Sie besuchen einen Kreis von Steinen in den schottischen Highlands und als Claire die Steine berührt, passiert etwas Unmögliches — sie wird zurück in die Zeit ins Jahr 1743 transportiert.
+[00:53] Sie wacht in einem mittelalterlichen schottischen Dorf auf, spricht Englisch, das niemand versteht, trägt Kleidung, die sie als seltsam markiert, und steht einer Welt gegenüber, die brutal und unbarmherzig ist.
+[01:08] Claire wird bald gefangen genommen und gezwungen, sich mit Jamie Fraser, einem jungen schottischen Clanchef, zu verheiraten, um ihre Ehre zu schützen. Jamie ist ehrenhaft, tapfer und freundlich — alles, was Claire bewundern könnte. Aber ihr Herz gehört Frank, der zweihundert Jahre in der Zukunft auf sie wartet.
+[01:28] Das schafft ein unmögliches Liebesdreieck über Jahrhunderte hinweg und Gabaldon bewältigt es mit unglaublicher Nuance. Claire ist keine passive Figur — sie trifft schwierige Entscheidungen und lebt mit den Konsequenzen.
+[01:43] Was Outlander so besonders macht, ist das historische Detail. Gabaldon, die einen Hintergrund in Pflege und Journalismus hat, recherchiert alles sorgfältig. Die Medizin, die Politik, das tägliche Leben im Schottland des 18. Jahrhunderts — alles fühlt sich authentisch an.
+[01:58] Claire nutzt ihr medizinisches Wissen, um zur Heilerin in der Highland-Gemeinschaft zu werden, und das gibt ihr einen Zweck und eine Möglichkeit, den Respekt der Menschen um sie herum zu verdienen. Sie rettet Leben mit Techniken, die Jahrhunderte ihrer Zeit voraus sind.
+[02:15] Der politische Hintergrund ist der Jakobitenaufstand, der Versuch, die Stuart-Dynastie auf den britischen Thron zurückzubringen. Die Schlacht von Culloden, die bevorsteht, wird eine der blutigsten Schlachten auf britischem Boden sein und die Highland-Lifestyle für immer zerstören.
+[02:33] Diese drohende Katastrophe fügt der Geschichte enorme Spannung hinzu. Claire weiß aus Geschichtsbüchern, was passieren wird, und sie will verzweifelt den Lauf der Ereignisse verändern.
+[02:48] Jamie Fraser ist eine der am besten geschriebenen männlichen Figuren, die ich je getroffen habe. Er ist ein Krieger, ein Anführer und ein Romantiker, aber er ist auch verletzlich und menschlich. Er macht Fehler, fühlt Schuld und liebt Claire mit einer Tiefe, die sowohl wunderschön als auch schmerzhaft ist.
+[03:05] Die Beziehung zwischen Claire und Jamie ist komplex, weil sie unter Zwang beginnt, aber sie wächst zu etwas Echtem heran. Gabaldon eilt nicht — die Liebe entwickelt sich langsam und fühlt sich verdient an.
+[03:20] Die Nebencharaktere sind ebenso gut ausgearbeitet. Da ist Murron, Jamies erste Liebe; Fergus, sein jüngerer Bruder; und Brianna, Claires Tochter, die zur Protagonistin der späteren Bücher der Serie wird.
+[03:35] Eines, das Outlander von anderer historischer Fiktion unterscheidet, ist, wie ernst es seine weibliche Protagonistin nimmt. Claire ist eine moderne Frau — unabhängig, gebildet und daran gewöhnt, Eigenständigkeit zu haben — geworfen in eine Welt, in der Frauen fast keine Rechte haben.
+[03:52] Sie navigiert damit mit Intelligenz, Mut und manchmal Verzweiflung. Sie weigert sich, ein Opfer ihrer Umstände zu sein, auch wenn die Umstände nahezu unerträglich sind.
+[04:08] Das Buch ist lang — fast achthundert Seiten — aber es fühlt sich nie langsam an. Die Prosa ist lebendig, der Dialog knistert und die emotionalen Einsätze sind immer hoch.
+[04:22] Gabaldon schreibt auch ehrlich über die dunkleren Seiten der Geschichte. Gewalt, sexuelle Übergriffe und die brutalen Realitäten des Krieges werden nicht romantisiert. Das macht die Momente der Zärtlichkeit und Liebe noch kraftvoller.
+[04:38] Das Ende des ersten Buches ist emotional verheerend und richtet den Rest der Serie perfekt ein. Ich beendete es und fing sofort das zweite Buch, Voyager, an.
+[04:52] Wenn du historische Fiktion, starke weibliche Figuren oder epische Liebesgeschichten liebst, ist Outlander absolut unverzichtbare Lektüre. Danke fürs Zuhören!',
     INTERVAL '6 minutes',
-    (SELECT id FROM categories WHERE name = 'Romance')
+    (SELECT id FROM categories WHERE name = 'Romantik')
   );
 
--- More podcasts to reach 12
+-- Weitere Podcasts, um auf 12 zu kommen
 
 INSERT INTO podcasts (title, description, cover_url, audio_url, transcription, duration, category_id) VALUES
   (
-    'Gone Girl',
-    'Anna presents Gillian Flynn''s psychological thriller about a marriage gone terribly wrong.',
+    'Das perfekte Opfer',
+    'Anna präsentiert Gillian Flynn''s psychologischer Thriller über eine Ehe, die schrecklich schiefgeht.',
     'https://ohksnpnmcuoxbyrswjyz.supabase.co/storage/v1/object/public/podcast-cover/lpp.png',
     'https://ohksnpnmcuoxbyrswjyz.supabase.co/storage/v1/object/public/podcast-audio/rain.mp3',
-    '[00:00] Hello everyone, today I want to talk about Gone Girl by Gillian Flynn. This novel was published in 2012 and it became an instant bestseller. It was adapted into a film by David Fincher in 2014, but honestly, the book is even better.
-[00:22] The story opens on the morning of Nick and Amy Dunne''s fifth wedding anniversary. Amy has disappeared. The house is a crime scene — there''s blood, a kitchen knife, and signs of a struggle.
-[00:38] Nick becomes the prime suspect, and as the media circus intensifies, he gives a TV interview that makes him look even worse. The public turns against him, and everyone seems to think he''s murdered his wife.
-[00:53] But here''s the thing — Flynn plays a trick on the reader, and when you figure out what''s happening, you will not see it coming. The book switches between Nick''s perspective and Amy''s perspective, and Amy''s sections are written as diary entries.
-[01:10] What makes these diary entries so disturbing is that you realize they are a carefully constructed performance. Amy has been writing them to create a narrative that makes her the perfect victim and Nick the perfect villain.
-[01:28] Amy is one of the most terrifying characters in modern fiction. She is intelligent, calculating, and completely ruthless. She has planned her disappearance down to the smallest detail, and she is willing to destroy anyone who gets in her way.
-[01:45] But Flynn also makes you understand Amy. She grew up watching her mother try to mold her into the perfect girl, and she learned early that performance and manipulation are survival tools.
-[02:00] Nick is not innocent either. He''s having an affair, he''s resentful about his wife''s controlling behavior, and he''s deeply flawed. The book forces you to ask yourself — who is the real monster here?
-[02:15] The setting of small-town Missouri adds another layer. The media turns Nick and Amy''s marriage into entertainment, and the townspeople play judge and jury. Flynn is criticizing how society consumes personal tragedy as entertainment.
-[02:32] The detective, Rhonda Boney, is a great character. She sees through the performance and starts asking the right questions. She represents the voice of reason in a world gone crazy.
-[02:48] The third act of the book is a masterclass in tension. When Amy reveals herself and what she''s done, the situation becomes almost impossible. Both Nick and Amy are trapped in a nightmare of their own making.
-[03:05] The ending is one of the most chilling in modern fiction. It''s not a happy ending, it''s not a sad ending — it''s a dark ending that makes you sit in silence after you finish the last page.
-[03:20] Flynn wrote this book after working as a journalist and a TV writer, and you can feel that skill in every page. The pacing is perfect, the twists are earned, and the prose is sharp and witty even in the darkest moments.
-[03:38] What I found most disturbing is how realistic the book feels. The way the media manipulates the truth, the way people perform happiness on social media, the way marriages can become prisons — it''s all uncomfortably close to real life.
-[03:55] I would recommend this book to anyone who loves a psychological thriller, but be prepared — it will stay with you long after you finish reading it. Thank you for listening!',
+    '[00:00] Hallo zusammen, heute möchte ich über Das perfekte Opfer von Gillian Flynn sprechen. Dieser Roman wurde 2012 veröffentlicht und wurde sofort ein Bestseller. Er wurde 2014 von David Fincher verfilmt, aber ehrlich gesagt ist das Buch noch besser.
+[00:22] Die Geschichte beginnt am Morgen des fünften Hochzeitstags von Nick und Amy Dunne. Amy ist verschwunden. Das Haus ist ein Tatort — es gibt Blut, ein Küchenmesser und Anzeichen eines Kampfes.
+[00:38] Nick wird zum Hauptverdächtigen und als der Medienzirkus sich intensiviert, gibt er ein Fernsehinterview, das ihn noch schlechter aussehen lässt. Die Öffentlichkeit wendet sich gegen ihn und alle scheinen zu denken, er habe seine Frau ermordet.
+[00:53] Aber hier ist die Sache — Flynn spielt einen Trick mit dem Leser und wenn du herausfindest, was passiert, wirst du es nicht kommen sehen. Das Buch wechselt zwischen Nicks Perspektive und Amys Perspektive und Amys Abschnitte sind als Tagebucheinträge geschrieben.
+[01:10] Was diese Tagebucheinträge so beunruhigend macht, ist, dass du erkennst, dass sie eine sorgfältig konstruierte Performance sind. Amy hat sie geschrieben, um eine Erzählung zu schaffen, die sie zur perfekten Opfer und Nick zum perfekten Bösewicht macht.
+[01:28] Amy ist eine der beängstigendsten Figuren in der modernen Fiktion. Sie ist intelligent, berechnend und völlig rücksichtslos. Sie hat ihr Verschwinden bis ins kleinste Detail geplant und ist bereit, jeden zu zerstören, der ihr in den Weg kommt.
+[01:45] Aber Flynn lässt dich auch Amy verstehen. Sie wuchs auf, wie ihre Mutter versuchte, sie zur perfekten Tochter zu formen, und sie lernte früh, dass Performance und Manipulation Überlebenswerkzeuge sind.
+[02:00] Nick ist auch nicht unschuldig. Er hat eine Affäre, ist verbittert über das kontrollierende Verhalten seiner Frau und ist tief fehlerhaft. Das Buch zwingt dich zu fragen — wer ist hier das echte Monster?
+[02:15] Die Kulisse in der kleinen Stadt Missouri fügt eine weitere Schicht hinzu. Die Medien verwandeln Nicks und Amys Ehe zu Unterhaltung und die Stadtbewohner spielen Richter und Jury. Flynn kritisiert, wie die Gesellschaft persönliche Tragödie als Unterhaltung konsumiert.
+[02:32] Die Detektivin Rhonda Boney ist eine großartige Figur. Sie sieht durch die Performance und fängt an, die richtigen Fragen zu stellen. Sie repräsentiert die Stimme der Vernunft in einer verrückten Welt.
+[02:48] Der dritte Akt des Buches ist ein Meisterkurs in Spannung. Als Amy sich selbst und das, was sie getan hat, offenbart, wird die Situation fast unmöglich. Sowohl Nick als auch Amy sind in einem Albtraum gefangen, den sie selbst erschaffen haben.
+[03:05] Das Ende ist eines der unheimlichsten in der modernen Fiktion. Es ist kein glückliches Ende, es ist kein trauriges Ende — es ist ein dunkles Ende, das dich in Schweigen versetzt, nachdem du die letzte Seite gelesen hast.
+[03:20] Flynn schrieb dieses Buch nach ihrer Arbeit als Journalistin und TV-Autorin und man spürt diese Fähigkeit auf jeder Seite. Das Tempo ist perfekt, die Wendungen sind verdient und die Prosa ist scharf und witzig, selbst in den dunkelsten Momenten.
+[03:38] Was ich am beunruhigendsten fand, ist, wie realistisch das Buch sich anfühlt. Die Art, wie die Medien die Wahrheit manipulieren, wie Menschen Glück in den sozialen Medien vorspielen, wie Ehen zu Gefängnissen werden können — das ist alles unangenehm nah am echten Leben.
+[03:55] Ich würde dieses Buch jedem empfehlen, der einen psychologischen Thriller liebt, aber mach dich bereit — es wird dich lange begleiten, nachdem du fertig gelesen hast. Danke fürs Zuhören!',
     INTERVAL '5 minutes',
-    (SELECT id FROM categories WHERE name = 'Crime')
+    (SELECT id FROM categories WHERE name = 'Krimi')
   );
 
 INSERT INTO podcasts (title, description, cover_url, audio_url, transcription, duration, category_id) VALUES
   (
-    'The Alchemist',
-    'Sara discusses Paulo Coelho''s philosophical fable about Santiago''s journey to find his personal legend.',
+    'Der Alchimist',
+    'Sara diskutiert Paulo Coelho''s philosophische Fabel über Santiagos Reise, um seine persönliche Legende zu finden.',
     'https://ohksnpnmcuoxbyrswjyz.supabase.co/storage/v1/object/public/podcast-cover/lpp.png',
     'https://ohksnpnmcuoxbyrswjyz.supabase.co/storage/v1/object/public/podcast-audio/rain.mp3',
-    '[00:00] Welcome to my presentation of The Alchemist by Paulo Coelho. This book was originally published in Portuguese in 1988, and it has since been translated into more than eighty languages, selling over sixty million copies worldwide.
-[00:22] It''s a short book — you can read it in an afternoon — but it''s the kind of book that stays with you for years.
-[00:35] The story follows Santiago, a young Andalusian shepherd who dreams of finding a treasure buried near the Egyptian pyramids. After having the same dream repeatedly, he visits a gypsy woman for interpretation and then meets an old man named Melchizedek, the King of Salem.
-[00:53] Melchizedek tells Santiago about his Personal Legend — the thing he has always wanted to accomplish since he was young. He says that when you want something, all the universe conspires to help you achieve it.
-[01:10] This sentence became one of the most famous lines in modern literature, and it captures the entire message of the book. Your dreams matter, and the universe wants you to follow them.
-[01:23] Santiago sells his sheep and travels to Morocco, and from there across the Sahara Desert to Egypt. Along the way, he learns about the Language of the World, the Soul of the World, and the concept of Maktub — it is written.
-[01:40] In Morocco, Santiago meets an Englishman who is traveling to study with an alchemist. The Englishman reads hundreds of books about alchemy but refuses to talk to the alchemist himself. Santiago, on the other hand, learns by experience, by watching, and by listening.
-[01:58] This contrast between book knowledge and lived experience is one of the book''s central themes. Coelho is saying that wisdom comes from the journey itself, not from reading about it.
-[02:12] Santiago eventually reaches the alchemist in the Egyptian desert, and the alchemist becomes his mentor. The alchemist teaches him to listen to his heart, to communicate with the wind, the sun, and the desert, and to understand that fear of suffering is worse than suffering itself.
-[02:30] One of the most beautiful scenes is when Santiago learns to turn himself into the wind. It''s a metaphor for understanding that everything in the universe is connected, and that by understanding yourself, you understand everything.
-[02:48] Santiago also falls in love with a desert woman named Fatima at an oasis. She tells him that she is like a flower — if he leaves, she will wither, but she wants him to follow his Personal Legend anyway. True love, she says, does not keep you from pursuing your dreams.
-[03:05] The ending of the book contains a twist that is both surprising and deeply meaningful. After all this journey across the desert, Santiago discovers that the treasure was buried right where he started — back in Spain, at the abandoned church where he used to sleep as a shepherd.
-[03:23] But the point is not the treasure. The point is the journey. Santiago would never have found the treasure if he hadn''t traveled to Egypt, met the alchemist, learned about the Soul of the World, and fallen in love.
-[03:40] The book is simple, almost like a fable, and some critics say it''s too simple. But I think that''s exactly the point. The deepest truths are often the simplest ones.
-[03:55] Coelho wrote The Alchemist after a period of depression and personal crisis, and you can feel that the book is his own Personal Legend given form. It''s a book about hope, about courage, and about the courage to be yourself.
-[04:10] I recommend this book to anyone who has ever felt lost, or unsure about their path in life. It''s a gentle reminder that your dreams are worth following, even when the path is uncertain. Thank you for listening!',
+    '[00:00] Willkommen zu meiner Präsentation von Der Alchimist von Paulo Coelho. Dieses Buch wurde ursprünglich 1988 auf Portugiesisch veröffentlicht und ist seither in mehr als achtzig Sprachen übersetzt worden, mit über sechzig Millionen verkauften Exemplaren weltweit.
+[00:22] Es ist ein kurzes Buch — man kann es an einem Nachmittag lesen — aber es ist die Art von Buch, die einem Jahre lang bleibt.
+[00:35] Die Geschichte folgt Santiago, einem jungen andalusischen Hirten, der träumt, einen Schatz zu finden, der bei den ägyptischen Pyramiden begraben ist. Nachdem er denselben Traum immer wieder hat, besucht er eine Zigeunerin zur Deutung und trifft dann einen alten Mann namens Melchizedek, den König von Salem.
+[00:53] Melchizedek erzählt Santiago von seiner persönlichen Legende — das, was er immer schon erreichen wollte, seit er jung war. Er sagt, dass, wenn du etwas willst, das gesamte Universum zusammenarbeitet, um dir zu helfen, es zu erreichen.
+[01:10] Dieser Satz wurde zu einem der berühmtesten Sätze in der modernen Literatur und er fängt die gesamte Botschaft des Buches ein. Deine Träume sind wichtig und das Universum will, dass du ihnen folgst.
+[01:23] Santiago verkauft seine Schafe und reist nach Marokko und von dort über die Sahara nach Ägypten. Auf dem Weg lernt er die Sprache der Welt, die Seele der Welt und das Konzept von Maktub — es ist geschrieben.
+[01:40] In Marokko trifft Santiago einen Engländer, der reist, um bei einem Alchimisten zu studieren. Der Engländer liest hunderte Bücher über Alchemie, weigert sich aber, mit dem Alchimisten selbst zu sprechen. Santiago hingegen lernt durch Erfahrung, durch Beobachtung und durch Zuhören.
+[01:58] Dieser Kontrast zwischen Buchwissen und gelebter Erfahrung ist eines der zentralen Themen des Buches. Coelho sagt damit, dass Weisheit von der Reise selbst kommt, nicht vom Lesen darüber.
+[02:12] Santiago erreicht schließlich den Alchimisten in der ägyptischen Wüste und der Alchimist wird zu seinem Mentor. Der Alchimist lehrt ihn, seinem Herzen zuzuhören, mit dem Wind, der Sonne und der Wüste zu kommunizieren und zu verstehen, dass die Furcht vor Leid schlimmer ist als das Leid selbst.
+[02:30] Eine der schönsten Szenen ist, wenn Santiago lernt, sich selbst in den Wind zu verwandeln. Es ist eine Metapher dafür zu verstehen, dass alles im Universum verbunden ist und dass man, indem man sich selbst versteht, alles versteht.
+[02:48] Santiago verliebt sich auch in eine Wüstenfrau namens Fatima an einer Oase. Sie sagt ihm, dass sie wie eine Blume ist — wenn er geht, wird sie welken, aber sie will, dass er seiner persönlichen Legende folgt anyway. Wahre Liebe, sagt sie, hält dich nicht davon ab, deinen Träumen zu folgen.
+[03:05] Das Ende des Buches enthält eine Wendung, die sowohl überraschend als auch tief bedeutungsvoll ist. Nach all dieser Reise durch die Wüste entdeckt Santiago, dass der Schatz genau dort begraben war, wo er angefangen hat — zurück in Spanien, bei der verlassenen Kirche, in der er als Hirte schlief.
+[03:23] Aber der Punkt ist nicht der Schatz. Der Punkt ist die Reise. Santiago hätte den Schatz nie gefunden, wenn er nicht nach Ägypten gereist wäre, den Alchimisten getroffen hätte, über die Seele der Welt gelernt hätte und sich verliebt hätte.
+[03:40] Das Buch ist einfach, fast wie eine Fabel, und einige Kritiker sagen, es sei zu einfach. Aber ich denke, das ist genau der Punkt. Die tiefsten Wahrheiten sind oft die einfachsten.
+[03:55] Coelho schrieb Der Alchimist nach einer Phase der Depression und persönlichen Krise und man spürt, dass das Buch seine eigene persönliche Legende in Form ist. Es ist ein Buch über Hoffnung, über Mut und über den Mut, sich selbst zu sein.
+[04:10] Ich empfehle dieses Buch jedem, der sich jemals verloren gefühlt hat oder unsicher über seinen Lebensweg war. Es ist eine sanfte Erinnerung, dass deine Träume es wert sind, gefolgt zu werden, auch wenn der Weg unsicher ist. Danke fürs Zuhören!',
     INTERVAL '5 minutes',
-    (SELECT id FROM categories WHERE name = 'Classics')
+    (SELECT id FROM categories WHERE name = 'Klassiker')
   );
 
 INSERT INTO podcasts (title, description, cover_url, audio_url, transcription, duration, category_id) VALUES
   (
-    'Educated',
-    'Anna presents Tara Westover''s memoir about growing up in a survivalist family and eventually earning a PhD from Cambridge.',
+    'Gebildet',
+    'Anna präsentiert Tara Westovers autobiografisches Werk über das Aufwachsen in einer survivalistischen Familie und den eventualen PhD von Cambridge.',
     'https://ohksnpnmcuoxbyrswjyz.supabase.co/storage/v1/object/public/podcast-cover/lpp.png',
     'https://ohksnpnmcuoxbyrswjyz.supabase.co/storage/v1/object/public/podcast-audio/rain.mp3',
-    '[00:00] Today I''m presenting Educated by Tara Westover. This memoir was published in 2018, and it won numerous awards including the LA Times Book Award and the Goodreads Choice Award for Memoir and Autobiography.
-[00:20] It was also on Barack Obama''s reading list, and Bill Gates called it one of his favorite books. But awards aside, this is simply one of the most remarkable true stories I have ever read.
-[00:38] Tara Westover was born in 1986 to a survivalist family in the mountains of Idaho. Her father was a paranoid Mormon who believed the government was evil and that hospitals, schools, and medicine were tools of a conspiracy to control people.
-[00:55] Because of his beliefs, Tara never went to school. She never visited a doctor. She didn''t have a birth certificate. For the first seventeen years of her life, she didn''t know what the Holocaust was or what the Vietnam War was.
-[01:13] Her days were spent working in her father''s junkyard, lifting heavy metal with her brothers, and helping her mother with herbal medicine. Her mother was a skilled herbalist but also an abusive parent, and the children were regularly injured at work.
-[01:30] Tara''s oldest brother, Shawn, was physically and emotionally abusive, and when Tara tried to tell her parents, her father blamed her for provoking him. This pattern of gaslighting — making you doubt your own reality — is one of the most painful parts of the book.
-[01:48] Everything changed when her older brother Tyler, who had left home to study at BYU, encouraged Tara to take the ACT exam. She had never been to school, but she taught herself everything from old textbooks she found in the junkyard.
-[02:05] She passed the exam with high scores and got into Brigham Young University. This was the beginning of her education, but it was also the beginning of her distance from her family.
-[02:18] At university, Tara is shocked by how different the world is from what she knew. She doesn''t know how to behave in a classroom. She doesn''t know basic historical facts. She burns her hand on a hot pan and doesn''t know to put it under cold water.
-[02:35] But she is determined, and she works harder than anyone around her. Her professors recognize her talent, and she eventually gets a research position with historian Hugh Hedstrom, who becomes a mentor and father figure to her.
-[02:50] Tara earns her bachelor''s degree, then goes to Cambridge as a Fulbright scholar, and eventually earns a PhD in history from Cambridge University. She also spends a year at Harvard studying under the historian Timothy Snyder.
-[03:08] But every step toward education is a step away from her family. Her father declares her the enemy, and her brothers take sides. The central conflict of the book is not just about education — it''s about the impossible choice between family and self.
-[03:25] Westover writes about this conflict with incredible honesty. She doesn''t paint her family as monsters, and she doesn''t paint herself as a hero. She shows how love and abuse can coexist in the same family, and how leaving is both liberation and loss.
-[03:43] The title of the book is deeply meaningful. Educated is in the past participle — it suggests that education is something that happens to you, that transforms you fundamentally. But it also raises the question: can you be educated and still love the people who opposed your education?
-[04:00] Westover doesn''t give us a simple answer. She shows that education gave her the tools to understand her own life, but it also cost her her relationship with her father and some of her siblings.
-[04:15] The writing is beautiful — lyrical, precise, and deeply emotional. Westover has a gift for finding the exact metaphor that captures a feeling, and her descriptions of the Idaho wilderness are some of the most vivid I''ve ever read.
-[04:32] This book changed my perspective on what education means. It''s not just about degrees and credentials — it''s about gaining the ability to see the world clearly, to question what you''ve been told, and to create your own identity.
-[04:48] I cannot recommend this book enough. It''s one of those rare books that makes you want to call your family, talk to your teachers, and reconsider everything you think you know. Thank you for listening!',
+    '[00:00] Heute präsentiere ich Gebildet von Tara Westover. Diese Autobiografie wurde 2018 veröffentlicht und gewann zahlreiche Auszeichnungen, einschließlich des LA Times Book Award und des Goodreads Choice Award für Memoir und Autobiografie.
+[00:20] Sie war auch auf Barack Obamas Leseliste und Bill Gates nannte sie eines seiner Lieblingsbücher. Aber abgesehen von Auszeichnungen ist dies einfach eine der bemerkenswertesten wahren Geschichten, die ich je gelesen habe.
+[00:38] Tara Westover wurde 1986 in einer survivalistischen Familie in den Bergen von Idaho geboren. Ihr Vater war ein paranoider Mormone, der glaubte, die Regierung sei böse und dass Krankenhäuser, Schulen und Medizin Werkzeuge einer Verschwörung seien, um Menschen zu kontrollieren.
+[00:55] Wegen seiner Überzeugungen ging Tara nie zur Schule. Sie besuchte nie einen Arzt. Sie hatte keine Geburtsurkunde. In den ersten siebzehn Jahren ihres Lebens wusste sie nicht, was der Holocaust oder der Vietnamkrieg war.
+[01:13] Ihre Tage verbrachte sie mit der Arbeit in ihrem Vaters Schrottplatz, schwerem Metall mit ihren Brüdern heben und ihrer Mutter bei Kräutermedizin helfen. Ihre Mutter war eine talentierte Kräuterexpertin, aber auch eine missbräuchliche Elternteil, und die Kinder wurden regelmäßig bei der Arbeit verletzt.
+[01:30] Taras ältester Bruder Shawn war physisch und emotional missbräuchlich und als Tara versuchte, ihren Eltern zu erzählen, beschuldigte ihr Vater sie, ihn provoziert zu haben. Dieses Muster von Gaslighting — dich dazu bringen, deine eigene Realität zu bezweifeln — ist einer der schmerzhaftesten Teile des Buches.
+[01:48] Alles änderte sich, als ihr älterer Bruder Tyler, der das Haus verlassen hatte, um an der BYU zu studieren, Tara ermutigte, die ACT-Prüfung zu machen. Sie war nie zur Schule gegangen, aber sie lehrte sich alles aus alten Lehrbüchern, die sie auf der Schrottplatz fand.
+[02:05] Sie bestand die Prüfung mit hohen Punkten und kam an die Brigham Young University. Das war der Beginn ihrer Bildung, aber es war auch der Beginn ihrer Distanz zu ihrer Familie.
+[02:18] An der Universität ist Tara schockiert, wie unterschiedlich die Welt von dem ist, was sie kannte. Sie weiß nicht, wie man sich in einem Klassenzimmer benimmt. Sie kennt keine grundlegenden historischen Fakten. Sie verbrennt ihre Hand auf einer heißen Pfanne und weiß nicht, dass man sie unter kaltes Wasser halten soll.
+[02:35] Aber sie ist entschlossen und arbeitet härter als jeder um sie herum. Ihre Professoren erkennen ihr Talent und sie bekommt eventually eine Forschungsposition bei Historiker Hugh Hedstrom, der zu ihrem Mentor und Vaterfigur wird.
+[02:50] Tara erlangt ihren Bachelor-Abschluss, geht dann als Fulbright-Stipendiatin nach Cambridge und erlangt eventually einen PhD in Geschichte von der Cambridge University. Sie verbringt auch ein Jahr an Harvard unter Historiker Timothy Snyder.
+[03:08] Aber jeder Schritt hin zur Bildung ist ein Schritt weg von ihrer Familie. Ihr Vater erklärt sie zur Feindin und ihre Brüder nehmen Partei. Der zentrale Konflikt des Buches ist nicht nur über Bildung — es ist die unmögliche Wahl zwischen Familie und Selbst.
+[03:25] Westover schreibt über diesen Konflikt mit unglaublicher Ehrlichkeit. Sie malt ihre Familie nicht als Monster und malt sich nicht als Heldin. Sie zeigt, wie Liebe und Missbrauch in derselben Familie koexistieren können und wie das Weggehen sowohl Befreiung als auch Verlust ist.
+[03:43] Der Titel des Buches ist tief bedeutungsvoll. Gebildet ist im Partizip Perfekt — es suggeriert, dass Bildung etwas ist, das einem passiert, das einen fundamental transformiert. Aber es stellt auch die Frage: Kann man gebildet sein und immer noch die Menschen lieben, die deiner Bildung widersprochen haben?
+[04:00] Westover gibt uns keine einfache Antwort. Sie zeigt, dass Bildung ihr die Werkzeuge gab, ihr eigenes Leben zu verstehen, aber es kostete sie auch ihre Beziehung zu ihrem Vater und einigen ihrer Geschwister.
+[04:15] Das Schreiben ist wunderschön — lyrisch, präzise und tief emotional. Westover hat das Geschenk, die genaue Metapher zu finden, die ein Gefühl einfängt, und ihre Beschreibungen der Idaho-Wildnis sind einige der lebendigsten, die ich je gelesen habe.
+[04:32] Dieses Buch hat meine Perspektive darüber verändert, was Bildung bedeutet. Es geht nicht nur um Abschlüsse und Qualifikationen — es geht darum, die Fähigkeit zu gewinnen, die Welt klar zu sehen, das zu hinterfragen, was einem beigebracht wurde, und seine eigene Identität zu erschaffen.
+[04:48] Ich kann dieses Buch nicht genug empfehlen. Es ist eines jener seltenen Bücher, die dich zum Anrufen deiner Familie, zum Sprechen mit deinen Lehrern und zum Überdenken von allem bringen, was du denkst, dass du weißt. Danke fürs Zuhören!',
     INTERVAL '6 minutes',
-    (SELECT id FROM categories WHERE name = 'Biography')
+    (SELECT id FROM categories WHERE name = 'Biografie')
   );
 
 INSERT INTO podcasts (title, description, cover_url, audio_url, transcription, duration, category_id) VALUES
   (
     '1984',
-    'Lukas presents George Orwell''s dystopian masterpiece about totalitarianism, surveillance, and the power of language.',
+    'Lukas präsentiert George Orwells dystopisches Meisterwerk über Totalitarismus, Überwachung und die Macht der Sprache.',
     'https://ohksnpnmcuoxbyrswjyz.supabase.co/storage/v1/object/public/podcast-cover/lpp.png',
     'https://ohksnpnmcuoxbyrswjyz.supabase.co/storage/v1/object/public/podcast-audio/rain.mp3',
-    '[00:00] Today I want to talk about 1984 by George Orwell. This novel was published in 1949, just two years after the end of World War II, and it has become the defining work of dystopian fiction.
-[00:20] Orwell wrote it as a warning about totalitarianism, and seventy-five years later, it feels more relevant than ever.
-[00:33] The story is set in Airstrip One, formerly Great Britain, which is now part of the superstate Oceania. The government is ruled by a party led by Big Brother, whose face is everywhere — on posters, on screens, on currency.
-[00:50] The famous slogan reads: Big Brother Is Watching You. And he is. Telescreens in every home and public space broadcast party propaganda and monitor citizens simultaneously. Privacy does not exist.
-[01:05] Our protagonist is Winston Smith, a thirty-nine-year-old who works at the Ministry of Truth. His job is to rewrite historical documents to match the party''s current version of the truth. If the party says it rained on a certain day, Winston changes the weather records to say it rained.
-[01:23] Winston is one of the rare people who still thinks for himself. He secretly hates the party, and he starts keeping a diary, which is a criminal act. Thinking independent thoughts — what the party calls thoughtcrime — is punishable by death.
-[01:40] Winston begins a forbidden love affair with Julia, a young woman who works in the Fiction Department. Their relationship is an act of rebellion because the party controls sexuality and channels all passion into hatred of enemies and love of Big Brother.
-[01:58] They meet in secret in an apartment above Mr. Charrington''s shop, and for a while, Winston believes he has found a space where the party cannot reach him. He believes that as long as two people love each other, they have something the party cannot take away.
-[02:15] But he is wrong. Mr. Charrington turns out to be a member of the Thought Police, and the telescreen hidden behind the picture of Big Brother has been watching them the whole time.
-[02:30] Winston and Julia are arrested and taken to the Ministry of Love, where they are tortured and brainwashed separately. Winston''s torturer is O''Brien, a high-ranking party member whom Winston mistakenly believed was a fellow rebel.
-[02:48] The most terrifying part of the book is Room 101, where each prisoner faces their worst fear. For Winston, it''s rats. And in that moment of absolute terror, he betrays Julia — he screams, Do it to her, not me.
-[03:05] This betrayal is the final destruction of his inner self. After that, there is nothing left to break. Winston is released back into society, completely rewritten, and the final line of the book is one of the saddest in literature: He loved Big Brother.
-[03:22] Orwell invents concepts in this book that have entered our everyday language. Newspeak — a language designed to reduce the range of thought by eliminating words. Doublethink — the ability to hold two contradictory beliefs at once.
-[03:38] The concept of the memory hole, where documents are destroyed and then forgotten, is incredibly prescient. And the idea that whoever controls the past controls the future, and whoever controls the present controls the past — this is the core of Orwell''s warning.
-[03:55] Orwell was a democratic socialist who had seen totalitarianism firsthand in Spain during the Civil War and in the Soviet Union. He understood that the greatest threat to freedom is not just physical oppression, but the manipulation of truth itself.
-[04:12] When he wrote 1984, surveillance technology was primitive. Today, we carry tracking devices in our pockets, our conversations are recorded by corporations, and deepfakes make it impossible to trust what we see.
-[04:28] The book is a call to vigilance. Orwell wants us to value truth, to protect independent thought, and to recognize the signs of authoritarianism before it''s too late.
-[04:42] I think every adult should read 1984. It''s not just a novel — it''s a manual for understanding how power corrupts language, how language corrupts thought, and how thought corrupts reality. Thank you for listening!',
+    '[00:00] Heute möchte ich über 1984 von George Orwell sprechen. Dieser Roman wurde 1949 veröffentlicht, nur zwei Jahre nach dem Ende des Zweiten Weltkriegs, und wurde zum definierenden Werk der dystopischen Fiktion.
+[00:20] Orwell schrieb es als Warnung vor Totalitarismus und fünfundsechzig Jahre später fühlt es sich relevanter an als je zuvor.
+[00:33] Die Geschichte spielt in Streifenposten Eins, vormals Großbritannien, das jetzt Teil des Superstaates Ozeania ist. Die Regierung wird von einer Partei geführt, die von Großbruder geleitet wird, dessen Gesicht überall ist — auf Plakaten, auf Bildschirmen, auf Geld.
+[00:50] Der berühmte Slogan lautet: Großbruder beobachtet dich. Und er tut es. Teleschirme in jedem Zuhause und öffentlichen Raum übertragen Parteipropaganda und überwachen Bürger gleichzeitig. Privatsphäre existiert nicht.
+[01:05] Unser Protagonist ist Winston Smith, ein neununddreißigjähriger Mann, der im Ministerium der Wahrheit arbeitet. Sein Job ist es, historische Dokumente umzuschreiben, um der aktuellen Version der Wahrheit der Partei zu entsprechen. Wenn die Partei sagt, es hat an einem bestimmten Tag geregnet, ändert Winston die Wetteraufzeichnungen, so dass es geregnet hat.
+[01:23] Winston ist einer der seltenen Menschen, die immer noch für sich selbst denken. Er hasst die Partei heimlich und fängt an, ein Tagebuch zu führen, was eine Straftat ist. Unabhängiges Denken — was die Partei Gedankenkriminalität nennt — wird mit dem Tod bestraft.
+[01:40] Winston beginnt eine verbotene Liebesaffäre mit Julia, einer jungen Frau, die in der Fiktionsabteilung arbeitet. Ihre Beziehung ist ein Akt des Widerstands, weil die Partei die Sexualität kontrolliert und alle Leidenschaft in Hass auf Feinde und Liebe zu Großbruder kanalisiert.
+[01:58] Sie treffen sich heimlich in einer Wohnung über Mr. Charringtons Laden und für eine Weile glaubt Winston, einen Raum gefunden zu haben, den die Partei nicht erreichen kann. Er glaubt, dass, solange zwei Menschen einander lieben, sie etwas haben, das die Partei nicht wegnnehmen kann.
+[02:15] Aber er irrt sich. Mr. Charrington erweist sich als Mitglied der Gedankenpolizei und der Teleschirm, der hinter dem Bild von Großbruder versteckt ist, hat die ganze Zeit überwacht.
+[02:30] Winston und Julia werden verhaftet und ins Ministerium der Liebe gebracht, wo sie getrennt gefoltert und umgedreht werden. Winstons Folterer ist O''Brien, ein ranghoher Parteimitglied, für den Winston fälschlicherweise glaubte, ein mitstreiter zu sein.
+[02:48] Der beängstigendste Teil des Buches ist Raum 101, wo jeder Gefangene seiner schlimmsten Angst gegenübersteht. Für Winston sind es Ratten. Und in diesem Moment absoluten Terrors verrät er Julia — er schreit, Mach es ihr an, nicht mir.
+[03:05] Dieser Verrat ist die endgültige Zerstörung seines inneren Selbst. Danach gibt es nichts mehr zu brechen. Winston wird in die Gesellschaft entlassen, komplett umgeschrieben, und die letzte Zeile des Buches ist eine der traurigsten in der Literatur: Er liebte Großbruder.
+[03:22] Orwell erfindet Konzepte in diesem Buch, die in unsere Alltagssprache eingegangen sind. Neusprech — eine Sprache, die entwickelt wurde, um den Bereich des Denkens durch das Eliminieren von Wörtern zu reduzieren. Doppeldenken — die Fähigkeit, zwei widersprüchliche Überzeugungen gleichzeitig zu halten.
+[03:38] Das Konzept des Gedächtnislochs, wo Dokumente zerstört und dann vergessen werden, ist unglaublich prophetisch. Und die Idee, dass, wer die Vergangenheit kontrolliert, die Zukunft kontrolliert, und wer die Gegenwart kontrolliert, die Vergangenheit kontrolliert — das ist der Kern von Orwells Warnung.
+[03:55] Orwell war ein demokratischer Sozialist, der Totalitarismus aus erster Hand in Spanien während des Bürgerkriegs und in der Sowjetunion gesehen hatte. Er verstand, dass die größte Bedrohung für die Freiheit nicht nur physische Unterdrückung ist, sondern die Manipulation der Wahrheit selbst.
+[04:12] Als er 1984 schrieb, war Überwachungstechnologie primitiv. Heute tragen wir Tracking-Geräte in unseren Taschen, unsere Gespräche werden von Konzernen aufgezeichnet und Deepfakes machen es unmöglich, dem zu vertrauen, was wir sehen.
+[04:28] Das Buch ist ein Aufruf zur Wachsamkeit. Orwell will, dass wir Wahrheit wertschätzen, unabhängiges Denken schützen und die Anzeichen von Autoritarismus erkennen, bevor es zu spät ist.
+[04:42] Ich denke, jeder Erwachsene sollte 1984 lesen. Es ist nicht nur ein Roman — es ist ein Handbuch dafür zu verstehen, wie Macht Sprache korrupt macht, wie Sprache Denken korrupt macht und wie Denken Realität korrupt macht. Danke fürs Zuhören!',
     INTERVAL '6 minutes',
     (SELECT id FROM categories WHERE name = 'Science Fiction')
   );
 
 -- =====================================================
--- PODCAST-PRESENTER LINKS
+-- PODCAST-PRÄSENTATOR-VERBINDUNGEN
 -- =====================================================
 
 INSERT INTO podcast_presenters (podcast_id, presenter_id)
 SELECT p.id, pr.id FROM podcasts p, presenters pr
-WHERE p.title IN ('The Hound of the Baskervilles', 'Gone Girl', 'Educated')
+WHERE p.title IN ('Die Hund von Baskerville', 'Das perfekte Opfer', 'Gebildet')
   AND pr.name = 'Anna Müller';
 
 INSERT INTO podcast_presenters (podcast_id, presenter_id)
 SELECT p.id, pr.id FROM podcasts p, presenters pr
-WHERE p.title IN ('The Hobbit', 'The Fault in Our Stars', 'Dune', '1984')
+WHERE p.title IN ('Der Hobbit', 'Die Schuld liegt nicht an den Sternen', 'Dune', '1984')
   AND pr.name = 'Lukas Schneider';
 
 INSERT INTO podcast_presenters (podcast_id, presenter_id)
 SELECT p.id, pr.id FROM podcasts p, presenters pr
-WHERE p.title IN ('Sapiens: A Brief History of Humankind', 'Pride and Prejudice', 'Outlander', 'The Alchemist')
+WHERE p.title IN ('Sapiens: Eine kurze Geschichte der Menschheit', 'Stolz und Vorurteil', 'Outlander', 'Der Alchimist')
   AND pr.name = 'Sara Fischer';
