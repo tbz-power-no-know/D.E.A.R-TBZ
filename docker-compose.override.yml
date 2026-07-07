@@ -14,10 +14,16 @@ services:
       - "5173:5173"
     networks:
       - dear-net
+    healthcheck:
+      test: ["CMD", "wget", "-q", "--spider", "http://localhost:5173"]
+      interval: 3s
+      timeout: 3s
+      retries: 10
 
   nginx:
     depends_on:
-      - node
+      node:
+        condition: service_healthy
     volumes:
       - ./docker/nginx/nginx.conf:/etc/nginx/nginx.conf
     ports:
