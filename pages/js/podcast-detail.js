@@ -8,7 +8,8 @@ export async function initPodcastDetail() {
   const id = params.get("id");
 
   if (!id) {
-    container.innerHTML = '<p class="loading-text">Kein Podcast ausgewählt.</p>';
+    container.innerHTML =
+      '<p class="loading-text">Kein Podcast ausgewählt.</p>';
     return;
   }
 
@@ -27,7 +28,9 @@ function renderPodcast(podcast, container) {
 
   container.innerHTML = `
     <a href="podcasts.html" class="detail-back">&larr; Alle Podcasts</a>
-    <img class="detail-cover" src="${podcast.cover_url || ""}" alt="${podcast.title}" />
+    <div class="detail-cover-wrapper">
+      <img class="detail-cover" src="${podcast.cover_url || ""}" alt="${podcast.title}" />
+    </div>
 
     <h1 class="detail-title">${podcast.title}</h1>
     <p class="detail-meta">
@@ -38,6 +41,17 @@ function renderPodcast(podcast, container) {
     <div class="detail-description">
       <p>${podcast.description}</p>
     </div>
+
+    ${
+      presenters.length > 0
+        ? `
+      <section class="detail-presenter">
+        <h2>Präsentator${presenters.length > 1 ? "innen" : ""}</h2>
+        ${presenters.map(renderPresenter).join("")}
+      </section>
+    `
+        : ""
+    }
 
     ${
       podcast.audio_url
@@ -61,17 +75,7 @@ function renderPodcast(podcast, container) {
     `
         : ""
     }
-
-    ${
-      presenters.length > 0
-        ? `
-      <section class="detail-presenter">
-        <h2>Präsentator${presenters.length > 1 ? "innen" : ""}</h2>
-        ${presenters.map(renderPresenter).join("")}
-      </section>
-    `
-        : ""
-    }
+    <a href="podcasts.html" class="detail-back">&larr; Alle Podcasts</a>
   `;
 
   const audioEl = container.querySelector("audio");
@@ -82,8 +86,15 @@ function renderPodcast(podcast, container) {
   if (audioSection) {
     const updateAudioStickyTop = () => {
       const header = document.querySelector("header");
-      const headerHeight = parseInt(getComputedStyle(document.documentElement).getPropertyValue("--header-height")) || 0;
-      const headerVisible = header ? !header.classList.contains("header-hidden") : false;
+      const headerHeight =
+        parseInt(
+          getComputedStyle(document.documentElement).getPropertyValue(
+            "--header-height",
+          ),
+        ) || 0;
+      const headerVisible = header
+        ? !header.classList.contains("header-hidden")
+        : false;
       const offset = headerVisible ? headerHeight + 8 : 8;
       audioSection.style.setProperty("--audio-sticky-top", offset + "px");
     };
