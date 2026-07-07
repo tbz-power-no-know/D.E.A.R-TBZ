@@ -67,7 +67,8 @@ function updateToggleIcon() {
   const btn = document.querySelector('.dark-toggle')
   if (!btn) return
   const theme = document.documentElement.getAttribute('data-theme')
-  btn.textContent = theme === 'dark' ? '☀️' : '🌙'
+  const iconSrc = theme === 'dark' ? '/sun-icon.svg' : '/moon-icon.svg'
+  btn.innerHTML = `<img src="${iconSrc}" alt="" class="dark-toggle-icon" />`
   btn.setAttribute('aria-label', theme === 'dark' ? 'Zum hellen Modus wechseln' : 'Zum dunklen Modus wechseln')
 }
 
