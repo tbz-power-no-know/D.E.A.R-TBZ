@@ -104,8 +104,6 @@
   box-shadow: 0 2px 8px var(--shadow-light);
 }
 
-
-
 .bg-circles {
   position: fixed;
   top: 0;
@@ -167,8 +165,12 @@
 }
 
 @keyframes orbit {
-  0% { transform: rotate(0deg) translateX(250px) rotate(0deg); }
-  100% { transform: rotate(360deg) translateX(250px) rotate(-360deg); }
+  0% {
+    transform: rotate(0deg) translateX(250px) rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg) translateX(250px) rotate(-360deg);
+  }
 }
 
 body {
@@ -267,11 +269,19 @@ header.header-hidden {
   align-items: center;
   justify-content: center;
   color: var(--primary);
-  transition: background-color 0.2s, transform 0.2s;
+  transition:
+    background-color 0.2s,
+    transform 0.2s;
 }
 
 .dark-toggle:hover {
   transform: scale(0.97);
+}
+
+.dark-toggle-icon {
+  width: 20px;
+  height: 20px;
+  display: block;
 }
 
 /* Page flip animation */
@@ -292,25 +302,33 @@ header.header-hidden {
 }
 
 @keyframes pageFlipLeft {
-  0%, 10% {
+  0%,
+  10% {
     transform: rotateY(0deg);
   }
-  25%, 40% {
-    transform: rotateY(-180deg);
+  25%,
+  40% {
+    transform: rotateY(180deg);
+    z-index: -2;
   }
-  55%, 100% {
+  55%,
+  100% {
     transform: rotateY(0deg);
   }
 }
 
 @keyframes pageFlipRight {
-  0%, 10% {
+  0%,
+  10% {
     transform: rotateY(0deg);
   }
-  25%, 40% {
+  25%,
+  40% {
     transform: rotateY(180deg);
+    z-index: -2;
   }
-  55%, 100% {
+  55%,
+  100% {
     transform: rotateY(0deg);
   }
 }
