@@ -23,33 +23,41 @@ export function initSearch() {
 }
 
 async function performSearch(query, container) {
-  container.innerHTML = '<p class="loading-text">Wird durchsucht…</p>'
+  const loadingEl = container.previousElementSibling
+  loadingEl.textContent = 'Wird durchsucht…'
+  loadingEl.style.display = ''
 
   try {
     const results = await searchPodcasts(query)
     container.innerHTML = ''
 
     if (results.length === 0) {
-      container.innerHTML = '<p class="loading-text">Keine Ergebnisse gefunden.</p>'
+      loadingEl.textContent = 'Keine Ergebnisse gefunden.'
       return
     }
 
+    loadingEl.style.display = 'none'
+
     results.forEach((podcast) => {
+      const li = document.createElement('li')
       const card = document.createElement('a')
       card.href = `podcast-detail.html?id=${podcast.id}`
       card.className = 'podcast-card'
 
       card.innerHTML = `
-        <img class="podcast-cover" src="${podcast.cover_url || ''}" alt="${podcast.title}" />
+        <div class="cover-wrapper">
+          <img class="podcast-cover" src="${podcast.cover_url || ''}" alt="${podcast.title}" />
+        </div>
         <div class="podcast-card-content">
           <h3 class="podcast-card-title">${podcast.title}</h3>
           <p class="podcast-card-description">${podcast.description}</p>
         </div>
       `
 
-      container.appendChild(card)
+      li.appendChild(card)
+      container.appendChild(li)
     })
   } catch (error) {
-    container.innerHTML = `<p class="loading-text">Fehler: ${error.message}</p>`
+    loadingEl.textContent = `Fehler: ${error.message}`
   }
 }

@@ -49,13 +49,19 @@ export async function renderLatestPodcasts(container, limit = 5) {
     const podcasts = await fetchPodcasts(limit);
     container.innerHTML = "";
 
+    const loadingEl = container.previousElementSibling;
+    if (loadingEl && loadingEl.classList.contains("loading-text")) {
+      loadingEl.style.display = "none";
+    }
+
     if (podcasts.length === 0) {
-      container.innerHTML =
-        '<p class="loading-text">Noch keine Podcasts vorhanden.</p>';
+      loadingEl.textContent = "Noch keine Podcasts vorhanden.";
+      loadingEl.style.display = "";
       return;
     }
 
     podcasts.forEach((podcast) => {
+      const li = document.createElement("li");
       const card = document.createElement("a");
       card.href = `podcast-detail.html?id=${podcast.id}`;
       card.className = "podcast-card";
@@ -77,16 +83,22 @@ export async function renderLatestPodcasts(container, limit = 5) {
         });
       }
 
-      container.appendChild(card);
+      li.appendChild(card);
+      container.appendChild(li);
     });
 
+    const section = container.parentElement;
     const allPodcast = document.createElement("a");
     allPodcast.href = "podcasts.html";
     allPodcast.classList.add("detail-back");
     allPodcast.innerText = `-> Alle Podcasts`;
-    container.appendChild(allPodcast);
+    section.appendChild(allPodcast);
   } catch (error) {
-    container.innerHTML = `<p class="loading-text">Fehler beim Laden der Podcasts: ${error.message}</p>`;
+    const loadingEl = container.previousElementSibling;
+    if (loadingEl && loadingEl.classList.contains("loading-text")) {
+      loadingEl.textContent = `Fehler beim Laden der Podcasts: ${error.message}`;
+      loadingEl.style.display = "";
+    }
   }
 }
 
@@ -95,13 +107,19 @@ export async function renderCategories(container) {
     const categories = await fetchCategories();
     container.innerHTML = "";
 
+    const loadingEl = container.previousElementSibling;
+    if (loadingEl && loadingEl.classList.contains("loading-text")) {
+      loadingEl.style.display = "none";
+    }
+
     if (categories.length === 0) {
-      container.innerHTML =
-        '<p class="loading-text">Noch keine Kategorien vorhanden.</p>';
+      loadingEl.textContent = "Noch keine Kategorien vorhanden.";
+      loadingEl.style.display = "";
       return;
     }
 
     categories.forEach((category) => {
+      const li = document.createElement("li");
       const card = document.createElement("a");
       card.href = `podcasts.html?category=${category.id}`;
       card.className = "category-card";
@@ -115,9 +133,14 @@ export async function renderCategories(container) {
         <span class="category-link">Podcasts ansehen →</span>
       `;
 
-      container.appendChild(card);
+      li.appendChild(card);
+      container.appendChild(li);
     });
   } catch (error) {
-    container.innerHTML = `<p class="loading-text">Fehler beim Laden der Kategorien: ${error.message}</p>`;
+    const loadingEl = container.previousElementSibling;
+    if (loadingEl && loadingEl.classList.contains("loading-text")) {
+      loadingEl.textContent = `Fehler beim Laden der Kategorien: ${error.message}`;
+      loadingEl.style.display = "";
+    }
   }
 }

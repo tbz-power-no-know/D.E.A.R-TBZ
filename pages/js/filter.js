@@ -108,12 +108,17 @@ function handleFilter(categoryId, clickedBtn) {
 function renderPodcasts(podcasts, container) {
   container.innerHTML = ''
 
+  const loadingEl = container.previousElementSibling
   if (podcasts.length === 0) {
-    container.innerHTML = '<p class="loading-text">Keine Podcasts gefunden.</p>'
+    loadingEl.textContent = 'Keine Podcasts gefunden.'
+    loadingEl.style.display = ''
     return
   }
 
+  loadingEl.style.display = 'none'
+
   podcasts.forEach((podcast) => {
+    const li = document.createElement('li')
     const card = document.createElement('a')
     card.href = `podcast-detail.html?id=${podcast.id}`
     card.className = 'podcast-card'
@@ -136,6 +141,7 @@ function renderPodcasts(podcasts, container) {
       })
     }
 
-    container.appendChild(card)
+    li.appendChild(card)
+    container.appendChild(li)
   })
 }

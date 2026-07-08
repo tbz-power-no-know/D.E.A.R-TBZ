@@ -114,6 +114,7 @@
 }
 
 .podcast-card {
+  display: block;
   background-color: var(--primary);
   border-radius: 16px;
   overflow: hidden;
