@@ -19,10 +19,6 @@
   margin-bottom: 0;
 }
 
-.about-section p:last-child {
-  margin-bottom: 0;
-}
-
 .contact-form {
   display: flex;
   flex-direction: column;

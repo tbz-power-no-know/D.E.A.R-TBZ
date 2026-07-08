@@ -5,21 +5,6 @@
   padding-bottom: 48px;
 }
 
-.detail-back {
-  display: inline-block;
-  font-size: 14px;
-  color: var(--text-color);
-  text-decoration: none;
-  margin-bottom: 16px;
-  opacity: 0.7;
-  transition: opacity 0.2s ease;
-}
-
-.detail-back:hover {
-  opacity: 1;
-  text-decoration: underline;
-}
-
 .detail-cover-wrapper {
   width: 100%;
   max-width: 300px;
@@ -84,13 +69,6 @@
 
 .transcription-text .timestamp.active {
   background: var(--primary);
-  color: var(--secondary);
-  padding: 2px 4px;
-  border-radius: 4px;
-}
-
-.transcription-text .timestamp.pause {
-  background: var(--extra-color);
   color: var(--secondary);
   padding: 2px 4px;
   border-radius: 4px;
