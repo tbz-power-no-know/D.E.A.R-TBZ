@@ -413,6 +413,7 @@ header.header-hidden {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  font-weight: bold;
   padding: 5px 0;
   user-select: none;
 }
