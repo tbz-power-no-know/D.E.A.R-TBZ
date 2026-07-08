@@ -1,4 +1,4 @@
-import { fetchPodcasts, fetchCategories } from "./data.js";
+import { fetchPodcasts, fetchCategories, subscribeNewsletter } from "./data.js";
 import { getDominantColor } from "./colorExtract.js";
 
 export function initNewsletter() {
@@ -9,7 +9,7 @@ export function initNewsletter() {
   const status = document.querySelector(".newsletter-status");
   const btn = form.querySelector(".newsletter-btn");
 
-  form.addEventListener("submit", (e) => {
+  form.addEventListener("submit", async (e) => {
     e.preventDefault();
     status.textContent = "";
     status.className = "newsletter-status";
@@ -25,13 +25,22 @@ export function initNewsletter() {
     btn.disabled = true;
     btn.textContent = "Wird gesendet…";
 
-    setTimeout(() => {
-      status.textContent = "Danke! Du bist jetzt abonniert.";
+    try {
+      const result = await subscribeNewsletter(email);
+      if (result === "already-subscribed") {
+        status.textContent = "Du bist bereits abonniert!";
+      } else {
+        status.textContent = "Danke! Du bist jetzt abonniert.";
+      }
       status.className = "newsletter-status is-success";
       input.value = "";
+    } catch (error) {
+      status.textContent = error.message;
+      status.className = "newsletter-status is-error";
+    } finally {
       btn.disabled = false;
       btn.textContent = "Abonnieren";
-    }, 800);
+    }
   });
 }
 
