@@ -37,7 +37,10 @@ D.E.A.R. ist eine Podcast-Website, die für die **Berufsfachschule Zürich** (IT
 - Transkription synchronisiert mit Audiowiedergabe (`[MM:SS]`-Zeitstempel)
 - Feststehender Audioplayer, der beim Scrollen oben bleibt
 - Feststehender Header, der beim Runterscrollen ausgeblendet und beim Hochscrollen eingeblendet wird
-- Newsletter-Anmeldung mit E-Mail-Validierung
+- Newsletter-Anmeldung mit E-Mail-Validierung + Supabase-Insert
+- Dominante Cover-Farbe via Canvas-Extraktion (Karten + Detailseite)
+- Dark-Mode mit Sonne/Mond-Toggle (localStorage-Persistenz)
+- Animierte Logo-Seitenblätter im Header
 - Hover-Animationen auf Karten, Buttons und Links
 - Kontaktformular mit Honeypot-Spamschutz (Edge-Function-Submit)
 
@@ -69,10 +72,10 @@ Alle folgenden Schritte werden im [Supabase Dashboard](https://supabase.com/dash
 
 Gehe zu **SQL-Editor** und führe diese Dateien in folgender Reihenfolge aus:
 
-- `docs/supabase-schema.sql` — erstellt alle Tabellen, RLS-Richtlinien und Speicher-Richtlinien
-- `docs/supabase-seed.sql` — fügt 8 Kategorien, 3 Präsentatoren und 12 Beispiel-Podcasts ein
+- `docs/migration/supabase-schema.sql` — erstellt alle Tabellen, RLS-Richtlinien und Speicher-Richtlinien
+- `docs/migration/supabase-seed.sql` — fügt 8 Kategorien, 3 Präsentatoren und 12 Beispiel-Podcasts ein
 
-> **Hinweis:** `docs/supabase-contact.sql` ist veraltet — die Tabelle `contact_messages` ist nun in `supabase-schema.sql` enthalten.
+> **Hinweis:** `docs/migration/supabase-contact.sql` ist veraltet — die Tabelle `contact_messages` ist nun in `supabase-schema.sql` enthalten.
 
 #### 2. Speicher-Buckets erstellen
 
@@ -128,14 +131,19 @@ npm run preview   # Produktions-Build anschauen
 │   ├── podcast-detail.html   # Einzelner Podcast
 │   ├── about.html            # Über uns + Kontakt
 │   ├── js/                   # JavaScript-Module
+│   │   ├── colorExtract.js   # Dominante Farbe aus Bild extrahieren
+│   │   ├── darkmode.js       # Dark-Mode-Initialisierung + Toggle
+│   │   └── shared/           # Header.js, Footer.js
 │   └── style/                # CSS-Dateien
+├── public/                   # Statische Assets
+│   ├── logo.svg              # Logo mit CSS-Variablen + Animation
+│   ├── sun-icon.svg          # Dark-Mode-Icon
+│   └── moon-icon.svg         # Dark-Mode-Icon
 ├── docs/                     # Dokumentation
 │   ├── wireframes.md         # ASCII-Wireframes (3 Breakpoints × 4 Seiten)
 │   ├── styleguide.md         # Typografie, Farben, Abstände, Komponenten
 │   ├── ai-usage.md           # KI-Zusammenarbeitsdokumentation
-│   ├── supabase-schema.sql   # Datenbank-Schema
-│   ├── supabase-seed.sql     # Seed-Daten
-│   └── supabase-contact.sql  # Kontakt-Nachrichten-Tabelle
+│   └── migration/            # Supabase-SQL-Dateien
 ├── supabase/functions/       # Supabase Edge Functions
 ├── docker/                   # Docker-Konfigurationen (Nginx)
 ├── docker-compose.yml        # Produktion
@@ -150,15 +158,17 @@ npm run preview   # Produktions-Build anschauen
 | [Wireframes](docs/wireframes.md) | ASCII-Wireframes für Mobile, Tablet, Desktop |
 | [Styleguide](docs/styleguide.md) | Typografie, Farben, Abstände, Komponenten |
 | [KI-Nutzung](docs/ai-usage.md) | Wie KI im Projekt eingesetzt wurde |
-| [Supabase-Schema](docs/supabase-schema.sql) | Datenbanktabellen, RLS, Speicher-Richtlinien |
-| [Supabase-Seed](docs/supabase-seed.sql) | 8 Kategorien, 3 Präsentatoren, 12 Podcasts |
-| [Supabase-Kontakt](docs/supabase-contact.sql) | Kontakt-Nachrichten-Tabelle |
+| [Supabase-Schema](docs/migration/supabase-schema.sql) | Datenbanktabellen, RLS, Speicher-Richtlinien |
+| [Supabase-Seed](docs/migration/supabase-seed.sql) | 8 Kategorien, 3 Präsentatoren, 12 Podcasts |
+| [Supabase-Kontakt](docs/migration/supabase-contact.sql) | Kontakt-Nachrichten-Tabelle |
 
 ## Architektur
 
 - **Lesezugriffe:** Browser → Supabase anon key (durch RLS-Richtlinien geschützt)
-- **Schreibzugriffe:** Kontaktformular → Supabase Edge Function → `service_role` key (wird niemals an den Browser gesendet)
+- **Schreibzugriffe — Kontaktformular:** Supabase Edge Function → `service_role` key (wird niemals an den Browser gesendet)
+- **Schreibzugriffe — Newsletter:** Direkt in `newsletter_subscribers` via anon key (INSERT-only RLS, keine SELECT-Richtlinie)
 - **Header/Footer:** Über JS-Module mit `insertAdjacentHTML` gerendert
+- **Header-SVGs:** Logo, Sonne, Mond liegen in `public/`, werden via `fetch()` geladen und inline eingefügt
 - **Daten:** Alle Podcast-Daten werden zur Laufzeit von Supabase abgerufen (nicht hardcoded)
 
 ## Konventionen
