@@ -17,25 +17,30 @@
 ## Projektgeschichte
 
 ### Vorbereitung (vor der KI) — 10 Stunden
+
 - Wireframes manuell erstellt (ohne KI)
 - Docker-Boilerplate eingerichtet (minimale KI-Hilfe)
 - Erkundung: Supabase-Recherche, kein-Framework/keine-SPA-Ansatz
 - Gespräche mit der Lehrperson zur besten Lösung
 
 ### Grundlage
+
 - Basisdateien vom Entwickler erstellt (Commit `ba5a9cd`)
 - KI hat von dieser Grundlage weitergearbeitet
 
 ### Planung
+
 - `objective-detailed.md` durch KI-Austausch erstellt
 - Alle architektonischen Entscheidungen vom Entwickler
 
 ### Entwicklung
+
 - KI generiert Code, Entwickler prüft jede Zeile
 - Regelmässige Commits für Konsistenz
 - Kein "Vibe Coding" — весь Code verstanden vor der Akzeptanz
 
 ### Tool-Auswahl
+
 - opencode (Qwen) anstelle von Claude gewählt: lokales Hosting für Datenschutz und Ökologie
 
 ---
@@ -53,18 +58,21 @@
 ## Kernanforderungen (aus dem Auftrag)
 
 ### Pflichtseiten (mindestens 3)
+
 1. **Startseite** — neueste Podcasts, Kategorieübersicht, Einführung zu DEAR, Hero-Bereich
 2. **Podcasts** — alle Podcasts im Raster, Kategoriefilter, Suche
 3. **Podcast-Detail** — Cover (9:16), Buchinfo, Beschreibung, Transkription mit `[MM:SS]`, Audioplayer, Präsentator-Karte
 4. **Über uns** — Projektinfo, Kontaktformular mit Betreff-Dropdown
 
 ### Pflichtinhalte
+
 - **Mindestens 12 Podcasts** mit: Cover (9:16), Beschreibung, Kategorie, Audiodatei, Präsentator, Transkription
 - **Wireframes** für Mobile/Tablet/Desktop (Markdown, in Git)
 - **Styleguide** mit Typografie und Farben (Markdown, in Git)
 - **KI-Nutzungsdokumentation** (Markdown, in Git)
 
 ### Technische Anforderungen
+
 - **100 % eigenes HTML/CSS** — KI-Unterstützung erlaubt, Frameworks NICHT erlaubt
 - **Seitenstruktur:** Header, Main, Footer
 - **CSS-Grid** für Podcast-Übersicht und Inhalte
@@ -76,6 +84,7 @@
 - **Veröffentlicht** auf einem Webserver
 
 ### Optionale Funktionen
+
 - [x] Suchfunktion (JavaScript) — **gewünscht**
 - [ ] Benutzerkonto, Registrierung, Login/Logout (Web Storage API)
 - [ ] Lesezeichenliste / Favoriten (Web Storage API) — **übersprungen**
@@ -84,19 +93,20 @@
 
 ## Stack
 
-| Ebene | Technologie |
-|---|---|
-| Build | Vite 8 (mehrzeiliges Input) |
-| Runtime | Node 25 (Dev), Nginx 1.30 (Prod) |
-| Backend | Supabase (Datenbank, Speicher, Auth) |
-| Infrastruktur | Docker Compose + Devcontainer |
-| Sprachen | Vanilla HTML, CSS, JavaScript (ES-Module) |
+| Ebene         | Technologie                               |
+| ------------- | ----------------------------------------- |
+| Build         | Vite 8 (mehrzeiliges Input)               |
+| Runtime       | Node 25 (Dev), Nginx 1.30 (Prod)          |
+| Backend       | Supabase (Datenbank, Speicher, Auth)      |
+| Infrastruktur | Docker Compose + Devcontainer             |
+| Sprachen      | Vanilla HTML, CSS, JavaScript (ES-Module) |
 
 ---
 
 ## Design-Entscheidungen
 
 ### Mobile-First-CSS
+
 - Basis-Styles zielen auf **~375px Viewport** (iPhone SE / iPhone 12)
 - Touch-Ziele: **mindestens 44px** (Apple HIG)
 - Grid: **1 Spalte** auf Mobile, **2 Spalten** ab 481px+, **5 Spalten** ab 1025px+
@@ -104,21 +114,25 @@
 - Keine `max-width`-Abfragen — nur `min-width` (echtes Mobile-First)
 
 ### Farben
+
 - CSS-Variablen in `main.css`: `--primary`, `--secondary`
 - Aktuell: `--primary: #000`, `--secondary: #fff` (Platzhalter, werden später geändert)
 - Alle Farben über Variablen referenziert, keine hardcoded-Werte
 
 ### Typografie
+
 - **Überschriften:** Lora (serif) — `var(--font-heading)` — Google Fonts
 - **Fliesstext:** Inter (sans-serif) — `var(--font-body)` — Google Fonts
 - `h1`: 30px, `h2`: 15px (Basis-Mobile-Grössen)
 
 ### Gemeinsam genutzte Komponenten
+
 - Header und Footer über JS-Module mit `insertAdjacentHTML` gerendert
 - Kein Framework — reine Funktionen, keine Templates, kein virtuelles DOM
 - Jede Seite inkludiert `<script type="module" src="/js/main.js">`
 
 ### Daten
+
 - Alle Podcast-Daten in **Supabase** gespeichert (nicht im HTML hardcoded)
 - Audiodateien im Supabase Storage (`podcast-audio`-Bucket)
 - Coverbilder im Supabase Storage (`podcast-covers`-Bucket)
@@ -126,18 +140,21 @@
 - Newsletter-E-Mails in `newsletter_subscribers` (direkt via anon key, INSERT-only RLS)
 
 ### Header-SVGs
+
 - Logo (`logo.svg`), Sonne (`sun-icon.svg`) und Mond (`moon-icon.svg`) liegen in `public/`
 - Werden zur Laufzeit via `fetch()` geladen und als HTML inline eingefügt (CSS-Variablen funktionieren)
 - Logo verwendet `var(--logo-dark)` / `var(--logo-light)` für Dark-Mode-Unterstützung
 - Logo hat animierte Seitenblätter (`page-left` / `page-right` Keyframe-Animation, 5s-Zyklus)
 
 ### Dominante Cover-Farbe
+
 - `colorExtract.js`: `getDominantColor(imgSrc)` — zeichnet Bild auf 50×50 Canvas, bucketet RGB auf 32-Schritt-Intervalle, gibt häufigste Farbe als Hex zurück
 - Wird auf Podcast-Karten (Home + Liste) und Detailseite angewendet
 - `.cover-wrapper` umhüllt das Coverbild, zeigt extrahierte Farbe als Hintergrund (Fallback: `var(--primary)`)
 - Auf Desktop (`object-fit: contain`) füllt die Farbe die Briefmarken-Lücken natürlich
 
 ### Dark-Mode
+
 - Toggle-Button im Header (Sonne/Mond-Icon, SVG aus `public/`)
 - `data-theme` Attribut auf `<html>` (`"light"` / `"dark"`)
 - `localStorage`-Persistenz, `prefers-color-scheme`-Respektierung
@@ -145,6 +162,7 @@
 - Hintergrund-Kreise (`bg-circles`) reduzieren Opazität im Dark-Mode
 
 ### Backend-Zugriff / Schreibpfad
+
 - **Lesezugriffe direkt:** der Browser fragt Supabase-Tabellen mit dem **anon key** ab, geschützt durch lese-only RLS-Richtlinien. Der anon key ist **von Design her öffentlich** — die Sicherheit kommt von **RLS, nicht vom Verstecken** der Architektur. Kein Server für Lesezugriffe nötig.
 - **Schreibzugriffe — zwei Wege:**
   - **Kontaktformular:** wird an eine **Supabase Edge Function** (`supabase/functions/contact/`) gesendet, niemals direkt mit dem anon key eingefügt. Die Function **validiert serverseitig**, filtert Spam über einen Honeypot und fügt mit dem **`service_role` key** ein, der **niemals den Browser erreicht**.
@@ -153,22 +171,26 @@
 - **Regel:** niemals ein Geheimnis (z. B. `service_role`) in eine `VITE_`-präfixierte Variable setzen — Vite inline-t diese in das ausgelieferte Bundle. Nur der öffentliche anon key wird ausgeliefert.
 
 ### Transkription
+
 - Als reiner Text mit `[MM:SS]`-Zeitstempeln pro Zeile gespeichert
 - Beispiel: `[00:00] Willkommen zu dieser Buchvorstellung...\n[01:23] Die Autorin beschreibt...`
 - Zukunft: Transkriptions-Hervorhebung mit Audiowiedergabe-Zeit synchronisieren
 
 ### Aufklappbarer Text
+
 - Aus dem ursprünglichen Design beibehalten
 - `.expandable-text` clampet bei `max-height: 5em`, `.expanded` zeigt vollen Inhalt
 - Umschalten über `.expand-btn`-Button
 
 ### Footer-Akkordeon (Mobile)
+
 - Auf Mobile (< 481px): Footer-Sektionstitel sind anklickbar, Links klappen mit Animation auf
 - Unabhängige Umschalter — mehrere Sektionen können gleichzeitig offen sein
 - Chevron (▼)-Indikator dreht sich, wenn offen
 - Auf Tablet+ (≥ 481px): alle Links immer sichtbar, kein Toggle-Verhalten
 
 ### Feststehender Header
+
 - Header ist `position: fixed` am oberen Rand des Viewports
 - Standardmäßig beim Laden ausgeblendet
 - Blendet sich beim Runterscrollen aus (Schwelle: 20px), blendet sich beim Hochscrollen ein
@@ -176,25 +198,30 @@
 - `--header-height` CSS-Variable wird dynamisch gesetzt, um Inhaltsüberlappung zu verhindern
 
 ### Footer
+
 - Footer ist am Seitenende (normaler Dokumentenfluss, nicht feststehend)
 
 ### Feststehender Audioplayer
+
 - Audioplayer (`detail-audio`) ist `position: sticky; top: 0` — haftet am oberen Rand des Viewports beim Scrollen
 - Wird über der Transkription gerendert, nicht darunter
 - Transkription hat keinen Overflow — voller Text sichtbar, Seite scrollt natürlich
 - Aktiver Zeitstempel wird immer noch hervorgehoben und `scrollIntoView` scrollt die Seite, um ihn zu zentrieren
 
 ### Seitenorientierung
+
 - Podcasts-Seite: `<h2 class="section-title">Alle Podcasts</h2>` oben
 - Podcast-Detail: Zurück-Link (`&larr; Alle Podcasts`) über dem Coverbild
 
 ### Kategorie-Farben und -Bilder
+
 - Kategorien haben `color` (Hex) und `image_url`-Spalten in Supabase
 - Startseite: Kategorie-Karten verwenden Farbe als Hintergrund, zeigen Bild an, falls gesetzt
 - Filter-Buttons: aktiver Zustand verwendet Kategorie-Farbe anstelle von generischem `--primary`
 - Klick auf Kategorie auf Startseite navigiert zu `podcasts.html?category=<id>` mit automatisch aktiviertem Filter
 
 ### Hover-Animationen
+
 - Podcast-/Kategorie-Karten: `translateY(-2px)` + Schatten beim Hover
 - Filter-/Sortier-Buttons: `scale(0.97)` beim Hover
 - Absenden-Button: `translateY(-1px)` beim Hover
@@ -202,6 +229,7 @@
 - Zurück-Link: Opazität + Unterstreichung beim Hover
 
 ### Header-Navigation (Mobile)
+
 - Auf Mobile (< 481px): Hamburger-Button (☰) löst Dropdown-Menü aus, das unter der Header-Leiste aufklappt
 - Dropdown: heller Hintergrund mit Schatten, Links vertikal gestapelt, weisser Text
 - Verwendet `max-height`-Transition für sanftes Öffnen/Schliessen
@@ -213,10 +241,10 @@
 
 Vollständige SQL-Dateien in `docs/`:
 
-| Datei | Zweck |
-|---|---|
-| `docs/supabase-schema.sql` | Tabellen, RLS, Richtlinien, Speicher-Richtlinien |
-| `docs/supabase-seed.sql` | 8 Kategorien, 3 Präsentatoren, 12 Beispiel-Podcasts |
+| Datei                       | Zweck                                                             |
+| --------------------------- | ----------------------------------------------------------------- |
+| `docs/supabase-schema.sql`  | Tabellen, RLS, Richtlinien, Speicher-Richtlinien                  |
+| `docs/supabase-seed.sql`    | 8 Kategorien, 3 Präsentatoren, 12 Beispiel-Podcasts               |
 | `docs/supabase-contact.sql` | `contact_messages`-Tabelle + RLS (keine öffentlichen Richtlinien) |
 
 **Tabellen:** `categories` (mit `image_url`, `color`), `podcasts`, `presenters`, `podcast_presenters`, `contact_messages` (nur schreibbar über Edge Function), `newsletter_subscribers` (INSERT-only RLS, keine SELECT-Richtlinie)
@@ -228,6 +256,7 @@ Vollständige SQL-Dateien in `docs/`:
 ## Seitenstruktur (final)
 
 ### Startseite (`index.html`)
+
 ```
 ┌─────────────────────────┐
 │ Header (via JS gerendert)│
@@ -247,6 +276,7 @@ Vollständige SQL-Dateien in `docs/`:
 ```
 
 ### Podcast-Liste (`podcasts.html`)
+
 ```
 ┌─────────────────────────┐
 │ Header                  │
@@ -265,6 +295,7 @@ Vollständige SQL-Dateien in `docs/`:
 ```
 
 ### Podcast-Detail (`podcast-detail.html`)
+
 ```
 ┌─────────────────────────┐
 │ Header                  │
@@ -290,6 +321,7 @@ Vollständige SQL-Dateien in `docs/`:
 ```
 
 ### Über uns (`about.html`)
+
 ```
 ┌─────────────────────────┐
 │ Header                  │
@@ -301,6 +333,7 @@ Vollständige SQL-Dateien in `docs/`:
 │ Footer                  │
 └─────────────────────────┘
 ```
+
 **Hinweis:** Die Kontakt-Sektion braucht `id="contact"`, damit der Footer-Anker-Link (`about.html#contact`) funktioniert.
 
 ---
@@ -370,22 +403,24 @@ Vollständige SQL-Dateien in `docs/`:
 ## Implementierungsplan
 
 ### Phase 1: Grundlage — ERLEDIGT
+
 - [x] Seiten umbenennen: `index-home.html` → `index.html`, `index.html` → `podcasts.html`, `podcast.html` → `podcast-detail.html`
 - [x] `about.html` erstellen
 - [x] CSS-Variablen in `main.css` (`--primary: #000`, `--secondary: #fff`)
 - [x] Hardcoded-Farben auf Variablen umstellen
 - [x] `pages/js/supabase.js`-Modul erstellen
 - [x] `pages/js/data.js`-Modul erstellen
-- [ ] Supabase-SQL-Schema ausführen (Benutzer führt im Supabase-Dashboard aus)
-- [ ] Leeres `src/`-Verzeichnis aufräumen
+- [x] Supabase-SQL-Schema ausführen (Benutzer führt im Supabase-Dashboard aus)
 
 ### Phase 2: Seiten — ERLEDIGT
+
 - [x] Startseite (`index.html`) — Hero, Einführung zu DEAR, neueste Podcasts, Kategorien
 - [x] Podcast-Liste (`podcasts.html`) — Raster, Kategoriefilter, Suche
 - [x] Podcast-Detail (`podcast-detail.html`) — Cover, Info, Beschreibung, Transkription, Audioplayer, Präsentator
 - [x] Über-uns-Seite (`about.html`) — Projektinfo, Kontaktformular mit Honeypot
 
 ### Phase 3: JS-Logik — MEISTENS ERLEDIGT
+
 - [x] Daten von Supabase abrufen
 - [x] Kategoriefilter (JS mit `data-category`)
 - [x] Sortierumschalter (neueste/älteste) auf Podcasts-Seite
@@ -396,9 +431,10 @@ Vollständige SQL-Dateien in `docs/`:
 - [x] Kontaktformular: clientseitige Validierung + Edge-Function-Absendung
 - [x] Kategoriefilter via URL-Parameter (`?category=uuid`)
 - [x] Newsletter-Anmeldung: E-Mail-Validierung + Supabase-Insert (`subscribeNewsletter`)
-- [ ] Lade-/Fehlerzustände (Skeleton-Loader) — derzeit reiner Text
+- [x] Lade-/Fehlerzustände (Skeleton-Loader) — derzeit reiner Text
 
 ### Phase 4: Responsive Design — ERLEDIGT
+
 - [x] Tablet-Breakpoints (`min-width: 481px`)
 - [x] Desktop-Breakpoints (`min-width: 1025px`)
 - [x] Navigation mit echten Seiten verlinkt
@@ -406,6 +442,7 @@ Vollständige SQL-Dateien in `docs/`:
 - [x] Footer-Akkordeon auf Mobile, flach auf Tablet+
 
 ### Phase 5: Dokumentation — ERLEDIGT
+
 - [x] `docs/wireframes.md` — ASCII-Wireframes für alle 4 Seiten × 3 Breakpoints
 - [x] `docs/styleguide.md` — Typografie, Farben, Abstände, Komponenten
 - [x] `docs/ai-usage.md` — KI-Tools, Einsatzfälle, Prompts, Zeiteinsparung
@@ -437,16 +474,20 @@ Vollständige SQL-Dateien in `docs/`:
 ## Bekannte Probleme / Hinweise
 
 ### Bugs zu beheben
+
 - (keine bekannten)
 
 ### Fehlend (gemäss originalem Auftrag)
+
 - ~~Newsletter-Anmeldung~~ — **implementiert** auf der Startseite, speichert E-Mail in Supabase (`newsletter_subscribers`)
 
 ### Offene Aufgaben
+
 - **Skeleton-Loader** — VERITE Phase 3 gibt Skeleton-Loader vor; derzeit werden reine Text-Platzhalter verwendet
 - **Auf Webserver veröffentlichen** — vom Auftrag erforderlich, GitHub-Actions-Workflow erstellt, braucht manuellen Push + Pages-Konfiguration
 
 ### Gelöst
+
 - ~~Supabase-SQL-Schema, Seed-Daten, Edge-Function, Storage-Buckets~~ — bereitgestellt
 - ~~Seiten umbenennen (index-home → index usw.)~~ — erledigt
 - ~~Footer-Nav-Links~~ — mit echten Seiten verlinkt
