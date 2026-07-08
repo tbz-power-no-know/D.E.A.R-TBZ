@@ -1,87 +1,25 @@
 import { toggleDarkMode } from "../darkmode.js";
 
-const logoSvg = `
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" class="header-logo">
-  <g stroke="var(--logo-dark)" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M150 65 Q140 50 125 35"/>
-    <path d="M125 35 Q115 25 105 20"/>
-    <path d="M132 42 Q120 35 112 30"/>
-    <path d="M120 50 Q108 45 100 42"/>
-    <path d="M150 65 Q160 50 175 35"/>
-    <path d="M175 35 Q185 25 195 20"/>
-    <path d="M168 42 Q180 35 188 30"/>
-    <path d="M180 50 Q192 45 200 42"/>
-  </g>
-  <text x="150" y="110" text-anchor="middle" font-family="Georgia, serif" font-size="48" font-weight="bold" fill="var(--logo-dark)" letter-spacing="6">D.E.A.R.</text>
-  <line x1="80" y1="125" x2="220" y2="125" stroke="var(--logo-dark)" stroke-width="1.5" stroke-linecap="round"/>
-  <!-- Black cover (bigger than pages) -->
-  <path d="M150 140 Q105 130 55 145 L55 245 Q105 230 150 240 Z" fill="var(--logo-dark)"/>
-  <path d="M150 140 Q195 130 245 145 L245 245 Q195 230 150 240 Z" fill="var(--logo-dark)"/>
-  <!-- Right page (static, underneath) -->
-  <path d="M150 145 Q190 135 240 150 L240 240 Q190 225 150 235 Z" fill="var(--logo-light)" stroke="var(--logo-dark)" stroke-width="2" stroke-linejoin="round"/>
-  <!-- Right page lines -->
-  <g stroke="var(--logo-dark)" stroke-width="1" fill="none" stroke-linecap="round">
-    <path d="M155 160 Q192 150 232 162"/>
-    <path d="M155 175 Q192 165 232 177"/>
-    <path d="M155 190 Q192 180 232 192"/>
-    <path d="M155 205 Q192 195 232 207"/>
-    <path d="M155 220 Q192 210 232 222"/>
-  </g>
-  <!-- Second page on left (static, revealed when first page flips) -->
-  <path d="M150 147 Q112 137 62 152 L62 238 Q112 223 150 233 Z" fill="var(--logo-light)" stroke="var(--logo-dark)" stroke-width="1.5" stroke-linejoin="round"/>
-  <g stroke="var(--logo-dark)" stroke-width="1" fill="none" stroke-linecap="round">
-    <path d="M147 162 Q110 152 68 164"/>
-    <path d="M147 177 Q110 167 68 179"/>
-    <path d="M147 192 Q110 182 68 194"/>
-    <path d="M147 207 Q110 197 68 209"/>
-    <path d="M147 222 Q110 212 68 224"/>
-  </g>
-  <!-- Left page (animated, flips to right) -->
-  <g class="page-left">
-    <path d="M150 145 Q110 135 60 150 L60 240 Q110 225 150 235 Z" fill="var(--logo-light)" stroke="var(--logo-dark)" stroke-width="2" stroke-linejoin="round"/>
-    <g stroke="var(--logo-dark)" stroke-width="1" fill="none" stroke-linecap="round">
-      <path d="M145 160 Q108 150 68 162"/>
-      <path d="M145 175 Q108 165 68 177"/>
-      <path d="M145 190 Q108 180 68 192"/>
-      <path d="M145 205 Q108 195 68 207"/>
-      <path d="M145 220 Q108 210 68 222"/>
-    </g>
-  </g>
-  <!-- Right page (animated, flips to left) -->
-  <g class="page-right">
-    <path d="M150 145 Q190 135 240 150 L240 240 Q190 225 150 235 Z" fill="var(--logo-light)" stroke="var(--logo-dark)" stroke-width="2" stroke-linejoin="round"/>
-    <g stroke="var(--logo-dark)" stroke-width="1" fill="none" stroke-linecap="round">
-      <path d="M155 160 Q192 150 232 162"/>
-      <path d="M155 175 Q192 165 232 177"/>
-      <path d="M155 190 Q192 180 232 192"/>
-      <path d="M155 205 Q192 195 232 207"/>
-      <path d="M155 220 Q192 210 232 222"/>
-    </g>
-  </g>
-  <!-- Spine -->
-  <line x1="150" y1="140" x2="150" y2="240" stroke="var(--logo-dark)" stroke-width="2"/>
-</svg>
-`;
+const base = import.meta.env.BASE_URL;
 
-function updateToggleIcon() {
+let sunSvgCache = null;
+let moonSvgCache = null;
+
+async function loadSvg(filename) {
+  const res = await fetch(base + filename);
+  return res.text();
+}
+
+async function updateToggleIcon() {
   const btn = document.querySelector(".dark-toggle");
   if (!btn) return;
   const theme = document.documentElement.getAttribute("data-theme");
-  const sunSvg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <circle cx="12" cy="12" r="5"/>
-    <line x1="12" y1="1" x2="12" y2="3"/>
-    <line x1="12" y1="21" x2="12" y2="23"/>
-    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
-    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
-    <line x1="1" y1="12" x2="3" y2="12"/>
-    <line x1="21" y1="12" x2="23" y2="12"/>
-    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
-    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
-  </svg>`;
-  const moonSvg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
-  </svg>`;
-  btn.innerHTML = theme === "dark" ? sunSvg : moonSvg;
+  const filename = theme === "dark" ? "sun-icon.svg" : "moon-icon.svg";
+  const cache = theme === "dark" ? "sun" : "moon";
+  if (!window[`svgCache_${cache}`]) {
+    window[`svgCache_${cache}`] = await loadSvg(filename);
+  }
+  btn.innerHTML = window[`svgCache_${cache}`];
   btn.setAttribute(
     "aria-label",
     theme === "dark"
@@ -90,7 +28,9 @@ function updateToggleIcon() {
   );
 }
 
-export function renderHeader() {
+export async function renderHeader() {
+  const logoSvg = await loadSvg("logo.svg");
+
   const html = `
     <header class="header">
       <a href="index.html" class="header-title">${logoSvg}</a>
