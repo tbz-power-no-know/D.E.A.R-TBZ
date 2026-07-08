@@ -1,4 +1,5 @@
 import { fetchPodcastById } from "./data.js";
+import { getDominantColor } from "./colorExtract.js";
 
 export async function initPodcastDetail() {
   const container = document.getElementById("podcast-detail");
@@ -81,6 +82,13 @@ function renderPodcast(podcast, container) {
   const audioEl = container.querySelector("audio");
   const transcriptionEl = container.querySelector(".transcription-text");
   initTranscriptionSync(audioEl, transcriptionEl);
+
+  if (podcast.cover_url) {
+    const coverWrapper = container.querySelector(".detail-cover-wrapper");
+    getDominantColor(podcast.cover_url).then((color) => {
+      if (color) coverWrapper.style.backgroundColor = color;
+    });
+  }
 
   const audioSection = container.querySelector(".detail-audio");
   if (audioSection) {
