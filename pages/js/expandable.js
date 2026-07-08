@@ -6,6 +6,9 @@ export function initExpandable() {
         const target = el.querySelector('.expandable-text');
         if (target) {
           target.classList.toggle('expanded');
+          const expanded = target.classList.contains('expanded');
+          btn.setAttribute('aria-expanded', expanded);
+          btn.textContent = expanded ? 'Weniger anzeigen' : 'Mehr anzeigen';
           break;
         }
         el = el.parentElement;

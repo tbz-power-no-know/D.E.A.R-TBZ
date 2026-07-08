@@ -113,7 +113,9 @@
 }
 
 .podcast-card {
-  display: block;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
   background-color: var(--primary);
   border-radius: 16px;
   overflow: hidden;
@@ -146,6 +148,9 @@
 }
 
 .podcast-card-content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
   padding: 16px;
   color: var(--secondary);
 }
@@ -156,6 +161,7 @@
 }
 
 .podcast-card-description {
+  flex: 1;
   font-size: 14px;
   line-height: 1.4;
   color: var(--secondary);
@@ -323,6 +329,23 @@
   .intro-text {
     max-width: 50%;
   }
+}
+
+.expand-btn {
+  background: none;
+  border: none;
+  color: var(--secondary);
+  opacity: 0.8;
+  font-size: 13px;
+  font-family: inherit;
+  cursor: pointer;
+  padding: 4px 0;
+  align-self: flex-start;
+  transition: opacity 0.2s;
+}
+
+.expand-btn:hover {
+  opacity: 1;
 }
 
 .detail-back {

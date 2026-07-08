@@ -50,7 +50,8 @@ async function performSearch(query, container) {
         </div>
         <div class="podcast-card-content">
           <h3 class="podcast-card-title">${podcast.title}</h3>
-          <p class="podcast-card-description">${podcast.description}</p>
+          <p class="podcast-card-description expandable-text">${podcast.description}</p>
+          <span class="expand-btn" role="button" tabindex="0" aria-expanded="false">Mehr anzeigen</span>
         </div>
       `
 

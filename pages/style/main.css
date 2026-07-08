@@ -206,7 +206,7 @@ h2 {
 
 /* predefined class */
 .expandable-text {
-  max-height: 5em;
+  max-height: 7em;
   overflow: hidden;
   transition: max-height 0.3s ease;
 }
