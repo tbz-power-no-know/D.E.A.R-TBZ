@@ -119,11 +119,11 @@
   position: absolute;
   border-radius: 50%;
   filter: blur(120px);
-  opacity: 0.3;
+  opacity: 0.8;
 }
 
 [data-theme="dark"] .bg-circle {
-  opacity: 0.25;
+  opacity: 0.4;
 }
 
 .bg-circle-1 {
