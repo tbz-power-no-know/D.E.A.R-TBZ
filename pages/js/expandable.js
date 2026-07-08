@@ -1,8 +1,8 @@
 export function initExpandable() {
   document.querySelectorAll('.expand-btn').forEach(btn => {
     btn.addEventListener('click', () => {
-      const card = btn.previousElementSibling;
-      const target = card.querySelector('.expandable-text');
+      const content = btn.closest('.podcast-card-content');
+      const target = content.querySelector('.expandable-text');
       if (target) {
         target.classList.toggle('expanded');
         const expanded = target.classList.contains('expanded');

@@ -119,8 +119,7 @@ function renderPodcasts(podcasts, container) {
 
   podcasts.forEach((podcast) => {
     const li = document.createElement('li')
-    const card = document.createElement('a')
-    card.href = `podcast-detail.html?id=${podcast.id}`
+    const card = document.createElement('div')
     card.className = 'podcast-card'
     card.dataset.category = podcast.category_id
 
@@ -131,6 +130,10 @@ function renderPodcasts(podcasts, container) {
       <div class="podcast-card-content">
         <h3 class="podcast-card-title">${podcast.title}</h3>
         <p class="podcast-card-description expandable-text">${podcast.description}</p>
+        <div class="card-actions">
+          <button class="expand-btn" aria-expanded="false">Mehr anzeigen</button>
+          <a href="podcast-detail.html?id=${podcast.id}" class="play-btn">Anhören</a>
+        </div>
       </div>
     `
 
@@ -142,13 +145,12 @@ function renderPodcasts(podcasts, container) {
     }
 
     li.appendChild(card)
-
-    const expandBtn = document.createElement('button')
-    expandBtn.className = 'expand-btn'
-    expandBtn.setAttribute('aria-expanded', 'false')
-    expandBtn.textContent = 'Mehr anzeigen'
-    li.appendChild(expandBtn)
-
     container.appendChild(li)
+
+    const desc = card.querySelector('.podcast-card-description')
+    const expandBtn = card.querySelector('.expand-btn')
+    if (desc.scrollHeight <= desc.clientHeight) {
+      expandBtn.style.display = 'none'
+    }
   })
 }

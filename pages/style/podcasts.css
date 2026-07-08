@@ -120,11 +120,8 @@
   background-color: var(--primary);
   border-radius: 16px;
   overflow: hidden;
-  text-decoration: none;
   color: var(--secondary);
-  transition:
-    transform 0.2s ease,
-    box-shadow 0.2s ease;
+  transition: box-shadow 0.2s ease;
 }
 
 .podcast-card:hover {
@@ -167,9 +164,17 @@
   opacity: 0.8;
 }
 
-.expand-btn {
-  background-color: var(--primary);
-  color: var(--secondary);
+.card-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: auto;
+}
+
+.expand-btn,
+.play-btn {
+  flex: 1;
+  background-color: var(--secondary);
+  color: var(--primary);
   border: none;
   border-radius: 8px;
   font-size: 13px;
@@ -177,15 +182,16 @@
   font-weight: 600;
   cursor: pointer;
   padding: 6px 16px;
-  width: 100%;
   text-align: center;
+  text-decoration: none;
   min-height: 44px;
   transition:
     transform 0.2s ease,
     opacity 0.2s ease;
 }
 
-.expand-btn:hover {
+.expand-btn:hover,
+.play-btn:hover {
   transform: translateY(-1px);
   opacity: 0.9;
 }

@@ -86,7 +86,8 @@
   color: var(--btn-text);
 }
 
-[data-theme="dark"] .expand-btn {
+[data-theme="dark"] .expand-btn,
+[data-theme="dark"] .play-btn {
   background-color: var(--btn-bg);
   color: var(--btn-text);
 }
