@@ -1,182 +1,192 @@
-# D.E.A.R. — Podcast Website
+# D.E.A.R. — Podcast-Website
 
-> **Drop Everything And Read** — A school project showcasing student book presentations as podcasts.
+> **Drop Everything And Read** — Ein Schulprojekt, das Schüler-Buchvorstellungen als Podcasts präsentiert.
 
-## Overview
+## Übersicht
 
-D.E.A.R. is a podcast website built for the **Technical Vocational School Zurich** (IT Department > Computer Science, Module M293 PA04). The platform publishes book presentations produced as podcasts by students in ABU (General Education) classes. Each podcast features a student sharing their thoughts on a book they've read.
+D.E.A.R. ist eine Podcast-Website, die für die **Berufsfachschule Zürich** (IT-Abteilung > Informatik, Modul M293 PA04) erstellt wurde. Die Plattform veröffentlicht Buchvorstellungen, die als Podcasts von Schülerinnen und Schülern in ABU- (Allgemeinbildung) Klassen produziert wurden. Jeder Podcast zeigt eine Schülerin oder einen Schüler, der seine Gedanken zu einem gelesenen Buch teilt.
 
-## Pages
+## Seiten
 
-| Page | Description |
+| Seite | Beschreibung |
 |---|---|
-| **Home** | Hero section, intro to D.E.A.R., latest podcasts, category overview |
-| **Podcasts** | All podcasts grid, category filter, search, sort toggle |
-| **Podcast Detail** | Cover (9:16), book info, description, transcription with `[MM:SS]` timestamps, sticky audio player, presenter card |
-| **About** | Project info, contact form with subject dropdown |
+| **Startseite** | Hero-Bereich, Einführung zu D.E.A.R., neueste Podcasts, Kategorieübersicht |
+| **Podcasts** | Alle Podcasts im Raster, Kategoriefilter, Suche, Sortierumschalter |
+| **Podcast-Detail** | Cover (9:16), Buchinfo, Beschreibung, Transkription mit `[MM:SS]`-Zeitstempeln, feststehender Audioplayer, Präsentator-Karte |
+| **Über uns** | Projektinformationen, Kontaktformular mit Betreff-Dropdown |
 
-## Tech Stack
+## Tech-Stack
 
-| Layer | Technology |
+| Ebene | Technologie |
 |---|---|
-| Build | Vite 8 (multi-page input) |
-| Runtime | Node 25 (dev), Nginx 1.30 (prod) |
-| Backend | Supabase (DB, storage, auth) |
-| Infra | Docker Compose + devcontainer |
-| Languages | Vanilla HTML, CSS, JavaScript (ES modules) |
+| Build | Vite 8 (mehrzeiliges Input) |
+| Runtime | Node 25 (Dev), Nginx 1.30 (Prod) |
+| Backend | Supabase (Datenbank, Speicher, Auth) |
+| Infrastruktur | Docker Compose + Devcontainer |
+| Sprachen | Vanilla HTML, CSS, JavaScript (ES-Module) |
 
-**No frameworks** — 100% custom HTML/CSS/JS with AI-assisted development.
+**Keine Frameworks** — 100 % eigenes HTML/CSS/JS mit KI-gestützter Entwicklung.
 
-## Features
+## Funktionen
 
-- Mobile-first responsive design (375px / 481px / 1025px breakpoints)
-- CSS Grid layouts for podcast and category overviews
-- Category filter with color-coded buttons (data from Supabase)
-- Client-side search (Supabase `ilike`)
-- Sort toggle (newest / oldest)
-- Transcription synced with audio playback (`[MM:SS]` timestamps)
-- Sticky audio player that stays at top while scrolling
-- Sticky header that hides on scroll down, shows on scroll up
-- Newsletter subscription with email validation
-- Hover animations on cards, buttons, and links
-- Contact form with honeypot spam protection (Edge Function submit)
+- Mobile-First-Responsive-Design (375px / 481px / 1025px Breakpoints)
+- CSS-Grid-Layouts für Podcast- und Kategorieübersichten
+- Kategoriefilter mit farbcodierten Buttons (Daten aus Supabase)
+- Clientseitige Suche (Supabase `ilike`)
+- Sortierumschalter (neueste / älteste)
+- Transkription synchronisiert mit Audiowiedergabe (`[MM:SS]`-Zeitstempel)
+- Feststehender Audioplayer, der beim Scrollen oben bleibt
+- Feststehender Header, der beim Runterscrollen ausgeblendet und beim Hochscrollen eingeblendet wird
+- Newsletter-Anmeldung mit E-Mail-Validierung + Supabase-Insert
+- Dominante Cover-Farbe via Canvas-Extraktion (Karten + Detailseite)
+- Dark-Mode mit Sonne/Mond-Toggle (localStorage-Persistenz)
+- Animierte Logo-Seitenblätter im Header
+- Hover-Animationen auf Karten, Buttons und Links
+- Kontaktformular mit Honeypot-Spamschutz (Edge-Function-Submit)
 
-## Getting Started
+## Erste Schritte
 
-### Prerequisites
+### Voraussetzungen
 
 - Node.js 25+
 - Docker + Docker Compose
-- Supabase account
+- Supabase-Konto
 
-### Setup
+### Einrichtung
 
-1. Clone the repository
-2. Copy `.env.example` to `.env` and fill in your Supabase credentials:
+1. Repository klonen
+2. `.env.example` nach `.env` kopieren und Supabase-Zugangsdaten eintragen:
    ```bash
    cp .env.example .env
    ```
-3. Start the dev server:
+3. Dev-Server starten:
    ```bash
    docker compose up
    ```
 
-### Supabase Setup (one-time)
+### Supabase-Einrichtung (einmalig)
 
-All steps below are done in the [Supabase Dashboard](https://supabase.com/dashboard).
+Alle folgenden Schritte werden im [Supabase Dashboard](https://supabase.com/dashboard) durchgeführt.
 
-#### 1. Run SQL files
+#### 1. SQL-Dateien ausführen
 
-Go to **SQL Editor** and run these files in order:
+Gehe zu **SQL-Editor** und führe diese Dateien in folgender Reihenfolge aus:
 
-- `docs/supabase-schema.sql` — creates all tables, RLS policies, and storage policies
-- `docs/supabase-seed.sql` — inserts 8 categories, 3 presenters, and 12 sample podcasts
+- `docs/migration/supabase-schema.sql` — erstellt alle Tabellen, RLS-Richtlinien und Speicher-Richtlinien
+- `docs/migration/supabase-seed.sql` — fügt 8 Kategorien, 3 Präsentatoren und 12 Beispiel-Podcasts ein
 
-> **Note:** `docs/supabase-contact.sql` is deprecated — the `contact_messages` table is now included in `supabase-schema.sql`.
+> **Hinweis:** `docs/migration/supabase-contact.sql` ist veraltet — die Tabelle `contact_messages` ist nun in `supabase-schema.sql` enthalten.
 
-#### 2. Create storage buckets
+#### 2. Speicher-Buckets erstellen
 
-Go to **Storage** and create these 4 buckets. Set each to **Public**:
+Gehe zu **Storage** und erstelle diese 4 Buckets. Setze jeden auf **Public**:
 
-| Bucket | Purpose |
+| Bucket | Zweck |
 |---|---|
-| `podcast-audio` | MP3 audio files |
-| `podcast-cover` | 9:16 cover images |
-| `presenter-photos` | Presenter headshots |
-| `category-images` | Category icons |
+| `podcast-audio` | MP3-Audiodateien |
+| `podcast-cover` | 9:16-Coverbilder |
+| `presenter-photos` | Präsentator-Porträts |
+| `category-images` | Kategorie-Icons |
 
-#### 3. Deploy the Edge Function
+#### 3. Edge-Function bereitstellen
 
-The contact form sends submissions through the `contact` Edge Function (server-side validation + spam protection). You can deploy it via CLI or Dashboard.
+Das Kontaktformular sendet Absendungen durch die `contact` Edge-Function (serverseitige Validierung + Spamschutz). Du kannst sie über CLI oder Dashboard bereitstellen.
 
-**Option A — CLI (recommended):**
+**Option A — CLI (empfohlen):**
 
 ```bash
 npm install -g supabase
 supabase login
-supabase link --project-ref <your-project-ref>
+supabase link --project-ref <dein-project-ref>
 supabase functions deploy contact
 ```
 
 **Option B — Dashboard:**
 
-1. Go to **Edge Functions** → **New Function**
-2. Name it `contact` → choose **Blank** template
-3. Replace the template code with the contents of `supabase/functions/contact/index.ts`
-4. Select **Production** → click **Deploy**
+1. Gehe zu **Edge Functions** → **Neue Function**
+2. Benenne sie `contact` → wähle **Blank** (Leer)
+3. Ersetze den Template-Code mit dem Inhalt von `supabase/functions/contact/index.ts`
+4. Wähle **Production** → klicke **Deploy**
 
-> `SUPABASE_URL` and `SUPABASE_SERVICE_ROLE_KEY` are injected automatically by Supabase — no extra environment variables needed.
+> `SUPABASE_URL` und `SUPABASE_SERVICE_ROLE_KEY` werden automatisch von Supabase injiziert — keine zusätzlichen Umgebungsvariablen nötig.
 
-#### 4. Verify
+#### 4. Verifizieren
 
-Open the contact form on the About page and submit a test message. Check **Table Editor → contact_messages** to confirm the row was inserted.
+Öffne das Kontaktformular auf der Über-uns-Seite und sende eine Testnachricht. Prüfe **Table Editor → contact_messages**, um zu bestätigen, dass der Datensatz eingefügt wurde.
 
-### Scripts
+### Skripte
 
 ```bash
-npm run dev       # Vite dev server (no Docker)
-npm run build     # Production build
-npm run preview   # Preview production build
+npm run dev       # Vite Dev-Server (ohne Docker)
+npm run build     # Produktions-Build
+npm run preview   # Produktions-Build anschauen
 ```
 
-## Project Structure
+## Projektstruktur
 
 ```
-├── pages/                    # Vite root, all HTML entry points
-│   ├── index.html            # Home
-│   ├── podcasts.html         # Podcast list
-│   ├── podcast-detail.html   # Single podcast
-│   ├── about.html            # About + contact
-│   ├── js/                   # JavaScript modules
-│   └── style/                # CSS files
-├── docs/                     # Documentation
-│   ├── wireframes.md         # ASCII wireframes (3 breakpoints × 4 pages)
-│   ├── styleguide.md         # Typography, colors, spacing, components
-│   ├── ai-usage.md           # AI collaboration documentation
-│   ├── supabase-schema.sql   # Database schema
-│   ├── supabase-seed.sql     # Seed data
-│   └── supabase-contact.sql  # Contact messages table
+├── pages/                    # Vite-Root, alle HTML-Einstiegspunkte
+│   ├── index.html            # Startseite
+│   ├── podcasts.html         # Podcast-Liste
+│   ├── podcast-detail.html   # Einzelner Podcast
+│   ├── about.html            # Über uns + Kontakt
+│   ├── js/                   # JavaScript-Module
+│   │   ├── colorExtract.js   # Dominante Farbe aus Bild extrahieren
+│   │   ├── darkmode.js       # Dark-Mode-Initialisierung + Toggle
+│   │   └── shared/           # Header.js, Footer.js
+│   └── style/                # CSS-Dateien
+├── public/                   # Statische Assets
+│   ├── logo.svg              # Logo mit CSS-Variablen + Animation
+│   ├── sun-icon.svg          # Dark-Mode-Icon
+│   └── moon-icon.svg         # Dark-Mode-Icon
+├── docs/                     # Dokumentation
+│   ├── wireframes.md         # ASCII-Wireframes (3 Breakpoints × 4 Seiten)
+│   ├── styleguide.md         # Typografie, Farben, Abstände, Komponenten
+│   ├── ai-usage.md           # KI-Zusammenarbeitsdokumentation
+│   └── migration/            # Supabase-SQL-Dateien
 ├── supabase/functions/       # Supabase Edge Functions
-├── docker/                   # Docker configs (Nginx)
-├── docker-compose.yml        # Production
-├── docker-compose.override.yml  # Development
-└── vite.config.js            # Multi-page build config
+├── docker/                   # Docker-Konfigurationen (Nginx)
+├── docker-compose.yml        # Produktion
+├── docker-compose.override.yml  # Entwicklung
+└── vite.config.js            # Mehrseitige Build-Konfiguration
 ```
 
-## Documentation
+## Dokumentation
 
-| Document | Description |
+| Dokument | Beschreibung |
 |---|---|
-| [Wireframes](docs/wireframes.md) | ASCII wireframes for mobile, tablet, desktop |
-| [Style Guide](docs/styleguide.md) | Typography, colors, spacing, components |
-| [AI Usage](docs/ai-usage.md) | How AI was used throughout the project |
-| [Supabase Schema](docs/supabase-schema.sql) | Database tables, RLS, storage policies |
-| [Supabase Seed](docs/supabase-seed.sql) | 8 categories, 3 presenters, 12 podcasts |
-| [Supabase Contact](docs/supabase-contact.sql) | Contact messages table |
+| [Wireframes](docs/wireframes.md) | ASCII-Wireframes für Mobile, Tablet, Desktop |
+| [Styleguide](docs/styleguide.md) | Typografie, Farben, Abstände, Komponenten |
+| [KI-Nutzung](docs/ai-usage.md) | Wie KI im Projekt eingesetzt wurde |
+| [Supabase-Schema](docs/migration/supabase-schema.sql) | Datenbanktabellen, RLS, Speicher-Richtlinien |
+| [Supabase-Seed](docs/migration/supabase-seed.sql) | 8 Kategorien, 3 Präsentatoren, 12 Podcasts |
+| [Supabase-Kontakt](docs/migration/supabase-contact.sql) | Kontakt-Nachrichten-Tabelle |
 
-## Architecture
+## Architektur
 
-- **Reads:** Browser → Supabase anon key (gated by RLS policies)
-- **Writes:** Contact form → Supabase Edge Function → `service_role` key (never exposed to browser)
-- **Header/Footer:** Rendered via JS modules using `insertAdjacentHTML`
-- **Data:** All podcast data fetched from Supabase at runtime (not hardcoded)
+- **Lesezugriffe:** Browser → Supabase anon key (durch RLS-Richtlinien geschützt)
+- **Schreibzugriffe — Kontaktformular:** Supabase Edge Function → `service_role` key (wird niemals an den Browser gesendet)
+- **Schreibzugriffe — Newsletter:** Direkt in `newsletter_subscribers` via anon key (INSERT-only RLS, keine SELECT-Richtlinie)
+- **Header/Footer:** Über JS-Module mit `insertAdjacentHTML` gerendert
+- **Header-SVGs:** Logo, Sonne, Mond liegen in `public/`, werden via `fetch()` geladen und inline eingefügt
+- **Daten:** Alle Podcast-Daten werden zur Laufzeit von Supabase abgerufen (nicht hardcoded)
 
-## Conventions
+## Konventionen
 
-- ES modules (`type="module"`)
-- No CSS preprocessors
-- No frameworks
-- Mobile-first: base = mobile, `min-width` queries only
-- Touch targets: minimum 44px
-- Commits: `type: short description` (feat, refactor, fix, docs, chore)
+- ES-Module (`type="module"`)
+- Keine CSS-Preprozessoren
+- Keine Frameworks
+- Mobile-First: Basis = Mobile, nur `min-width`-Abfragen
+- Touch-Ziele: mindestens 44px
+- Commits: `typ: kurze beschreibung` (feat, refactor, fix, docs, chore)
 
-## License
+## Lizenz
 
-This is a school project. See [LICENSE](LICENSE) for details.
+Dies ist ein Schulprojekt. Siehe [LICENSE](LICENSE) für Details.
 
-## Acknowledgments
+## Danksagungen
 
-- **School:** Technical Vocational School Zurich, IT Department
-- **Module:** M293 PA04
-- **Format:** Individual work, 20 lessons
-- **AI Tool:** opencode (Qwen) — used for code generation, problem solving, and documentation
+- **Schule:** Berufsfachschule Zürich, IT-Abteilung
+- **Modul:** M293 PA04
+- **Format:** Einzelarbeit, 20 Lektionen
+- **KI-Tool:** opencode (Qwen) — verwendet für Code-Generierung, Problemlösung und Dokumentation

@@ -1,4 +1,5 @@
 import { fetchPodcasts, fetchCategories } from './data.js'
+import { getDominantColor } from './colorExtract.js'
 
 let allPodcasts = []
 let sortOrder = 'newest'
@@ -50,7 +51,7 @@ export async function initFilter() {
     if (sortBtn) {
       sortBtn.addEventListener('click', () => {
         sortOrder = sortOrder === 'newest' ? 'oldest' : 'newest'
-        sortBtn.textContent = sortOrder === 'newest' ? 'Newest first' : 'Oldest first'
+        sortBtn.textContent = sortOrder === 'newest' ? 'Neueste zuerst' : 'Älteste zuerst'
         sortBtn.classList.toggle('active', sortOrder === 'oldest')
 
         const activeFilter = document.querySelector('.filter-btn.active')
@@ -65,7 +66,7 @@ export async function initFilter() {
       handleFilter(categoryId, activeFilter)
     })
   } catch (error) {
-    gridContainer.innerHTML = `<p class="loading-text">Error: ${error.message}</p>`
+    gridContainer.innerHTML = `<p class="loading-text">Fehler: ${error.message}</p>`
   }
 }
 
@@ -108,7 +109,7 @@ function renderPodcasts(podcasts, container) {
   container.innerHTML = ''
 
   if (podcasts.length === 0) {
-    container.innerHTML = '<p class="loading-text">No podcasts found.</p>'
+    container.innerHTML = '<p class="loading-text">Keine Podcasts gefunden.</p>'
     return
   }
 
@@ -119,12 +120,21 @@ function renderPodcasts(podcasts, container) {
     card.dataset.category = podcast.category_id
 
     card.innerHTML = `
-      <img class="podcast-cover" src="${podcast.cover_url || ''}" alt="${podcast.title}" />
+      <div class="cover-wrapper">
+        <img class="podcast-cover" src="${podcast.cover_url || ''}" alt="${podcast.title}" />
+      </div>
       <div class="podcast-card-content">
         <h3 class="podcast-card-title">${podcast.title}</h3>
         <p class="podcast-card-description">${podcast.description}</p>
       </div>
     `
+
+    if (podcast.cover_url) {
+      const wrapper = card.querySelector('.cover-wrapper')
+      getDominantColor(podcast.cover_url).then((color) => {
+        if (color) wrapper.style.backgroundColor = color
+      })
+    }
 
     container.appendChild(card)
   })

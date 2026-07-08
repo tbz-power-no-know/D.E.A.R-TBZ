@@ -12,6 +12,15 @@
 .about-section p {
   line-height: 1.6;
   color: var(--text-color);
+  margin-bottom: 16px;
+}
+
+.about-section p:last-child {
+  margin-bottom: 0;
+}
+
+.about-section p:last-child {
+  margin-bottom: 0;
 }
 
 .contact-form {
@@ -61,7 +70,9 @@
   font-weight: 600;
   cursor: pointer;
   min-height: 44px;
-  transition: transform 0.2s ease, opacity 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    opacity 0.2s ease;
 }
 
 .submit-btn:hover {
@@ -142,3 +153,5 @@
     grid-column: 1 / -1;
   }
 }
+
+

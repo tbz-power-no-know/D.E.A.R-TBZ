@@ -23,14 +23,14 @@ export function initSearch() {
 }
 
 async function performSearch(query, container) {
-  container.innerHTML = '<p class="loading-text">Searching...</p>'
+  container.innerHTML = '<p class="loading-text">Wird durchsucht…</p>'
 
   try {
     const results = await searchPodcasts(query)
     container.innerHTML = ''
 
     if (results.length === 0) {
-      container.innerHTML = '<p class="loading-text">No results found.</p>'
+      container.innerHTML = '<p class="loading-text">Keine Ergebnisse gefunden.</p>'
       return
     }
 
@@ -50,6 +50,6 @@ async function performSearch(query, container) {
       container.appendChild(card)
     })
   } catch (error) {
-    container.innerHTML = `<p class="loading-text">Error: ${error.message}</p>`
+    container.innerHTML = `<p class="loading-text">Fehler: ${error.message}</p>`
   }
 }

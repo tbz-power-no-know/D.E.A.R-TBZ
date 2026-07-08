@@ -1,28 +1,28 @@
-# Style Guide — D.E.A.R. Podcast Website
+# Styleguide — D.E.A.R. Podcast-Website
 
 ---
 
-## Colors
+## Farben
 
-| Variable | Value | Usage |
+| Variable | Wert | Verwendung |
 |---|---|---|
-| `--primary` | `#000000` | Headings, buttons, backgrounds, active states |
-| `--secondary` | `#ffffff` | Text on dark backgrounds, form inputs |
-| `--text-color` | `#1a1a1a` | Body text |
-| `--border-color` | `#e0e0e0` | Borders, dividers, input outlines |
-| `--bg-color` | `#ffffff` | Page background, card backgrounds |
+| `--primary` | `#000000` | Überschriften, Buttons, Hintergründe, aktive Zustände |
+| `--secondary` | `#ffffff` | Text auf dunklen Hintergründen, Formularfelder |
+| `--text-color` | `#1a1a1a` | Fliesstext |
+| `--border-color` | `#e0e0e0` | Ränder, Trennlinien, Input-Umriss |
+| `--bg-color` | `#ffffff` | Seitenhintergrund, Kartenhintergründe |
 
-> **Note:** Primary and secondary are placeholders. Will be updated to final palette later.
+> **Hinweis:** Primary und Secondary sind Platzhalter. Werden später an die endgültige Farbpalette angepasst.
 
 ---
 
-## Typography
+## Typografie
 
-**Font families (Google Fonts):**
-- **Headings:** Lora (serif) — `--font-heading: 'Lora', Georgia, serif`
-- **Body:** Inter (sans-serif) — `--font-body: 'Inter', system-ui, sans-serif`
+**Schriftfamilien (Google Fonts):**
+- **Überschriften:** Lora (serif) — `--font-heading: 'Lora', Georgia, serif`
+- **Fliesstext:** Inter (sans-serif) — `--font-body: 'Inter', system-ui, sans-serif`
 
-| Element | Size (mobile) | Size (tablet) | Size (desktop) | Weight |
+| Element | Größe (Mobile) | Größe (Tablet) | Größe (Desktop) | Gewicht |
 |---|---|---|---|---|
 | `h1` | 30px | 30px | 30px | 900 |
 | `h2` | 15px | 15px | 15px | 900 |
@@ -30,129 +30,145 @@
 | `.section-title` | 28px | 28px | 28px | 900 |
 | `.detail-title` | 28px | 32px | 32px | 900 |
 | `.podcast-card-title` | 18px | 18px | 18px | 600 |
-| Body text | 16px | 16px | 16px | 400 |
-| Small text | 14px | 14px | 14px | 400 |
-| Labels | 14px | 14px | 14px | 600 |
+| Fliesstext | 16px | 16px | 16px | 400 |
+| Kleiner Text | 14px | 14px | 14px | 400 |
+| Beschriftungen | 14px | 14px | 14px | 600 |
 
-**Line heights:**
-- Body: `1.6`
-- Hero subhead: `1.6`
-- Transcription: `1.8`
-- Card descriptions: `1.4`
+**Zeilenhöhen:**
+- Fliesstext: `1.6`
+- Hero-Unterüberschrift: `1.6`
+- Transkription: `1.8`
+- Kartenbeschreibungen: `1.4`
 
 ---
 
-## Spacing
+## Abstände
 
-| Context | Value |
+| Kontext | Wert |
 |---|---|
-| Section padding (mobile) | `20px 16px` |
-| Section padding (tablet) | `32px 24px` |
-| Section padding (desktop) | `48px 40px` |
-| Grid gap (mobile) | `24px` |
-| Grid gap (tablet) | `24px` |
-| Grid gap (desktop) | `24px` |
-| Card padding | `16px` |
-| Form gap | `16px` |
+| Sektions-Padding (Mobile) | `20px 16px` |
+| Sektions-Padding (Tablet) | `32px 24px` |
+| Sektions-Padding (Desktop) | `48px 40px` |
+| Grid-Abstand (Mobile) | `24px` |
+| Grid-Abstand (Tablet) | `24px` |
+| Grid-Abstand (Desktop) | `24px` |
+| Karten-Padding | `16px` |
+| Formular-Abstand | `16px` |
 
 ---
 
-## Components
+## Komponenten
 
-### Card (Podcast)
-- Background: `--primary`
-- Border radius: `16px`
-- Color: `--secondary`
-- Cover: `aspect-ratio: 9/16`, `object-fit: cover`
+### Karte (Podcast)
+- Hintergrund: `--primary`
+- Eckenradius: `16px`
+- Farbe: `--secondary`
+- Cover: `<div class="cover-wrapper">` umhüllt das `<img>`, `aspect-ratio: 9/16`, `display: grid`, `place-items: center`
+- Cover-Hintergrund: extrahierte dominante Farbe via `getDominantColor()` (Fallback: `var(--primary)`)
 - Padding: `16px`
 
-### Card (Category)
-- Background: category `color` from DB (falls back to `--primary`)
-- Border radius: `12px`
-- Color: `--secondary`
+### Karte (Kategorie)
+- Hintergrund: Kategorie-`color` aus der DB (Fallback auf `--primary`)
+- Eckenradius: `12px`
+- Farbe: `--secondary`
 - Padding: `20px`
-- Image: `64px` circle if `image_url` set
-- Clickable: links to `podcasts.html?category=<id>`
+- Bild: `64px` Kreis, falls `image_url` gesetzt
+- Klickbar: verlinkt zu `podcasts.html?category=<id>`
 
 ### Buttons
-- Filter button: `8px 16px` padding, `20px` border-radius, `14px` font
-- Sort button (`.sort-btn`): same style as filter button, left-aligned above filter bar
-- Submit button: `12px` padding, `8px` border-radius, `16px` font, `min-height: 44px`
-- Touch target: minimum `44px`
-- Filter active: uses category color from DB as background
+- Filter-Button: `8px 16px` Padding, `20px` Eckenradius, `14px` Schrift
+- Sortier-Button (`.sort-btn`): gleiches Design wie Filter-Button, linksbündig über der Filterleiste
+- Absenden-Button: `12px` Padding, `8px` Eckenradius, `16px` Schrift, `min-height: 44px`
+- Touch-Ziel: mindestens `44px`
+- Filter aktiv: verwendet Kategorie-Farbe aus der DB als Hintergrund
 
-### Hover Animations
-- Podcast/category cards: `translateY(-2px)` + shadow `0 4px 12px rgba(0,0,0,0.15)`, `transition: 0.2s ease`
-- Filter/sort buttons: `scale(0.97)`, `transition: 0.2s`
-- Submit button: `translateY(-1px)`, `transition: 0.2s ease`
-- Presenter card: border color changes to `--primary` on hover
-- Back link: opacity 0.7→1 + underline on hover
+### Hover-Animationen
+- Podcast-/Kategorie-Karten: `translateY(-2px)` + Schatten `0 4px 12px rgba(0,0,0,0.15)`, `transition: 0.2s ease`
+- Filter-/Sortier-Buttons: `scale(0.97)`, `transition: 0.2s`
+- Absenden-Button: `translateY(-1px)`, `transition: 0.2s ease`
+- Präsentator-Karte: Randfarbe ändert sich zu `--primary` beim Hover
+- Zurück-Link: Opazität 0,7→1 + Unterstreichung beim Hover
 
-### Sticky Header
+### Feststehender Header
 - `position: fixed; top: 0`, `z-index: 100`
-- Hidden by default on load, hides on scroll down (20px threshold), shows on scroll up
-- Always visible at top of page (scrollY <= 10)
-- `--header-height` CSS variable prevents content overlap
+- Standardmäßig beim Laden ausgeblendet, blendet sich beim Runterscrollen aus (20px-Schwelle), blendet sich beim Hochscrollen ein
+- Immer sichtbar am Seitenanfang (scrollY <= 10)
+- `--header-height` CSS-Variable verhindert Inhaltsüberlappung
 
 ### Footer
-- Normal document flow, at end of page (not sticky)
+- Normaler Dokumentenfluss, am Seitenende (nicht feststehend)
 
-### Newsletter Form
-- Input: `12px 16px` padding, `8px` border-radius, `16px` font, `min-height: 44px`
-- Button: `12px 24px` padding, `8px` border-radius, `16px` font, `min-height: 44px`
-- Validation: frontend email regex check
-- Status messages: success (green), error (red)
+### Newsletter-Formular
+- Input: `12px 16px` Padding, `8px` Eckenradius, `16px` Schrift, `min-height: 44px`
+- Button: `12px 24px` Padding, `8px` Eckenradius, `16px` Schrift, `min-height: 44px`
+- Validierung: clientseitige E-Mail-Regex-Prüfung
+- Speichert in Supabase (`newsletter_subscribers`, INSERT-only RLS)
+- Duplikate: "Du bist bereits abonniert!" (als Erfolg)
+- Statusmeldungen: Erfolg (grün), Fehler (rot)
 
-### Inputs
+### Eingabefelder
 - Padding: `10px`
-- Border: `1px solid --border-color`
-- Border radius: `8px`
-- Font size: `16px`
-- Focus: `border-color: --primary`
+- Rand: `1px solid --border-color`
+- Eckenradius: `8px`
+- Schriftgröße: `16px`
+- Fokus: `border-color: --primary`
 
-### Audio Player
-- Native HTML5 `<audio controls>`
-- Width: `100%`
-- Max-width: none (fills container)
-- **Sticky:** `position: sticky; top: 0` — stays at viewport top while scrolling
-- Renders above transcription, not below
+### Audioplayer
+- Natives HTML5 `<audio controls>`
+- Breite: `100%`
+- Maximale Breite: keine (füllt Container aus)
+- **Feststehend:** `position: sticky; top: 0` — bleibt am oberen Rand des Viewports beim Scrollen
+- Wird über der Transkription gerendert, nicht darunter
 
-### Transcription Sync
-- Container: `.transcription-text` — no max-height, no overflow (full text visible)
-- Timestamps: `.timestamp` — clickable, seeks audio to that time
-- Active state: `.timestamp.active` — `background: --primary`, `color: --secondary`, `padding: 2px 4px`, `border-radius: 4px`
-- Behavior: `scrollIntoView` scrolls the **page** (not container) to center active timestamp
-- Audio player is sticky above transcription, stays visible while page scrolls
+### Transkriptions-Sync
+- Container: `.transcription-text` — keine max-height, kein Overflow (vollständiger Text sichtbar)
+- Zeitstempel: `.timestamp` — anklickbar, sucht Audio zu dieser Zeit
+- Aktiver Zustand: `.timestamp.active` — `background: --primary`, `color: --secondary`, `padding: 2px 4px`, `border-radius: 4px`
+- Verhalten: `scrollIntoView` scrollt die **Seite** (nicht den Container), um aktiven Zeitstempel zu zentrieren
+- Audioplayer ist feststehend über der Transkription, bleibt beim Scrollen sichtbar
 
 ### Navigation
-- Mobile: hamburger toggle (`☰`), nav hidden by default
-- Desktop: full nav always visible, hamburger hidden
+- Mobile: Hamburger-Menü (`☰`), Navigation standardmäßig ausgeblendet
+- Desktop: volle Navigation immer sichtbar, Hamburger ausgeblendet
+
+### Cover-Wrapper (`.cover-wrapper`)
+- Umhüllt `.podcast-cover` in Podcast-Karten und Detailseite
+- `aspect-ratio: 9/16`, `display: grid`, `place-items: center`
+- `background-color`: extrahierte dominante Farbe (Fallback: `var(--primary)`)
+- Bild: `width: 100%`, `object-fit: cover` (Desktop: `contain`)
+- Farbe füllt Briefmarken-Lücken bei `object-fit: contain`
+
+### Dark-Mode
+- Toggle im Header: Sonne (Dark → Light) / Mond (Light → Dark)
+- `data-theme="dark"` auf `<html>`
+- Alle Komponenten haben `[data-theme="dark"]`-Overrides
+- `localStorage`-Persistenz, `prefers-color-scheme`-Respektierung
 
 ---
 
 ## Breakpoints
 
-| Breakpoint | Range | Query |
+| Breakpoint | Bereich | Query |
 |---|---|---|
-| Mobile | < 480px | Base styles (no query) |
-| Tablet | 481-1024px | `@media (min-width: 481px)` |
+| Mobile | < 480px | Basis-Styles (keine Query) |
+| Tablet | 481–1024px | `@media (min-width: 481px)` |
 | Desktop | 1025px+ | `@media (min-width: 1025px)` |
 
 ---
 
-## Grid Layouts
+## Grid-Layouts
 
-| Page | Mobile | Tablet | Desktop |
+| Seite | Mobile | Tablet | Desktop |
 |---|---|---|---|
-| Home - Podcasts | 1 col | 2 col | 3 col |
-| Home - Categories | 1 col | 2 col | 3 col |
-| Podcasts list | 1 col | 2 col | 3 col |
+| Startseite – Podcasts | 1 Spalte | 2 Spalten | 5 Spalten |
+| Startseite – Kategorien | 1 Spalte | 2 Spalten | 3 Spalten |
+| Podcast-Liste | 1 Spalte | 2 Spalten | 5 Spalten |
 
 ---
 
-## Conventions
-- Mobile-first CSS (base = mobile, `min-width` queries)
-- CSS variables for all colors
-- CSS Grid for layouts
-- Touch targets minimum 44px
-- No CSS preprocessors
+## Konventionen
+- Mobile-First-CSS (Basis = Mobile, `min-width`-Abfragen)
+- CSS-Variablen für alle Farben
+- CSS-Grid für Layouts
+- Touch-Ziele mindestens 44px
+- Keine CSS-Preprozessoren

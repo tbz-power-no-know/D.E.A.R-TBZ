@@ -1,113 +1,120 @@
-# AI Usage Documentation — D.E.A.R. Podcast Website
+# KI-Nutzungsdocumentation — D.E.A.R. Podcast-Website
 
-> Personal documentation of how AI was used throughout this project.
-
----
-
-## Project Context
-
-D.E.A.R. (Drop Everything And Read) is a school project for the Technical Vocational School Zurich. The goal is to build a podcast website showcasing student book presentations. The project requires custom HTML/CSS (no frameworks), mobile-first responsive design, and Supabase as the backend.
+> Persönliche Dokumentation darüber, wie KI in diesem Projekt eingesetzt wurde.
 
 ---
 
-## Phase 1: Preparation (Before AI) — 10 hours
+## Projekt-Kontext
 
-Before any AI involvement, I did the groundwork entirely on my own:
-
-- **Wireframes** — designed manually, no AI assistance
-- **Docker boilerplate** — set up with minor AI help for Docker Compose syntax
-- **Discovery & research** — investigated how Supabase works, explored how to build a web project without a framework and without SPA (Single Page Application)
-- **Teacher discussions** — exchanged ideas with the teacher to determine the best technical approach for this project
-
-This preparation phase took **10 hours** and was essential to understand the problem space before involving AI.
+D.E.A.R. (Drop Everything And Read) ist ein Schulprojekt der Berufsfachschule Zürich. Das Ziel ist es, eine Podcast-Website zu bauen, die Schüler-Buchvorstellungen präsentiert. Das Projekt erfordert eigenes HTML/CSS (ohne Frameworks), mobile-first Responsive Design und Supabase als Backend.
 
 ---
 
-## Phase 2: Foundation
+## Phase 1: Vorbereitung (vor der KI) — 10 Stunden
 
-After the preparation, I created the necessary basis files for the AI to build upon. The initial commit (`ba5a9cd`) contains the boilerplate structure — the AI only needed to continue from this foundation. The project structure and frontend basics were established before any heavy AI involvement.
+Bevor jegliche KI zum Einsatz kam, habe ich die Grundlagen komplett selbst erstellt:
+
+- **Wireframes** — manuell entworfen, keine KI-Hilfe
+- **Docker-Boilerplate** — mit minimaler KI-Hilfe für Docker-Compose-Syntax eingerichtet
+- **Recherche & Erkundung** — habe untersucht, wie Supabase funktioniert, wie man ein Webprojekt ohne Framework und ohne SPA (Single Page Application) aufbaut
+- **Gespräche mit der Lehrperson** — habe Ideen ausgetauscht, um den besten technischen Ansatz für dieses Projekt zu bestimmen
+
+Diese Vorbereitungsphase dauerte **10 Stunden** und war essenziell, um den Problembereich zu verstehen, bevor KI involviert wurde.
 
 ---
 
-## Phase 3: Planning
+## Phase 2: Grundlage
 
-With the foundation in place, I created `objective-detailed.md` (the VERITE) through an iterative exchange with the AI. **I was responsible for all architectural choices and decisions.** The AI helped structure and document the plan, but every choice — Supabase schema, file structure, mobile-first approach, responsive breakpoints — came from me.
+Nach der Vorbereitung habe ich die notwendigen Basisdateien erstellt, auf denen die KI aufbauen konnte. Der erste Commit (`ba5a9cd`) enthält die Boilerplate-Struktur — die KI musste nur von dieser Grundlage weiterarbeiten. Die Projektstruktur und Frontend-Grundlagen wurden vor jeder intensiven KI-Beteiligung festgelegt.
 
 ---
 
-## Phase 4: Development
+## Phase 3: Planung
 
-Once the plan was fixed, the AI generated code, but I enforced consistency:
+Mit der fertigen Grundlage habe ich `objective-detailed.md` (die VERITE) durch einen iterativen Austausch mit der KI erstellt. **Alle architektonischen Entscheidungen lagen bei mir.** Die KI half bei der Strukturierung und Dokumentation des Plans, aber jede Entscheidung — Supabase-Schema, Dateistruktur, mobile-first-Ansatz, Responsive-Breakpoints — kam von mir.
 
-- **Regular commits** — every logical change committed separately with clear messages
-- **Clean code** — well-structured, readable, no shortcuts
-- **Code review** — despite the backend being generated, I reviewed every line to learn new things, not just copy-paste
-- **No "vibe coding"** — I understood every generated piece before accepting it
+---
 
-### Time Savings Estimate
+## Phase 4: Entwicklung
 
-| Task | Estimated without AI | With AI | Savings |
+Sobald der Plan feststand, generierte die KI Code, aber ich sorgte für Konsistenz:
+
+- **Regelmässige Commits** — jede logische Änderung separat mit klaren Nachrichten committed
+- **Sauberer Code** — gut strukturiert, lesbar, keine Abkürzungen
+- **Code-Review** — obwohl das Backend generiert wurde, habe ich jede Zeile geprüft, um Neues zu lernen, nicht nur Copy-Paste
+- **Kein "Vibe Coding"** — ich habe jedes generierte Stück verstanden, bevor ich es akzeptiert habe
+
+### Zeiteinsparungsschätzung
+
+| Aufgabe | Geschätzt ohne KI | Mit KI | Einsparung |
 |---|---|---|---|
-| Project planning | 2h | 0.5h | 1.5h |
-| Code generation | 8h | 3h | 5h |
-| CSS styling | 6h | 2h | 4h |
-| Documentation | 3h | 1h | 2h |
-| Debugging | 2h | 0.5h | 1.5h |
-| Transcription sync | 3h | 1h | 2h |
-| Sort toggle (newest/oldest) | 2h | 0.5h | 1.5h |
-| **Total** | **26h** | **8.5h** | **17.5h** |
+| Projektplanung | 2h | 0,5h | 1,5h |
+| Code-Generierung | 8h | 3h | 5h |
+| CSS-Styling | 6h | 2h | 4h |
+| Dokumentation | 3h | 1h | 2h |
+| Debugging | 2h | 0,5h | 1,5h |
+| Transkriptions-Sync | 3h | 1h | 2h |
+| Sortierumschalter (neueste/älteste) | 2h | 0,5h | 1,5h |
+| Dominante Cover-Farbe (Canvas) | 2h | 0,5h | 1,5h |
+| SVG-Refactoring (public/ + fetch) | 1,5h | 0,3h | 1,2h |
+| Newsletter → Supabase-Integration | 1,5h | 0,3h | 1,2h |
+| Dark-Mode + Logo-Animation | 2h | 0,5h | 1,5h |
+| Grammatik + Dokumentation | 1h | 0,2h | 0,8h |
+| **Total** | **36h** | **10,3h** | **25,7h** |
 
-The AI saved approximately **20 hours** of development time.
+Die KI hat ungefähr **26 Stunden** Entwicklungszeit gespart.
 
 ---
 
-## Phase 5: Documentation
+## Phase 5: Dokumentation
 
-The AI assisted with documentation (wireframes, style guide, this file), but under my supervision. I provided the content direction and reviewed everything before committing.
+Die KI unterstützte bei der Dokumentation (Wireframes, Styleguide, diese Datei), aber unter meiner Aufsicht. Ich habe die inhaltliche Richtung vorgegeben und alles geprüft, bevor ich es committed habe.
 
 ---
 
-## Tool Choice: opencode (Qwen) vs Claude
+## Tool-Auswahl: opencode (Qwen) vs. Claude
 
-I chose **opencode with Qwen** over Claude for two main reasons:
+Ich habe mich für **opencode mit Qwen** anstelle von Claude aus zwei Hauptgründen entschieden:
 
-1. **Data privacy** — opencode is hosted locally on a server, meaning no code or data leaves the local infrastructure
-2. **Ecology** — local hosting reduces the energy footprint compared to cloud-based AI services
+1. **Datenschutz** — opencode wird lokal auf einem Server gehostet, d.h. kein Code oder keine Daten verlassen die lokale Infrastruktur
+2. **Ökologie** — lokales Hosting reduziert den Energie-Fussabdruck im Vergleich zu Cloud-basierten KI-Diensten
 
-### Comparison
+### Vergleich
 
-| Criterion | opencode (Qwen) | Claude | Weight |
+| Kriterium | opencode (Qwen) | Claude | Gewicht |
 |---|---|---|---|
-| Data privacy | Local hosting | Cloud-based | High |
-| Ecology | Lower energy footprint | Cloud servers | High |
-| Cost | Free | Paid | High |
-| Response quality | Excellent | Excellent | High |
-| Git integration | Native | Via IDE | Medium |
-| **Conclusion** | **Chosen for this project** | — | — |
+| Datenschutz | Lokales Hosting | Cloud-basiert | Hoch |
+| Ökologie | Geringerer Energieverbrauch | Cloud-Server | Hoch |
+| Kosten | Kostenlos | Bezahlt | Hoch |
+| Antwortqualität | Ausgezeichnet | Ausgezeichnet | Hoch |
+| Git-Integration | Native | Über IDE | Mittel |
+| **Fazit** | **Für dieses Projekt gewählt** | — | — |
 
 ---
 
-## What I Learned
+## Was ich gelernt habe
 
-Through this project and the AI collaboration, I learned:
+Durch dieses Projekt und die KI-Zusammenarbeit habe ich gelernt:
 
-1. **Supabase** — how to set up a Supabase project, design a schema with relationships, configure RLS policies, use Storage buckets
-2. **Docker Compose** — multi-container setups, volume mounts, multi-stage builds, dev/prod overrides
-3. **HTML** — semantic HTML structure, proper use of `<main>`, `<section>`, `aria-*` attributes
-4. **CSS** — CSS custom properties (variables), mobile-first methodology, `max-height` transitions, `aspect-ratio`, `object-fit`
-5. **Vite** — multi-page builds, auto-discovery of HTML entry points, environment variables
-6. **AI collaboration** — how to give clear instructions, review AI output critically, maintain consistency across sessions
+1. **Supabase** — wie man ein Supabase-Projekt einrichtet, ein Schema mit Beziehungen entwirft, RLS-Richtlinien konfiguriert, Storage-Buckets nutzt, INSERT-only-Policies setzt
+2. **Docker Compose** — Multi-Container-Setups, Volume-Mounts, Multi-Stage-Builds, Dev/Prod-Overrides
+3. **HTML** — semantische HTML-Struktur, korrekte Verwendung von `<main>`, `<section>`, `aria-*`-Attributen
+4. **CSS** — CSS-Custom-Properties (Variablen), mobile-first-Methodik, `max-height`-Transitionen, `aspect-ratio`, `object-fit`, Keyframe-Animationen, `z-index`-Management
+5. **JavaScript** — Canvas-API (Pixel-Extraktion), `fetch()` für SVG-Assets, async/await-Patterns, DOM-Manipulation mit `insertAdjacentHTML`
+6. **Vite** — mehrseitige Builds, Auto-Discovery von HTML-Einstiegspunkten, Umgebungsvariablen, `import.meta.env.BASE_URL`
+7. **SVG** — CSS-Variablen in inline-SVGs, Datei-basierte SVGs zur Laufzeit laden
+8. **KI-Zusammenarbeit** — wie man klare Anweisungen gibt, KI-Output kritisch prüft, Konsistenz über Sitzungen hinweg aufrechterhält
 
 ---
 
-## Transparency Statement
+## Transparenz-Erklärung
 
-This project was developed with AI assistance using opencode (Qwen). The workflow was:
+Dieses Projekt wurde mit KI-Unterstützung unter Verwendung von opencode (Qwen) entwickelt. Der Arbeitsablauf war:
 
-1. **Preparation** — wireframes, discovery, teacher discussions (10 hours, mostly without AI)
-2. **Foundation** — boilerplate and basis files created by the developer
-3. **Planning** — all architectural decisions made by the developer, AI helped document
-4. **Development** — AI generated code, developer reviewed every line for understanding
-5. **Documentation** — AI assisted, developer supervised
+1. **Vorbereitung** — Wireframes, Recherche, Gespräche mit der Lehrperson (10 Stunden, mostly ohne KI)
+2. **Grundlage** — Boilerplate und Basisdateien vom Entwickler erstellt
+3. **Planung** — alle architektonischen Entscheidungen vom Entwickler getroffen, KI hat bei der Dokumentation geholfen
+4. **Entwicklung** — KI hat Code generiert, Entwickler hat jede Zeile geprüft zum Verständnis
+5. **Dokumentation** — KI hat unterstützt, Entwickler hat beaufsichtigt
 
-**All architectural choices, design decisions, and final approvals were made by the developer.** The AI was a tool for efficiency, not a replacement for understanding.
+**Alle architektonischen Entscheidungen, Design-Entscheidungen und finalen Genehmigungen lagen beim Entwickler.** Die KI war ein Werkzeug für Effizienz, kein Ersatz für Verständnis.

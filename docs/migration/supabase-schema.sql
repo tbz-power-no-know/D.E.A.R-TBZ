@@ -119,8 +119,7 @@ CREATE POLICY "Podcast presenters are viewable by everyone"
 CREATE POLICY "Newsletter subscribers can insert their own email"
   ON newsletter_subscribers FOR INSERT WITH CHECK (true);
 
-CREATE POLICY "Newsletter subscribers are viewable by everyone"
-  ON newsletter_subscribers FOR SELECT USING (true);
+-- No SELECT policy — only service_role can read subscriber emails
 
 -- No public policies on contact_messages — write-only via Edge Function with service_role key
 

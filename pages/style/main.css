@@ -1,4 +1,5 @@
 :root {
+  --header-height: 60px;
   --primary: #000000;
   --secondary: #ffffff;
   --text-color: #1a1a1a;
@@ -103,8 +104,6 @@
   box-shadow: 0 2px 8px var(--shadow-light);
 }
 
-
-
 .bg-circles {
   position: fixed;
   top: 0;
@@ -120,11 +119,11 @@
   position: absolute;
   border-radius: 50%;
   filter: blur(120px);
-  opacity: 0.3;
+  opacity: 0.8;
 }
 
 [data-theme="dark"] .bg-circle {
-  opacity: 0.25;
+  opacity: 0.4;
 }
 
 .bg-circle-1 {
@@ -136,7 +135,7 @@
   margin-left: -350px;
   margin-top: -350px;
   transform-origin: 350px 350px;
-  animation: orbit 30s linear infinite;
+  animation: orbit 60s linear infinite;
 }
 
 .bg-circle-2 {
@@ -148,8 +147,8 @@
   margin-left: -350px;
   margin-top: -350px;
   transform-origin: 350px 350px;
-  animation: orbit 30s linear infinite;
-  animation-delay: -10s;
+  animation: orbit 60s linear infinite;
+  animation-delay: -20s;
 }
 
 .bg-circle-3 {
@@ -161,13 +160,17 @@
   margin-left: -350px;
   margin-top: -350px;
   transform-origin: 350px 350px;
-  animation: orbit 30s linear infinite;
-  animation-delay: -20s;
+  animation: orbit 60s linear infinite;
+  animation-delay: -40s;
 }
 
 @keyframes orbit {
-  0% { transform: rotate(0deg) translateX(250px) rotate(0deg); }
-  100% { transform: rotate(360deg) translateX(250px) rotate(-360deg); }
+  0% {
+    transform: rotate(0deg) translateX(250px) rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg) translateX(250px) rotate(-360deg);
+  }
 }
 
 body {
@@ -175,7 +178,7 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  padding-top: var(--header-height, 0px);
+  padding-top: var(--header-height);
   background-color: var(--bg-color);
 }
 
@@ -266,7 +269,9 @@ header.header-hidden {
   align-items: center;
   justify-content: center;
   color: var(--primary);
-  transition: background-color 0.2s, transform 0.2s;
+  transition:
+    background-color 0.2s,
+    transform 0.2s;
 }
 
 .dark-toggle:hover {
@@ -276,22 +281,53 @@ header.header-hidden {
 /* Page flip animation */
 .page-left {
   transform-origin: 150px 190px;
-  animation: pageFlip 3s ease-in-out infinite;
+  animation: pageFlipLeft 5s ease-in-out infinite;
 }
 
-.header-logo:hover .page-left {
+.page-right {
+  transform-origin: 150px 190px;
+  animation: pageFlipRight 5s ease-in-out infinite;
+  animation-delay: 2.5s;
+}
+
+.header-logo:hover .page-left,
+.header-logo:hover .page-right {
   animation-play-state: paused;
 }
 
-@keyframes pageFlip {
-  0%, 20% {
+@keyframes pageFlipLeft {
+  0%,
+  10% {
     transform: rotateY(0deg);
+    z-index: -2;
   }
-  45%, 70% {
-    transform: rotateY(-180deg);
+  25%,
+  40% {
+    transform: rotateY(180deg);
+    z-index: -3;
   }
-  70.1%, 100% {
+  55%,
+  100% {
     transform: rotateY(0deg);
+    z-index: -2;
+  }
+}
+
+@keyframes pageFlipRight {
+  0%,
+  10% {
+    transform: rotateY(0deg);
+    z-index: -1;
+  }
+  25%,
+  40% {
+    transform: rotateY(180deg);
+    z-index: 0;
+  }
+  55%,
+  100% {
+    transform: rotateY(0deg);
+    z-index: -1;
   }
 }
 
@@ -304,6 +340,10 @@ header.header-hidden {
   min-height: 44px;
   min-width: 44px;
   cursor: pointer;
+}
+
+[data-theme="dark"] .more-nav-button {
+  color: var(--primary);
 }
 
 .navbar {
@@ -377,6 +417,7 @@ header.header-hidden {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  font-weight: bold;
   padding: 5px 0;
   user-select: none;
 }

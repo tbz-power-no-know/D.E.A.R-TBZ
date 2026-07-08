@@ -9,7 +9,7 @@ import { initPodcastDetail } from './podcast-detail.js'
 import { initContactForm } from './contact.js'
 
 initDarkMode()
-renderHeader()
+await renderHeader()
 renderFooter()
 initExpandable()
 

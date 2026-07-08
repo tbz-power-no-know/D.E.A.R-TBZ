@@ -1,4 +1,5 @@
 import { fetchPodcastById } from "./data.js";
+import { getDominantColor } from "./colorExtract.js";
 
 export async function initPodcastDetail() {
   const container = document.getElementById("podcast-detail");
@@ -8,7 +9,8 @@ export async function initPodcastDetail() {
   const id = params.get("id");
 
   if (!id) {
-    container.innerHTML = '<p class="loading-text">No podcast selected.</p>';
+    container.innerHTML =
+      '<p class="loading-text">Kein Podcast ausgewählt.</p>';
     return;
   }
 
@@ -16,7 +18,7 @@ export async function initPodcastDetail() {
     const podcast = await fetchPodcastById(id);
     renderPodcast(podcast, container);
   } catch (error) {
-    container.innerHTML = `<p class="loading-text">Error: ${error.message}</p>`;
+    container.innerHTML = `<p class="loading-text">Fehler: ${error.message}</p>`;
   }
 }
 
@@ -26,8 +28,10 @@ function renderPodcast(podcast, container) {
     [];
 
   container.innerHTML = `
-    <a href="podcasts.html" class="detail-back">&larr; All Podcasts</a>
-    <img class="detail-cover" src="${podcast.cover_url || ""}" alt="${podcast.title}" />
+    <a href="podcasts.html" class="detail-back">&larr; Alle Podcasts</a>
+    <div class="detail-cover-wrapper">
+      <img class="detail-cover" src="${podcast.cover_url || ""}" alt="${podcast.title}" />
+    </div>
 
     <h1 class="detail-title">${podcast.title}</h1>
     <p class="detail-meta">
@@ -40,10 +44,23 @@ function renderPodcast(podcast, container) {
     </div>
 
     ${
+      presenters.length > 0
+        ? `
+      <section class="detail-presenter">
+        <h2>Präsentator${presenters.length > 1 ? "innen" : ""}</h2>
+        ${presenters.map(renderPresenter).join("")}
+      </section>
+    `
+        : ""
+    }
+
+    ${
       podcast.audio_url
         ? `
       <section class="detail-audio">
-        <audio controls src="${podcast.audio_url}"></audio>
+        <div class="detail-audio-inner">
+          <audio controls src="${podcast.audio_url}"></audio>
+        </div>
       </section>
     `
         : ""
@@ -53,28 +70,47 @@ function renderPodcast(podcast, container) {
       podcast.transcription
         ? `
       <section class="detail-transcription">
-        <h2>Transcription</h2>
+        <h2>Transkription</h2>
         <div class="transcription-text">${formatTranscription(podcast.transcription)}</div>
       </section>
     `
         : ""
     }
-
-    ${
-      presenters.length > 0
-        ? `
-      <section class="detail-presenter">
-        <h2>Presenter${presenters.length > 1 ? "s" : ""}</h2>
-        ${presenters.map(renderPresenter).join("")}
-      </section>
-    `
-        : ""
-    }
+    <a href="podcasts.html" class="detail-back">&larr; Alle Podcasts</a>
   `;
 
   const audioEl = container.querySelector("audio");
   const transcriptionEl = container.querySelector(".transcription-text");
   initTranscriptionSync(audioEl, transcriptionEl);
+
+  if (podcast.cover_url) {
+    const coverWrapper = container.querySelector(".detail-cover-wrapper");
+    getDominantColor(podcast.cover_url).then((color) => {
+      if (color) coverWrapper.style.backgroundColor = color;
+    });
+  }
+
+  const audioSection = container.querySelector(".detail-audio");
+  if (audioSection) {
+    const updateAudioStickyTop = () => {
+      const header = document.querySelector("header");
+      const headerHeight =
+        parseInt(
+          getComputedStyle(document.documentElement).getPropertyValue(
+            "--header-height",
+          ),
+        ) || 0;
+      const headerVisible = header
+        ? !header.classList.contains("header-hidden")
+        : false;
+      const offset = headerVisible ? headerHeight + 8 : 8;
+      audioSection.style.setProperty("--audio-sticky-top", offset + "px");
+    };
+
+    updateAudioStickyTop();
+    window.addEventListener("header-visibility-changed", updateAudioStickyTop);
+    window.addEventListener("resize", updateAudioStickyTop);
+  }
 }
 
 function renderPresenter(presenter) {
@@ -189,9 +225,9 @@ function formatDuration(duration) {
     const minutes = parseInt(match[3]);
     const seconds = parseInt(match[4]);
     if (hours > 0) {
-      return `${hours}h ${minutes}m`;
+      return `${hours} Std. ${minutes} Min.`;
     }
-    return `${minutes}m ${seconds}s`;
+    return `${minutes} Min. ${seconds} Sek.`;
   }
   return duration;
 }
