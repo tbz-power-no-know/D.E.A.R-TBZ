@@ -63,7 +63,8 @@
 - Hintergrund: `--primary`
 - Eckenradius: `16px`
 - Farbe: `--secondary`
-- Cover: `aspect-ratio: 9/16`, `object-fit: cover`
+- Cover: `<div class="cover-wrapper">` umhüllt das `<img>`, `aspect-ratio: 9/16`, `display: grid`, `place-items: center`
+- Cover-Hintergrund: extrahierte dominante Farbe via `getDominantColor()` (Fallback: `var(--primary)`)
 - Padding: `16px`
 
 ### Karte (Kategorie)
@@ -101,6 +102,8 @@
 - Input: `12px 16px` Padding, `8px` Eckenradius, `16px` Schrift, `min-height: 44px`
 - Button: `12px 24px` Padding, `8px` Eckenradius, `16px` Schrift, `min-height: 44px`
 - Validierung: clientseitige E-Mail-Regex-Prüfung
+- Speichert in Supabase (`newsletter_subscribers`, INSERT-only RLS)
+- Duplikate: "Du bist bereits abonniert!" (als Erfolg)
 - Statusmeldungen: Erfolg (grün), Fehler (rot)
 
 ### Eingabefelder
@@ -128,6 +131,19 @@
 - Mobile: Hamburger-Menü (`☰`), Navigation standardmäßig ausgeblendet
 - Desktop: volle Navigation immer sichtbar, Hamburger ausgeblendet
 
+### Cover-Wrapper (`.cover-wrapper`)
+- Umhüllt `.podcast-cover` in Podcast-Karten und Detailseite
+- `aspect-ratio: 9/16`, `display: grid`, `place-items: center`
+- `background-color`: extrahierte dominante Farbe (Fallback: `var(--primary)`)
+- Bild: `width: 100%`, `object-fit: cover` (Desktop: `contain`)
+- Farbe füllt Briefmarken-Lücken bei `object-fit: contain`
+
+### Dark-Mode
+- Toggle im Header: Sonne (Dark → Light) / Mond (Light → Dark)
+- `data-theme="dark"` auf `<html>`
+- Alle Komponenten haben `[data-theme="dark"]`-Overrides
+- `localStorage`-Persistenz, `prefers-color-scheme`-Respektierung
+
 ---
 
 ## Breakpoints
@@ -144,9 +160,9 @@
 
 | Seite | Mobile | Tablet | Desktop |
 |---|---|---|---|
-| Startseite – Podcasts | 1 Spalte | 2 Spalten | 3 Spalten |
+| Startseite – Podcasts | 1 Spalte | 2 Spalten | 5 Spalten |
 | Startseite – Kategorien | 1 Spalte | 2 Spalten | 3 Spalten |
-| Podcast-Liste | 1 Spalte | 2 Spalten | 3 Spalten |
+| Podcast-Liste | 1 Spalte | 2 Spalten | 5 Spalten |
 
 ---
 

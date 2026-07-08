@@ -55,9 +55,14 @@ Sobald der Plan feststand, generierte die KI Code, aber ich sorgte für Konsiste
 | Debugging | 2h | 0,5h | 1,5h |
 | Transkriptions-Sync | 3h | 1h | 2h |
 | Sortierumschalter (neueste/älteste) | 2h | 0,5h | 1,5h |
-| **Total** | **26h** | **8,5h** | **17,5h** |
+| Dominante Cover-Farbe (Canvas) | 2h | 0,5h | 1,5h |
+| SVG-Refactoring (public/ + fetch) | 1,5h | 0,3h | 1,2h |
+| Newsletter → Supabase-Integration | 1,5h | 0,3h | 1,2h |
+| Dark-Mode + Logo-Animation | 2h | 0,5h | 1,5h |
+| Grammatik + Dokumentation | 1h | 0,2h | 0,8h |
+| **Total** | **36h** | **10,3h** | **25,7h** |
 
-Die KI hat ungefähr **20 Stunden** Entwicklungszeit gespart.
+Die KI hat ungefähr **26 Stunden** Entwicklungszeit gespart.
 
 ---
 
@@ -91,12 +96,14 @@ Ich habe mich für **opencode mit Qwen** anstelle von Claude aus zwei Hauptgrün
 
 Durch dieses Projekt und die KI-Zusammenarbeit habe ich gelernt:
 
-1. **Supabase** — wie man ein Supabase-Projekt einrichtet, ein Schema mit Beziehungen entwirft, RLS-Richtlinien konfiguriert, Storage-Buckets nutzt
+1. **Supabase** — wie man ein Supabase-Projekt einrichtet, ein Schema mit Beziehungen entwirft, RLS-Richtlinien konfiguriert, Storage-Buckets nutzt, INSERT-only-Policies setzt
 2. **Docker Compose** — Multi-Container-Setups, Volume-Mounts, Multi-Stage-Builds, Dev/Prod-Overrides
 3. **HTML** — semantische HTML-Struktur, korrekte Verwendung von `<main>`, `<section>`, `aria-*`-Attributen
-4. **CSS** — CSS-Custom-Properties (Variablen), mobile-first-Methodik, `max-height`-Transitionen, `aspect-ratio`, `object-fit`
-5. **Vite** — mehrseitige Builds, Auto-Discovery von HTML-Einstiegspunkten, Umgebungsvariablen
-6. **KI-Zusammenarbeit** — wie man klare Anweisungen gibt, KI-Output kritisch prüft, Konsistenz über Sitzungen hinweg aufrechterhält
+4. **CSS** — CSS-Custom-Properties (Variablen), mobile-first-Methodik, `max-height`-Transitionen, `aspect-ratio`, `object-fit`, Keyframe-Animationen, `z-index`-Management
+5. **JavaScript** — Canvas-API (Pixel-Extraktion), `fetch()` für SVG-Assets, async/await-Patterns, DOM-Manipulation mit `insertAdjacentHTML`
+6. **Vite** — mehrseitige Builds, Auto-Discovery von HTML-Einstiegspunkten, Umgebungsvariablen, `import.meta.env.BASE_URL`
+7. **SVG** — CSS-Variablen in inline-SVGs, Datei-basierte SVGs zur Laufzeit laden
+8. **KI-Zusammenarbeit** — wie man klare Anweisungen gibt, KI-Output kritisch prüft, Konsistenz über Sitzungen hinweg aufrechterhält
 
 ---
 

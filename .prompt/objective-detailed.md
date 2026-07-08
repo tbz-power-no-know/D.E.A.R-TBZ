@@ -99,7 +99,7 @@
 ### Mobile-First-CSS
 - Basis-Styles zielen auf **~375px Viewport** (iPhone SE / iPhone 12)
 - Touch-Ziele: **mindestens 44px** (Apple HIG)
-- Grid: **1 Spalte** auf Mobile, **2+ Spalten** ab 481px+, **3–4 Spalten** ab 1025px+
+- Grid: **1 Spalte** auf Mobile, **2 Spalten** ab 481px+, **5 Spalten** ab 1025px+
 - Navigation: **Hamburger-Menü** auf Mobile, volle Navigation auf Desktop
 - Keine `max-width`-Abfragen — nur `min-width` (echtes Mobile-First)
 
@@ -123,12 +123,33 @@
 - Audiodateien im Supabase Storage (`podcast-audio`-Bucket)
 - Coverbilder im Supabase Storage (`podcast-covers`-Bucket)
 - Präsentator-Fotos im Supabase Storage (`presenter-photos`-Bucket)
+- Newsletter-E-Mails in `newsletter_subscribers` (direkt via anon key, INSERT-only RLS)
+
+### Header-SVGs
+- Logo (`logo.svg`), Sonne (`sun-icon.svg`) und Mond (`moon-icon.svg`) liegen in `public/`
+- Werden zur Laufzeit via `fetch()` geladen und als HTML inline eingefügt (CSS-Variablen funktionieren)
+- Logo verwendet `var(--logo-dark)` / `var(--logo-light)` für Dark-Mode-Unterstützung
+- Logo hat animierte Seitenblätter (`page-left` / `page-right` Keyframe-Animation, 5s-Zyklus)
+
+### Dominante Cover-Farbe
+- `colorExtract.js`: `getDominantColor(imgSrc)` — zeichnet Bild auf 50×50 Canvas, bucketet RGB auf 32-Schritt-Intervalle, gibt häufigste Farbe als Hex zurück
+- Wird auf Podcast-Karten (Home + Liste) und Detailseite angewendet
+- `.cover-wrapper` umhüllt das Coverbild, zeigt extrahierte Farbe als Hintergrund (Fallback: `var(--primary)`)
+- Auf Desktop (`object-fit: contain`) füllt die Farbe die Briefmarken-Lücken natürlich
+
+### Dark-Mode
+- Toggle-Button im Header (Sonne/Mond-Icon, SVG aus `public/`)
+- `data-theme` Attribut auf `<html>` (`"light"` / `"dark"`)
+- `localStorage`-Persistenz, `prefers-color-scheme`-Respektierung
+- Alle Komponenten haben `[data-theme="dark"]`-Overrides in `main.css`
+- Hintergrund-Kreise (`bg-circles`) reduzieren Opazität im Dark-Mode
 
 ### Backend-Zugriff / Schreibpfad
 - **Lesezugriffe direkt:** der Browser fragt Supabase-Tabellen mit dem **anon key** ab, geschützt durch lese-only RLS-Richtlinien. Der anon key ist **von Design her öffentlich** — die Sicherheit kommt von **RLS, nicht vom Verstecken** der Architektur. Kein Server für Lesezugriffe nötig.
-- **Schreibzugriffe durch eine Server-Grenze:** der einzige Schreibzugriff (das Kontaktformular) wird an eine **Supabase Edge Function** (`supabase/functions/contact/`) gesendet, niemals direkt mit dem anon key eingefügt.
-  - Die Function **validiert serverseitig**, filtert Spam über einen Honeypot und fügt mit dem **`service_role` key** ein, der **niemals den Browser erreicht**.
-  - Alle Supabase-Zugriffe (Lese + Kontakt-Schreibzugriff) bleiben zentralisiert in `pages/js/data.js` (`sendContactMessage` → `supabase.functions.invoke('contact')`).
+- **Schreibzugriffe — zwei Wege:**
+  - **Kontaktformular:** wird an eine **Supabase Edge Function** (`supabase/functions/contact/`) gesendet, niemals direkt mit dem anon key eingefügt. Die Function **validiert serverseitig**, filtert Spam über einen Honeypot und fügt mit dem **`service_role` key** ein, der **niemals den Browser erreicht**.
+  - **Newsletter:** schreibt direkt in `newsletter_subscribers` mit dem **anon key**, geschützt durch INSERT-only RLS-Richtlinie. Keine SELECT-Richtlinie — E-Mails sind für niemanden ohne `service_role` einsehbar.
+  - Alle Supabase-Zugriffe bleiben zentralisiert in `pages/js/data.js`.
 - **Regel:** niemals ein Geheimnis (z. B. `service_role`) in eine `VITE_`-präfixierte Variable setzen — Vite inline-t diese in das ausgelieferte Bundle. Nur der öffentliche anon key wird ausgeliefert.
 
 ### Transkription
@@ -198,7 +219,7 @@ Vollständige SQL-Dateien in `docs/`:
 | `docs/supabase-seed.sql` | 8 Kategorien, 3 Präsentatoren, 12 Beispiel-Podcasts |
 | `docs/supabase-contact.sql` | `contact_messages`-Tabelle + RLS (keine öffentlichen Richtlinien) |
 
-**Tabellen:** `categories` (mit `image_url`, `color`), `podcasts`, `presenters`, `podcast_presenters`, `contact_messages` (nur schreibbar über Edge Function), `newsletter_subscribers`
+**Tabellen:** `categories` (mit `image_url`, `color`), `podcasts`, `presenters`, `podcast_presenters`, `contact_messages` (nur schreibbar über Edge Function), `newsletter_subscribers` (INSERT-only RLS, keine SELECT-Richtlinie)
 **Storage-Buckets:** `podcast-audio`, `podcast-covers`, `presenter-photos`, `category-images`
 **Ausführungsreihenfolge:** zuerst Schema, dann Seed (Kontakt-Tabelle ist nun im Schema)
 
@@ -295,24 +316,29 @@ Vollständige SQL-Dateien in `docs/`:
 │   ├── js/
 │   │   ├── main.js             ← Einstieg: Header, Footer, pro-Seite Init-Dispatch
 │   │   ├── expandable.js       ← Aufklappbaren Text umschalten
+│   │   ├── darkmode.js         ← Dark-Mode-Initialisierung + Toggle
 │   │   ├── supabase.js         ← Supabase-Client-Initialisierung
-│   │   ├── data.js             ← Fetch-Funktionen + sendContactMessage
+│   │   ├── data.js             ← Fetch-Funktionen, sendContactMessage, subscribeNewsletter
+│   │   ├── colorExtract.js     ← getDominantColor() via Canvas
 │   │   ├── filter.js           ← Kategoriefilter-Logik
 │   │   ├── search.js           ← Clientseitige Suche (debounced)
-│   │   ├── home.js             ← renderLatestPodcasts, renderCategories
+│   │   ├── home.js             ← renderLatestPodcasts, renderCategories, initNewsletter
 │   │   ├── podcast-detail.js   ← initPodcastDetail, renderPodcast
 │   │   ├── contact.js          ← Kontaktformular-Validierung + -Absendung
 │   │   └── shared/
-│   │       ├── Header.js       ← renderHeader()
+│   │       ├── Header.js       ← renderHeader() (async, fetch SVGs from public/)
 │   │       └── Footer.js       ← renderFooter()
 │   └── style/
 │       ├── reset.css            ← Meyerweb-Reset
-│       ├── main.css             ← Variablen, gemeinsame Styles, Header, Footer, aufklappbar
+│       ├── main.css             ← Variablen, gemeinsame Styles, Header, Footer, Dark-Mode, Animation
 │       ├── home.css             ← Startseite-Styles
 │       ├── podcasts.css         ← Podcast-Liste + Filter + Suche Styles
 │       ├── podcast-detail.css   ← Detailseite-Styles
 │       └── about.css            ← Über-uns-Seite-Styles
-├── public/                     ← Statische Assets (derzeit leer)
+├── public/                     ← Statische Assets
+│   ├── logo.svg                 ← Logo mit CSS-Variablen + animierte Seitenblätter
+│   ├── sun-icon.svg             ← Dark-Mode-Toggle-Icon (Helligkeit)
+│   └── moon-icon.svg            ← Dark-Mode-Toggle-Icon (Dunkelheit)
 ├── docs/
 │   ├── wireframes.md            ← ASCII-Wireframes (Mobile/Tablet/Desktop)
 │   ├── styleguide.md            ← Typografie, Farben, Abstände
@@ -369,7 +395,7 @@ Vollständige SQL-Dateien in `docs/`:
 - [x] Transkriptions-Auto-Scroll und -Hervorhebung synchron mit Audiowiedergabe (Seiten-Scroll, kein Overflow)
 - [x] Kontaktformular: clientseitige Validierung + Edge-Function-Absendung
 - [x] Kategoriefilter via URL-Parameter (`?category=uuid`)
-- [x] Newsletter-Anmeldung: E-Mail-Validierung + Abonnieren-Button
+- [x] Newsletter-Anmeldung: E-Mail-Validierung + Supabase-Insert (`subscribeNewsletter`)
 - [ ] Lade-/Fehlerzustände (Skeleton-Loader) — derzeit reiner Text
 
 ### Phase 4: Responsive Design — ERLEDIGT
@@ -411,10 +437,10 @@ Vollständige SQL-Dateien in `docs/`:
 ## Bekannte Probleme / Hinweise
 
 ### Bugs zu beheben
-- **`public/`-Verzeichnis ist leer** — noch kein Favicon oder statische Assets
+- (keine bekannten)
 
 ### Fehlend (gemäss originalem Auftrag)
-- ~~Newsletter-Anmeldung~~ — **implementiert** auf der Startseite mit E-Mail-Validierung
+- ~~Newsletter-Anmeldung~~ — **implementiert** auf der Startseite, speichert E-Mail in Supabase (`newsletter_subscribers`)
 
 ### Offene Aufgaben
 - **Skeleton-Loader** — VERITE Phase 3 gibt Skeleton-Loader vor; derzeit werden reine Text-Platzhalter verwendet
@@ -433,3 +459,8 @@ Vollständige SQL-Dateien in `docs/`:
 - ~~Suche leeren → Neuladen~~ — `window.location.reload()` durch Custom-Event-Re-Render ersetzt
 - ~~Suche Query-Injection~~ — Sonderzeichen in Supabase `ilike`-Query escaped
 - ~~Audio-Play-Fehler~~ — `.catch(() => {})` für Autoplay-Richtlinie hinzugefügt
+- ~~Newsletter war nur Simulierung~~ — `subscribeNewsletter()` speichert jetzt in Supabase
+- ~~Hardcoded SVGs in Header.js~~ — Logo, Sonne, Mond liegen in `public/`, werden via `fetch()` geladen
+- ~~Podcast-Cover generischer Hintergrund~~ — `getDominantColor()` extrahiert dominierende Farbe vom Cover
+- ~~Logo ohne Dark-Mode~~ — `logo.svg` verwendet CSS-Variablen (`var(--logo-dark)`, `var(--logo-light)`)
+- ~~Page-Flip-Animation z-index-Flicker~~ — alle Keyframes haben explizite z-index

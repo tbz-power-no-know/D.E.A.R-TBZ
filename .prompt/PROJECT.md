@@ -11,19 +11,21 @@
 
 - **Was:** Schul-Podcast-Website für Buchvorstellungen (D.E.A.R. = Drop Everything And Read)
 - **Stack:** Vite 8, vanilla HTML/CSS/JS, Supabase-Backend, Docker/Nginx
-- **Mobile-First:** Basis ~375px (iPhone SE/12), Tablet 481px+, Desktop 1025px+
+- **Mobile-First:** Basis ~375px (iPhone SE/12), Tablet 481px+, Desktop 1025px+ (5-Spalten-Grid)
 - **Farben:** `--primary: #000`, `--secondary: #fff` (Platzhalter, werden geändert)
 - **Keine Frameworks** — nur eigenes HTML/CSS, KI-Unterstützung erlaubt
-- **Status:** Phase 1–2, 4–5 erledigt. Phase 3 meist erledigt (Transkriptions-Sync fertig, Skeleton-Loader ausstehend). Supabase vollständig bereitgestellt (Schema, Seed, Buckets, Edge-Function). GitHub-Pages-Workflow erstellt, braucht Push.
+- **Status:** Phase 1–2, 4–5 erledigt. Phase 3 meist erledigt (Transkriptions-Sync, Newsletter-Supabase, Skeleton-Loader ausstehend). Supabase vollständig bereitgestellt (Schema, Seed, Buckets, Edge-Function). GitHub-Pages-Workflow erstellt, braucht Push.
 
 ## Neueste Funktionen
+- Newsletter speichert E-Mail in Supabase (`newsletter_subscribers`, INSERT-only RLS)
+- Dominante Cover-Farbe via Canvas (`colorExtract.js`) — Karten + Detailseite
+- Dark-Mode mit Sonne/Mond-Toggle, `localStorage`-Persistenz
+- Logo animiert (Seitenblätter, 5s-Zyklus), CSS-Variablen für Dark-Mode
+- SVGs in `public/`, werden via `fetch()` zur Laufzeit geladen
 - Feststehender Audioplayer über Transkription (voller Text, kein Overflow)
 - Feststehender Header (blendet sich beim Runterscrollen aus, zeigt sich beim Hochscrollen)
-- Seitenorientierung: Zurück-Link auf Detail, Sektionstitel auf Podcasts-Seite
 - Kategorie-Farben + -Bilder in der DB, in der UI gerendert
-- Kategoriefilter via URL-Parameter (`?category=uuid`)
 - Hover-Animationen auf Karten, Buttons, Links
-- Newsletter-Anmeldung auf der Startseite mit E-Mail-Validierung
 
 ## Seiten
 
@@ -38,9 +40,10 @@
 
 - **Vite-Root = `pages/`**, entdeckt automatisch `*.html` als Einstiegspunkte
 - **Header/Footer** über JS-Module gerendert (`insertAdjacentHTML`)
+- **Header-SVGs** (Logo, Sonne, Mond) via `fetch()` aus `public/` geladen und inline eingefügt
 - **Alle Daten von Supabase** — Podcasts, Kategorien, Präsentatoren, Audio, Cover
 - **Lesezugriffe:** direkter Browser → Supabase anon key (RLS-geschützt)
-- **Schreibzugriffe:** Kontaktformular → Edge-Function → `service_role` key (niemals im Browser)
+- **Schreibzugriffe:** Kontaktformular → Edge-Function → `service_role` key; Newsletter → direkt INSERT (anon key, INSERT-only RLS)
 - **CSS-Strategie:** `reset.css` → `main.css` (gemeinsam + Variablen) → pro-Seite-CSS
 - **Aufklappbarer Text** beibehalten (`.expandable-text` + `.expand-btn`)
 - **Feststehender Header** blendet sich beim Runterscrollen aus, zeigt sich beim Hochscrollen
@@ -49,7 +52,8 @@
 
 ## Supabase
 
-- Tabellen: `categories`, `podcasts`, `presenters`, `podcast_presenters`, `contact_messages`
+- Tabellen: `categories`, `podcasts`, `presenters`, `podcast_presenters`, `contact_messages`, `newsletter_subscribers`
+- `newsletter_subscribers`: INSERT-only RLS (keine SELECT — E-Mails sind privat)
 - Buckets: `podcast-audio`, `podcast-cover`, `presenter-photos`
 - Edge-Function: `contact` (serverseitige Validierung + Insert) — **bereitgestellt**
 
