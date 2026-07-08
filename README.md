@@ -30,7 +30,7 @@ D.E.A.R. ist eine Podcast-Website, die für die **Technische Berufsschule Züric
 ## Funktionen
 
 - Mobile-First-Responsive-Design (375px / 481px / 1025px Breakpoints)
-- Startseite zeigt max. 3 Podcast-Karten auf Phone, 4 auf Tablet, alle 5 auf Desktop
+- Startseite zeigt responsiv 3/4/5 Podcast-Karten (Phone/Tablet/Desktop) mit Resize-Re-Fetch
 - CSS-Grid-Layouts für Podcast- und Kategorieübersichten
 - Kategoriefilter mit farbcodierten Buttons (Daten aus Supabase)
 - Clientseitige Suche (Supabase `ilike`)

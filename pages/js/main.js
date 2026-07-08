@@ -22,7 +22,14 @@ document.body.insertAdjacentHTML('afterbegin', `
 `)
 
 if (document.getElementById('latest-podcasts')) {
-  renderLatestPodcasts(document.getElementById('latest-podcasts'))
+  const latestContainer = document.getElementById('latest-podcasts')
+  renderLatestPodcasts(latestContainer)
+
+  let resizeTimer = null
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimer)
+    resizeTimer = setTimeout(() => renderLatestPodcasts(latestContainer), 250)
+  })
 }
 
 if (document.getElementById('categories-list')) {

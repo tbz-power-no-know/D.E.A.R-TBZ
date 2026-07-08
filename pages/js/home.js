@@ -1,6 +1,15 @@
 import { fetchPodcasts, fetchCategories, subscribeNewsletter } from "./data.js";
 import { getDominantColor } from "./colorExtract.js";
 
+const PODCAST_LIMITS = { phone: 3, tablet: 4, desktop: 5 };
+
+function getPodcastLimit() {
+  const w = window.innerWidth;
+  if (w >= 1025) return PODCAST_LIMITS.desktop;
+  if (w >= 481) return PODCAST_LIMITS.tablet;
+  return PODCAST_LIMITS.phone;
+}
+
 export function initNewsletter() {
   const form = document.querySelector(".newsletter-form");
   if (!form) return;
@@ -44,9 +53,9 @@ export function initNewsletter() {
   });
 }
 
-export async function renderLatestPodcasts(container, limit = 5) {
+export async function renderLatestPodcasts(container, limit) {
   try {
-    const podcasts = await fetchPodcasts(limit);
+    const podcasts = await fetchPodcasts(limit ?? getPodcastLimit());
     container.innerHTML = "";
 
     const loadingEl = container.previousElementSibling;
@@ -88,11 +97,13 @@ export async function renderLatestPodcasts(container, limit = 5) {
     });
 
     const section = container.parentElement;
-    const allPodcast = document.createElement("a");
-    allPodcast.href = "podcasts.html";
-    allPodcast.classList.add("detail-back");
-    allPodcast.innerText = `-> Alle Podcasts`;
-    section.appendChild(allPodcast);
+    if (!section.querySelector(".detail-back")) {
+      const allPodcast = document.createElement("a");
+      allPodcast.href = "podcasts.html";
+      allPodcast.classList.add("detail-back");
+      allPodcast.innerText = "-> Alle Podcasts";
+      section.appendChild(allPodcast);
+    }
   } catch (error) {
     const loadingEl = container.previousElementSibling;
     if (loadingEl && loadingEl.classList.contains("loading-text")) {

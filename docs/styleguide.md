@@ -160,7 +160,7 @@
 
 | Seite | Mobile | Tablet | Desktop |
 |---|---|---|---|
-| Startseite – Podcasts | 1 Spalte, max. 3 | 2 Spalten, max. 4 | 5 Spalten, max. 5 |
+| Startseite – Podcasts | 1 Spalte | 2 Spalten | 5 Spalten |
 | Startseite – Kategorien | 1 Spalte | 2 Spalten | 3 Spalten |
 | Podcast-Liste | 1 Spalte | 2 Spalten | 5 Spalten |
 
