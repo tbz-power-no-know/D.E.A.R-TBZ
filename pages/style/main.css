@@ -299,15 +299,17 @@ header.header-hidden {
   0%,
   10% {
     transform: rotateY(0deg);
+    z-index: -2;
   }
   25%,
   40% {
     transform: rotateY(180deg);
-    z-index: -2;
+    z-index: -3;
   }
   55%,
   100% {
     transform: rotateY(0deg);
+    z-index: -2;
   }
 }
 
@@ -315,15 +317,17 @@ header.header-hidden {
   0%,
   10% {
     transform: rotateY(0deg);
+    z-index: -1;
   }
   25%,
   40% {
     transform: rotateY(180deg);
-    z-index: -2;
+    z-index: 0;
   }
   55%,
   100% {
     transform: rotateY(0deg);
+    z-index: -1;
   }
 }
 
