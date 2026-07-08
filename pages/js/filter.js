@@ -1,4 +1,5 @@
 import { fetchPodcasts, fetchCategories } from './data.js'
+import { getDominantColor } from './colorExtract.js'
 
 let allPodcasts = []
 let sortOrder = 'newest'
@@ -119,12 +120,21 @@ function renderPodcasts(podcasts, container) {
     card.dataset.category = podcast.category_id
 
     card.innerHTML = `
-      <img class="podcast-cover" src="${podcast.cover_url || ''}" alt="${podcast.title}" />
+      <div class="cover-wrapper">
+        <img class="podcast-cover" src="${podcast.cover_url || ''}" alt="${podcast.title}" />
+      </div>
       <div class="podcast-card-content">
         <h3 class="podcast-card-title">${podcast.title}</h3>
         <p class="podcast-card-description">${podcast.description}</p>
       </div>
     `
+
+    if (podcast.cover_url) {
+      const wrapper = card.querySelector('.cover-wrapper')
+      getDominantColor(podcast.cover_url).then((color) => {
+        if (color) wrapper.style.backgroundColor = color
+      })
+    }
 
     container.appendChild(card)
   })

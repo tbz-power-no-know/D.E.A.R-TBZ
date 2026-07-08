@@ -129,8 +129,18 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
-.podcast-cover {
+.cover-wrapper {
+  position: relative;
   aspect-ratio: 9 / 16;
+  width: 100%;
+  max-height: 480px;
+  display: grid;
+  place-items: center;
+  background-color: var(--primary);
+  overflow: hidden;
+}
+
+.podcast-cover {
   width: 100%;
   max-height: 480px;
   object-fit: cover;
@@ -167,7 +177,7 @@
 
 @media (min-width: 1025px) {
   .podcasts-grid {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(5, 1fr);
   }
 
   .podcast-cover {
