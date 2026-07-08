@@ -6,7 +6,7 @@
 
 ## Projekt-Kontext
 
-D.E.A.R. (Drop Everything And Read) ist ein Schulprojekt der Berufsfachschule Zürich. Das Ziel ist es, eine Podcast-Website zu bauen, die Schüler-Buchvorstellungen präsentiert. Das Projekt erfordert eigenes HTML/CSS (ohne Frameworks), mobile-first Responsive Design und Supabase als Backend.
+D.E.A.R. (Drop Everything And Read) ist ein Schulprojekt der Technische Berufsschule Zürich. Das Ziel ist es, eine Podcast-Website zu bauen, die Schüler-Buchvorstellungen präsentiert. Das Projekt erfordert eigenes HTML/CSS (ohne Frameworks), mobile-first Responsive Design und Supabase als Backend.
 
 ---
 
@@ -46,21 +46,21 @@ Sobald der Plan feststand, generierte die KI Code, aber ich sorgte für Konsiste
 
 ### Zeiteinsparungsschätzung
 
-| Aufgabe | Geschätzt ohne KI | Mit KI | Einsparung |
-|---|---|---|---|
-| Projektplanung | 2h | 0,5h | 1,5h |
-| Code-Generierung | 8h | 3h | 5h |
-| CSS-Styling | 6h | 2h | 4h |
-| Dokumentation | 3h | 1h | 2h |
-| Debugging | 2h | 0,5h | 1,5h |
-| Transkriptions-Sync | 3h | 1h | 2h |
-| Sortierumschalter (neueste/älteste) | 2h | 0,5h | 1,5h |
-| Dominante Cover-Farbe (Canvas) | 2h | 0,5h | 1,5h |
-| SVG-Refactoring (public/ + fetch) | 1,5h | 0,3h | 1,2h |
-| Newsletter → Supabase-Integration | 1,5h | 0,3h | 1,2h |
-| Dark-Mode + Logo-Animation | 2h | 0,5h | 1,5h |
-| Grammatik + Dokumentation | 1h | 0,2h | 0,8h |
-| **Total** | **36h** | **10,3h** | **25,7h** |
+| Aufgabe                             | Geschätzt ohne KI | Mit KI    | Einsparung |
+| ----------------------------------- | ----------------- | --------- | ---------- |
+| Projektplanung                      | 2h                | 0,5h      | 1,5h       |
+| Code-Generierung                    | 8h                | 3h        | 5h         |
+| CSS-Styling                         | 6h                | 2h        | 4h         |
+| Dokumentation                       | 3h                | 1h        | 2h         |
+| Debugging                           | 2h                | 0,5h      | 1,5h       |
+| Transkriptions-Sync                 | 3h                | 1h        | 2h         |
+| Sortierumschalter (neueste/älteste) | 2h                | 0,5h      | 1,5h       |
+| Dominante Cover-Farbe (Canvas)      | 2h                | 0,5h      | 1,5h       |
+| SVG-Refactoring (public/ + fetch)   | 1,5h              | 0,3h      | 1,2h       |
+| Newsletter → Supabase-Integration   | 1,5h              | 0,3h      | 1,2h       |
+| Dark-Mode + Logo-Animation          | 2h                | 0,5h      | 1,5h       |
+| Grammatik + Dokumentation           | 1h                | 0,2h      | 0,8h       |
+| **Total**                           | **36h**           | **10,3h** | **25,7h**  |
 
 Die KI hat ungefähr **26 Stunden** Entwicklungszeit gespart.
 
@@ -81,14 +81,14 @@ Ich habe mich für **opencode mit Qwen** anstelle von Claude aus zwei Hauptgrün
 
 ### Vergleich
 
-| Kriterium | opencode (Qwen) | Claude | Gewicht |
-|---|---|---|---|
-| Datenschutz | Lokales Hosting | Cloud-basiert | Hoch |
-| Ökologie | Geringerer Energieverbrauch | Cloud-Server | Hoch |
-| Kosten | Kostenlos | Bezahlt | Hoch |
-| Antwortqualität | Ausgezeichnet | Ausgezeichnet | Hoch |
-| Git-Integration | Native | Über IDE | Mittel |
-| **Fazit** | **Für dieses Projekt gewählt** | — | — |
+| Kriterium       | opencode (Qwen)                | Claude        | Gewicht |
+| --------------- | ------------------------------ | ------------- | ------- |
+| Datenschutz     | Lokales Hosting                | Cloud-basiert | Hoch    |
+| Ökologie        | Geringerer Energieverbrauch    | Cloud-Server  | Hoch    |
+| Kosten          | Kostenlos                      | Bezahlt       | Hoch    |
+| Antwortqualität | Ausgezeichnet                  | Ausgezeichnet | Hoch    |
+| Git-Integration | Native                         | Über IDE      | Mittel  |
+| **Fazit**       | **Für dieses Projekt gewählt** | —             | —       |
 
 ---
 

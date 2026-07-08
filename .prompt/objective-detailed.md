@@ -49,7 +49,7 @@
 
 **Drop Everything And Read** — ein schulweites Projekt, bei dem Schülerinnen und Schüler Buchvorstellungen als Podcasts in ABU- (Allgemeinbildung) Klassen produzieren. Diese Website veröffentlicht und präsentiert diese Podcasts.
 
-**Schule:** Berufsfachschule Zürich, IT-Abteilung > Informatik  
+**Schule:** Technische Berufsschule Zürich, IT-Abteilung > Informatik  
 **Modul:** M293 PA04  
 **Format:** Einzelarbeit, 20 Lektionen
 
@@ -476,32 +476,3 @@ Vollständige SQL-Dateien in `docs/`:
 ### Bugs zu beheben
 
 - (keine bekannten)
-
-### Fehlend (gemäss originalem Auftrag)
-
-- ~~Newsletter-Anmeldung~~ — **implementiert** auf der Startseite, speichert E-Mail in Supabase (`newsletter_subscribers`)
-
-### Offene Aufgaben
-
-- **Skeleton-Loader** — VERITE Phase 3 gibt Skeleton-Loader vor; derzeit werden reine Text-Platzhalter verwendet
-- **Auf Webserver veröffentlichen** — vom Auftrag erforderlich, GitHub-Actions-Workflow erstellt, braucht manuellen Push + Pages-Konfiguration
-
-### Gelöst
-
-- ~~Supabase-SQL-Schema, Seed-Daten, Edge-Function, Storage-Buckets~~ — bereitgestellt
-- ~~Seiten umbenennen (index-home → index usw.)~~ — erledigt
-- ~~Footer-Nav-Links~~ — mit echten Seiten verlinkt
-- ~~Responsive-Breakpoints~~ — alle `@media`-Abfragen implementiert
-- ~~CSS-Variablen~~ — alle Farben verwenden Variablen
-- ~~`#contact`-Anker defekt~~ — `id="contact"` zu about.html Kontakt-Sektion hinzugefügt
-- ~~`.env.example` falsche URL~~ — durch korrekten Supabase-Platzhalter ersetzt
-- ~~`loading-text` hat `grid-column: 2`~~ — in home.css und podcasts.css auf `grid-column: 1 / -1` geändert
-- ~~`src/`-Verzeichnis leer~~ — Verzeichnis und docker-compose.override.yml-Referenz entfernt
-- ~~Suche leeren → Neuladen~~ — `window.location.reload()` durch Custom-Event-Re-Render ersetzt
-- ~~Suche Query-Injection~~ — Sonderzeichen in Supabase `ilike`-Query escaped
-- ~~Audio-Play-Fehler~~ — `.catch(() => {})` für Autoplay-Richtlinie hinzugefügt
-- ~~Newsletter war nur Simulierung~~ — `subscribeNewsletter()` speichert jetzt in Supabase
-- ~~Hardcoded SVGs in Header.js~~ — Logo, Sonne, Mond liegen in `public/`, werden via `fetch()` geladen
-- ~~Podcast-Cover generischer Hintergrund~~ — `getDominantColor()` extrahiert dominierende Farbe vom Cover
-- ~~Logo ohne Dark-Mode~~ — `logo.svg` verwendet CSS-Variablen (`var(--logo-dark)`, `var(--logo-light)`)
-- ~~Page-Flip-Animation z-index-Flicker~~ — alle Keyframes haben explizite z-index

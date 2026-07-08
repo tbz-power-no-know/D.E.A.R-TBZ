@@ -4,32 +4,33 @@
 
 ## Übersicht
 
-D.E.A.R. ist eine Podcast-Website, die für die **Berufsfachschule Zürich** (IT-Abteilung > Informatik, Modul M293 PA04) erstellt wurde. Die Plattform veröffentlicht Buchvorstellungen, die als Podcasts von Schülerinnen und Schülern in ABU- (Allgemeinbildung) Klassen produziert wurden. Jeder Podcast zeigt eine Schülerin oder einen Schüler, der seine Gedanken zu einem gelesenen Buch teilt.
+D.E.A.R. ist eine Podcast-Website, die für die **Technische Berufsschule Zürich** (IT-Abteilung > Informatik, Modul M293 PA04) erstellt wurde. Die Plattform veröffentlicht Buchvorstellungen, die als Podcasts von Schülerinnen und Schülern in ABU- (Allgemeinbildung) Klassen produziert wurden. Jeder Podcast zeigt eine Schülerin oder einen Schüler, der seine Gedanken zu einem gelesenen Buch teilt.
 
 ## Seiten
 
-| Seite | Beschreibung |
-|---|---|
-| **Startseite** | Hero-Bereich, Einführung zu D.E.A.R., neueste Podcasts, Kategorieübersicht |
-| **Podcasts** | Alle Podcasts im Raster, Kategoriefilter, Suche, Sortierumschalter |
+| Seite              | Beschreibung                                                                                                                 |
+| ------------------ | ---------------------------------------------------------------------------------------------------------------------------- |
+| **Startseite**     | Hero-Bereich, Einführung zu D.E.A.R., neueste Podcasts, Kategorieübersicht                                                   |
+| **Podcasts**       | Alle Podcasts im Raster, Kategoriefilter, Suche, Sortierumschalter                                                           |
 | **Podcast-Detail** | Cover (9:16), Buchinfo, Beschreibung, Transkription mit `[MM:SS]`-Zeitstempeln, feststehender Audioplayer, Präsentator-Karte |
-| **Über uns** | Projektinformationen, Kontaktformular mit Betreff-Dropdown |
+| **Über uns**       | Projektinformationen, Kontaktformular mit Betreff-Dropdown                                                                   |
 
 ## Tech-Stack
 
-| Ebene | Technologie |
-|---|---|
-| Build | Vite 8 (mehrzeiliges Input) |
-| Runtime | Node 25 (Dev), Nginx 1.30 (Prod) |
-| Backend | Supabase (Datenbank, Speicher, Auth) |
-| Infrastruktur | Docker Compose + Devcontainer |
-| Sprachen | Vanilla HTML, CSS, JavaScript (ES-Module) |
+| Ebene         | Technologie                               |
+| ------------- | ----------------------------------------- |
+| Build         | Vite 8 (mehrzeiliges Input)               |
+| Runtime       | Node 25 (Dev), Nginx 1.30 (Prod)          |
+| Backend       | Supabase (Datenbank, Speicher, Auth)      |
+| Infrastruktur | Docker Compose + Devcontainer             |
+| Sprachen      | Vanilla HTML, CSS, JavaScript (ES-Module) |
 
 **Keine Frameworks** — 100 % eigenes HTML/CSS/JS mit KI-gestützter Entwicklung.
 
 ## Funktionen
 
 - Mobile-First-Responsive-Design (375px / 481px / 1025px Breakpoints)
+- Startseite zeigt max. 3 Podcast-Karten auf Phone, 4 auf Tablet, alle 5 auf Desktop
 - CSS-Grid-Layouts für Podcast- und Kategorieübersichten
 - Kategoriefilter mit farbcodierten Buttons (Daten aus Supabase)
 - Clientseitige Suche (Supabase `ilike`)
@@ -48,7 +49,6 @@ D.E.A.R. ist eine Podcast-Website, die für die **Berufsfachschule Zürich** (IT
 
 ### Voraussetzungen
 
-- Node.js 25+
 - Docker + Docker Compose
 - Supabase-Konto
 
@@ -69,22 +69,22 @@ Für detaillierte Anleitungen zu Devcontainer, Supabase-Einrichtung, Projektstru
 ### Skripte
 
 ```bash
-npm run dev       # Vite Dev-Server (ohne Docker)
-npm run build     # Produktions-Build
-npm run preview   # Produktions-Build anschauen
+docker compose up --build
 ```
+
+url: `http://localhost:5173/`
 
 ## Dokumentation
 
-| Dokument | Beschreibung |
-|---|---|
-| [Setup-Guide](docs/setup.md) | Devcontainer, Supabase, Architektur, Projektstruktur |
-| [Wireframes](docs/wireframes.md) | ASCII-Wireframes für Mobile, Tablet, Desktop |
-| [Styleguide](docs/styleguide.md) | Typografie, Farben, Abstände, Komponenten |
-| [KI-Nutzung](docs/ai-usage.md) | Wie KI im Projekt eingesetzt wurde |
-| [Supabase-Schema](docs/migration/supabase-schema.sql) | Datenbanktabellen, RLS, Speicher-Richtlinien |
-| [Supabase-Seed](docs/migration/supabase-seed.sql) | 8 Kategorien, 3 Präsentatoren, 12 Podcasts |
-| [Supabase-Kontakt](docs/migration/supabase-contact.sql) | Kontakt-Nachrichten-Tabelle |
+| Dokument                                                | Beschreibung                                         |
+| ------------------------------------------------------- | ---------------------------------------------------- |
+| [Setup-Guide](docs/setup.md)                            | Devcontainer, Supabase, Architektur, Projektstruktur |
+| [Wireframes](docs/wireframes.md)                        | ASCII-Wireframes für Mobile, Tablet, Desktop         |
+| [Styleguide](docs/styleguide.md)                        | Typografie, Farben, Abstände, Komponenten            |
+| [KI-Nutzung](docs/ai-usage.md)                          | Wie KI im Projekt eingesetzt wurde                   |
+| [Supabase-Schema](docs/migration/supabase-schema.sql)   | Datenbanktabellen, RLS, Speicher-Richtlinien         |
+| [Supabase-Seed](docs/migration/supabase-seed.sql)       | 8 Kategorien, 3 Präsentatoren, 12 Podcasts           |
+| [Supabase-Kontakt](docs/migration/supabase-contact.sql) | Kontakt-Nachrichten-Tabelle                          |
 
 ## Konventionen
 
@@ -99,9 +99,7 @@ npm run preview   # Produktions-Build anschauen
 
 Dies ist ein Schulprojekt. Siehe [LICENSE](LICENSE) für Details.
 
-## Danksagungen
+## Infos
 
-- **Schule:** Berufsfachschule Zürich, IT-Abteilung
-- **Modul:** M293 PA04
-- **Format:** Einzelarbeit, 20 Lektionen
+- **Modul:** M293
 - **KI-Tool:** opencode (Qwen) — verwendet für Code-Generierung, Problemlösung und Dokumentation
