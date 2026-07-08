@@ -86,6 +86,11 @@
   color: var(--btn-text);
 }
 
+[data-theme="dark"] .expand-btn {
+  background-color: var(--btn-bg);
+  color: var(--btn-text);
+}
+
 [data-theme="dark"] .feature-card {
   background-color: var(--card-bg);
   border-color: var(--border-color);

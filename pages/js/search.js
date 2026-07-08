@@ -51,11 +51,17 @@ async function performSearch(query, container) {
         <div class="podcast-card-content">
           <h3 class="podcast-card-title">${podcast.title}</h3>
           <p class="podcast-card-description expandable-text">${podcast.description}</p>
-          <span class="expand-btn" role="button" tabindex="0" aria-expanded="false">Mehr anzeigen</span>
         </div>
       `
 
       li.appendChild(card)
+
+      const expandBtn = document.createElement('button')
+      expandBtn.className = 'expand-btn'
+      expandBtn.setAttribute('aria-expanded', 'false')
+      expandBtn.textContent = 'Mehr anzeigen'
+      li.appendChild(expandBtn)
+
       container.appendChild(li)
     })
   } catch (error) {
