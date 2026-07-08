@@ -64,55 +64,7 @@ D.E.A.R. ist eine Podcast-Website, die für die **Berufsfachschule Zürich** (IT
    docker compose up
    ```
 
-### Supabase-Einrichtung (einmalig)
-
-Alle folgenden Schritte werden im [Supabase Dashboard](https://supabase.com/dashboard) durchgeführt.
-
-#### 1. SQL-Dateien ausführen
-
-Gehe zu **SQL-Editor** und führe diese Dateien in folgender Reihenfolge aus:
-
-- `docs/migration/supabase-schema.sql` — erstellt alle Tabellen, RLS-Richtlinien und Speicher-Richtlinien
-- `docs/migration/supabase-seed.sql` — fügt 8 Kategorien, 3 Präsentatoren und 12 Beispiel-Podcasts ein
-
-> **Hinweis:** `docs/migration/supabase-contact.sql` ist veraltet — die Tabelle `contact_messages` ist nun in `supabase-schema.sql` enthalten.
-
-#### 2. Speicher-Buckets erstellen
-
-Gehe zu **Storage** und erstelle diese 4 Buckets. Setze jeden auf **Public**:
-
-| Bucket | Zweck |
-|---|---|
-| `podcast-audio` | MP3-Audiodateien |
-| `podcast-cover` | 9:16-Coverbilder |
-| `presenter-photos` | Präsentator-Porträts |
-| `category-images` | Kategorie-Icons |
-
-#### 3. Edge-Function bereitstellen
-
-Das Kontaktformular sendet Absendungen durch die `contact` Edge-Function (serverseitige Validierung + Spamschutz). Du kannst sie über CLI oder Dashboard bereitstellen.
-
-**Option A — CLI (empfohlen):**
-
-```bash
-npm install -g supabase
-supabase login
-supabase link --project-ref <dein-project-ref>
-supabase functions deploy contact
-```
-
-**Option B — Dashboard:**
-
-1. Gehe zu **Edge Functions** → **Neue Function**
-2. Benenne sie `contact` → wähle **Blank** (Leer)
-3. Ersetze den Template-Code mit dem Inhalt von `supabase/functions/contact/index.ts`
-4. Wähle **Production** → klicke **Deploy**
-
-> `SUPABASE_URL` und `SUPABASE_SERVICE_ROLE_KEY` werden automatisch von Supabase injiziert — keine zusätzlichen Umgebungsvariablen nötig.
-
-#### 4. Verifizieren
-
-Öffne das Kontaktformular auf der Über-uns-Seite und sende eine Testnachricht. Prüfe **Table Editor → contact_messages**, um zu bestätigen, dass der Datensatz eingefügt wurde.
+Für detaillierte Anleitungen zu Devcontainer, Supabase-Einrichtung, Projektstruktur und Architektur siehe [Setup-Guide](docs/setup.md).
 
 ### Skripte
 
@@ -122,54 +74,17 @@ npm run build     # Produktions-Build
 npm run preview   # Produktions-Build anschauen
 ```
 
-## Projektstruktur
-
-```
-├── pages/                    # Vite-Root, alle HTML-Einstiegspunkte
-│   ├── index.html            # Startseite
-│   ├── podcasts.html         # Podcast-Liste
-│   ├── podcast-detail.html   # Einzelner Podcast
-│   ├── about.html            # Über uns + Kontakt
-│   ├── js/                   # JavaScript-Module
-│   │   ├── colorExtract.js   # Dominante Farbe aus Bild extrahieren
-│   │   ├── darkmode.js       # Dark-Mode-Initialisierung + Toggle
-│   │   └── shared/           # Header.js, Footer.js
-│   └── style/                # CSS-Dateien
-├── public/                   # Statische Assets
-│   ├── logo.svg              # Logo mit CSS-Variablen + Animation
-│   ├── sun-icon.svg          # Dark-Mode-Icon
-│   └── moon-icon.svg         # Dark-Mode-Icon
-├── docs/                     # Dokumentation
-│   ├── wireframes.md         # ASCII-Wireframes (3 Breakpoints × 4 Seiten)
-│   ├── styleguide.md         # Typografie, Farben, Abstände, Komponenten
-│   ├── ai-usage.md           # KI-Zusammenarbeitsdokumentation
-│   └── migration/            # Supabase-SQL-Dateien
-├── supabase/functions/       # Supabase Edge Functions
-├── docker/                   # Docker-Konfigurationen (Nginx)
-├── docker-compose.yml        # Produktion
-├── docker-compose.override.yml  # Entwicklung
-└── vite.config.js            # Mehrseitige Build-Konfiguration
-```
-
 ## Dokumentation
 
 | Dokument | Beschreibung |
 |---|---|
+| [Setup-Guide](docs/setup.md) | Devcontainer, Supabase, Architektur, Projektstruktur |
 | [Wireframes](docs/wireframes.md) | ASCII-Wireframes für Mobile, Tablet, Desktop |
 | [Styleguide](docs/styleguide.md) | Typografie, Farben, Abstände, Komponenten |
 | [KI-Nutzung](docs/ai-usage.md) | Wie KI im Projekt eingesetzt wurde |
 | [Supabase-Schema](docs/migration/supabase-schema.sql) | Datenbanktabellen, RLS, Speicher-Richtlinien |
 | [Supabase-Seed](docs/migration/supabase-seed.sql) | 8 Kategorien, 3 Präsentatoren, 12 Podcasts |
 | [Supabase-Kontakt](docs/migration/supabase-contact.sql) | Kontakt-Nachrichten-Tabelle |
-
-## Architektur
-
-- **Lesezugriffe:** Browser → Supabase anon key (durch RLS-Richtlinien geschützt)
-- **Schreibzugriffe — Kontaktformular:** Supabase Edge Function → `service_role` key (wird niemals an den Browser gesendet)
-- **Schreibzugriffe — Newsletter:** Direkt in `newsletter_subscribers` via anon key (INSERT-only RLS, keine SELECT-Richtlinie)
-- **Header/Footer:** Über JS-Module mit `insertAdjacentHTML` gerendert
-- **Header-SVGs:** Logo, Sonne, Mond liegen in `public/`, werden via `fetch()` geladen und inline eingefügt
-- **Daten:** Alle Podcast-Daten werden zur Laufzeit von Supabase abgerufen (nicht hardcoded)
 
 ## Konventionen
 
