@@ -1,4 +1,5 @@
 import { searchPodcasts } from './data.js'
+import { initExpandable } from './expandable.js'
 
 let debounceTimer = null
 
@@ -66,6 +67,8 @@ async function performSearch(query, container) {
         expandBtn.style.display = 'none'
       }
     })
+
+    initExpandable()
   } catch (error) {
     loadingEl.textContent = `Fehler: ${error.message}`
   }

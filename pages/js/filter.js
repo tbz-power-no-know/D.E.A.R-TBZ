@@ -1,5 +1,6 @@
 import { fetchPodcasts, fetchCategories } from './data.js'
 import { getDominantColor } from './colorExtract.js'
+import { initExpandable } from './expandable.js'
 
 let allPodcasts = []
 let sortOrder = 'newest'
@@ -153,4 +154,6 @@ function renderPodcasts(podcasts, container) {
       expandBtn.style.display = 'none'
     }
   })
+
+  initExpandable()
 }

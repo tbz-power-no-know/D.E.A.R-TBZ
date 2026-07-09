@@ -1,6 +1,5 @@
 import { renderHeader } from './shared/Header.js'
 import { renderFooter } from './shared/Footer.js'
-import { initExpandable } from './expandable.js'
 import { initDarkMode } from './darkmode.js'
 import { renderLatestPodcasts, renderCategories, initNewsletter } from './home.js'
 import { initFilter } from './filter.js'
@@ -11,7 +10,6 @@ import { initContactForm } from './contact.js'
 initDarkMode()
 await renderHeader()
 renderFooter()
-initExpandable()
 
 document.body.insertAdjacentHTML('afterbegin', `
   <div class="bg-circles">

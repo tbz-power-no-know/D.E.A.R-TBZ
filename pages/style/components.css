@@ -138,6 +138,10 @@
     flex-direction: row;
   }
 
+  .podcast-cover {
+    object-fit: contain;
+  }
+
   .play-btn {
     order: -1;
   }

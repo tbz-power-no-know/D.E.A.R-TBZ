@@ -1,5 +1,6 @@
 import { fetchPodcasts, fetchCategories, subscribeNewsletter } from "./data.js";
 import { getDominantColor } from "./colorExtract.js";
+import { initExpandable } from "./expandable.js";
 
 const PODCAST_LIMITS = { phone: 3, tablet: 4, desktop: 5 };
 
@@ -104,6 +105,8 @@ export async function renderLatestPodcasts(container, limit) {
         expandBtn.style.display = "none";
       }
     });
+
+    initExpandable();
 
     const section = container.parentElement;
     if (!section.querySelector(".detail-back")) {
