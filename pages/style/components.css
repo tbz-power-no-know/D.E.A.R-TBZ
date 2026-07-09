@@ -71,7 +71,27 @@
 }
 
 /* Card Buttons */
-.expand-btn,
+.expand-btn {
+  display: flex;
+  width: 100%;
+  background-color: var(--secondary);
+  color: var(--primary);
+  border: none;
+  border-radius: 8px;
+  font-size: 13px;
+  font-family: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 6px 16px;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  min-height: 44px;
+  transition:
+    transform 0.2s ease,
+    opacity 0.2s ease;
+}
+
 .play-btn {
   display: flex;
   width: 90%;
