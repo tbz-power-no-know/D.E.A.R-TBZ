@@ -96,14 +96,6 @@
   font-size: 14px;
 }
 
-.form-status.is-success {
-  color: var(--success);
-}
-
-.form-status.is-error {
-  color: var(--error);
-}
-
 /* Tablet */
 @media (min-width: 481px) {
   .about-section,
