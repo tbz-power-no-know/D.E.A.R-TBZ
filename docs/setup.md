@@ -108,29 +108,107 @@ Gehe zu **Storage** und erstelle diese 4 Buckets. Setze jeden auf **Public**:
 
 ### 3. Edge-Function bereitstellen
 
-Das Kontaktformular sendet Absendungen durch die `contact` Edge-Function (serverseitige Validierung + Spamschutz). Du kannst sie über CLI oder Dashboard bereitstellen.
+Das Kontaktformular sendet Absendungen durch die `contact` Edge-Function. Sie validiert die Eingaben serverseitig, filtert Spam über einen Honeypot-Feld und fügt den Datensatz in `contact_messages` ein — mit dem `service_role` key, der den Browser niemals erreicht.
 
-**Option A — CLI (empfohlen):**
+Der Funktionscode liegt in `supabase/functions/contact/index.ts`.
 
-```bash
-npm install -g supabase
-supabase login
-supabase link --project-ref <dein-project-ref>
-supabase functions deploy contact
-```
+#### Option A — CLI (empfohlen)
 
-**Option B — Dashboard:**
+1. **Supabase CLI installieren:**
 
-1. Gehe zu **Edge Functions** → **Neue Function**
-2. Benenne sie `contact` → wähle **Blank** (Leer)
-3. Ersetze den Template-Code mit dem Inhalt von `supabase/functions/contact/index.ts`
-4. Wähle **Production** → klicke **Deploy**
+   ```bash
+   npm install -g supabase
+   ```
 
-> `SUPABASE_URL` und `SUPABASE_SERVICE_ROLE_KEY` werden automatisch von Supabase injiziert — keine zusätzlichen Umgebungsvariablen nötig.
+2. **Einloggen:**
+
+   ```bash
+   supabase login
+   ```
+
+   Dies öffnet den Browser zur OAuth-Authentifizierung.
+
+3. **Projekt verlinken** (vom Repository-Root):
+
+   ```bash
+   supabase init
+   supabase link --project-ref <dein-project-ref>
+   ```
+
+   Dein Project Ref findest du im Dashboard unter **Project Settings → General → Project URL**.
+
+4. **Deploy:**
+
+   ```bash
+   supabase functions deploy contact
+   ```
+
+5. **Lokal testen (optional):**
+
+   ```bash
+   supabase functions serve --no-verify-jwt
+   ```
+
+   Die Function läuft dann auf `http://127.0.0.1:54321/functions/v1/contact`. Du kannst sie mit curl testen:
+
+   ```bash
+   curl -X POST http://127.0.0.1:54321/functions/v1/contact \
+     -H "Content-Type: application/json" \
+     -d '{"name":"Test","email":"test@example.com","subject":"feedback","message":"Hallo"}'
+   ```
+
+   Erwartete Antwort: `{"ok":true}`
+
+#### Option B — Dashboard
+
+1. Gehe zu **Edge Functions** → **Create Function**
+2. Benenne sie `contact` → wähle **Blank Function**
+3. Ersetze den gesamten Template-Code mit dem Inhalt von `supabase/functions/contact/index.ts`
+4. Klicke **Deploy** (Branch: `production`)
+5. Unter **Function Details → Environment Variables** nichts ändern — `SUPABASE_URL` und `SUPABASE_SERVICE_ROLE_KEY` werden automatisch injiziert
+
+#### Was die Function macht
+
+| Schritt | Beschreibung |
+|---|---|
+| **CORS Preflight** | `OPTIONS`-Requests werden mit den richtigen Headern beantwortet |
+| **Honeypot** | Das versteckte Feld `company` wird von Bots ausgefüllt — falls nicht leer, wird die Anfrage stillschweigend verworfen |
+| **Validierung** | `name` (max 120 Zeichen), `email` (E-Mail-Format, max 254), `subject` (nur: `feedback`, `technical`, `recommendation`, `other`), `message` (max 5000 Zeichen) |
+| **Insert** | Gültige Daten werden mit `service_role` in `contact_messages` geschrieben |
+
+#### Häufige Probleme
+
+| Fehler | Ursache | Lösung |
+|---|---|---|
+| `function not found` | Function wurde nicht deployed | `supabase functions deploy contact` ausführen |
+| `401 Unauthorized` | Falscher oder fehlender anon key im `.env` | `.env` prüfen: `VITE_SUPABASE_ANON_KEY` muss stimmen |
+| `400 Bad Request` | Ungültige Payload (fehlendes Feld, falsches Format) | Browser-DevTools → Network-Tab prüfen |
+| `500 Internal Server Error` | Database-Fehler (RLS, Spalte existiert nicht) | `contact_messages`-Tabelle im Dashboard prüfen |
+| `project not found` | Falscher Project Ref | `supabase unlink` → `supabase link --project-ref <korrekt>` |
+| CORS-Fehler im Browser | Function deployed, aber CORS-Header fehlen | Funktion enthält bereits CORS-Header — falls Problem persistsiert, Function neu deployen |
 
 ### 4. Verifizieren
 
-Öffne das Kontaktformular auf der Über-uns-Seite und sende eine Testnachricht. Prüfe **Table Editor → contact_messages**, um zu bestätigen, dass der Datensatz eingefügt wurde.
+**Über die Website:**
+1. Öffne das Kontaktformular auf der Über-uns-Seite
+2. Fülle alle Felder aus und sende eine Testnachricht
+3. Prüfe **Table Editor → contact_messages** im Dashboard — der Datensatz sollte erscheinen
+
+**Über curl (Production):**
+
+```bash
+# Gültige Anfrage → 200 {"ok":true}
+curl -X POST "https://<project-ref>.supabase.co/functions/v1/contact" \
+  -H "Authorization: Bearer <anon-key>" \
+  -H "Content-Type: application/json" \
+  -d '{"name":"Test","email":"test@example.com","subject":"feedback","message":"Hallo"}'
+
+# Ungültige Anfrage → 400 (fehlende Felder)
+curl -X POST "https://<project-ref>.supabase.co/functions/v1/contact" \
+  -H "Authorization: Bearer <anon-key>" \
+  -H "Content-Type: application/json" \
+  -d '{}'
+```
 
 ---
 
