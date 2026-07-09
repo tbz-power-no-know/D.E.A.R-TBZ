@@ -74,6 +74,13 @@
   border-radius: 4px;
 }
 
+.transcription-text .timestamp.pause {
+  background: var(--extra-color);
+  color: var(--secondary);
+  padding: 2px 4px;
+  border-radius: 4px;
+}
+
 .detail-audio {
   position: sticky;
   top: var(--audio-sticky-top, 80px);

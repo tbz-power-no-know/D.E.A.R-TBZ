@@ -74,7 +74,7 @@
 .expand-btn,
 .play-btn {
   display: flex;
-  width: 100%;
+  width: 90%;
   background-color: var(--secondary);
   color: var(--primary);
   border: none;
