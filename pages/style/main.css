@@ -218,7 +218,7 @@ h2 {
 }
 
 .expandable-text.expanded {
-  max-height: 1000px;
+  max-height: 14em;
 }
 
 .center-item {
