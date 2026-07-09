@@ -64,7 +64,8 @@
 }
 
 .card-actions {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr;
   gap: 8px;
   margin-top: auto;
 }
@@ -86,6 +87,7 @@
   text-align: center;
   text-decoration: none;
   min-height: 44px;
+  max-width: 50px;
   align-items: center;
   transition:
     transform 0.2s ease,
@@ -132,7 +134,18 @@
   color: var(--error);
 }
 
-/* Responsive: Podcast Cover */
+/* Responsive: Tablet+ */
+@media (min-width: 481px) {
+  .card-actions {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .play-btn {
+    order: -1;
+  }
+}
+
+/* Responsive: Desktop */
 @media (min-width: 1025px) {
   .podcast-cover {
     object-fit: contain;
