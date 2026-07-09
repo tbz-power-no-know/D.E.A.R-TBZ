@@ -377,9 +377,10 @@ Vollständige SQL-Dateien in `docs/`:
 │   ├── wireframes.md            ← ASCII-Wireframes (Mobile/Tablet/Desktop)
 │   ├── styleguide.md            ← Typografie, Farben, Abstände
 │   ├── ai-usage.md              ← KI-Zusammenarbeitsdokumentation
-│   ├── supabase-schema.sql      ← Tabellen, RLS, Richtlinien, Speicher-Richtlinien
-│   ├── supabase-seed.sql        ← 8 Kategorien, 3 Präsentatoren, 12 Beispiel-Podcasts
-│   └── supabase-contact.sql     ← contact_messages-Tabelle + RLS
+│   └── migration
+│       ├──  supabase-schema.sql     ← Tabellen, RLS, Richtlinien, Speicher-Richtlinien
+│       ├── supabase-seed.sql        ← 8 Kategorien, 3 Präsentatoren, 12 Beispiel-Podcasts
+│       └── supabase-contact.sql     ← contact_messages-Tabelle + RLS
 ├── supabase/
 │   └── functions/
 │       ├── README.md            ← Bereitstellungsanweisungen
