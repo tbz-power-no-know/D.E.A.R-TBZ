@@ -64,8 +64,8 @@
 }
 
 .card-actions {
-  display: grid;
-  grid-template-columns: 1fr;
+  display: flex;
+  flex-direction: column;
   gap: 8px;
   margin-top: auto;
 }
@@ -73,7 +73,7 @@
 /* Card Buttons */
 .expand-btn,
 .play-btn {
-  display: block;
+  display: flex;
   width: 100%;
   background-color: var(--secondary);
   color: var(--primary);
@@ -84,7 +84,8 @@
   font-weight: 600;
   cursor: pointer;
   padding: 6px 16px;
-  text-align: center;
+  align-items: center;
+  justify-content: center;
   text-decoration: none;
   min-height: 44px;
   transition:
@@ -101,7 +102,6 @@
 /* Loading Text */
 .loading-text {
   text-align: center;
-  grid-column: 1 / -1;
   padding: 24px;
   color: var(--text-color);
   opacity: 0.6;
@@ -135,11 +135,16 @@
 /* Responsive: Tablet+ */
 @media (min-width: 481px) {
   .card-actions {
-    grid-template-columns: 1fr 1fr;
+    flex-direction: row;
   }
 
   .play-btn {
     order: -1;
+  }
+
+  .expand-btn,
+  .play-btn {
+    flex: 1;
   }
 }
 
