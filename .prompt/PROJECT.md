@@ -44,7 +44,7 @@
 - **Alle Daten von Supabase** — Podcasts, Kategorien, Präsentatoren, Audio, Cover
 - **Lesezugriffe:** direkter Browser → Supabase anon key (RLS-geschützt)
 - **Schreibzugriffe:** Kontaktformular → Edge-Function → `service_role` key; Newsletter → direkt INSERT (anon key, INSERT-only RLS)
-- **CSS-Strategie:** `reset.css` → `main.css` (gemeinsam + Variablen) → pro-Seite-CSS
+- **CSS-Strategie:** `reset.css` → `main.css` (gemeinsam + Variablen) → `components.css` (shared components) → pro-Seite-CSS
 - **Aufklappbarer Text** beibehalten (`.expandable-text` + `.expand-btn`)
 - **Feststehender Header** blendet sich beim Runterscrollen aus, zeigt sich beim Hochscrollen
 - **Feststehender Audioplayer** oben auf der Seite beim Scrollen der Transkription

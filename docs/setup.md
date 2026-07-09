@@ -158,12 +158,13 @@ supabase functions deploy contact
 │   │       ├── Header.js     # renderHeader() (async, fetch SVGs from public/)
 │   │       └── Footer.js     # renderFooter()
 │   └── style/
-│       ├── reset.css         # Meyerweb-Reset
-│       ├── main.css          # Variablen, gemeinsame Styles, Header, Footer, Dark-Mode, Animation
-│       ├── home.css          # Startseite-Styles
-│       ├── podcasts.css      # Podcast-Liste + Filter + Suche Styles
+│       ├── reset.css          # Meyerweb-Reset
+│       ├── main.css           # Variablen, gemeinsame Styles, Header, Footer, Dark-Mode, Animation
+│       ├── components.css     # Shared components: podcast-card, buttons, loading-text, detail-back
+│       ├── home.css           # Startseite-Styles
+│       ├── podcasts.css       # Podcast-Liste + Filter + Suche Styles
 │       ├── podcast-detail.css # Detailseite-Styles
-│       └── about.css         # Über-uns-Seite-Styles
+│       └── about.css          # Über-uns-Seite-Styles
 ├── public/                   # Statische Assets
 │   ├── logo.svg              # Logo mit CSS-Variablen + animierte Seitenblätter
 │   ├── sun-icon.svg          # Dark-Mode-Toggle-Icon (Helligkeit)
@@ -209,7 +210,7 @@ supabase functions deploy contact
 - **Header/Footer:** Über JS-Module mit `insertAdjacentHTML` gerendert
 - **Header-SVGs:** Logo, Sonne, Mond liegen in `public/`, werden via `fetch()` geladen und inline eingefügt
 - **Alle Daten von Supabase** — Podcasts, Kategorien, Präsentatoren, Audio, Cover
-- **CSS-Strategie:** `reset.css` → `main.css` (gemeinsam + Variablen) → pro-Seite-CSS
+- **CSS-Strategie:** `reset.css` → `main.css` (gemeinsam + Variablen) → `components.css` (shared components) → pro-Seite-CSS
 - **Aufklappbarer Text** beibehalten (`.expandable-text` + `.expand-btn`)
 - **Feststehender Header** blendet sich beim Runterscrollen aus, zeigt sich beim Hochscrollen
 - **Feststehender Audioplayer** oben auf der Seite beim Scrollen der Transkription

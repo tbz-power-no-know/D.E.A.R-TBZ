@@ -348,7 +348,7 @@ Vollständige SQL-Dateien in `docs/`:
 │   ├── about.html              ← Über uns + Kontaktformular
 │   ├── js/
 │   │   ├── main.js             ← Einstieg: Header, Footer, pro-Seite Init-Dispatch
-│   │   ├── expandable.js       ← Aufklappbaren Text umschalten
+│   │   ├── expandable.js       ← Aufklappbaren Text umschalten (init via home.js, filter.js, search.js)
 │   │   ├── darkmode.js         ← Dark-Mode-Initialisierung + Toggle
 │   │   ├── supabase.js         ← Supabase-Client-Initialisierung
 │   │   ├── data.js             ← Fetch-Funktionen, sendContactMessage, subscribeNewsletter
@@ -364,6 +364,7 @@ Vollständige SQL-Dateien in `docs/`:
 │   └── style/
 │       ├── reset.css            ← Meyerweb-Reset
 │       ├── main.css             ← Variablen, gemeinsame Styles, Header, Footer, Dark-Mode, Animation
+│       ├── components.css       ← Shared components: podcast-card, buttons, loading-text, detail-back
 │       ├── home.css             ← Startseite-Styles
 │       ├── podcasts.css         ← Podcast-Liste + Filter + Suche Styles
 │       ├── podcast-detail.css   ← Detailseite-Styles
