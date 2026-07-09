@@ -73,8 +73,7 @@
 /* Card Buttons */
 .expand-btn,
 .play-btn {
-  display: flex;
-  flex: 1;
+  width: 100%;
   background-color: var(--secondary);
   color: var(--primary);
   border: none;
@@ -87,8 +86,6 @@
   text-align: center;
   text-decoration: none;
   min-height: 44px;
-  max-width: 50px;
-  align-items: center;
   transition:
     transform 0.2s ease,
     opacity 0.2s ease;
