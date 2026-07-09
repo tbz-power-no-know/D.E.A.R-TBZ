@@ -73,6 +73,7 @@
 /* Card Buttons */
 .expand-btn,
 .play-btn {
+  display: block;
   width: 100%;
   background-color: var(--secondary);
   color: var(--primary);
